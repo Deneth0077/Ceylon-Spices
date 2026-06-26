@@ -1,6 +1,11 @@
+'use client';
+
+import Link from "next/link";
 import TransparentImage from "@/components/TransparentImage";
+import { useCart } from "@/context/CartContext";
 
 interface ProductCardProps {
+  id: number;
   image: string;
   title: string;
   description: string;
@@ -10,6 +15,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ 
+  id,
   image, 
   title, 
   description, 
@@ -17,9 +23,12 @@ export default function ProductCard({
   bgShapeColor = "bg-[#d9a075]",
   buttonColor = "bg-[#b87c47] hover:bg-[#a86a36]"
 }: ProductCardProps) {
+  const { addToCart } = useCart();
+
   return (
     <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 flex flex-col h-full hover:shadow-xl transition-all duration-300 group">
-      <div className="relative w-full aspect-square mb-8 flex items-center justify-center overflow-hidden group">
+      {/* Clickable Image to go to Detail Page */}
+      <Link href={`/products/${id}`} className="relative w-full aspect-square mb-8 flex items-center justify-center overflow-hidden group block cursor-pointer">
         <div 
           className={`absolute inset-4 rounded-[40%_60%_70%_30%/40%_50%_60%_50%] transition-transform duration-700 group-hover:rotate-[20deg] ${bgShapeColor} opacity-90`}
           style={{ transformOrigin: 'center' }}
@@ -29,11 +38,20 @@ export default function ProductCard({
           alt={title} 
           className="absolute inset-0 w-full h-full object-contain p-4 drop-shadow-2xl z-10 transition-transform duration-500 group-hover:scale-110"
         />
-      </div>
-      <h3 className="text-xl font-bold text-gray-900 mb-3">{title}</h3>
+      </Link>
+      
+      {/* Clickable Title to go to Detail Page */}
+      <Link href={`/products/${id}`} className="block group cursor-pointer">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-cap-gold transition-colors">{title}</h3>
+      </Link>
+
       <p className="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">{description}</p>
       <p className="text-xs text-gray-500 mb-6 font-medium tracking-wide uppercase">{origin}</p>
-      <button className={`w-full text-white py-3.5 rounded-xl font-semibold tracking-wide transition-colors shadow-md ${buttonColor}`}>
+      
+      <button 
+        onClick={() => addToCart({ id, title, image, description })}
+        className={`w-full text-white py-3.5 rounded-xl font-semibold tracking-wide transition-all shadow-md active:scale-95 cursor-pointer ${buttonColor}`}
+      >
         Add to Cart
       </button>
     </div>

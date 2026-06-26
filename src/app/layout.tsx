@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "CAP Ceylon - Sri Lankan Spices",
+  title: "True Cinnamon Care - Sri Lankan Spices",
   description: "Pure, Authentic, Tropical Sri Lankan Spices",
 };
 

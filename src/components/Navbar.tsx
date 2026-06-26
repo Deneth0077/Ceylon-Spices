@@ -30,12 +30,13 @@ export default function Navbar() {
         <div className={`flex justify-between items-center transition-all duration-500 ${
           scrolled ? "h-14" : "h-16"
         }`}>
-          <div className="flex-shrink-0 flex items-center gap-2">
-            <Link href="/" className="text-2xl font-bold text-cap-gold flex items-center group">
-               <span className="mr-2 text-3xl group-hover:scale-110 transition-transform duration-500 ease-out">🦁</span> 
-               <span className="bg-gradient-to-r from-cap-gold to-cap-brown bg-clip-text text-transparent group-hover:opacity-90 transition-opacity">
-                 CAP Ceylon
-               </span>
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="flex items-center group">
+              <img 
+                src="/images/logo.jpg" 
+                alt="True Cinnamon Care Logo" 
+                className="h-12 md:h-14 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.03]" 
+              />
             </Link>
           </div>
           <div className="hidden md:flex space-x-8 items-center">

@@ -134,15 +134,15 @@ export default function Home() {
         </motion.div>
 
         {/* SVG Wave Divider at base */}
-        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-[0] z-30 pointer-events-none">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[40px] md:h-[80px] fill-[#f8f6f0]">
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-[0] z-30 pointer-events-none translate-y-[2px]">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-[40px] md:h-[80px] fill-[#FAF7F2] scale-y-[1.02]">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,8.75,57.05,18.3,90,27.35,172,50,248.8,69.91,321.39,56.44z"></path>
           </svg>
         </div>
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="pt-24 pb-24 bg-gradient-to-b from-[#f8f6f0] via-[#fcfbf9] to-[#f8f6f0] relative z-10 overflow-hidden">
+      <section id="certifications" className="pt-24 pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FCFAF7] to-white relative z-10 overflow-hidden">
         {/* Floating background decorative spice elements */}
         <div className="absolute -left-12 -top-12 w-48 h-48 pointer-events-none opacity-25 hover:opacity-60 transition-opacity duration-700 animate-float-slow select-none z-0">
           <img 
@@ -174,8 +174,8 @@ export default function Home() {
         </div>
 
         {/* Decorative blur blobs */}
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-emerald-100/25 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-amber-100/25 blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2 z-0 animate-pulse-glow" />
+        <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-[#c3843a]/5 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 animate-pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-[#764522]/5 blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2 z-0 animate-pulse-glow" />
 
         <motion.div 
           initial="hidden"
@@ -254,9 +254,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Seamless transition buffer gradient */}
-      <div className="w-full h-16 bg-gradient-to-b from-[#f8f6f0] to-[#ffffff] relative z-10" />
 
       {/* Featured Products Showcase */}
       <section className="py-20 bg-white relative overflow-hidden z-10">
@@ -637,22 +634,29 @@ export default function Home() {
 
       {/* Export Section */}
       <section className="pt-24 pb-0 relative overflow-hidden bg-white z-20 w-full">
-         <motion.div 
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
-           viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 0.8 }}
-           className="max-w-5xl mx-auto px-4 text-center relative overflow-visible"
-         >
+         <div className="max-w-5xl mx-auto px-4 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-[#cca43b] mb-3 block font-sans">Global Distribution</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-12 font-sans">
                WE EXPORT INTERNATIONALLY
             </h2>
-            
-            {/* World Map Container */}
-            <div className="relative w-full aspect-[2/1] max-w-4xl mx-auto mb-10 overflow-visible group hover:scale-[1.01] transition-all duration-700 ease-out">
+         </div>
+         
+         {/* Immersive World Map Container - Full Width with Side Fading */}
+         <motion.div 
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           transition={{ duration: 1 }}
+           className="w-full relative overflow-hidden mb-10"
+         >
+            <div className="relative w-full aspect-[2.1/1] max-w-[1400px] mx-auto overflow-visible group hover:scale-[1.005] transition-all duration-1000 ease-out px-4 md:px-12">
+               {/* Left and Right Smooth Fading Overlays */}
+               <div className="absolute inset-y-0 left-0 w-12 sm:w-24 md:w-48 lg:w-72 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
+               <div className="absolute inset-y-0 right-0 w-12 sm:w-24 md:w-48 lg:w-72 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+               
+               {/* Map Background */}
                <div 
-                 className="w-full h-full opacity-35 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain transition-all duration-700"
+                 className="w-full h-full opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain transition-all duration-1000"
                  style={{ filter: 'invert(80%) sepia(20%) saturate(800%) hue-rotate(180deg) brightness(95%) contrast(90%)' }}
                />
                

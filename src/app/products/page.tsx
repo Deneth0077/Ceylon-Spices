@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import { Search, SlidersHorizontal } from "lucide-react";
 
@@ -72,6 +72,16 @@ const categories = ["All", "Whole Spices", "Powders", "Organic Spices"];
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category');
+      if (category && categories.includes(category)) {
+        setActiveCategory(category);
+      }
+    }
+  }, []);
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = activeCategory === "All" || product.category === activeCategory;

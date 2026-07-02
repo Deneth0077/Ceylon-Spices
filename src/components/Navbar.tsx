@@ -117,60 +117,80 @@ export default function Navbar() {
           : "bg-white/80 backdrop-blur-md py-4 shadow-sm border-b border-white/20"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`flex justify-between items-center transition-all duration-500 ${
-            scrolled ? "h-14" : "h-16"
-          }`}>
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center group">
-                <img 
-                  src="/images/new-logo.jpeg" 
-                  alt="True Cinnamon Care Logo" 
-                  className="h-12 md:h-14 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.03]" 
-                />
-              </Link>
-            </div>
-
-            <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.href} 
-                  href={link.href} 
-                  className={`transition duration-300 hover-underline-animation text-sm font-sans ${
-                    isActive(link.href)
-                      ? "text-cap-gold font-semibold"
-                      : "text-gray-600 hover:text-cap-gold font-medium"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="flex items-center space-x-4 md:space-x-6 text-gray-600">
-              <Search 
-                className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300"
-                onClick={() => setIsSearchOpen(true)} 
-              />
-              <User className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300 hidden sm:block" />
+          <div className="flex flex-col w-full">
+            {/* Top Row: Logo & Icons */}
+            <div className={`flex justify-between items-center w-full transition-all duration-500 ${
+              scrolled ? "h-16" : "h-20"
+            }`}>
               
-              <div 
-                className="relative cursor-pointer" 
-                onClick={() => setIsCartOpen(true)}
-              >
-                <ShoppingCart className="w-5 h-5 hover:text-cap-gold hover:scale-110 transition duration-300" />
-                {totalItemsCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-[#b0633b] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold animate-pulse shadow-sm">
-                    {totalItemsCount}
-                  </span>
-                )}
+              {/* Left Side (Mobile Menu Button / Empty on Desktop) */}
+              <div className="flex-1 flex justify-start">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="md:hidden p-2 -ml-2 rounded-md hover:text-cap-gold focus:outline-none transition duration-300"
+                >
+                  {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
               </div>
 
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-md hover:text-cap-gold focus:outline-none transition duration-300"
-              >
-                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
+              {/* Center Logo */}
+              <div className="flex-shrink-0 flex justify-center items-center flex-1">
+                <Link href="/" className="flex items-center group">
+                  <img 
+                    src="/images/new-logo.jpeg" 
+                    alt="True Cinnamon Care Logo" 
+                    className="h-14 md:h-20 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.03]" 
+                  />
+                </Link>
+              </div>
+
+              {/* Right Icons */}
+              <div className="flex-1 flex items-center justify-end space-x-4 md:space-x-6 text-gray-600">
+                <Search 
+                  className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300"
+                  onClick={() => setIsSearchOpen(true)} 
+                />
+                <User className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300 hidden sm:block" />
+                
+                <div 
+                  className="relative cursor-pointer" 
+                  onClick={() => setIsCartOpen(true)}
+                >
+                  <ShoppingCart className="w-5 h-5 hover:text-cap-gold hover:scale-110 transition duration-300" />
+                  {totalItemsCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-[#b0633b] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold animate-pulse shadow-sm">
+                      {totalItemsCount}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row: Desktop Nav Links */}
+            <div className="hidden md:flex justify-center w-full pb-3 mt-2">
+              <div className={`flex space-x-8 lg:space-x-12 items-center justify-center transition-all duration-500 w-full ${
+                scrolled ? "pt-2" : "border-t border-gray-200/60 pt-4"
+              }`}>
+                {navLinks.map((link) => (
+                  <Link 
+                    key={link.href} 
+                    href={link.href} 
+                    className={`transition duration-300 hover-underline-animation text-xs lg:text-sm tracking-[0.15em] uppercase font-sans flex items-center gap-1 ${
+                      isActive(link.href)
+                        ? "text-cap-gold font-medium"
+                        : "text-gray-600 hover:text-cap-gold font-light"
+                    }`}
+                  >
+                    {link.label}
+                    {/* Add a subtle chevron to products to match the screenshot vibe */}
+                    {link.label === "Products" && (
+                      <svg className="w-3 h-3 opacity-60 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

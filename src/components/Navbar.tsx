@@ -115,8 +115,8 @@ export default function Navbar() {
     <>
       <nav className={`sticky top-0 z-50 w-full transition-all duration-500 ${
         scrolled 
-          ? "bg-white/95 backdrop-blur-md shadow-md py-2 border-b border-gray-100" 
-          : "bg-white py-4 shadow-sm"
+          ? "bg-white/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.06)] py-2 border-b border-white/50" 
+          : "bg-white/80 backdrop-blur-md py-4 shadow-sm border-b border-white/20"
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`flex justify-between items-center transition-all duration-500 ${
@@ -184,7 +184,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Panel */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 z-40 transition-all duration-300">
+          <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-white/40 shadow-lg absolute w-full left-0 z-40 transition-all duration-300">
             <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col">
               {navLinks.map((link) => (
                 <Link
@@ -210,7 +210,7 @@ export default function Navbar() {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsCartOpen(false)} />
 
           <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col h-full transform transition-transform duration-500 ease-in-out">
+            <div className="w-screen max-w-md bg-white/85 backdrop-blur-2xl shadow-[-10px_0_30px_rgba(0,0,0,0.1)] border-l border-white/40 flex flex-col h-full transform transition-transform duration-500 ease-in-out">
               {/* Cart Header */}
               <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
@@ -328,7 +328,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 overflow-hidden flex items-start justify-center pt-20 px-4">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onClick={() => setIsSearchOpen(false)} />
 
-          <div className="bg-white rounded-3xl w-full max-w-2xl shadow-2xl relative z-10 overflow-hidden max-h-[80vh] flex flex-col transform transition-all duration-300">
+          <div className="bg-white/85 backdrop-blur-2xl border border-white/40 rounded-3xl w-full max-w-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative z-10 overflow-hidden max-h-[80vh] flex flex-col transform transition-all duration-300">
             {/* Search Input Box */}
             <div className="p-6 border-b border-gray-100 flex items-center gap-3">
               <Search className="w-6 h-6 text-cap-gold flex-shrink-0" />

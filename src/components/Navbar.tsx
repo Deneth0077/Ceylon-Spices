@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { Search, ShoppingCart, User, Menu, X, Plus, Minus, Trash2, ArrowRight } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
-// Simple products database for local search inside navbar
 const searchProducts = [
   {
     id: 1,
@@ -68,7 +67,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on page navigation
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsSearchOpen(false);
@@ -122,7 +120,6 @@ export default function Navbar() {
           <div className={`flex justify-between items-center transition-all duration-500 ${
             scrolled ? "h-14" : "h-16"
           }`}>
-            {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center group">
                 <img 
@@ -133,7 +130,6 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Desktop Nav Links */}
             <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
               {navLinks.map((link) => (
                 <Link 
@@ -150,7 +146,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Icons */}
             <div className="flex items-center space-x-4 md:space-x-6 text-gray-600">
               <Search 
                 className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300"
@@ -158,7 +153,6 @@ export default function Navbar() {
               />
               <User className="w-5 h-5 cursor-pointer hover:text-cap-gold hover:scale-110 transition duration-300 hidden sm:block" />
               
-              {/* Shopping Cart Trigger */}
               <div 
                 className="relative cursor-pointer" 
                 onClick={() => setIsCartOpen(true)}
@@ -171,7 +165,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2 rounded-md hover:text-cap-gold focus:outline-none transition duration-300"
@@ -182,7 +175,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu Panel */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/90 backdrop-blur-xl border-t border-white/40 shadow-lg absolute w-full left-0 z-40 transition-all duration-300">
             <div className="px-2 pt-2 pb-4 space-y-1 sm:px-3 flex flex-col">
@@ -204,14 +196,12 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Global Shopping Cart Sidebar Drawer */}
       {isCartOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true">
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsCartOpen(false)} />
 
           <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
             <div className="w-screen max-w-md bg-white/85 backdrop-blur-2xl shadow-[-10px_0_30px_rgba(0,0,0,0.1)] border-l border-white/40 flex flex-col h-full transform transition-transform duration-500 ease-in-out">
-              {/* Cart Header */}
               <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
                   <ShoppingCart className="w-5 h-5 text-cap-gold" />
@@ -226,7 +216,6 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Cart List */}
               <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
                 {cart.length === 0 ? (
                   <div className="h-full flex flex-col items-center justify-center text-center px-4">
@@ -295,7 +284,6 @@ export default function Navbar() {
                 )}
               </div>
 
-              {/* Cart Footer */}
               {cart.length > 0 && (
                 <div className="border-t border-gray-100 py-6 px-4 sm:px-6 bg-gray-50/70">
                   <div className="flex justify-between text-sm font-bold text-gray-900 mb-4">
@@ -323,13 +311,11 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* Global Search Modal Overlay */}
       {isSearchOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden flex items-start justify-center pt-20 px-4">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onClick={() => setIsSearchOpen(false)} />
 
           <div className="bg-white/85 backdrop-blur-2xl border border-white/40 rounded-3xl w-full max-w-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] relative z-10 overflow-hidden max-h-[80vh] flex flex-col transform transition-all duration-300">
-            {/* Search Input Box */}
             <div className="p-6 border-b border-gray-100 flex items-center gap-3">
               <Search className="w-6 h-6 text-cap-gold flex-shrink-0" />
               <input
@@ -348,7 +334,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Search Results */}
             <div className="flex-grow overflow-y-auto p-6">
               {searchQuery.trim() === "" ? (
                 <div className="text-center py-10">

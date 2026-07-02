@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             {/* Cinnamon Sticks (Left) */}
-            <div className="absolute -left-8 sm:-left-16 md:-left-28 top-[-30px] sm:top-[-45px] md:top-[-70px] w-32 sm:w-52 md:w-[400px] h-32 sm:h-52 md:h-[400px] z-30 pointer-events-none hover:scale-105 transition-all duration-500 ease-out animate-float-slow">
+            <div className="absolute -left-8 sm:-left-16 md:-left-36 top-[-30px] sm:top-[-45px] md:top-[-65px] w-32 sm:w-52 md:w-[350px] h-32 sm:h-52 md:h-[350px] z-30 pointer-events-none hover:scale-105 transition-all duration-500 ease-out animate-float-slow">
               <TransparentImage 
                 src="/images/cinnamon_sticks_with_rope.png" 
                 alt="Cinnamon Sticks" 
@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             {/* Black Peppercorns (Bottom Left) */}
-            <div className="absolute -left-4 sm:-left-8 md:left-[10px] -bottom-16 sm:-bottom-24 md:-bottom-32 w-28 sm:w-48 md:w-[320px] h-28 sm:h-48 md:h-[320px] z-40 pointer-events-none hover:scale-105 transition-transform duration-500 ease-out animate-float-medium">
+            <div className="absolute -left-4 sm:-left-8 md:-left-12 -bottom-16 sm:-bottom-24 md:-bottom-32 w-28 sm:w-48 md:w-[290px] h-28 sm:h-48 md:h-[290px] z-40 pointer-events-none hover:scale-105 transition-transform duration-500 ease-out animate-float-medium">
               <TransparentImage 
                 src="/images/black_pepper_1781650594175.png" 
                 alt="Black Pepper" 
@@ -96,7 +96,7 @@ export default function Home() {
             </div>
 
             {/* Green Leaf & Cloves (Right) */}
-            <div className="absolute right-[-12px] sm:right-[-20px] md:right-[-45px] top-[-30px] sm:top-[-50px] md:top-[-90px] w-28 sm:w-48 md:w-[380px] h-28 sm:h-48 md:h-[380px] z-20 pointer-events-none rotate-[-30deg] opacity-95 hover:rotate-[-40deg] hover:scale-105 transition-all duration-500 ease-out animate-float-slow">
+            <div className="absolute right-[-12px] sm:right-[-20px] md:right-[-36px] top-[-30px] sm:top-[-50px] md:top-[-80px] w-28 sm:w-48 md:w-[320px] h-28 sm:h-48 md:h-[320px] z-20 pointer-events-none rotate-[-30deg] opacity-95 hover:rotate-[-40deg] hover:scale-105 transition-all duration-500 ease-out animate-float-slow">
               <TransparentImage 
                 src="/images/cinnamon_leaf.png" 
                 alt="Cinnamon Leaf" 
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
 
             {/* Cloves (Bottom Right) */}
-            <div className="absolute right-[-8px] sm:right-[-12px] md:right-[-20px] -bottom-16 sm:-bottom-24 md:-bottom-32 w-32 sm:w-52 md:w-[380px] h-32 sm:h-52 md:h-[380px] z-30 pointer-events-none hover:scale-105 transition-transform duration-500 ease-out animate-float-fast">
+            <div className="absolute right-[-8px] sm:right-[-12px] md:right-[-24px] -bottom-16 sm:-bottom-24 md:-bottom-28 w-32 sm:w-52 md:w-[330px] h-32 sm:h-52 md:h-[330px] z-30 pointer-events-none hover:scale-105 transition-transform duration-500 ease-out animate-float-fast">
               <TransparentImage 
                 src="/images/cloves_dried_1781650553541.png" 
                 alt="Cloves" 
@@ -269,8 +269,8 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 md:space-y-40">
           
           <div className="text-center max-w-xl mx-auto">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Curated Spice Collection</h2>
-            <p className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Experience Authentic Ceylon Flavors</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Premium Sri Lankan Spices</h2>
+            <p className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Discover Our Collection</p>
           </div>
 
           {/* Ceylon Cinnamon */}
@@ -305,7 +305,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Ceylon<br/>Cinnamon</h3>
               <div className="w-12 h-1 bg-[#cca43b] mb-6 rounded-full" />
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Premium cinnamon is the cornerstone of our brand. Known as "True Cinnamon", Ceylon cinnamon is prized for its delicate, sweet flavor and numerous health benefits. Sourced directly from local farmers, ensuring authenticity and freshness.
+                Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
               </p>
               <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-cap-green hover:bg-[#1f3820] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
                 Shop Cinnamon
@@ -344,7 +344,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Green<br/>Cardamom</h3>
               <div className="w-12 h-1 bg-emerald-700 mb-6 rounded-full" />
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Cardamom thrives in the cool, humid climate of central Sri Lanka. Our green cardamom pods are handpicked to ensure the highest aromatic quality and intense flavor for your culinary creations.
+                Handpicked from the central highlands, our premium green cardamom delivers an intense, natural aroma perfect for elevating any dish.
               </p>
               <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-[#b87c47] hover:bg-[#a36c3e] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
                 Shop Cardamom
@@ -383,7 +383,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Organic<br/>Cloves</h3>
               <div className="w-12 h-1 bg-[#764522] mb-6 rounded-full" />
               <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Our cloves are rich in essential oils and deliver a strong, pungent aroma. Handpicked by experienced farmers, they represent the true essence of Sri Lankan spice heritage, perfect for both sweet and savory dishes.
+                Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
               </p>
               <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-cap-green hover:bg-[#1f3820] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
                 Shop Cloves
@@ -408,8 +408,8 @@ export default function Home() {
           className="max-w-5xl mx-auto px-4"
         >
           <div className="text-center max-w-xl mx-auto mb-16">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Our Core Values</h2>
-            <p className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Pure & Sustainable Excellence</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Why Choose Us</h2>
+            <p className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Quality & Sustainability</p>
           </div>
 
           <motion.div 
@@ -513,8 +513,8 @@ export default function Home() {
           className="max-w-5xl mx-auto px-4"
         >
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Share The Flavor</h2>
-            <p className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Join Our Instagram Community</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Follow Us</h2>
+            <p className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Instagram Feed</p>
           </div>
 
           <motion.div 

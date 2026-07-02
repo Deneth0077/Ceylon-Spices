@@ -6,7 +6,6 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
           
-          {/* Column 1: Newsletter */}
           <div>
             <h3 className="text-sm font-bold tracking-[0.2em] mb-6 uppercase text-white font-sans">Newsletter</h3>
             <p className="text-xs text-gray-300 mb-6 font-sans">Get updates about spice harvests</p>
@@ -22,7 +21,6 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Column 2: Email Links */}
           <div>
             <h3 className="text-sm font-bold tracking-[0.2em] mb-6 uppercase text-white font-sans">Email</h3>
             <ul className="space-y-3 text-xs text-gray-300 font-sans">
@@ -36,7 +34,6 @@ export default function Footer() {
             </ul>
           </div>
           
-          {/* Column 3: Contact */}
           <div>
             <h3 className="text-sm font-bold tracking-[0.2em] mb-6 uppercase text-white font-sans">Contact</h3>
             <ul className="space-y-4 text-xs text-gray-300 font-sans">
@@ -59,7 +56,6 @@ export default function Footer() {
           
         </div>
         
-        {/* Bottom Line */}
         <div className="border-t border-white/10 mt-16 pt-8 text-center text-xs text-gray-400 font-sans">
           <p>Copyright © {new Date().getFullYear()} capceylon.com. All rights reserved.</p>
         </div>

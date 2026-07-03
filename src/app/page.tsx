@@ -352,8 +352,19 @@ export default function Home() {
       </section>
 
       {/* Featured Products Showcase */}
-      <section className="py-24 bg-white relative overflow-hidden z-10">
+      <section className="py-24 relative overflow-hidden z-10">
         
+        {/* Paper texture section background */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image 
+            src="/images/products_section_bg.png" 
+            alt="Products Section Background Texture" 
+            fill 
+            className="object-cover opacity-90"
+            priority 
+          />
+        </div>
+
         {/* Inline SVG Clip Path definitions for organic wave dividers */}
         <svg width="0" height="0" className="absolute pointer-events-none">
           <defs>
@@ -364,14 +375,14 @@ export default function Home() {
         </svg>
 
         {/* Ambient watermark details */}
-        <div className="absolute -left-16 top-1/4 w-32 h-32 opacity-[0.03] pointer-events-none rotate-45 select-none hidden lg:block">
+        <div className="absolute -left-16 top-1/4 w-32 h-32 opacity-[0.03] pointer-events-none rotate-45 select-none hidden lg:block z-10">
           <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale" />
         </div>
-        <div className="absolute -right-16 bottom-1/4 w-32 h-32 opacity-[0.03] pointer-events-none -rotate-12 select-none hidden lg:block">
+        <div className="absolute -right-16 bottom-1/4 w-32 h-32 opacity-[0.03] pointer-events-none -rotate-12 select-none hidden lg:block z-10">
           <Image src="/images/cloves_dried_1781650553541.png" alt="Cloves Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
 
           <div className="text-center max-w-xl mx-auto mb-12">
             <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Premium Sri Lankan Spices</h2>
@@ -385,89 +396,40 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
               variants={fadeInUp}
-              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
-              style={{
-                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
-              }}
+              className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
-              {/* Wood background section (clipped organically on desktop) */}
-              <div 
-                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
-                style={{
-                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
-                }}
-              >
-                {/* Wood texture details */}
-                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
-                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+
+              
+              <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill className="object-cover scale-[1.15]" style={{ objectPosition: "center 30%" }} />
+
+              {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
+
+              <div className="absolute left-[51%] right-[6%] top-[8%] bottom-[8%] flex flex-col justify-center z-10">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+                  TRUE CINNAMON (C5 ALBA)
+                </span>
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                  Ceylon Cinnamon
+                </h3>
                 
-                {/* Cinnamon Quill Vector Line Art */}
-                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
-                  <path d="M 16,36 C 16,24 24,16 36,16 C 48,16 56,24 56,36 C 56,48 48,56 36,56 C 28,56 22,50 20,44 C 18,38 22,32 28,30 C 34,28 40,32 42,38" />
-                  <path d="M 12,32 C 12,18 22,8 36,8 C 50,8 60,18 60,32" />
+                {/* Gold Wave Divider */}
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                  <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-              </div>
+                
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                  Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
+                </p>
 
-              {/* Left Side Content Container (Podium and Spice Image) */}
-              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
-                {/* 3D Wood Podium */}
-                <div className="relative w-48 h-10 bg-gradient-to-b from-[#9c7143] to-[#633e1d] rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.35)] border-t border-[#d8a873]/40 mt-16 md:mt-24">
-                  {/* Top face of podium */}
-                  <div className="absolute -top-2.5 left-0 right-0 h-10 bg-[#bd8e55] rounded-full border border-[#d8a873] shadow-inner flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-1 border border-[#9c7143]/30 rounded-full" />
-                    <div className="absolute inset-3 border border-[#9c7143]/15 rounded-full" />
-                    <div className="absolute inset-6 border border-[#9c7143]/5 rounded-full" />
-                  </div>
-                </div>
-
-                {/* Floating Spice Asset - Cinnamon Sticks */}
-                <div className="absolute -translate-y-8 md:-translate-y-12 w-48 h-48 md:w-56 md:h-56 z-20">
-                  <TransparentImage
-                    src="/images/cinnamon_sticks_with_rope.png"
-                    alt="Ceylon Cinnamon"
-                    className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
-                    threshold={240}
-                  />
-                </div>
-              </div>
-
-              {/* Right Side Content Container (Frosted Glass Text Panel) */}
-              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
-                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
-                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
-                    TRUE CINNAMON (C5 ALBA)
-                  </span>
-                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
-                    Ceylon Cinnamon
-                  </h3>
-                  
-                  {/* Gold Wave Divider */}
-                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
-                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                <a 
+                  href="/products" 
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                >
+                  SHOP CINNAMON
+                  <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                  
-                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
-                    Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
-                  </p>
-
-                  <a 
-                    href="/products" 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
-                  >
-                    SHOP CINNAMON
-                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Stamp Circle and Ceylon Spices watermarks */}
-              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
-                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
-              </div>
-              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
-                CEYLON<br />SPICES
+                </a>
               </div>
             </motion.div>
 
@@ -477,91 +439,37 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
               variants={fadeInUp}
-              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
-              style={{
-                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
-              }}
+              className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
-              {/* Wood background section (clipped organically on desktop) */}
-              <div 
-                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
-                style={{
-                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
-                }}
-              >
-                {/* Wood texture details */}
-                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
-                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+
+              
+              {/* Dynamic Content Overlay (Perfectly Positioned Inside the marble panel of the image) */}
+              <div className="absolute left-[51%] right-[4%] top-[8%] bottom-[8%] flex flex-col justify-center z-10 px-4 md:px-8">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+                  QUEEN OF SPICES (TRUE CARDAMOM)
+                </span>
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                  Green Cardamom
+                </h3>
                 
-                {/* Cardamom Pod Line Art */}
-                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
-                  <path d="M 32,10 C 20,20 20,44 32,54 C 44,44 44,20 32,10 Z" />
-                  <path d="M 32,10 L 32,54" />
-                  <path d="M 32,20 Q 26,32 32,44" />
-                  <path d="M 32,20 Q 38,32 32,44" />
+                {/* Gold Wave Divider */}
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                  <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-              </div>
+                
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                  Our select Green Cardamom, sourced from dedicated central highland farmers, offers an intense, aromatic experience for daily wellness. Meticulously handpicked for highest purity, it supports digestive health and adds unique flavor to your rituals and creations.
+                </p>
 
-              {/* Left Side Content Container (Podium and Spice Image) */}
-              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
-                {/* 3D Wood Podium */}
-                <div className="relative w-48 h-10 bg-gradient-to-b from-[#9c7143] to-[#633e1d] rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.35)] border-t border-[#d8a873]/40 mt-16 md:mt-24">
-                  {/* Top face of podium */}
-                  <div className="absolute -top-2.5 left-0 right-0 h-10 bg-[#bd8e55] rounded-full border border-[#d8a873] shadow-inner flex items-center justify-center overflow-hidden">
-                    <div className="absolute inset-1 border border-[#9c7143]/30 rounded-full" />
-                    <div className="absolute inset-3 border border-[#9c7143]/15 rounded-full" />
-                    <div className="absolute inset-6 border border-[#9c7143]/5 rounded-full" />
-                  </div>
-                </div>
-
-                {/* Floating Spice Asset - Cardamom */}
-                <div className="absolute -translate-y-8 md:-translate-y-12 w-48 h-48 md:w-56 md:h-56 z-20">
-                  <TransparentImage
-                    src="/images/cardamom_pods_1781650532128.png"
-                    alt="Green Cardamom"
-                    className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
-                    threshold={240}
-                  />
-                </div>
-              </div>
-
-              {/* Right Side Content Container (Frosted Glass Text Panel) */}
-              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
-                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
-                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
-                    QUEEN OF SPICES (TRUE CARDAMOM)
-                  </span>
-                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
-                    Green Cardamom
-                  </h3>
-                  
-                  {/* Gold Wave Divider */}
-                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
-                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                <a 
+                  href="/products" 
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                >
+                  SHOP CARDAMOM
+                  <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                  
-                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
-                    Our select Green Cardamom, sourced from dedicated central highland farmers, offers an intense, aromatic experience for daily wellness. Meticulously handpicked for highest purity, it supports digestive health and adds unique flavor to your rituals and creations.
-                  </p>
-
-                  <a 
-                    href="/products" 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
-                  >
-                    SHOP CARDAMOM
-                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Stamp Circle and Ceylon Spices watermarks */}
-              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
-                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
-              </div>
-              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
-                CEYLON<br />SPICES
+                </a>
               </div>
             </motion.div>
 
@@ -571,84 +479,40 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
               variants={fadeInUp}
-              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
-              style={{
-                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
-              }}
+              className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
-              {/* Wood background section (clipped organically on desktop) */}
-              <div 
-                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
-                style={{
-                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
-                }}
-              >
-                {/* Wood texture details */}
-                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
-                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+
+              
+              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover scale-[1.08]" />
+
+              {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
+
+              <div className="absolute left-[51%] right-[6%] top-[8%] bottom-[8%] flex flex-col justify-center z-10">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+                  AROMATIC SPICE BUDS
+                </span>
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                  Organic Cloves
+                </h3>
                 
-                {/* Cloves Line Art */}
-                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
-                  <circle cx="32" cy="20" r="8" />
-                  <path d="M 24,20 C 24,32 28,48 32,56 C 36,48 40,32 40,20" />
-                  <path d="M 22,16 L 16,10" />
-                  <path d="M 42,16 L 48,10" />
+                {/* Gold Wave Divider */}
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                  <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-              </div>
+                
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                  Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
+                </p>
 
-              {/* Left Side Content Container (Soft Circle Podium and Spice Image) */}
-              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
-                {/* Irregular Round Stone Podium */}
-                <div className="relative w-44 h-44 rounded-[50%_60%_50%_70%/60%_50%_70%_50%] bg-[#b8aba1]/35 shadow-inner flex items-center justify-center z-10">
-                  {/* Floating Spice Asset - Cloves */}
-                  <div className="w-36 h-36 z-20">
-                    <TransparentImage
-                      src="/images/cloves_dried_1781650553541.png"
-                      alt="Organic Cloves"
-                      className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
-                      threshold={240}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Side Content Container (Frosted Glass Text Panel) */}
-              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
-                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
-                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
-                    AROMATIC SPICE BUDS
-                  </span>
-                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
-                    Organic Cloves
-                  </h3>
-                  
-                  {/* Gold Wave Divider */}
-                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
-                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                <a 
+                  href="/products" 
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                >
+                  SHOP CLOVES
+                  <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                  
-                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
-                    Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
-                  </p>
-
-                  <a 
-                    href="/products" 
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
-                  >
-                    SHOP CLOVES
-                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Stamp Circle and Ceylon Spices watermarks */}
-              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
-                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
-              </div>
-              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
-                CEYLON<br />SPICES
+                </a>
               </div>
             </motion.div>
           </div>

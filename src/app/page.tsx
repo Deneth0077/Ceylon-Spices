@@ -45,7 +45,9 @@ const slideInRight = {
 };
 
 export default function Home() {
-  const [sliderIndex, setSliderIndex] = useState(0);
+  const [sliderIndex, setSliderIndex] = useState(7); // Start at index 7 (middle copy)
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
   const heroProducts = [
     {
       id: "cinnamon",
@@ -112,20 +114,44 @@ export default function Home() {
     }
   ];
 
+  // Tripled list for infinite scrolling
+  const tripledProducts = [...heroProducts, ...heroProducts, ...heroProducts];
+
   const handleNext = () => {
-    setSliderIndex((prev) => (prev + 1) % heroProducts.length);
+    if (!isTransitioning) return;
+    setSliderIndex((prev) => prev + 1);
   };
 
   const handlePrev = () => {
-    setSliderIndex((prev) => (prev - 1 + heroProducts.length) % heroProducts.length);
+    if (!isTransitioning) return;
+    setSliderIndex((prev) => prev - 1);
+  };
+
+  const handleTransitionEnd = () => {
+    if (sliderIndex >= 14) {
+      setIsTransitioning(false);
+      setSliderIndex(sliderIndex - 7);
+    } else if (sliderIndex < 7) {
+      setIsTransitioning(false);
+      setSliderIndex(sliderIndex + 7);
+    }
   };
 
   useEffect(() => {
+    if (!isTransitioning) {
+      const timer = setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isTransitioning]);
+
+  useEffect(() => {
     const timer = setInterval(() => {
-      setSliderIndex((prev) => (prev + 1) % heroProducts.length);
-    }, 3500);
+      setSliderIndex((prev) => prev + 1);
+    }, 3800);
     return () => clearInterval(timer);
-  }, [heroProducts.length]);
+  }, [sliderIndex]);
 
   return (
     <div className="w-full flex flex-col bg-white overflow-x-hidden">
@@ -189,7 +215,7 @@ export default function Home() {
         </div>
 
         {/* Main Content Split Layout */}
-        <div className="relative max-w-6xl mx-auto px-6 sm:px-12 md:px-16 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-12 md:px-16 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mt-[-30px] md:mt-[-70px]">
           
           {/* Left Text Column */}
           <div className="lg:col-span-6 flex flex-col justify-center text-left pointer-events-auto">
@@ -230,26 +256,35 @@ export default function Home() {
           {/* Right Product Slider Column */}
           <div className="lg:col-span-6 w-full flex flex-col items-center lg:items-start relative pointer-events-auto overflow-visible">
             {/* Carousel Container */}
-            <div className="relative w-full overflow-hidden h-[390px] flex items-center">
+            <div className="relative w-full overflow-hidden h-[410px] flex items-center">
               <div 
-                className="flex gap-6 transition-transform duration-700 ease-out"
-                style={{ transform: `translateX(-${sliderIndex * 304}px)` }}
+                onTransitionEnd={handleTransitionEnd}
+                className="flex gap-6"
+                style={{ 
+                  transform: `translateX(-${sliderIndex * 304}px)`,
+                  transition: isTransitioning ? 'transform 700ms cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
+                  paddingLeft: 'calc(50% - 140px)'
+                }}
               >
-                {heroProducts.map((p, idx) => {
+                {tripledProducts.map((p, idx) => {
                   const isActive = idx === sliderIndex;
                   return (
                     <div 
-                      key={p.id}
-                      className={`w-[280px] h-[360px] rounded-[24px] p-6 flex flex-col items-center justify-between shadow-2xl transition-all duration-700 relative overflow-hidden bg-gradient-to-b ${p.bgClass} ${isActive ? 'scale-100 opacity-100' : 'scale-90 opacity-30 pointer-events-none'}`}
+                      key={`${p.id}-${idx}`}
+                      className={`w-[280px] h-[350px] rounded-[24px] p-6 flex flex-col items-center justify-between shadow-2xl transition-all duration-700 ease-out relative overflow-hidden bg-gradient-to-b ${p.bgClass} ${
+                        isActive 
+                          ? 'scale-[1.06] opacity-100 z-20 translate-y-[-10px] shadow-[0_25px_50px_rgba(0,0,0,0.4)]' 
+                          : 'scale-90 opacity-25 z-10 translate-y-0 shadow-md pointer-events-none'
+                      }`}
                     >
                       {/* Ambient shine overlay */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/20 pointer-events-none" />
                       
-                      <div className="w-full h-[180px] relative flex items-center justify-center mt-2 z-10">
+                      <div className="w-full h-[170px] relative flex items-center justify-center mt-2 z-10">
                         <TransparentImage 
                           src={p.image} 
                           alt={p.title} 
-                          className="w-auto h-[150px] object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]" 
+                          className="w-auto h-[140px] object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]" 
                           threshold={p.threshold}
                         />
                       </div>
@@ -270,20 +305,26 @@ export default function Home() {
             <div className="flex items-center justify-between w-[280px] mt-4 px-2">
               {/* Pagination Dots */}
               <div className="flex gap-2">
-                {heroProducts.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setSliderIndex(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === sliderIndex ? 'bg-[#c09257] w-4' : 'bg-white/40'}`}
-                  />
-                ))}
+                {heroProducts.map((_, idx) => {
+                  const isDotActive = idx === (sliderIndex % 7);
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        if (!isTransitioning) return;
+                        setSliderIndex(idx + 7);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${isDotActive ? 'bg-[#c09257] w-4' : 'bg-white/40'}`}
+                    />
+                  );
+                })}
               </div>
               
               {/* Arrow Buttons */}
               <div className="flex gap-3">
                 <button 
                   onClick={handlePrev}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 cursor-pointer"
                 >
                   <svg className="w-4 h-4 stroke-white stroke-[2.5] fill-none" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -291,7 +332,7 @@ export default function Home() {
                 </button>
                 <button 
                   onClick={handleNext}
-                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 cursor-pointer"
                 >
                   <svg className="w-4 h-4 stroke-white stroke-[2.5] fill-none" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -339,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="py-28 bg-[#faf8f5] relative z-10 overflow-hidden">
+      <section id="certifications" className="py-24 bg-[#faf8f5] relative z-10 overflow-hidden">
         {/* Floating background decorative spice elements (Mockup Spices) */}
         <div className="absolute -top-14 -left-14 w-64 h-64 md:w-80 md:h-80 pointer-events-none opacity-90 select-none z-0">
           <TransparentImage
@@ -359,21 +400,13 @@ export default function Home() {
           />
         </div>
 
-        {/* Bottom Left Stylized Brand "N" */}
-        <div className="absolute bottom-6 left-8 font-serif text-3xl font-bold text-[#c09257]/20 select-none z-0">
-          N
-        </div>
-
-        {/* Subtle Watermark Patterns */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 bg-[radial-gradient(#8d5b24_1px,transparent_1px)] [background-size:32px_32px]" />
-
         <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="mb-16"
+            className="mb-12"
           >
             <motion.span
               variants={fadeInUp}
@@ -389,113 +422,90 @@ export default function Home() {
             </motion.h2>
           </motion.div>
 
-          {/* Desktop Layout (Unified capsule image with text overlays) */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="hidden md:block relative w-full max-w-[940px] mx-auto z-10 pb-10"
-          >
-            {/* Certifications Banner Container */}
-            <div className="relative w-full h-[460px] z-10">
-              {/* Background Image */}
-              <Image
-                src="/images/certifications_banner.png"
-                alt="Quality Certifications Background"
-                fill
-                className="object-cover scale-[1.02] mix-blend-multiply"
-                style={{ objectPosition: "center 50%" }}
-              />
-
-              {/* Text content overlays positioned exactly over the bottom halves of the three panels */}
-              <div className="absolute inset-0 flex items-end pb-12 z-20">
-                {/* Left Text (USDA Organic) */}
-                <div className="w-[30%] ml-[3%] flex flex-col items-center text-center px-4">
-                  <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1.5 font-sans">
-                    USDA ORGANIC
-                  </span>
-                  <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed max-w-[220px]">
-                    100% certified organic spices, grown using traditional methods without chemicals.
-                  </p>
-                </div>
-
-                {/* Middle Text (Ceylon Spices) */}
-                <div className="w-[34%] mx-[1%] flex flex-col items-center text-center px-6">
-                  <span className="font-bold text-[0.85rem] tracking-widest text-[#ffe8b3] mb-1.5 font-sans drop-shadow-md">
-                    CEYLON SPICES
-                  </span>
-                  <p className="text-[0.65rem] text-[#ffeed4] font-sans leading-relaxed max-w-[240px] drop-shadow-sm">
-                    Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
-                  </p>
-                </div>
-
-                {/* Right Text (ISO Certified) */}
-                <div className="w-[30%] mr-[3%] flex flex-col items-center text-center px-4">
-                  <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1.5 font-sans">
-                    ISO CERTIFIED
-                  </span>
-                  <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed max-w-[220px]">
-                    International standard production with strict hygiene and quality management protocols.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Mobile Layout (Stacked fallback cards) */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-col gap-6 md:hidden w-full relative z-30 max-w-sm mx-auto pb-10"
-          >
+          {/* Native HTML/CSS Cards Grid with Real CSS Shadows and Hover Pop-Up/Lift Effects */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto z-10 relative mt-12 px-4 items-center">
+            
             {/* USDA Organic Card */}
-            <motion.div variants={fadeInUp} className="w-full bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-8 border border-stone-100">
-              <div className="w-24 h-24 flex items-center justify-center mb-2 relative">
-                <TransparentImage src="/images/cert_leaf.png" alt="USDA Organic" className="w-full h-full object-contain drop-shadow-md" />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="bg-white rounded-[32px] border border-stone-100 p-8 flex flex-col items-center justify-center text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer relative overflow-hidden h-[340px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-[#1a4a38]/0 to-[#1a4a38]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-28 h-28 relative mb-6 flex items-center justify-center">
+                <Image
+                  src="/images/cert_leaf.png"
+                  alt="USDA Organic"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-2">USDA ORGANIC</span>
-              <p className="text-[0.75rem] text-gray-500 text-center leading-relaxed">
+              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#1a4a38] uppercase mb-3 font-sans">
+                USDA ORGANIC
+              </span>
+              <p className="text-[0.75rem] sm:text-[0.8rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
                 100% certified organic spices, grown using traditional methods without chemicals.
               </p>
             </motion.div>
 
-            {/* Ceylon Spices Card */}
-            <motion.div variants={fadeInUp} className="w-full h-[280px] rounded-3xl shadow-xl flex flex-col items-center justify-center p-8 border border-[#ffe8b3]/30 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#d4a877] via-[#ba874a] to-[#8d5b24]" />
-              <div className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
-              <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
-              <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "20px" }} />
-
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="w-20 h-24 relative mb-2 flex items-center justify-center z-10">
-                  <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
-                </div>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-2 drop-shadow-md">CEYLON SPICES</span>
-                <p className="text-[0.75rem] text-[#ffeed4] text-center leading-relaxed drop-shadow-sm px-2">
-                  Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
-                </p>
+            {/* Ceylon Spices Card (Middle Featured Card) */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="bg-white rounded-[32px] border-2 border-[#c09257]/80 p-8 flex flex-col items-center justify-center text-center shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 group cursor-pointer relative overflow-hidden h-[365px] md:mt-[-10px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-[#c09257]/0 to-[#c09257]/[0.03] pointer-events-none" />
+              <div className="w-24 h-28 relative mb-6 flex items-center justify-center">
+                <Image
+                  src="/images/shiield logo.png"
+                  alt="Ceylon Spices"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
+              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#3a200e] uppercase mb-3 font-sans">
+                CEYLON SPICES
+              </span>
+              <p className="text-[0.75rem] sm:text-[0.8rem] text-[#5a4d44] font-medium font-sans leading-relaxed max-w-[240px]">
+                Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+              </p>
             </motion.div>
 
             {/* ISO Certified Card */}
-            <motion.div variants={fadeInUp} className="w-full bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-8 border border-stone-100">
-              <div className="w-24 h-24 flex items-center justify-center mb-2 relative">
-                <TransparentImage src="/images/cert_globe.png" alt="ISO Certified" className="w-full h-full object-contain drop-shadow-md" />
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="bg-white rounded-[32px] border border-stone-100 p-8 flex flex-col items-center justify-center text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer relative overflow-hidden h-[340px]"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-[#164e63]/0 to-[#164e63]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-28 h-28 relative mb-6 flex items-center justify-center">
+                <Image
+                  src="/images/cert_globe.png"
+                  alt="ISO Certified"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-2">ISO CERTIFIED</span>
-              <p className="text-[0.75rem] text-gray-500 text-center leading-relaxed">
+              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#164e63] uppercase mb-3 font-sans">
+                ISO CERTIFIED
+              </span>
+              <p className="text-[0.75rem] sm:text-[0.8rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
                 International standard production with strict hygiene and quality management protocols.
               </p>
             </motion.div>
-          </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* Featured Products Showcase */}
-      <section className="py-24 relative overflow-hidden z-10">
+      <section id="products" className="py-24 relative overflow-hidden z-10">
 
         {/* Paper texture section background */}
         <div className="absolute inset-0 z-0 pointer-events-none">

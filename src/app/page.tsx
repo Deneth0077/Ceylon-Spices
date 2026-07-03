@@ -404,7 +404,7 @@ export default function Home() {
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
-              <div className="absolute left-[51%] right-[6%] top-[8%] bottom-[8%] flex flex-col justify-center z-10">
+              <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
                 <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
                   TRUE CINNAMON (C5 ALBA)
                 </span>
@@ -441,10 +441,10 @@ export default function Home() {
               variants={fadeInUp}
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
-
+              <Image src="/images/cardamom_bg_card_v2.png" alt="Green Cardamom Card Background" fill className="object-cover scale-[1.2]" />
               
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the marble panel of the image) */}
-              <div className="absolute left-[51%] right-[4%] top-[8%] bottom-[8%] flex flex-col justify-center z-10 px-4 md:px-8">
+              <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
                 <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
                   QUEEN OF SPICES (TRUE CARDAMOM)
                 </span>
@@ -483,11 +483,11 @@ export default function Home() {
             >
 
               
-              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover scale-[1.08]" />
+              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover scale-[1.2]" />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
-              <div className="absolute left-[51%] right-[6%] top-[8%] bottom-[8%] flex flex-col justify-center z-10">
+              <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
                 <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
                   AROMATIC SPICE BUDS
                 </span>

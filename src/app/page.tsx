@@ -136,7 +136,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.2 }}
               className="absolute -left-6 sm:-left-12 md:-left-24 top-[-50px] sm:top-[-70px] md:top-[-100px] w-36 sm:w-48 md:w-[280px] z-40 pointer-events-none animate-float-slow"
             >
-              <TransparentImage src="/images/cinnamon_sticks_with_rope.png" alt="Cinnamon Sticks" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} />
+              <TransparentImage src="/images/cinnamon_sticks_with_rope.png" alt="Cinnamon Sticks" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
             </motion.div>
 
             {/* Black Peppercorns (Bottom Left) */}
@@ -146,7 +146,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.4 }}
               className="absolute -left-4 sm:-left-8 md:-left-12 -bottom-8 sm:-bottom-16 md:-bottom-24 w-28 sm:w-40 md:w-[240px] z-40 pointer-events-none animate-float-medium"
             >
-              <TransparentImage src="/images/black_pepper_1781650594175.png" alt="Black Pepper" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} />
+              <TransparentImage src="/images/black_pepper_1781650594175.png" alt="Black Pepper" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
             </motion.div>
 
             {/* Green Leaf (Top Right) */}
@@ -156,7 +156,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.3 }}
               className="absolute right-0 sm:right-[-10px] md:right-[-20px] top-[-20px] sm:top-[-30px] md:top-[-40px] w-28 sm:w-40 md:w-[200px] z-20 pointer-events-none animate-float-slow"
             >
-              <TransparentImage src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.3)] rotate-[-15deg] opacity-95" threshold={230} />
+              <TransparentImage src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.3)] rotate-[-15deg] opacity-95" threshold={230} tintColor={[120, 90, 40]} />
             </motion.div>
 
             {/* Cloves (Bottom Right) */}
@@ -166,7 +166,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.5 }}
               className="absolute -right-4 sm:-right-8 md:-right-16 -bottom-12 sm:-bottom-20 md:-bottom-28 w-36 sm:w-48 md:w-[280px] z-30 pointer-events-none animate-float-fast"
             >
-              <TransparentImage src="/images/cloves_dried_1781650553541.png" alt="Cloves" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} />
+              <TransparentImage src="/images/cloves_dried_1781650553541.png" alt="Cloves" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
             </motion.div>
           </motion.div>
         </div>

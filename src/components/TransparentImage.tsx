@@ -5,11 +5,13 @@ import React, { useState, useEffect } from 'react';
 interface TransparentImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
   threshold?: number;
+  tintColor?: [number, number, number];
 }
 
 export default function TransparentImage({ 
   src, 
   threshold = 245, 
+  tintColor,
   className, 
   alt = "", 
   ...props 
@@ -50,8 +52,15 @@ export default function TransparentImage({
           // If average brightness is high, treat it as white/light background
           if (avg >= tStart) {
             // Smooth alpha transition between tStart and tEnd
-            const alpha = Math.max(0, Math.min(255, ((tEnd - avg) / (tEnd - tStart)) * 255));
-            data[i + 3] = alpha;
+            const alphaRatio = Math.max(0, Math.min(1, (tEnd - avg) / (tEnd - tStart)));
+            data[i + 3] = alphaRatio * 255;
+            
+            if (tintColor) {
+               const tintWeight = Math.pow(1 - alphaRatio, 0.5); // non-linear to tint faster
+               data[i] = r * (1 - tintWeight) + tintColor[0] * tintWeight;
+               data[i + 1] = g * (1 - tintWeight) + tintColor[1] * tintWeight;
+               data[i + 2] = b * (1 - tintWeight) + tintColor[2] * tintWeight;
+            }
           }
         }
 

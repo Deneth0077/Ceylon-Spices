@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Leaf, ShieldCheck, Heart, Globe, Award, Droplet, ArrowRight } from "lucide-react";
 import TransparentImage from "@/components/TransparentImage";
@@ -44,11 +45,93 @@ const slideInRight = {
 };
 
 export default function Home() {
+  const [sliderIndex, setSliderIndex] = useState(0);
+  const heroProducts = [
+    {
+      id: "cinnamon",
+      title: "Cinnamon (C5 Alba Grade)",
+      image: "/images/cinnamon_sticks_1781650514051.png",
+      bgClass: "from-[#f5dec8] via-[#e6bfa4] to-[#cc9571]",
+      textColor: "text-[#3d240e]",
+      btnClass: "bg-white text-[#3d240e] hover:bg-[#fffbee]",
+      threshold: 230
+    },
+    {
+      id: "pepper",
+      title: "Black Pepper (Organic)",
+      image: "/images/black_pepper_1781650594175.png",
+      bgClass: "from-[#cfcbca] via-[#a39e9c] to-[#736e6b]",
+      textColor: "text-stone-900",
+      btnClass: "bg-white text-stone-900 hover:bg-stone-50",
+      threshold: 230
+    },
+    {
+      id: "turmeric",
+      title: "Turmeric Powder (Organic)",
+      image: "/images/turmeric_powder_1781650611739.png",
+      bgClass: "from-[#fae0b8] via-[#eeb562] to-[#d68a18]",
+      textColor: "text-[#4a2e15]",
+      btnClass: "bg-white text-[#4a2e15] hover:bg-amber-50",
+      threshold: 230
+    },
+    {
+      id: "nutmeg",
+      title: "Nutmeg & Mace",
+      image: "/images/hero_spices_1781650500572.png",
+      bgClass: "from-[#f4dfd0] via-[#dba683] to-[#b37046]",
+      textColor: "text-[#3f210d]",
+      btnClass: "bg-white text-[#3f210d] hover:bg-amber-50",
+      threshold: 230
+    },
+    {
+      id: "cloves",
+      title: "Cloves (Handpicked)",
+      image: "/images/cloves_dried_1781650553541.png",
+      bgClass: "from-[#ebd8cb] via-[#cca385] to-[#a26c48]",
+      textColor: "text-[#42220b]",
+      btnClass: "bg-white text-[#42220b] hover:bg-[#fbf5f0]",
+      threshold: 230
+    },
+    {
+      id: "chilli",
+      title: "Chilli Flakes",
+      image: "/images/turmeric_powder_1781650611739.png",
+      bgClass: "from-[#fcdbdc] via-[#eca2a4] to-[#c75154]",
+      textColor: "text-[#4a0d0f]",
+      btnClass: "bg-white text-[#4a0d0f] hover:bg-rose-50",
+      threshold: 230
+    },
+    {
+      id: "cardamom",
+      title: "Green Cardamom",
+      image: "/images/cardamom_pods_1781650532128.png",
+      bgClass: "from-[#e2e7d7] via-[#c4d1af] to-[#9cb27c]",
+      textColor: "text-[#1c3212]",
+      btnClass: "bg-white text-[#1c3212] hover:bg-[#fafdf6]",
+      threshold: 240
+    }
+  ];
+
+  const handleNext = () => {
+    setSliderIndex((prev) => (prev + 1) % heroProducts.length);
+  };
+
+  const handlePrev = () => {
+    setSliderIndex((prev) => (prev - 1 + heroProducts.length) % heroProducts.length);
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSliderIndex((prev) => (prev + 1) % heroProducts.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [heroProducts.length]);
+
   return (
     <div className="w-full flex flex-col bg-white overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] min-h-[500px] md:h-[650px] overflow-hidden flex flex-col items-center justify-center z-20">
+      <section className="relative w-full h-auto min-h-[600px] md:h-[700px] overflow-hidden flex flex-col items-center justify-center z-20 pt-24 pb-20 md:py-0">
 
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
@@ -105,70 +188,120 @@ export default function Home() {
           </svg>
         </div>
 
-        {/* Center Golden Frosted Blob */}
-        <div className="relative w-full max-w-[1050px] mx-auto h-[320px] md:h-[420px] z-20 mt-[-60px] px-6 sm:px-12 md:px-16 flex items-center justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-[90%] md:w-[85%] h-[85%] md:h-[80%] relative shadow-[0_30px_60px_rgba(0,0,0,0.4)] flex items-center justify-center"
-            style={{
-              borderRadius: "45% 55% 65% 35% / 55% 45% 60% 40%",
-              background: "linear-gradient(135deg, rgba(235,210,135,0.7) 0%, rgba(195,165,85,0.85) 100%)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
-              border: "1px solid rgba(255,255,255,0.4)"
-            }}
-          >
-            {/* The Text */}
-            <div className="z-30 pointer-events-none px-4 text-center">
-              <h1 className="text-3xl sm:text-4xl md:text-[3.5rem] font-extrabold text-[#3a200e] leading-[1.2] font-serif drop-shadow-[0_2px_4px_rgba(255,255,255,0.3)]">
-                Sri Lankan Spices: <br />
-                Pure, Authentic,<br />
-                Tropical
-              </h1>
+        {/* Main Content Split Layout */}
+        <div className="relative max-w-6xl mx-auto px-6 sm:px-12 md:px-16 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-6 flex flex-col justify-center text-left pointer-events-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold text-white leading-[1.1] font-serif mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+            >
+              Sri Lankan Spices: <br />
+              Pure, Authentic, <br />
+              Tropical
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-[#ffe8b3] text-xs md:text-sm tracking-[0.25em] font-extrabold uppercase font-sans mb-8 drop-shadow-sm"
+            >
+              DISCOVER THE TRUE FLAVORS OF CEYLON
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <button 
+                onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
+                className="px-8 py-3.5 bg-[#c09257] hover:bg-[#ba874a] text-white font-extrabold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(192,146,87,0.35)] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
+              >
+                Learn More
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right Product Slider Column */}
+          <div className="lg:col-span-6 w-full flex flex-col items-center lg:items-start relative pointer-events-auto overflow-visible">
+            {/* Carousel Container */}
+            <div className="relative w-full overflow-hidden h-[390px] flex items-center">
+              <div 
+                className="flex gap-6 transition-transform duration-700 ease-out"
+                style={{ transform: `translateX(-${sliderIndex * 304}px)` }}
+              >
+                {heroProducts.map((p, idx) => {
+                  const isActive = idx === sliderIndex;
+                  return (
+                    <div 
+                      key={p.id}
+                      className={`w-[280px] h-[360px] rounded-[24px] p-6 flex flex-col items-center justify-between shadow-2xl transition-all duration-700 relative overflow-hidden bg-gradient-to-b ${p.bgClass} ${isActive ? 'scale-100 opacity-100' : 'scale-90 opacity-30 pointer-events-none'}`}
+                    >
+                      {/* Ambient shine overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/20 pointer-events-none" />
+                      
+                      <div className="w-full h-[180px] relative flex items-center justify-center mt-2 z-10">
+                        <TransparentImage 
+                          src={p.image} 
+                          alt={p.title} 
+                          className="w-auto h-[150px] object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]" 
+                          threshold={p.threshold}
+                        />
+                      </div>
+                      
+                      <div className="flex flex-col items-center text-center gap-4 w-full z-10">
+                        <h4 className={`font-extrabold font-serif text-lg tracking-wide leading-tight ${p.textColor}`}>{p.title}</h4>
+                        <button className={`py-2 px-7 rounded-full font-bold text-[0.65rem] tracking-[0.15em] uppercase shadow-md transition-all duration-300 ${p.btnClass} hover:scale-105 active:scale-95`}>
+                          ADD TO CART
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Cinnamon Sticks (Top Left) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="absolute -left-6 sm:-left-12 md:-left-24 top-[-50px] sm:top-[-70px] md:top-[-100px] w-36 sm:w-48 md:w-[280px] z-40 pointer-events-none animate-float-slow"
-            >
-              <TransparentImage src="/images/cinnamon_sticks_with_rope.png" alt="Cinnamon Sticks" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
-            </motion.div>
+            {/* Carousel Controls */}
+            <div className="flex items-center justify-between w-[280px] mt-4 px-2">
+              {/* Pagination Dots */}
+              <div className="flex gap-2">
+                {heroProducts.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSliderIndex(idx)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === sliderIndex ? 'bg-[#c09257] w-4' : 'bg-white/40'}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Arrow Buttons */}
+              <div className="flex gap-3">
+                <button 
+                  onClick={handlePrev}
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                >
+                  <svg className="w-4 h-4 stroke-white stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <button 
+                  onClick={handleNext}
+                  className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300"
+                >
+                  <svg className="w-4 h-4 stroke-white stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-            {/* Black Peppercorns (Bottom Left) */}
-            <motion.div
-              initial={{ opacity: 0, x: -50, y: 50 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="absolute -left-4 sm:-left-8 md:-left-12 -bottom-8 sm:-bottom-16 md:-bottom-24 w-28 sm:w-40 md:w-[240px] z-40 pointer-events-none animate-float-medium"
-            >
-              <TransparentImage src="/images/black_pepper_1781650594175.png" alt="Black Pepper" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
-            </motion.div>
+          </div>
 
-            {/* Green Leaf (Top Right) */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="absolute right-0 sm:right-[-10px] md:right-[-20px] top-[-20px] sm:top-[-30px] md:top-[-40px] w-28 sm:w-40 md:w-[200px] z-20 pointer-events-none animate-float-slow"
-            >
-              <TransparentImage src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.3)] rotate-[-15deg] opacity-95" threshold={230} tintColor={[120, 90, 40]} />
-            </motion.div>
-
-            {/* Cloves (Bottom Right) */}
-            <motion.div
-              initial={{ opacity: 0, x: 50, y: 50 }}
-              animate={{ opacity: 1, x: 0, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="absolute -right-4 sm:-right-8 md:-right-16 -bottom-12 sm:-bottom-20 md:-bottom-28 w-36 sm:w-48 md:w-[280px] z-30 pointer-events-none animate-float-fast"
-            >
-              <TransparentImage src="/images/cloves_dried_1781650553541.png" alt="Cloves" className="w-full h-auto drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" threshold={230} tintColor={[120, 90, 40]} />
-            </motion.div>
-          </motion.div>
         </div>
 
         {/* Scroll Down Button */}

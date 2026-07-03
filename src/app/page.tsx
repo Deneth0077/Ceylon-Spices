@@ -176,17 +176,31 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-[30px] md:bottom-[60px] left-1/2 -translate-x-1/2 z-50 cursor-pointer group flex items-center justify-center"
+          className="absolute bottom-[30px] md:bottom-[45px] left-1/2 -translate-x-1/2 z-50 cursor-pointer group flex flex-col items-center gap-1.5"
           onClick={() => {
             document.getElementById("certifications")?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          {/* Organic blob background */}
-          <div className="absolute inset-0 bg-white/30 backdrop-blur-md rounded-[50%_50%_40%_60%/60%_40%_60%_40%] shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-white/20 transition-all duration-500 ease-out group-hover:rounded-[40%_60%_50%_50%/50%_60%_40%_50%] group-hover:bg-white/40 group-hover:scale-105" />
+          <span className="text-[#3a200e] font-bold text-[0.65rem] md:text-xs tracking-[0.25em] uppercase font-sans whitespace-nowrap drop-shadow-sm opacity-80 group-hover:opacity-100 transition-opacity duration-300 select-none">
+            Scroll Down
+          </span>
 
-          <div className="relative px-8 py-3">
-            <span className="text-gray-900 font-bold text-xs tracking-widest uppercase font-sans whitespace-nowrap drop-shadow-sm">Scroll Down</span>
-          </div>
+          {/* Shaking/Bouncing Down Arrow Head */}
+          <motion.div
+            animate={{
+              y: [0, 5, 0]
+            }}
+            transition={{
+              duration: 1.6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="flex items-center justify-center text-[#3a200e] opacity-75 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            <svg className="w-4 h-4 md:w-5 md:h-5 stroke-[#3a200e] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </motion.div>
         </motion.div>
 
       </section>
@@ -230,19 +244,19 @@ export default function Home() {
           >
             <motion.span
               variants={fadeInUp}
-              className="text-xs md:text-sm font-bold text-[#c09257] tracking-[0.25em] uppercase font-sans block mb-2"
+              className="text-xs md:text-sm font-extrabold text-[#b48648] tracking-[0.25em] uppercase font-sans block mb-3"
             >
               Trusted Worldwide
             </motion.span>
             <motion.h2
               variants={fadeInUp}
-              className="text-3xl md:text-5xl font-bold text-[#4a2e15] tracking-tight font-serif"
+              className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans"
             >
               Global Quality Certifications
             </motion.h2>
           </motion.div>
 
-          {/* Desktop Layout (Single Capsule Container with Skewed Wood Panel Overlaid) */}
+          {/* Desktop Layout (Unified capsule image with text overlays) */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -250,50 +264,46 @@ export default function Home() {
             variants={fadeInUp}
             className="hidden md:block relative w-full max-w-[940px] mx-auto z-10 pb-10"
           >
-            {/* White capsule background card */}
-            <div className="relative w-full h-[260px] bg-white shadow-xl rounded-full flex items-center justify-between px-20 border border-stone-100/60 z-10">
-              
-              {/* Left Content */}
-              <div className="w-[280px] flex flex-col items-center justify-center text-center">
-                <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
-                  <TransparentImage src="/images/cert_leaf.png" alt="USDA Organic" className="w-full h-full object-contain drop-shadow-md" />
-                </div>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1 font-sans">USDA ORGANIC</span>
-                <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed px-1">
-                  100% certified organic spices, grown using traditional methods without chemicals.
-                </p>
-              </div>
+            {/* Certifications Banner Container */}
+            <div className="relative w-full h-[460px] z-10">
+              {/* Background Image */}
+              <Image
+                src="/images/certifications_banner.png"
+                alt="Quality Certifications Background"
+                fill
+                className="object-cover scale-[1.02] mix-blend-multiply"
+                style={{ objectPosition: "center 50%" }}
+              />
 
-              {/* Right Content */}
-              <div className="w-[280px] flex flex-col items-center justify-center text-center">
-                <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
-                  <TransparentImage src="/images/cert_globe.png" alt="ISO Certified" className="w-full h-full object-contain drop-shadow-md" />
+              {/* Text content overlays positioned exactly over the bottom halves of the three panels */}
+              <div className="absolute inset-0 flex items-end pb-12 z-20">
+                {/* Left Text (USDA Organic) */}
+                <div className="w-[30%] ml-[3%] flex flex-col items-center text-center px-4">
+                  <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1.5 font-sans">
+                    USDA ORGANIC
+                  </span>
+                  <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed max-w-[220px]">
+                    100% certified organic spices, grown using traditional methods without chemicals.
+                  </p>
                 </div>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1 font-sans">ISO CERTIFIED</span>
-                <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed px-1">
-                  International standard production with strict hygiene and quality management protocols.
-                </p>
-              </div>
 
-              {/* Middle Wood Card Overlaid in Center (Moved inside capsule for perfect centering) */}
-              <div 
-                className="absolute left-1/2 top-1/2 w-[360px] h-[280px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] overflow-hidden z-20"
-                style={{ transform: "translate(-50%, -50%) skewX(-18deg)", borderRadius: "40px" }}
-              >
-                {/* Wood background gradient and pattern */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#d4a877] via-[#ba874a] to-[#8d5b24]" />
-                <div className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
-                <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
-                <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "32px" }} />
-                
-                <div className="w-full h-full flex flex-col items-center justify-center p-8 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
-                  {/* Center logo - shiield logo.png with background removed */}
-                  <div className="w-20 h-24 relative mb-2 flex items-center justify-center z-10">
-                     <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
-                  </div>
-                  <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-1 font-sans drop-shadow-md text-center">CEYLON SPICES</span>
-                  <p className="text-[0.65rem] text-[#ffeed4] font-sans text-center leading-relaxed drop-shadow-sm px-6">
+                {/* Middle Text (Ceylon Spices) */}
+                <div className="w-[34%] mx-[1%] flex flex-col items-center text-center px-6">
+                  <span className="font-bold text-[0.85rem] tracking-widest text-[#ffe8b3] mb-1.5 font-sans drop-shadow-md">
+                    CEYLON SPICES
+                  </span>
+                  <p className="text-[0.65rem] text-[#ffeed4] font-sans leading-relaxed max-w-[240px] drop-shadow-sm">
                     Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+                  </p>
+                </div>
+
+                {/* Right Text (ISO Certified) */}
+                <div className="w-[30%] mr-[3%] flex flex-col items-center text-center px-4">
+                  <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1.5 font-sans">
+                    ISO CERTIFIED
+                  </span>
+                  <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed max-w-[220px]">
+                    International standard production with strict hygiene and quality management protocols.
                   </p>
                 </div>
               </div>
@@ -325,10 +335,10 @@ export default function Home() {
               <div className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
               <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
               <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "20px" }} />
-              
+
               <div className="relative z-10 flex flex-col items-center">
                 <div className="w-20 h-24 relative mb-2 flex items-center justify-center z-10">
-                   <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
+                  <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
                 </div>
                 <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-2 drop-shadow-md">CEYLON SPICES</span>
                 <p className="text-[0.75rem] text-[#ffeed4] text-center leading-relaxed drop-shadow-sm px-2">
@@ -353,15 +363,15 @@ export default function Home() {
 
       {/* Featured Products Showcase */}
       <section className="py-24 relative overflow-hidden z-10">
-        
+
         {/* Paper texture section background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
-          <Image 
-            src="/images/products_section_bg.png" 
-            alt="Products Section Background Texture" 
-            fill 
+          <Image
+            src="/images/products_section_bg.png"
+            alt="Products Section Background Texture"
+            fill
             className="object-cover opacity-90"
-            priority 
+            priority
           />
         </div>
 
@@ -385,8 +395,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 relative z-10">
 
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Premium Sri Lankan Spices</h2>
-            <p className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-serif">Discover Our Collection</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans">
+              PREMIUM SRI LANKAN SPICES
+            </h2>
+            <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans">
+              Discover Our Collection
+            </p>
           </div>
 
           <div className="flex flex-col gap-10">
@@ -399,7 +413,7 @@ export default function Home() {
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
 
-              
+
               <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill className="object-cover scale-[1.15]" style={{ objectPosition: "center 30%" }} />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
@@ -411,18 +425,18 @@ export default function Home() {
                 <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
                   Ceylon Cinnamon
                 </h3>
-                
+
                 {/* Gold Wave Divider */}
                 <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-                
+
                 <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
                   Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
                 </p>
 
-                <a 
-                  href="/products" 
+                <a
+                  href="/products"
                   className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
                 >
                   SHOP CINNAMON
@@ -442,7 +456,7 @@ export default function Home() {
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
               <Image src="/images/cardamom_bg_card_v2.png" alt="Green Cardamom Card Background" fill className="object-cover scale-[1.2]" />
-              
+
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the marble panel of the image) */}
               <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
                 <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
@@ -451,18 +465,18 @@ export default function Home() {
                 <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
                   Green Cardamom
                 </h3>
-                
+
                 {/* Gold Wave Divider */}
                 <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-                
+
                 <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
                   Our select Green Cardamom, sourced from dedicated central highland farmers, offers an intense, aromatic experience for daily wellness. Meticulously handpicked for highest purity, it supports digestive health and adds unique flavor to your rituals and creations.
                 </p>
 
-                <a 
-                  href="/products" 
+                <a
+                  href="/products"
                   className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
                 >
                   SHOP CARDAMOM
@@ -482,7 +496,7 @@ export default function Home() {
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
 
-              
+
               <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover scale-[1.2]" />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
@@ -494,18 +508,18 @@ export default function Home() {
                 <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
                   Organic Cloves
                 </h3>
-                
+
                 {/* Gold Wave Divider */}
                 <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
-                
+
                 <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
                   Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
                 </p>
 
-                <a 
-                  href="/products" 
+                <a
+                  href="/products"
                   className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
                 >
                   SHOP CLOVES
@@ -533,8 +547,8 @@ export default function Home() {
           className="max-w-5xl mx-auto px-4"
         >
           <div className="text-center max-w-xl mx-auto mb-16">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Why Choose Us</h2>
-            <p className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Quality & Sustainability</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans">Why Choose Us</h2>
+            <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans">Quality & Sustainability</p>
           </div>
 
           <motion.div
@@ -638,8 +652,8 @@ export default function Home() {
           className="max-w-5xl mx-auto px-4"
         >
           <div className="text-center max-w-xl mx-auto mb-12">
-            <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Follow Us</h2>
-            <p className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Instagram Feed</p>
+            <h2 className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans">Follow Us</h2>
+            <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans">Instagram Feed</p>
           </div>
 
           <motion.div
@@ -760,8 +774,8 @@ export default function Home() {
       {/* Export Section */}
       <section className="pt-24 pb-0 relative overflow-hidden bg-white z-20 w-full">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#cca43b] mb-3 block font-sans">Global Distribution</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 uppercase mb-12 font-sans">
+          <span className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans block">Global Distribution</span>
+          <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight text-[#3a200e] uppercase mb-12 font-sans">
             WE EXPORT INTERNATIONALLY
           </h2>
         </div>

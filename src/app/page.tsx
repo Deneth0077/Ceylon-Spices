@@ -194,23 +194,21 @@ export default function Home() {
       {/* Certifications Section */}
       <section id="certifications" className="py-28 bg-[#faf8f5] relative z-10 overflow-hidden">
         {/* Floating background decorative spice elements (Mockup Spices) */}
-        <div className="absolute -top-10 -left-10 w-48 h-48 md:w-60 md:h-60 pointer-events-none opacity-90 select-none z-0">
-          <Image
+        <div className="absolute -top-14 -left-14 w-64 h-64 md:w-80 md:h-80 pointer-events-none opacity-90 select-none z-0">
+          <TransparentImage
             src="/images/cardamom_pods_1781650532128.png"
             alt="Green Cardamom"
-            width={240}
-            height={240}
-            className="w-full h-full object-contain rotate-[-15deg]"
+            className="w-full h-full object-contain rotate-[-15deg] drop-shadow-md"
+            threshold={240}
           />
         </div>
 
-        <div className="absolute -bottom-20 -right-16 w-56 h-56 md:w-72 md:h-72 pointer-events-none opacity-95 select-none z-0">
-          <Image
+        <div className="absolute -bottom-24 -right-20 w-72 h-72 md:w-96 md:h-96 pointer-events-none opacity-95 select-none z-0">
+          <TransparentImage
             src="/images/cinnamon_sticks_with_rope.png"
             alt="Cinnamon Sticks"
-            width={300}
-            height={300}
-            className="w-full h-full object-contain rotate-[-20deg]"
+            className="w-full h-full object-contain rotate-[-20deg] drop-shadow-lg"
+            threshold={240}
           />
         </div>
 
@@ -244,84 +242,60 @@ export default function Home() {
             </motion.h2>
           </motion.div>
 
-          {/* Desktop Layout (Skewed Panels with Exact Rounded Corners to fit together) */}
+          {/* Desktop Layout (Single Capsule Container with Skewed Wood Panel Overlaid) */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="hidden md:flex flex-row justify-center items-center relative w-full max-w-[1050px] mx-auto z-10 pb-10"
+            className="hidden md:block relative w-full max-w-[940px] mx-auto z-10 pb-10"
           >
-            {/* SVG Constellation Overlay */}
-            <div className="absolute inset-0 z-30 pointer-events-none">
-              <svg viewBox="0 0 1000 340" className="w-full h-full opacity-65 drop-shadow-md">
-                <defs>
-                   <filter id="glowCyan"><feGaussianBlur stdDeviation="3" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
-                   <filter id="glowGreen"><feGaussianBlur stdDeviation="3" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
-                </defs>
-                {/* Connecting lines between Left logo center, Middle logo center, and Right logo center */}
-                <path d="M 230 170 L 410 130 L 450 200 L 230 170" stroke="rgba(16,185,129,0.35)" strokeWidth="1.5" fill="none" />
-                <path d="M 410 130 L 480 170 L 450 200 Z" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" fill="none" />
-                <path d="M 770 170 L 590 130 L 550 200 L 770 170" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5" fill="none" />
-                <path d="M 590 130 L 520 170 L 550 200 Z" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" fill="none" />
-                <circle cx="410" cy="130" r="3" fill="#a7f3d0" filter="url(#glowGreen)" />
-                <circle cx="450" cy="200" r="3" fill="#a7f3d0" filter="url(#glowGreen)" />
-                <circle cx="590" cy="130" r="3" fill="#a5f3fc" filter="url(#glowCyan)" />
-                <circle cx="550" cy="200" r="3" fill="#a5f3fc" filter="url(#glowCyan)" />
-                <circle cx="480" cy="170" r="2" fill="white" />
-                <circle cx="520" cy="170" r="2" fill="white" />
-              </svg>
-            </div>
-
-            {/* Left Card */}
-            <div 
-              className="w-[320px] h-[260px] bg-white shadow-xl relative overflow-hidden flex-shrink-0 z-10 border border-stone-100"
-              style={{ transform: "skewX(-18deg)", borderRadius: "120px 40px 40px 120px" }}
-            >
-              <div className="w-full h-full flex flex-col items-center justify-center p-8 pr-16 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
+            {/* White capsule background card */}
+            <div className="relative w-full h-[260px] bg-white shadow-xl rounded-full flex items-center justify-between px-20 border border-stone-100/60 z-10">
+              
+              {/* Left Content */}
+              <div className="w-[280px] flex flex-col items-center justify-center text-center">
                 <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
                   <TransparentImage src="/images/cert_leaf.png" alt="USDA Organic" className="w-full h-full object-contain drop-shadow-md" />
                 </div>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1 font-sans text-center">USDA ORGANIC</span>
-                <p className="text-[0.65rem] text-gray-500 font-sans text-center leading-relaxed px-1">
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1 font-sans">USDA ORGANIC</span>
+                <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed px-1">
                   100% certified organic spices, grown using traditional methods without chemicals.
                 </p>
               </div>
-            </div>
 
-            {/* Middle Wood Card */}
-            <div 
-              className="w-[370px] h-[280px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] relative overflow-hidden flex-shrink-0 z-20 -mx-12"
-              style={{ transform: "skewX(-18deg)", borderRadius: "40px" }}
-            >
-              {/* Wood background image cover */}
-              <div className="absolute top-1/2 left-1/2 w-[145%] h-[125%]" style={{ transform: "translate(-50%, -50%) skewX(18deg)" }}>
-                <Image src="/images/user_shield_final.png" alt="Ceylon Spices Logo" fill className="object-cover" />
-              </div>
-              <div className="absolute inset-0 bg-black/10 mix-blend-multiply pointer-events-none" />
-              <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "32px" }} />
-              
-              <div className="w-full h-full flex flex-col items-center justify-end pb-8 absolute inset-0 pointer-events-none" style={{ transform: "skewX(18deg)" }}>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-1 font-sans drop-shadow-md text-center">CEYLON SPICES</span>
-                <p className="text-[0.65rem] text-[#ffeed4] font-sans text-center leading-relaxed drop-shadow-sm px-6">
-                  Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Card */}
-            <div 
-              className="w-[320px] h-[260px] bg-white shadow-xl relative overflow-hidden flex-shrink-0 z-10 border border-stone-100"
-              style={{ transform: "skewX(-18deg)", borderRadius: "40px 120px 120px 40px" }}
-            >
-              <div className="w-full h-full flex flex-col items-center justify-center p-8 pl-16 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
+              {/* Right Content */}
+              <div className="w-[280px] flex flex-col items-center justify-center text-center">
                 <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
                   <TransparentImage src="/images/cert_globe.png" alt="ISO Certified" className="w-full h-full object-contain drop-shadow-md" />
                 </div>
-                <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1 font-sans text-center">ISO CERTIFIED</span>
-                <p className="text-[0.65rem] text-gray-500 font-sans text-center leading-relaxed px-1">
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1 font-sans">ISO CERTIFIED</span>
+                <p className="text-[0.65rem] text-gray-500 font-sans leading-relaxed px-1">
                   International standard production with strict hygiene and quality management protocols.
                 </p>
+              </div>
+
+              {/* Middle Wood Card Overlaid in Center (Moved inside capsule for perfect centering) */}
+              <div 
+                className="absolute left-1/2 top-1/2 w-[360px] h-[280px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] overflow-hidden z-20"
+                style={{ transform: "translate(-50%, -50%) skewX(-18deg)", borderRadius: "40px" }}
+              >
+                {/* Wood background gradient and pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#d4a877] via-[#ba874a] to-[#8d5b24]" />
+                <div className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+                <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "32px" }} />
+                
+                <div className="w-full h-full flex flex-col items-center justify-center p-8 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
+                  {/* Center logo - shiield logo.png with background removed */}
+                  <div className="w-20 h-24 relative mb-2 flex items-center justify-center z-10">
+                     <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
+                  </div>
+                  <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-1 font-sans drop-shadow-md text-center">CEYLON SPICES</span>
+                  <p className="text-[0.65rem] text-[#ffeed4] font-sans text-center leading-relaxed drop-shadow-sm px-6">
+                    Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -346,10 +320,16 @@ export default function Home() {
             </motion.div>
 
             {/* Ceylon Spices Card */}
-            <motion.div variants={fadeInUp} className="w-full h-[280px] rounded-3xl shadow-xl flex flex-col items-center justify-end p-8 border border-[#ffe8b3]/30 relative overflow-hidden">
-              <Image src="/images/user_shield_final.png" alt="Wood background" fill className="object-cover" />
-              <div className="absolute inset-0 bg-black/15 mix-blend-multiply pointer-events-none" />
+            <motion.div variants={fadeInUp} className="w-full h-[280px] rounded-3xl shadow-xl flex flex-col items-center justify-center p-8 border border-[#ffe8b3]/30 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#d4a877] via-[#ba874a] to-[#8d5b24]" />
+              <div className="absolute inset-0 opacity-[0.12] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
+              <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+              <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "20px" }} />
+              
               <div className="relative z-10 flex flex-col items-center">
+                <div className="w-20 h-24 relative mb-2 flex items-center justify-center z-10">
+                   <TransparentImage src="/images/shiield%20logo.png" alt="Ceylon Spices Logo" className="w-full h-full object-contain drop-shadow-md" threshold={240} />
+                </div>
                 <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-2 drop-shadow-md">CEYLON SPICES</span>
                 <p className="text-[0.75rem] text-[#ffeed4] text-center leading-relaxed drop-shadow-sm px-2">
                   Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
@@ -372,141 +352,306 @@ export default function Home() {
       </section>
 
       {/* Featured Products Showcase */}
-      <section className="py-20 bg-white relative overflow-hidden z-10">
+      <section className="py-24 bg-white relative overflow-hidden z-10">
+        
+        {/* Inline SVG Clip Path definitions for organic wave dividers */}
+        <svg width="0" height="0" className="absolute pointer-events-none">
+          <defs>
+            <clipPath id="wave-split" clipPathUnits="objectBoundingBox">
+              <path d="M 0,0 L 0.48,0 C 0.42,0.15 0.35,0.35 0.42,0.5 C 0.49,0.65 0.53,0.85 0.46,1 L 0,1 Z" />
+            </clipPath>
+          </defs>
+        </svg>
 
-        {/* Floating background decorative leaf details linking the grid */}
-        <div className="absolute -left-16 top-1/4 w-32 h-32 opacity-15 pointer-events-none rotate-45 select-none hidden lg:block">
-          <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale contrast-125" />
+        {/* Ambient watermark details */}
+        <div className="absolute -left-16 top-1/4 w-32 h-32 opacity-[0.03] pointer-events-none rotate-45 select-none hidden lg:block">
+          <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale" />
         </div>
-        <div className="absolute -right-16 bottom-1/4 w-32 h-32 opacity-15 pointer-events-none -rotate-12 select-none hidden lg:block">
-          <Image src="/images/cloves_dried_1781650553541.png" alt="Cloves Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale contrast-125" />
+        <div className="absolute -right-16 bottom-1/4 w-32 h-32 opacity-[0.03] pointer-events-none -rotate-12 select-none hidden lg:block">
+          <Image src="/images/cloves_dried_1781650553541.png" alt="Cloves Decor" width={150} height={150} className="w-full h-full object-contain filter grayscale" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 md:space-y-40">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-          <div className="text-center max-w-xl mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-12">
             <h2 className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans">Premium Sri Lankan Spices</h2>
-            <p className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">Discover Our Collection</p>
+            <p className="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight font-serif">Discover Our Collection</p>
           </div>
 
-          {/* Ceylon Cinnamon */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            className="flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
-          >
-            {/* Image side with morphing shape */}
+          <div className="flex flex-col gap-10">
+            {/* Cinnamon Card */}
             <motion.div
-              variants={slideInLeft}
-              className="flex-1 relative w-full aspect-square max-w-sm mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={fadeInUp}
+              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
+              style={{
+                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
+              }}
             >
-              {/* Offset thin border blob */}
-              <div className="absolute inset-0 border-2 border-cap-gold/30 rounded-[50%_40%_60%_40%/40%_50%_40%_60%] translate-x-4 translate-y-4 scale-105 z-0 transition-transform duration-[1.5s] ease-out group-hover:rotate-12"></div>
-              {/* Morphing color blob */}
-              <div className="absolute inset-0 bg-[#e9b996]/40 rounded-[50%_40%_60%_40%/40%_50%_40%_60%] z-10 shadow-sm animate-morph-1"></div>
-              <TransparentImage
-                src="/images/cinnamon_sticks_1781650514051.png"
-                alt="Ceylon Cinnamon"
-                className="absolute inset-0 w-full h-full object-contain p-8 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] z-20 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-rotate-3"
-              />
+              {/* Wood background section (clipped organically on desktop) */}
+              <div 
+                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
+                style={{
+                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
+                }}
+              >
+                {/* Wood texture details */}
+                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
+                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+                
+                {/* Cinnamon Quill Vector Line Art */}
+                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
+                  <path d="M 16,36 C 16,24 24,16 36,16 C 48,16 56,24 56,36 C 56,48 48,56 36,56 C 28,56 22,50 20,44 C 18,38 22,32 28,30 C 34,28 40,32 42,38" />
+                  <path d="M 12,32 C 12,18 22,8 36,8 C 50,8 60,18 60,32" />
+                </svg>
+              </div>
+
+              {/* Left Side Content Container (Podium and Spice Image) */}
+              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
+                {/* 3D Wood Podium */}
+                <div className="relative w-48 h-10 bg-gradient-to-b from-[#9c7143] to-[#633e1d] rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.35)] border-t border-[#d8a873]/40 mt-16 md:mt-24">
+                  {/* Top face of podium */}
+                  <div className="absolute -top-2.5 left-0 right-0 h-10 bg-[#bd8e55] rounded-full border border-[#d8a873] shadow-inner flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-1 border border-[#9c7143]/30 rounded-full" />
+                    <div className="absolute inset-3 border border-[#9c7143]/15 rounded-full" />
+                    <div className="absolute inset-6 border border-[#9c7143]/5 rounded-full" />
+                  </div>
+                </div>
+
+                {/* Floating Spice Asset - Cinnamon Sticks */}
+                <div className="absolute -translate-y-8 md:-translate-y-12 w-48 h-48 md:w-56 md:h-56 z-20">
+                  <TransparentImage
+                    src="/images/cinnamon_sticks_with_rope.png"
+                    alt="Ceylon Cinnamon"
+                    className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
+                    threshold={240}
+                  />
+                </div>
+              </div>
+
+              {/* Right Side Content Container (Frosted Glass Text Panel) */}
+              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
+                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
+                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
+                    TRUE CINNAMON (C5 ALBA)
+                  </span>
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
+                    Ceylon Cinnamon
+                  </h3>
+                  
+                  {/* Gold Wave Divider */}
+                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
+                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                  
+                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
+                    Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
+                  </p>
+
+                  <a 
+                    href="/products" 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
+                  >
+                    SHOP CINNAMON
+                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Stamp Circle and Ceylon Spices watermarks */}
+              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
+                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
+              </div>
+              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
+                CEYLON<br />SPICES
+              </div>
             </motion.div>
 
-            {/* Text side */}
+            {/* Cardamom Card */}
             <motion.div
-              variants={slideInRight}
-              className="flex-1 text-center md:text-left flex flex-col items-center md:items-start"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={fadeInUp}
+              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
+              style={{
+                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
+              }}
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-[#cca43b] mb-2 font-sans">True Cinnamon (C5 Alba)</span>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Ceylon<br />Cinnamon</h3>
-              <div className="w-12 h-1 bg-[#cca43b] mb-6 rounded-full" />
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
-              </p>
-              <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-cap-green hover:bg-[#1f3820] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
-                Shop Cinnamon
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
-              </a>
-            </motion.div>
-          </motion.div>
+              {/* Wood background section (clipped organically on desktop) */}
+              <div 
+                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
+                style={{
+                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
+                }}
+              >
+                {/* Wood texture details */}
+                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
+                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+                
+                {/* Cardamom Pod Line Art */}
+                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
+                  <path d="M 32,10 C 20,20 20,44 32,54 C 44,44 44,20 32,10 Z" />
+                  <path d="M 32,10 L 32,54" />
+                  <path d="M 32,20 Q 26,32 32,44" />
+                  <path d="M 32,20 Q 38,32 32,44" />
+                </svg>
+              </div>
 
-          {/* Cardamom */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 group"
-          >
-            {/* Image side with morphing shape */}
-            <motion.div
-              variants={slideInRight}
-              className="flex-1 relative w-full aspect-square max-w-sm mx-auto"
-            >
-              <div className="absolute inset-0 border-2 border-emerald-500/20 rounded-[40%_60%_50%_50%/50%_40%_60%_50%] -translate-x-4 -translate-y-4 scale-105 z-0 transition-transform duration-[1.5s] ease-out group-hover:-rotate-12"></div>
-              <div className="absolute inset-0 bg-[#d1dfc5]/40 rounded-[40%_60%_50%_50%/50%_40%_60%_50%] z-10 shadow-sm animate-morph-2"></div>
-              <TransparentImage
-                src="/images/cardamom_pods_1781650532128.png"
-                alt="Cardamom"
-                className="absolute inset-0 w-full h-full object-contain p-8 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] z-20 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-3"
-              />
+              {/* Left Side Content Container (Podium and Spice Image) */}
+              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
+                {/* 3D Wood Podium */}
+                <div className="relative w-48 h-10 bg-gradient-to-b from-[#9c7143] to-[#633e1d] rounded-full shadow-[0_12px_24px_rgba(0,0,0,0.35)] border-t border-[#d8a873]/40 mt-16 md:mt-24">
+                  {/* Top face of podium */}
+                  <div className="absolute -top-2.5 left-0 right-0 h-10 bg-[#bd8e55] rounded-full border border-[#d8a873] shadow-inner flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-1 border border-[#9c7143]/30 rounded-full" />
+                    <div className="absolute inset-3 border border-[#9c7143]/15 rounded-full" />
+                    <div className="absolute inset-6 border border-[#9c7143]/5 rounded-full" />
+                  </div>
+                </div>
+
+                {/* Floating Spice Asset - Cardamom */}
+                <div className="absolute -translate-y-8 md:-translate-y-12 w-48 h-48 md:w-56 md:h-56 z-20">
+                  <TransparentImage
+                    src="/images/cardamom_pods_1781650532128.png"
+                    alt="Green Cardamom"
+                    className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
+                    threshold={240}
+                  />
+                </div>
+              </div>
+
+              {/* Right Side Content Container (Frosted Glass Text Panel) */}
+              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
+                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
+                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
+                    QUEEN OF SPICES (TRUE CARDAMOM)
+                  </span>
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
+                    Green Cardamom
+                  </h3>
+                  
+                  {/* Gold Wave Divider */}
+                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
+                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                  
+                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
+                    Our select Green Cardamom, sourced from dedicated central highland farmers, offers an intense, aromatic experience for daily wellness. Meticulously handpicked for highest purity, it supports digestive health and adds unique flavor to your rituals and creations.
+                  </p>
+
+                  <a 
+                    href="/products" 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
+                  >
+                    SHOP CARDAMOM
+                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Stamp Circle and Ceylon Spices watermarks */}
+              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
+                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
+              </div>
+              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
+                CEYLON<br />SPICES
+              </div>
             </motion.div>
 
-            {/* Text side */}
+            {/* Cloves Card */}
             <motion.div
-              variants={slideInLeft}
-              className="flex-1 text-center md:text-left flex flex-col items-center md:items-start"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-120px" }}
+              variants={fadeInUp}
+              className="w-full relative flex flex-col md:flex-row items-center rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40 bg-[#faf8f5] md:h-[400px] min-h-[380px] md:min-h-0"
+              style={{
+                backgroundImage: "radial-gradient(circle at 80% 20%, rgba(245, 235, 215, 0.4) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(230, 210, 180, 0.3) 0%, transparent 50%)"
+              }}
             >
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 mb-2 font-sans">Queen of Spices</span>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Green<br />Cardamom</h3>
-              <div className="w-12 h-1 bg-emerald-700 mb-6 rounded-full" />
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Handpicked from the central highlands, our premium green cardamom delivers an intense, natural aroma perfect for elevating any dish.
-              </p>
-              <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-[#b87c47] hover:bg-[#a36c3e] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
-                Shop Cardamom
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
-              </a>
-            </motion.div>
-          </motion.div>
+              {/* Wood background section (clipped organically on desktop) */}
+              <div 
+                className="relative md:absolute w-full md:w-[48%] h-[200px] md:h-full left-0 top-0 z-0 md:[clip-path:url(#wave-split)]"
+                style={{
+                  background: "linear-gradient(135deg, #c59762 0%, #8c5a2b 100%)"
+                }}
+              >
+                {/* Wood texture details */}
+                <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(11deg, transparent, transparent 4px, rgba(0,0,0,1) 4px, rgba(0,0,0,1) 8px)" }} />
+                <div className="absolute inset-0 opacity-25 mix-blend-overlay pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255,255,255,1) 15px, rgba(255,255,255,1) 30px)" }} />
+                
+                {/* Cloves Line Art */}
+                <svg viewBox="0 0 64 64" className="absolute top-6 right-24 w-12 h-12 opacity-25 stroke-[#fffbee] stroke-[1.2] fill-none pointer-events-none hidden md:block">
+                  <circle cx="32" cy="20" r="8" />
+                  <path d="M 24,20 C 24,32 28,48 32,56 C 36,48 40,32 40,20" />
+                  <path d="M 22,16 L 16,10" />
+                  <path d="M 42,16 L 48,10" />
+                </svg>
+              </div>
 
-          {/* Cloves */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-120px" }}
-            className="flex flex-col md:flex-row items-center gap-8 md:gap-16 group"
-          >
-            {/* Image side with morphing shape */}
-            <motion.div
-              variants={slideInLeft}
-              className="flex-1 relative w-full aspect-square max-w-sm mx-auto"
-            >
-              <div className="absolute inset-0 border-2 border-stone-400/20 rounded-[60%_40%_50%_50%/50%_50%_40%_60%] translate-x-4 -translate-y-4 scale-105 z-0 transition-transform duration-[1.5s] ease-out group-hover:rotate-12"></div>
-              <div className="absolute inset-0 bg-[#b8aba1]/30 rounded-[60%_40%_50%_50%/50%_50%_40%_60%] z-10 shadow-sm animate-morph-1"></div>
-              <TransparentImage
-                src="/images/cloves_dried_1781650553541.png"
-                alt="Cloves"
-                className="absolute inset-0 w-full h-full object-contain p-8 drop-shadow-[0_15px_30px_rgba(0,0,0,0.15)] z-20 transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-rotate-3"
-              />
-            </motion.div>
+              {/* Left Side Content Container (Soft Circle Podium and Spice Image) */}
+              <div className="relative z-10 w-full md:w-[45%] h-[200px] md:h-full flex items-center justify-center p-8 md:absolute md:left-0 md:top-0">
+                {/* Irregular Round Stone Podium */}
+                <div className="relative w-44 h-44 rounded-[50%_60%_50%_70%/60%_50%_70%_50%] bg-[#b8aba1]/35 shadow-inner flex items-center justify-center z-10">
+                  {/* Floating Spice Asset - Cloves */}
+                  <div className="w-36 h-36 z-20">
+                    <TransparentImage
+                      src="/images/cloves_dried_1781650553541.png"
+                      alt="Organic Cloves"
+                      className="w-full h-full object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.25)] hover:scale-105 hover:-rotate-2 transition-transform duration-500 ease-out"
+                      threshold={240}
+                    />
+                  </div>
+                </div>
+              </div>
 
-            {/* Text side */}
-            <motion.div
-              variants={slideInRight}
-              className="flex-1 text-center md:text-left flex flex-col items-center md:items-start"
-            >
-              <span className="text-xs font-bold uppercase tracking-widest text-[#764522] mb-2 font-sans">Aromatic Spice Buds</span>
-              <h3 className="text-3xl md:text-4xl font-extrabold text-gray-950 mb-4 tracking-tight leading-none">Organic<br />Cloves</h3>
-              <div className="w-12 h-1 bg-[#764522] mb-6 rounded-full" />
-              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-8 max-w-md">
-                Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
-              </p>
-              <a href="/products" className="inline-flex items-center gap-2 px-6 py-3 bg-cap-green hover:bg-[#1f3820] text-white font-bold text-xs tracking-widest uppercase rounded-xl transition-all duration-300 shadow-md hover:shadow-xl hover:translate-y-[-2px] active:translate-y-[0px] group/btn">
-                Shop Cloves
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1.5" />
-              </a>
+              {/* Right Side Content Container (Frosted Glass Text Panel) */}
+              <div className="relative z-10 w-full md:w-[55%] p-6 md:p-8 flex items-center justify-start md:ml-auto">
+                <div className="w-full max-w-[480px] backdrop-blur-md bg-white/40 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-[24px] p-6 md:p-8 flex flex-col justify-center relative md:-ml-12 z-10">
+                  <span className="text-[0.65rem] md:text-xs font-bold uppercase tracking-[0.2em] text-[#b48648] mb-1 font-sans">
+                    AROMATIC SPICE BUDS
+                  </span>
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-2 font-serif leading-none">
+                    Organic Cloves
+                  </h3>
+                  
+                  {/* Gold Wave Divider */}
+                  <svg width="40" height="6" viewBox="0 0 40 6" fill="none" className="mb-4">
+                    <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                  
+                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 font-sans">
+                    Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
+                  </p>
+
+                  <a 
+                    href="/products" 
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(28,58,33,0.35)] hover:shadow-[0_8px_25px_rgba(28,58,33,0.45)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
+                  >
+                    SHOP CLOVES
+                    <svg className="w-3.5 h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Stamp Circle and Ceylon Spices watermarks */}
+              <div className="absolute bottom-6 left-[43%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#1c1c1a] border border-[#d4af37]/35 flex items-center justify-center shadow-md z-20 hidden md:flex">
+                <span className="font-serif text-[#d4af37] text-[0.6rem] font-bold">N</span>
+              </div>
+              <div className="absolute bottom-6 right-8 text-right z-20 font-serif text-[0.6rem] tracking-[0.2em] text-[#5c3e21]/70 font-extrabold select-none hidden md:block">
+                CEYLON<br />SPICES
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
 
         </div>
       </section>

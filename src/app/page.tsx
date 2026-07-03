@@ -49,12 +49,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[500px] md:h-[650px] overflow-hidden flex flex-col items-center justify-center z-20">
-        
+
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <Image src="/images/rustic-spices-bg.png" alt="Rustic Spice Background" fill className="object-cover" priority />
         </div>
-        
+
         {/* Dark overlay to make the center blob pop */}
         <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
 
@@ -93,7 +93,7 @@ export default function Home() {
 
             {/* Sharp gold line */}
             <path d="M-100,120 C200,200 400,20 800,100 C1100,160 1300,50 1500,20" fill="none" stroke="url(#goldGlow)" strokeWidth="2" filter="url(#glow)" />
-            
+
             {/* Translucent wave overlay 1 */}
             <path d="M0,150 C300,230 500,80 900,130 C1200,170 1350,70 1440,30 L1440,250 L0,250 Z" fill="url(#waveGrad1)" />
 
@@ -112,8 +112,8 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="w-[90%] md:w-[85%] h-[85%] md:h-[80%] relative shadow-[0_30px_60px_rgba(0,0,0,0.4)] flex items-center justify-center"
-            style={{ 
-              borderRadius: "45% 55% 65% 35% / 55% 45% 60% 40%", 
+            style={{
+              borderRadius: "45% 55% 65% 35% / 55% 45% 60% 40%",
               background: "linear-gradient(135deg, rgba(235,210,135,0.7) 0%, rgba(195,165,85,0.85) 100%)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
 
             {/* Cinnamon Sticks (Top Left) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
@@ -140,7 +140,7 @@ export default function Home() {
             </motion.div>
 
             {/* Black Peppercorns (Bottom Left) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -50, y: 50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -150,7 +150,7 @@ export default function Home() {
             </motion.div>
 
             {/* Green Leaf (Top Right) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
@@ -160,7 +160,7 @@ export default function Home() {
             </motion.div>
 
             {/* Cloves (Bottom Right) */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50, y: 50 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
@@ -183,7 +183,7 @@ export default function Home() {
         >
           {/* Organic blob background */}
           <div className="absolute inset-0 bg-white/30 backdrop-blur-md rounded-[50%_50%_40%_60%/60%_40%_60%_40%] shadow-[0_8px_32px_rgba(0,0,0,0.15)] border border-white/20 transition-all duration-500 ease-out group-hover:rounded-[40%_60%_50%_50%/50%_60%_40%_50%] group-hover:bg-white/40 group-hover:scale-105" />
-          
+
           <div className="relative px-8 py-3">
             <span className="text-gray-900 font-bold text-xs tracking-widest uppercase font-sans whitespace-nowrap drop-shadow-sm">Scroll Down</span>
           </div>
@@ -192,117 +192,183 @@ export default function Home() {
       </section>
 
       {/* Certifications Section */}
-      <section id="certifications" className="pt-24 pb-24 bg-gradient-to-b from-[#FAF7F2] via-[#FCFAF7] to-white relative z-10 overflow-hidden">
-        {/* Floating background decorative spice elements */}
-        <div className="absolute -left-12 -top-12 w-48 h-48 pointer-events-none opacity-25 hover:opacity-60 transition-opacity duration-700 animate-float-slow select-none z-0">
-          <img
-            src="/images/cinnamon_leaf.png"
-            alt="Cinnamon Leaf"
-            className="w-full h-full object-contain rotate-12"
-          />
-        </div>
-        <div className="absolute -right-16 top-8 w-40 h-40 pointer-events-none opacity-30 hover:opacity-75 transition-opacity duration-700 animate-float-medium select-none z-0">
-          <img
-            src="/images/cloves_dried_1781650553541.png"
-            alt="Dried Cloves"
-            className="w-full h-full object-contain -rotate-45"
-          />
-        </div>
-        <div className="absolute left-6 bottom-4 w-44 h-44 pointer-events-none opacity-30 hover:opacity-75 transition-opacity duration-700 animate-float-fast select-none z-0">
-          <img
+      <section id="certifications" className="py-28 bg-[#faf8f5] relative z-10 overflow-hidden">
+        {/* Floating background decorative spice elements (Mockup Spices) */}
+        <div className="absolute -top-10 -left-10 w-48 h-48 md:w-60 md:h-60 pointer-events-none opacity-90 select-none z-0">
+          <Image
             src="/images/cardamom_pods_1781650532128.png"
-            alt="Cardamom Pods"
-            className="w-full h-full object-contain rotate-45"
+            alt="Green Cardamom"
+            width={240}
+            height={240}
+            className="w-full h-full object-contain rotate-[-15deg]"
           />
         </div>
-        <div className="absolute -right-12 -bottom-16 w-52 h-52 pointer-events-none opacity-25 hover:opacity-60 transition-opacity duration-700 animate-float-slow select-none z-0">
-          <img
+
+        <div className="absolute -bottom-20 -right-16 w-56 h-56 md:w-72 md:h-72 pointer-events-none opacity-95 select-none z-0">
+          <Image
             src="/images/cinnamon_sticks_with_rope.png"
             alt="Cinnamon Sticks"
-            className="w-full h-full object-contain -rotate-12"
+            width={300}
+            height={300}
+            className="w-full h-full object-contain rotate-[-20deg]"
           />
         </div>
 
-        {/* Decorative blur blobs */}
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-[#c3843a]/5 blur-3xl pointer-events-none -translate-x-1/2 -translate-y-1/2 z-0 animate-pulse-glow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-[#764522]/5 blur-3xl pointer-events-none translate-x-1/2 translate-y-1/2 z-0 animate-pulse-glow" />
+        {/* Bottom Left Stylized Brand "N" */}
+        <div className="absolute bottom-6 left-8 font-serif text-3xl font-bold text-[#c09257]/20 select-none z-0">
+          N
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="max-w-5xl mx-auto px-4 text-center relative z-10"
-        >
-          <motion.h2
-            variants={fadeInUp}
-            className="text-xs md:text-sm font-extrabold text-cap-gold mb-3 tracking-[0.25em] uppercase font-sans"
-          >
-            Trusted Worldwide
-          </motion.h2>
-          <motion.p
-            variants={fadeInUp}
-            className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-16 tracking-tight font-sans"
-          >
-            Global Quality Certifications
-          </motion.p>
+        {/* Subtle Watermark Patterns */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0 bg-[radial-gradient(#8d5b24_1px,transparent_1px)] [background-size:32px_32px]" />
 
+        <div className="max-w-6xl mx-auto px-4 text-center relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="mb-16"
+          >
+            <motion.span
+              variants={fadeInUp}
+              className="text-xs md:text-sm font-bold text-[#c09257] tracking-[0.25em] uppercase font-sans block mb-2"
+            >
+              Trusted Worldwide
+            </motion.span>
+            <motion.h2
+              variants={fadeInUp}
+              className="text-3xl md:text-5xl font-bold text-[#4a2e15] tracking-tight font-serif"
+            >
+              Global Quality Certifications
+            </motion.h2>
+          </motion.div>
+
+          {/* Desktop Layout (Skewed Panels with Exact Rounded Corners to fit together) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="hidden md:flex flex-row justify-center items-center relative w-full max-w-[1050px] mx-auto z-10 pb-10"
+          >
+            {/* SVG Constellation Overlay */}
+            <div className="absolute inset-0 z-30 pointer-events-none">
+              <svg viewBox="0 0 1000 340" className="w-full h-full opacity-65 drop-shadow-md">
+                <defs>
+                   <filter id="glowCyan"><feGaussianBlur stdDeviation="3" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
+                   <filter id="glowGreen"><feGaussianBlur stdDeviation="3" result="blur" /><feComposite in="SourceGraphic" in2="blur" operator="over" /></filter>
+                </defs>
+                {/* Connecting lines between Left logo center, Middle logo center, and Right logo center */}
+                <path d="M 230 170 L 410 130 L 450 200 L 230 170" stroke="rgba(16,185,129,0.35)" strokeWidth="1.5" fill="none" />
+                <path d="M 410 130 L 480 170 L 450 200 Z" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" fill="none" />
+                <path d="M 770 170 L 590 130 L 550 200 L 770 170" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5" fill="none" />
+                <path d="M 590 130 L 520 170 L 550 200 Z" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" fill="none" />
+                <circle cx="410" cy="130" r="3" fill="#a7f3d0" filter="url(#glowGreen)" />
+                <circle cx="450" cy="200" r="3" fill="#a7f3d0" filter="url(#glowGreen)" />
+                <circle cx="590" cy="130" r="3" fill="#a5f3fc" filter="url(#glowCyan)" />
+                <circle cx="550" cy="200" r="3" fill="#a5f3fc" filter="url(#glowCyan)" />
+                <circle cx="480" cy="170" r="2" fill="white" />
+                <circle cx="520" cy="170" r="2" fill="white" />
+              </svg>
+            </div>
+
+            {/* Left Card */}
+            <div 
+              className="w-[320px] h-[260px] bg-white shadow-xl relative overflow-hidden flex-shrink-0 z-10 border border-stone-100"
+              style={{ transform: "skewX(-18deg)", borderRadius: "120px 40px 40px 120px" }}
+            >
+              <div className="w-full h-full flex flex-col items-center justify-center p-8 pr-16 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
+                <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
+                  <TransparentImage src="/images/cert_leaf.png" alt="USDA Organic" className="w-full h-full object-contain drop-shadow-md" />
+                </div>
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-1 font-sans text-center">USDA ORGANIC</span>
+                <p className="text-[0.65rem] text-gray-500 font-sans text-center leading-relaxed px-1">
+                  100% certified organic spices, grown using traditional methods without chemicals.
+                </p>
+              </div>
+            </div>
+
+            {/* Middle Wood Card */}
+            <div 
+              className="w-[370px] h-[280px] shadow-[0_20px_45px_rgba(0,0,0,0.35)] relative overflow-hidden flex-shrink-0 z-20 -mx-12"
+              style={{ transform: "skewX(-18deg)", borderRadius: "40px" }}
+            >
+              {/* Wood background image cover */}
+              <div className="absolute top-1/2 left-1/2 w-[145%] h-[125%]" style={{ transform: "translate(-50%, -50%) skewX(18deg)" }}>
+                <Image src="/images/user_shield_final.png" alt="Ceylon Spices Logo" fill className="object-cover" />
+              </div>
+              <div className="absolute inset-0 bg-black/10 mix-blend-multiply pointer-events-none" />
+              <div className="absolute inset-2 border-[2px] border-[#ffe8b3]/45 pointer-events-none" style={{ borderRadius: "32px" }} />
+              
+              <div className="w-full h-full flex flex-col items-center justify-end pb-8 absolute inset-0 pointer-events-none" style={{ transform: "skewX(18deg)" }}>
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-1 font-sans drop-shadow-md text-center">CEYLON SPICES</span>
+                <p className="text-[0.65rem] text-[#ffeed4] font-sans text-center leading-relaxed drop-shadow-sm px-6">
+                  Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Card */}
+            <div 
+              className="w-[320px] h-[260px] bg-white shadow-xl relative overflow-hidden flex-shrink-0 z-10 border border-stone-100"
+              style={{ transform: "skewX(-18deg)", borderRadius: "40px 120px 120px 40px" }}
+            >
+              <div className="w-full h-full flex flex-col items-center justify-center p-8 pl-16 absolute inset-0" style={{ transform: "skewX(18deg)" }}>
+                <div className="w-20 h-20 flex items-center justify-center mb-2 relative">
+                  <TransparentImage src="/images/cert_globe.png" alt="ISO Certified" className="w-full h-full object-contain drop-shadow-md" />
+                </div>
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-1 font-sans text-center">ISO CERTIFIED</span>
+                <p className="text-[0.65rem] text-gray-500 font-sans text-center leading-relaxed px-1">
+                  International standard production with strict hygiene and quality management protocols.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Mobile Layout (Stacked fallback cards) */}
           <motion.div
             variants={staggerContainer}
-            className="flex justify-center items-stretch gap-8 md:gap-12 lg:gap-16 flex-wrap"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-col gap-6 md:hidden w-full relative z-30 max-w-sm mx-auto pb-10"
           >
             {/* USDA Organic Card */}
-            <motion.div
-              variants={fadeInUp}
-              className="w-full sm:w-64 min-h-[260px] p-8 rounded-[2rem] border-2 border-emerald-600/10 flex flex-col items-center text-center bg-white/70 backdrop-blur-md shadow-md text-emerald-800 transition-all duration-500 hover:border-emerald-600/40 hover:shadow-[0_20px_40px_rgba(16,185,129,0.08)] hover:scale-[1.03] active:scale-95 group cursor-default relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/0 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0" />
-
-              <div className="w-20 h-20 rounded-full bg-emerald-50/80 flex items-center justify-center mb-6 group-hover:bg-emerald-100/90 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 shadow-sm border border-emerald-500/10 z-10">
-                <span className="text-4xl transform group-hover:scale-110 transition-transform duration-300">🍃</span>
+            <motion.div variants={fadeInUp} className="w-full bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-8 border border-stone-100">
+              <div className="w-24 h-24 flex items-center justify-center mb-2 relative">
+                <TransparentImage src="/images/cert_leaf.png" alt="USDA Organic" className="w-full h-full object-contain drop-shadow-md" />
               </div>
-
-              <span className="z-10 font-bold text-sm tracking-widest text-emerald-900 mb-2 font-sans">USDA ORGANIC</span>
-              <p className="z-10 text-xs text-gray-500 font-sans max-w-[190px] leading-relaxed">
+              <span className="font-bold text-[0.85rem] tracking-widest text-[#1a4a38] mb-2">USDA ORGANIC</span>
+              <p className="text-[0.75rem] text-gray-500 text-center leading-relaxed">
                 100% certified organic spices, grown using traditional methods without chemicals.
               </p>
             </motion.div>
 
-            {/* Ceylon Lion Card */}
-            <motion.div
-              variants={fadeInUp}
-              className="w-full sm:w-64 min-h-[260px] p-8 rounded-[2rem] border-2 border-amber-700/10 flex flex-col items-center text-center bg-[#fdfaf5]/70 backdrop-blur-md shadow-md text-amber-900 transition-all duration-500 hover:border-amber-700/40 hover:shadow-[0_20px_40px_rgba(217,119,6,0.08)] hover:scale-[1.03] active:scale-95 group cursor-default relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-amber-500/0 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0" />
-
-              <div className="w-20 h-20 rounded-2xl bg-amber-50/80 flex items-center justify-center mb-6 group-hover:bg-amber-100/90 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-12 shadow-sm border border-amber-500/10 z-10">
-                <span className="text-4xl transform group-hover:scale-110 transition-transform duration-300">🦁</span>
+            {/* Ceylon Spices Card */}
+            <motion.div variants={fadeInUp} className="w-full h-[280px] rounded-3xl shadow-xl flex flex-col items-center justify-end p-8 border border-[#ffe8b3]/30 relative overflow-hidden">
+              <Image src="/images/user_shield_final.png" alt="Wood background" fill className="object-cover" />
+              <div className="absolute inset-0 bg-black/15 mix-blend-multiply pointer-events-none" />
+              <div className="relative z-10 flex flex-col items-center">
+                <span className="font-bold text-[0.85rem] tracking-widest text-[#fffbee] mb-2 drop-shadow-md">CEYLON SPICES</span>
+                <p className="text-[0.75rem] text-[#ffeed4] text-center leading-relaxed drop-shadow-sm px-2">
+                  Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+                </p>
               </div>
-
-              <span className="z-10 font-bold text-sm tracking-widest text-amber-900 mb-2 font-sans">CEYLON SPICES</span>
-              <p className="z-10 text-xs text-gray-500 font-sans max-w-[190px] leading-relaxed">
-                Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
-              </p>
             </motion.div>
 
             {/* ISO Certified Card */}
-            <motion.div
-              variants={fadeInUp}
-              className="w-full sm:w-64 min-h-[260px] p-8 rounded-[2rem] border-2 border-blue-600/10 flex flex-col items-center text-center bg-white/70 backdrop-blur-md shadow-md text-blue-900 transition-all duration-500 hover:border-blue-600/40 hover:shadow-[0_20px_40px_rgba(37,99,235,0.08)] hover:scale-[1.03] active:scale-95 group cursor-default relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/0 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out z-0" />
-
-              <div className="w-20 h-20 rounded-full bg-blue-50/80 flex items-center justify-center mb-6 group-hover:bg-blue-100/90 transition-all duration-500 group-hover:scale-110 shadow-sm border border-blue-500/10 z-10">
-                <Globe className="w-10 h-10 text-blue-600 group-hover:text-blue-700 transition-colors animate-[spin_12s_linear_infinite] group-hover:animate-[spin_6s_linear_infinite]" strokeWidth={1.5} />
+            <motion.div variants={fadeInUp} className="w-full bg-white rounded-3xl shadow-lg flex flex-col items-center justify-center p-8 border border-stone-100">
+              <div className="w-24 h-24 flex items-center justify-center mb-2 relative">
+                <TransparentImage src="/images/cert_globe.png" alt="ISO Certified" className="w-full h-full object-contain drop-shadow-md" />
               </div>
-
-              <span className="z-10 font-bold text-sm tracking-widest text-blue-950 mb-2 font-sans">ISO CERTIFIED</span>
-              <p className="z-10 text-xs text-gray-500 font-sans max-w-[190px] leading-relaxed">
+              <span className="font-bold text-[0.85rem] tracking-widest text-[#164e63] mb-2">ISO CERTIFIED</span>
+              <p className="text-[0.75rem] text-gray-500 text-center leading-relaxed">
                 International standard production with strict hygiene and quality management protocols.
               </p>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Featured Products Showcase */}

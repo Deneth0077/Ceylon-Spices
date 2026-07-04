@@ -102,12 +102,14 @@ export default function ProductsPage() {
         
         {/* Header Title */}
         <div className="text-center max-w-xl mx-auto mb-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#cca43b] mb-3 block font-sans">Premium Catalog</span>
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4 font-sans">
-             Our Authentic Spices
-          </h1>
-          <p className="text-gray-500 text-sm md:text-base font-sans">
-             Pure organic crops hand-selected from the heart of Sri Lanka, harvested with care and delivered worldwide.
+          <h2 className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans">
+            Premium Catalog
+          </h2>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans">
+            Our Authentic Spices
+          </p>
+          <p className="text-stone-500 text-xs sm:text-sm tracking-wide mt-3 max-w-lg mx-auto font-sans leading-relaxed">
+            Pure organic crops hand-selected from the heart of Sri Lanka, harvested with care and delivered worldwide.
           </p>
         </div>
 

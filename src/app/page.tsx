@@ -538,35 +538,35 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
-              variants={fadeInUp}
+              variants={slideInRight}
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
 
 
-              <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill className="object-cover scale-[1.15]" style={{ objectPosition: "center 30%" }} />
+              <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill className="object-cover" style={{ objectPosition: "center 30%", transform: "scaleX(-1) scale(1.15)" }} />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
-              <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
-                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+              <div className="absolute left-[5%] right-[55%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans select-none">
                   TRUE CINNAMON (C5 ALBA)
                 </span>
-                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none select-none">
                   Ceylon Cinnamon
                 </h3>
 
                 {/* Gold Wave Divider */}
-                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90 select-none">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
 
-                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none select-none">
                   Our signature True Ceylon Cinnamon is sourced directly from local farmers, ensuring the highest purity and authentic aroma for your daily wellness.
                 </p>
 
                 <a
                   href="/products"
-                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2 select-none"
                 >
                   SHOP CINNAMON
                   <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
@@ -581,32 +581,32 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
-              variants={fadeInUp}
+              variants={slideInLeft}
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
               <Image src="/images/cardamom_bg_card_v2.png" alt="Green Cardamom Card Background" fill className="object-cover scale-[1.2]" />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the marble panel of the image) */}
               <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
-                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans select-none">
                   QUEEN OF SPICES (TRUE CARDAMOM)
                 </span>
-                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none select-none">
                   Green Cardamom
                 </h3>
 
                 {/* Gold Wave Divider */}
-                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90 select-none">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
 
-                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none select-none">
                   Our select Green Cardamom, sourced from dedicated central highland farmers, offers an intense, aromatic experience for daily wellness. Meticulously handpicked for highest purity, it supports digestive health and adds unique flavor to your rituals and creations.
                 </p>
 
                 <a
                   href="/products"
-                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2 select-none"
                 >
                   SHOP CARDAMOM
                   <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">
@@ -621,35 +621,35 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-120px" }}
-              variants={fadeInUp}
+              variants={slideInRight}
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
 
 
-              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover scale-[1.2]" />
+              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover" style={{ transform: "scaleX(-1) scale(1.2)" }} />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
-              <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
-                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans">
+              <div className="absolute left-[5%] right-[55%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
+                <span className="text-[0.55rem] md:text-xs font-bold uppercase tracking-[0.25em] text-[#b48648] mb-0.5 md:mb-1 block font-sans select-none">
                   AROMATIC SPICE BUDS
                 </span>
-                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none">
+                <h3 className="text-sm sm:text-2xl md:text-4xl font-extrabold text-[#3d240e] mb-1 md:mb-2 font-serif leading-none select-none">
                   Organic Cloves
                 </h3>
 
                 {/* Gold Wave Divider */}
-                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90">
+                <svg viewBox="0 0 40 6" className="w-8 md:w-12 h-1 md:h-1.5 mb-1.5 md:mb-3 opacity-90 select-none">
                   <path d="M0 3 C 10 0, 10 6, 20 3 C 30 0, 30 6, 40 3" stroke="#cca43b" strokeWidth="2.5" strokeLinecap="round" />
                 </svg>
 
-                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none">
+                <p className="text-[#4a2e15]/85 text-[0.55rem] sm:text-[0.7rem] md:text-sm leading-relaxed mb-3 md:mb-6 font-sans max-w-[95%] line-clamp-3 md:line-clamp-none select-none">
                   Rich in essential oils, these handpicked cloves offer a bold, authentic flavor that represents the true heritage of Sri Lankan spices.
                 </p>
 
                 <a
                   href="/products"
-                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2"
+                  className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-4 md:px-7 py-1.5 md:py-3 bg-[#1c3a21] border border-[#d4af37]/20 hover:border-[#d4af37]/50 text-[#fffbee] font-bold text-[0.55rem] md:text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(28,58,33,0.3)] hover:bg-[#112415] hover:-translate-y-[1px] active:translate-y-[0px] w-fit mt-1 md:mt-2 select-none"
                 >
                   SHOP CLOVES
                   <svg className="w-3 md:w-3.5 h-3 md:h-3.5 stroke-[#fffbee] stroke-[2.5] fill-none" viewBox="0 0 24 24">

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Leaf, ShieldCheck, Heart, Globe, Award, Droplet, ArrowRight } from "lucide-react";
+import { Leaf, ShieldCheck, Heart, Globe, Award, Droplet, ArrowRight, Handshake, Utensils } from "lucide-react";
 import TransparentImage from "@/components/TransparentImage";
 import { motion } from "framer-motion";
 
@@ -396,7 +396,7 @@ export default function Home() {
           </motion.div>
 
           {/* Native HTML/CSS Cards Grid with Real CSS Shadows and Hover Pop-Up/Lift Effects */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto z-10 relative mt-12 px-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 max-w-5xl mx-auto z-10 relative mt-12 px-4 justify-items-center items-center">
             
             {/* USDA Organic Card */}
             <motion.div
@@ -404,30 +404,28 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border border-stone-200/60 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_12px_30px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(26,74,56,0.08)] group cursor-pointer relative overflow-hidden h-[360px]"
+              className="w-[280px] h-[340px] rounded-[8px] p-3 flex flex-col items-center justify-between shadow-[0_12px_28px_rgba(0,0,0,0.12)] relative border border-[#162720]/80 overflow-hidden group cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] transition-all duration-300"
             >
-              {/* Soft decorative background glow */}
-              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#1a4a38]/5 blur-2xl group-hover:bg-[#1a4a38]/10 transition-colors duration-500" />
-              
-              {/* Premium Badge Wrapper for Icon */}
-              <div className="w-24 h-24 rounded-full bg-[#1a4a38]/5 border border-[#1a4a38]/10 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#1a4a38]/20 transition-colors duration-300">
-                <div className="w-14 h-14 relative">
-                  <Image
-                    src="/images/cert_leaf.png"
-                    alt="USDA Organic"
-                    fill
-                    className="object-contain transition-transform duration-500 group-hover:scale-110"
-                    sizes="56px"
-                  />
-                </div>
+              {/* Background texture */}
+              <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image src="/images/cardamom_bg_card.png" alt="Green Marble" fill className="object-cover contrast-[1.1] saturate-[0.6] brightness-[0.8]" />
               </div>
               
-              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#1a4a38] uppercase mb-3 font-sans">
-                USDA ORGANIC
-              </span>
-              <p className="text-[0.78rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
-                100% certified organic spices, grown using traditional methods without chemicals.
-              </p>
+              {/* Inner Panel */}
+              <div className="w-full h-full bg-[#f6f4f0]/95 backdrop-blur-[1px] border-2 border-[#d4af37]/60 rounded-[4px] p-5 flex flex-col items-center justify-center text-center relative z-10 select-none">
+                {/* Seal */}
+                <div className="w-14 h-14 rounded-full border-2 border-[#d4af37] flex items-center justify-center bg-white shadow-[0_3px_6px_rgba(0,0,0,0.06)] mb-4">
+                  <Leaf className="w-7 h-7 text-[#1b4332]" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-serif font-bold text-2xl text-[#2c1a11] mb-2 select-none">USDA Organic</h3>
+                <div className="w-10 h-[1.5px] bg-[#d4af37] mb-3" />
+                <p className="text-[11px] text-stone-600 font-sans font-medium leading-relaxed max-w-[190px] select-none">
+                  100% certified organic spices, grown using traditional methods without chemicals.
+                </p>
+              </div>
+              
+              {/* Gold Clip */}
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-2.5 bg-gradient-to-r from-[#aa7c11] via-[#ffd700] to-[#aa7c11] border border-[#8c620c] rounded-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-20 select-none" />
             </motion.div>
 
             {/* Ceylon Spices Card (Middle Featured Card) */}
@@ -436,30 +434,28 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border-2 border-[#c09257]/80 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_15px_35px_-12px_rgba(192,146,87,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_-10px_rgba(58,32,14,0.12)] group cursor-pointer relative overflow-hidden h-[385px] md:mt-[-12px]"
+              className="w-[280px] h-[365px] rounded-[8px] p-3 flex flex-col items-center justify-between shadow-[0_16px_36px_rgba(0,0,0,0.2)] relative border border-[#3a2212]/80 overflow-hidden group cursor-pointer md:mt-[-12px] hover:-translate-y-2 hover:shadow-[0_22px_44px_rgba(0,0,0,0.28)] transition-all duration-300"
             >
-              {/* Soft decorative background glow */}
-              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#c09257]/5 blur-2xl group-hover:bg-[#c09257]/10 transition-colors duration-500" />
-              
-              {/* Premium Badge Wrapper for Icon */}
-              <div className="w-24 h-24 rounded-full bg-[#c09257]/5 border border-[#c09257]/20 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#c09257]/30 transition-colors duration-300">
-                <div className="w-12 h-14 relative">
-                  <Image
-                    src="/images/shiield logo.png"
-                    alt="Ceylon Spices"
-                    fill
-                    className="object-contain transition-transform duration-500 group-hover:scale-110"
-                    sizes="48px"
-                  />
-                </div>
+              {/* Background texture */}
+              <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image src="/images/cinnamon_bg_card.png" alt="Wood Texture" fill className="object-cover brightness-[0.7] contrast-[1.05]" />
               </div>
               
-              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#3a200e] uppercase mb-3 font-sans">
-                CEYLON SPICES
-              </span>
-              <p className="text-[0.78rem] text-[#5a4d44] font-medium font-sans leading-relaxed max-w-[240px]">
-                Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
-              </p>
+              {/* Inner Panel */}
+              <div className="w-full h-full bg-gradient-to-br from-[#ffe79a] via-[#e6c15c] to-[#b38f2d]/95 border-2 border-[#b38f2d] rounded-[4px] p-5 flex flex-col items-center justify-center text-center relative z-10 shadow-inner select-none">
+                {/* Seal */}
+                <div className="w-14 h-14 rounded-full border-2 border-[#b38f2d] flex items-center justify-center bg-[#ffe79a] shadow-[0_3px_6px_rgba(0,0,0,0.1)] mb-4 overflow-hidden p-2">
+                  <Image src="/images/shiield logo.png" alt="Ceylon Spices Lion" width={32} height={32} className="object-contain" />
+                </div>
+                <h3 className="font-serif font-bold text-2xl text-[#3d240e] mb-2 select-none">Ceylon Spices</h3>
+                <div className="w-10 h-[1.5px] bg-[#5c3a21] mb-3" />
+                <p className="text-[11px] text-[#3d240e] font-sans font-semibold leading-relaxed max-w-[190px] select-none">
+                  Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
+                </p>
+              </div>
+              
+              {/* Gold Clip */}
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-2.5 bg-gradient-to-r from-[#aa7c11] via-[#ffd700] to-[#aa7c11] border border-[#8c620c] rounded-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-20 select-none" />
             </motion.div>
 
             {/* ISO Certified Card */}
@@ -468,30 +464,26 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border border-stone-200/60 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_12px_30px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(22,78,99,0.08)] group cursor-pointer relative overflow-hidden h-[360px]"
+              className="w-[280px] h-[340px] rounded-[8px] p-3 flex flex-col items-center justify-between shadow-[0_12px_28px_rgba(0,0,0,0.12)] relative border border-[#334e56]/80 overflow-hidden group cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_18px_36px_rgba(0,0,0,0.18)] transition-all duration-300"
             >
-              {/* Soft decorative background glow */}
-              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#164e63]/5 blur-2xl group-hover:bg-[#164e63]/10 transition-colors duration-500" />
+              {/* Background texture */}
+              <div className="absolute inset-0 z-0 select-none pointer-events-none bg-gradient-to-br from-[#7fa2ad] via-[#50727d] to-[#334e56]" />
               
-              {/* Premium Badge Wrapper for Icon */}
-              <div className="w-24 h-24 rounded-full bg-[#164e63]/5 border border-[#164e63]/10 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#164e63]/20 transition-colors duration-300">
-                <div className="w-14 h-14 relative">
-                  <Image
-                    src="/images/cert_globe_clean.png"
-                    alt="ISO Certified"
-                    fill
-                    className="object-contain transition-transform duration-500 group-hover:scale-110"
-                    sizes="56px"
-                  />
+              {/* Inner Panel */}
+              <div className="w-full h-full bg-gradient-to-br from-[#f2f4f7] via-[#e2e5ea] to-[#c7cbd1]/95 border-2 border-[#9aa4b0] rounded-[4px] p-5 flex flex-col items-center justify-center text-center relative z-10 select-none">
+                {/* Seal */}
+                <div className="w-14 h-14 rounded-full border-2 border-[#7fa2ad] flex items-center justify-center bg-white shadow-[0_3px_6px_rgba(0,0,0,0.06)] mb-4">
+                  <Globe className="w-7 h-7 text-[#334e56]" strokeWidth={1.5} />
                 </div>
+                <h3 className="font-serif font-bold text-2xl text-[#1e2f33] mb-2 select-none">ISO Certified</h3>
+                <div className="w-10 h-[1.5px] bg-[#7fa2ad] mb-3" />
+                <p className="text-[11px] text-stone-600 font-sans font-medium leading-relaxed max-w-[190px] select-none">
+                  International standard production with strict hygiene and quality management protocols.
+                </p>
               </div>
               
-              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#164e63] uppercase mb-3 font-sans">
-                ISO CERTIFIED
-              </span>
-              <p className="text-[0.78rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
-                International standard production with strict hygiene and quality management protocols.
-              </p>
+              {/* Gold Clip */}
+              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-2.5 bg-gradient-to-r from-[#aa7c11] via-[#ffd700] to-[#aa7c11] border border-[#8c620c] rounded-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-20 select-none" />
             </motion.div>
 
           </div>
@@ -672,108 +664,167 @@ export default function Home() {
       </section>
 
       {/* Values & Benefits Section */}
-      <section className="py-24 bg-[#f8f6f0] relative z-10 overflow-hidden">
-        {/* Ambient glow backing */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <section className="py-28 relative z-10 overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/values_bg.png" 
+            alt="Values Background" 
+            fill 
+            className="object-cover opacity-80" 
+            priority 
+          />
+        </div>
+        
+        {/* Soft overlay to make cards pop */}
+        <div className="absolute inset-0 bg-[#faf8f5]/65 z-0 pointer-events-none" />
 
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={staggerContainer}
-          className="max-w-5xl mx-auto px-4"
+          className="max-w-5xl mx-auto px-6 relative z-10"
         >
           <div className="text-center max-w-xl mx-auto mb-16">
             <h2 className="text-xs md:text-sm font-extrabold text-[#b48648] mb-3 tracking-[0.25em] uppercase font-sans">Why Choose Us</h2>
-            <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-sans">Quality & Sustainability</p>
+            <p className="text-2xl md:text-4xl font-extrabold text-[#3a200e] tracking-tight font-serif">Quality & Sustainability</p>
           </div>
 
           <motion.div
             variants={staggerContainer}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 lg:gap-10"
           >
             {/* Card 1: Ethically Sourced */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-amber-50 text-amber-800 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <Award className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-amber-500/5">
+                <div className="absolute inset-0 rounded-full bg-amber-500/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <Handshake className="w-7 h-7 text-[#b48648] relative z-10 filter drop-shadow-[0_2px_6px_rgba(180,134,72,0.15)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Ethically Sourced</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Ethically Sourced</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Direct partnerships ensuring fair wages and support for local farming families.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
 
             {/* Card 2: Aromatic Quality */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-800 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <Droplet className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-teal-500/5">
+                <div className="absolute inset-0 rounded-full bg-teal-500/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <Droplet className="w-7 h-7 text-teal-600 relative z-10 filter drop-shadow-[0_2px_6px_rgba(20,184,166,0.2)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Aromatic Quality</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Aromatic Quality</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Rich in natural essential oils, preserving strong aroma and potent herbal content.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
 
             {/* Card 3: Health Benefits */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-rose-50 text-rose-800 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <Heart className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-rose-500/5">
+                <div className="absolute inset-0 rounded-full bg-rose-500/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <Heart className="w-7 h-7 text-rose-500 relative z-10 filter drop-shadow-[0_2px_6px_rgba(244,63,94,0.2)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Health Benefits</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Health Benefits</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Anti-inflammatory, antioxidant properties native to true Ceylon organic products.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
 
             {/* Card 4: Farm to Table */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-orange-50 text-orange-850 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <Leaf className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-amber-600/5">
+                <div className="absolute inset-0 rounded-full bg-amber-600/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <Utensils className="w-7 h-7 text-amber-700 relative z-10 filter drop-shadow-[0_2px_6px_rgba(180,83,9,0.15)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Farm to Table</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Farm to Table</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Minimal processing ensures freshness and complete tracing from soils to your plate.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
 
             {/* Card 5: Sustainable Practices */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-sky-50 text-sky-800 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <ShieldCheck className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-emerald-500/5">
+                <div className="absolute inset-0 rounded-full bg-emerald-500/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <ShieldCheck className="w-7 h-7 text-emerald-600 relative z-10 filter drop-shadow-[0_2px_6px_rgba(16,185,129,0.2)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Sustainable Practices</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Sustainable Practices</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Eco-friendly cultivation methods protect biodiversity and conserve forest soils.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
 
             {/* Card 6: Global Reach */}
             <motion.div
               variants={fadeInUp}
-              className="relative overflow-hidden bg-white/75 backdrop-blur-md rounded-2xl p-8 border border-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:bg-cap-green hover:text-white transition-all duration-500 ease-out group cursor-default text-center flex flex-col items-center justify-center gap-4"
+              className="bg-white/40 backdrop-blur-md rounded-[20px] p-8 border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col items-center justify-center text-center relative h-[255px] group cursor-default"
             >
-              <div className="w-14 h-14 rounded-full bg-indigo-50 text-indigo-800 flex items-center justify-center group-hover:bg-[#cca43b] group-hover:text-white transition-all duration-500 shadow-inner">
-                <Globe className="w-7 h-7" strokeWidth={1.5} />
+              {/* Glowing Icon Wrapper */}
+              <div className="w-14 h-14 rounded-full flex items-center justify-center relative mb-5 bg-indigo-500/5">
+                <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-md opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+                <Globe className="w-7 h-7 text-indigo-600 relative z-10 filter drop-shadow-[0_2px_6px_rgba(99,102,241,0.2)]" strokeWidth={1.5} />
               </div>
-              <h3 className="font-bold text-gray-900 group-hover:text-white text-base font-sans tracking-wide">Global Reach</h3>
-              <p className="text-xs text-gray-500 group-hover:text-gray-200 leading-relaxed">
+              <h3 className="font-bold text-gray-900 text-base font-sans tracking-wide mb-2 select-none">Global Reach</h3>
+              <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Exporting authentic, certified true spices to kitchens and operations worldwide.
               </p>
+              {/* Bottom Right Arrow */}
+              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
+                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </div>
             </motion.div>
           </motion.div>
         </motion.div>

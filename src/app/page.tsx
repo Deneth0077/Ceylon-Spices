@@ -907,7 +907,7 @@ export default function Home() {
         <div className="relative mt-8 z-30 w-full overflow-hidden hover:scale-[1.002] transition-transform duration-[1.5s] ease-out">
           <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent h-24 top-0 left-0 w-full z-10 pointer-events-none" />
           <Image
-            src="/images/export_farmers_1781650578148.png"
+            src="/images/Before_footer.png"
             alt="Our Farmers"
             width={1920}
             height={500}

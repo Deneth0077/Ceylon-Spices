@@ -36,38 +36,77 @@ export default function ContactPage() {
     <div className="w-full flex flex-col bg-[#ede4d7] overflow-hidden">
       
       {/* Top Banner / Hero Section */}
-      <section className="relative w-full h-[250px] sm:h-[350px] flex items-center justify-center overflow-hidden z-10">
+      <section className="relative w-full h-[320px] sm:h-[400px] flex items-center justify-center overflow-hidden z-10">
         <Image 
           src="/images/hero_spices_1781650500572.png" 
           alt="Contact and Export Spices Assortment" 
           fill
           priority
-          className="object-cover filter brightness-[0.45] scale-105"
+          className="object-cover filter brightness-[0.8] contrast-[1.02] scale-100"
         />
+        {/* Soft vignette/dimming overlay */}
+        <div className="absolute inset-0 bg-black/15 z-10" />
+
         {/* Banner content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-3xl sm:text-5xl font-serif font-extrabold text-white tracking-tight leading-tight"
-          >
-            Contact and Export Inquiries
-          </motion.h1>
+          <div className="relative">
+            {/* Left Leaf branch */}
+            <svg className="w-14 h-14 absolute -left-16 top-1 text-white/70 pointer-events-none hidden lg:block" fill="none" viewBox="0 0 64 64" stroke="currentColor" strokeWidth={1}>
+              <path d="M10,50 Q25,45 45,15" />
+              <path d="M45,15 Q50,10 52,8 Q46,14 45,15" />
+              <path d="M25,35 Q20,30 15,32 Q22,38 25,35" />
+              <path d="M30,30 Q35,22 40,24 Q32,28 30,30" />
+              <path d="M35,25 Q32,15 25,18 Q32,23 35,25" />
+              <path d="M40,20 Q48,15 46,10 Q42,16 40,20" />
+            </svg>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-tight select-none"
+            >
+              Contact and Export Inquiries
+            </motion.h1>
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="w-24 h-1 bg-[#cca43b] rounded-full my-4" 
+            className="w-20 h-[2px] bg-[#cca43b]/90 rounded-full my-3" 
           />
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-sm sm:text-lg text-gray-200 tracking-wide font-sans max-w-xl"
+
+          <div className="relative">
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-sm sm:text-base text-white tracking-wide font-sans max-w-xl select-none"
+            >
+              Connect with us for premium Sri Lankan spices.
+            </motion.p>
+            {/* Right Leaf branch */}
+            <svg className="w-14 h-14 absolute -right-16 -top-4 text-white/70 pointer-events-none hidden lg:block" fill="none" viewBox="0 0 64 64" stroke="currentColor" strokeWidth={1}>
+              <path d="M54,14 Q39,19 19,49" />
+              <path d="M19,49 Q14,54 12,56 Q18,50 19,49" />
+              <path d="M39,29 Q44,34 49,32 Q42,26 39,29" />
+              <path d="M34,34 Q29,42 24,40 Q32,36 34,34" />
+              <path d="M29,39 Q32,49 39,46 Q32,41 29,39" />
+              <path d="M24,44 Q16,49 18,54 Q22,48 24,44" />
+            </svg>
+          </div>
+
+          {/* REQUEST A FREE CONSULTATION Button */}
+          <motion.button
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            onClick={() => document.getElementById('inquiry-card')?.scrollIntoView({ behavior: 'smooth' })}
+            className="mt-6 bg-[#cca43b] hover:bg-[#b58f2f] text-white rounded-full py-3 px-8 font-sans font-bold text-xs tracking-wider uppercase shadow-md transition-all duration-300 hover:-translate-y-[1px] active:translate-y-0 cursor-pointer"
           >
-            Connect with us for premium Sri Lankan spices.
-          </motion.p>
+            REQUEST A FREE CONSULTATION
+          </motion.button>
         </div>
       </section>
 
@@ -77,6 +116,7 @@ export default function ContactPage() {
           
           {/* Card 1: Send Your Inquiry Form */}
           <motion.div 
+            id="inquiry-card"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}

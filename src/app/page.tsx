@@ -709,12 +709,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Direct partnerships ensuring fair wages and support for local farming families.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
 
             {/* Card 2: Aromatic Quality */}
@@ -731,12 +726,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Rich in natural essential oils, preserving strong aroma and potent herbal content.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
 
             {/* Card 3: Health Benefits */}
@@ -753,12 +743,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Anti-inflammatory, antioxidant properties native to true Ceylon organic products.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
 
             {/* Card 4: Farm to Table */}
@@ -775,12 +760,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Minimal processing ensures freshness and complete tracing from soils to your plate.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
 
             {/* Card 5: Sustainable Practices */}
@@ -797,12 +777,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Eco-friendly cultivation methods protect biodiversity and conserve forest soils.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
 
             {/* Card 6: Global Reach */}
@@ -819,12 +794,7 @@ export default function Home() {
               <p className="text-xs md:text-sm text-gray-600 font-sans leading-relaxed max-w-[245px] select-none">
                 Exporting authentic, certified true spices to kitchens and operations worldwide.
               </p>
-              {/* Bottom Right Arrow */}
-              <div className="absolute bottom-5 right-5 text-[#b48648] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg className="w-3.5 h-3.5 stroke-current stroke-[2.5] fill-none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
+
             </motion.div>
           </motion.div>
         </motion.div>

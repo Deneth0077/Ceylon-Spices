@@ -51,66 +51,38 @@ export default function Home() {
   const heroProducts = [
     {
       id: "cinnamon",
-      title: "Cinnamon (C5 Alba Grade)",
-      image: "/images/cinnamon_sticks_1781650514051.png",
-      bgClass: "from-[#f5dec8] via-[#e6bfa4] to-[#cc9571]",
-      textColor: "text-[#3d240e]",
-      btnClass: "bg-white text-[#3d240e] hover:bg-[#fffbee]",
-      threshold: 230
+      displayName: "Cinnamon",
+      image: "/images/card_cinnamon.png",
     },
     {
       id: "pepper",
-      title: "Black Pepper (Organic)",
-      image: "/images/black_pepper_1781650594175.png",
-      bgClass: "from-[#cfcbca] via-[#a39e9c] to-[#736e6b]",
-      textColor: "text-stone-900",
-      btnClass: "bg-white text-stone-900 hover:bg-stone-50",
-      threshold: 230
+      displayName: "Pepper",
+      image: "/images/card_pepper.png",
     },
     {
       id: "turmeric",
-      title: "Turmeric Powder (Organic)",
-      image: "/images/turmeric_powder_1781650611739.png",
-      bgClass: "from-[#fae0b8] via-[#eeb562] to-[#d68a18]",
-      textColor: "text-[#4a2e15]",
-      btnClass: "bg-white text-[#4a2e15] hover:bg-amber-50",
-      threshold: 230
+      displayName: "Turmeric",
+      image: "/images/card_turmeric.png",
     },
     {
       id: "nutmeg",
-      title: "Nutmeg & Mace",
-      image: "/images/hero_spices_1781650500572.png",
-      bgClass: "from-[#f4dfd0] via-[#dba683] to-[#b37046]",
-      textColor: "text-[#3f210d]",
-      btnClass: "bg-white text-[#3f210d] hover:bg-amber-50",
-      threshold: 230
+      displayName: "Nutmeg",
+      image: "/images/card_nutmeg.png",
     },
     {
       id: "cloves",
-      title: "Cloves (Handpicked)",
-      image: "/images/cloves_dried_1781650553541.png",
-      bgClass: "from-[#ebd8cb] via-[#cca385] to-[#a26c48]",
-      textColor: "text-[#42220b]",
-      btnClass: "bg-white text-[#42220b] hover:bg-[#fbf5f0]",
-      threshold: 230
+      displayName: "Cloves",
+      image: "/images/card_cloves.png",
     },
     {
       id: "chilli",
-      title: "Chilli Flakes",
-      image: "/images/turmeric_powder_1781650611739.png",
-      bgClass: "from-[#fcdbdc] via-[#eca2a4] to-[#c75154]",
-      textColor: "text-[#4a0d0f]",
-      btnClass: "bg-white text-[#4a0d0f] hover:bg-rose-50",
-      threshold: 230
+      displayName: "Chilli",
+      image: "/images/card_chilli.png",
     },
     {
       id: "cardamom",
-      title: "Green Cardamom",
-      image: "/images/cardamom_pods_1781650532128.png",
-      bgClass: "from-[#e2e7d7] via-[#c4d1af] to-[#9cb27c]",
-      textColor: "text-[#1c3212]",
-      btnClass: "bg-white text-[#1c3212] hover:bg-[#fafdf6]",
-      threshold: 240
+      displayName: "Cardamom",
+      image: "/images/card_cardamom.png",
     }
   ];
 
@@ -218,7 +190,7 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-6 sm:px-12 md:px-16 w-full z-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center mt-[-30px] md:mt-[-70px]">
           
           {/* Left Text Column */}
-          <div className="lg:col-span-6 flex flex-col justify-center text-left pointer-events-auto">
+          <div className="lg:col-span-6 flex flex-col justify-center text-left pointer-events-auto lg:-translate-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -271,29 +243,30 @@ export default function Home() {
                   return (
                     <div 
                       key={`${p.id}-${idx}`}
-                      className={`w-[280px] h-[350px] rounded-[24px] p-6 flex flex-col items-center justify-between shadow-2xl transition-all duration-700 ease-out relative overflow-hidden bg-gradient-to-b ${p.bgClass} ${
+                      className={`w-[280px] h-[350px] bg-white border-2 border-[#1c120c] flex flex-col justify-between transition-all duration-700 ease-out relative overflow-hidden select-none ${
                         isActive 
-                          ? 'scale-[1.06] opacity-100 z-20 translate-y-[-10px] shadow-[0_25px_50px_rgba(0,0,0,0.4)]' 
-                          : 'scale-90 opacity-25 z-10 translate-y-0 shadow-md pointer-events-none'
+                          ? 'scale-[1.05] opacity-100 z-20 translate-y-[-10px] shadow-[6px_6px_0px_0px_rgba(28,15,8,0.3)]' 
+                          : 'scale-95 opacity-40 z-10 translate-y-0 shadow-[4px_4px_0px_0px_rgba(28,15,8,0.15)] pointer-events-none'
                       }`}
+                      style={{ borderRadius: '8px' }}
                     >
-                      {/* Ambient shine overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/20 pointer-events-none" />
-                      
-                      <div className="w-full h-[170px] relative flex items-center justify-center mt-2 z-10">
-                        <TransparentImage 
+                      {/* Top: Image Section */}
+                      <div className="w-full h-[260px] relative overflow-hidden border-b-2 border-[#1c120c]">
+                        <Image 
                           src={p.image} 
-                          alt={p.title} 
-                          className="w-auto h-[140px] object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.35)]" 
-                          threshold={p.threshold}
+                          alt={p.displayName} 
+                          fill
+                          sizes="280px"
+                          className="object-cover"
+                          priority={isActive}
                         />
                       </div>
                       
-                      <div className="flex flex-col items-center text-center gap-4 w-full z-10">
-                        <h4 className={`font-extrabold font-serif text-lg tracking-wide leading-tight ${p.textColor}`}>{p.title}</h4>
-                        <button className={`py-2 px-7 rounded-full font-bold text-[0.65rem] tracking-[0.15em] uppercase shadow-md transition-all duration-300 ${p.btnClass} hover:scale-105 active:scale-95`}>
-                          ADD TO CART
-                        </button>
+                      {/* Bottom: Text Section */}
+                      <div className="w-full h-[86px] bg-white flex items-center justify-center">
+                        <h4 className="font-serif font-bold text-3xl tracking-wide text-[#3a100e] text-center select-none">
+                          {p.displayName}
+                        </h4>
                       </div>
                     </div>
                   );
@@ -431,21 +404,28 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white rounded-[32px] border border-stone-100 p-8 flex flex-col items-center justify-center text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer relative overflow-hidden h-[340px]"
+              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border border-stone-200/60 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_12px_30px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(26,74,56,0.08)] group cursor-pointer relative overflow-hidden h-[360px]"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#1a4a38]/0 to-[#1a4a38]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="w-28 h-28 relative mb-6 flex items-center justify-center">
-                <Image
-                  src="/images/cert_leaf.png"
-                  alt="USDA Organic"
-                  fill
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Soft decorative background glow */}
+              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#1a4a38]/5 blur-2xl group-hover:bg-[#1a4a38]/10 transition-colors duration-500" />
+              
+              {/* Premium Badge Wrapper for Icon */}
+              <div className="w-24 h-24 rounded-full bg-[#1a4a38]/5 border border-[#1a4a38]/10 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#1a4a38]/20 transition-colors duration-300">
+                <div className="w-14 h-14 relative">
+                  <Image
+                    src="/images/cert_leaf.png"
+                    alt="USDA Organic"
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-110"
+                    sizes="56px"
+                  />
+                </div>
               </div>
-              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#1a4a38] uppercase mb-3 font-sans">
+              
+              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#1a4a38] uppercase mb-3 font-sans">
                 USDA ORGANIC
               </span>
-              <p className="text-[0.75rem] sm:text-[0.8rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
+              <p className="text-[0.78rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
                 100% certified organic spices, grown using traditional methods without chemicals.
               </p>
             </motion.div>
@@ -456,21 +436,28 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white rounded-[32px] border-2 border-[#c09257]/80 p-8 flex flex-col items-center justify-center text-center shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/10 group cursor-pointer relative overflow-hidden h-[365px] md:mt-[-10px]"
+              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border-2 border-[#c09257]/80 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_15px_35px_-12px_rgba(192,146,87,0.06)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_22px_50px_-10px_rgba(58,32,14,0.12)] group cursor-pointer relative overflow-hidden h-[385px] md:mt-[-12px]"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#c09257]/0 to-[#c09257]/[0.03] pointer-events-none" />
-              <div className="w-24 h-28 relative mb-6 flex items-center justify-center">
-                <Image
-                  src="/images/shiield logo.png"
-                  alt="Ceylon Spices"
-                  fill
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Soft decorative background glow */}
+              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#c09257]/5 blur-2xl group-hover:bg-[#c09257]/10 transition-colors duration-500" />
+              
+              {/* Premium Badge Wrapper for Icon */}
+              <div className="w-24 h-24 rounded-full bg-[#c09257]/5 border border-[#c09257]/20 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#c09257]/30 transition-colors duration-300">
+                <div className="w-12 h-14 relative">
+                  <Image
+                    src="/images/shiield logo.png"
+                    alt="Ceylon Spices"
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-110"
+                    sizes="48px"
+                  />
+                </div>
               </div>
-              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#3a200e] uppercase mb-3 font-sans">
+              
+              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#3a200e] uppercase mb-3 font-sans">
                 CEYLON SPICES
               </span>
-              <p className="text-[0.75rem] sm:text-[0.8rem] text-[#5a4d44] font-medium font-sans leading-relaxed max-w-[240px]">
+              <p className="text-[0.78rem] text-[#5a4d44] font-medium font-sans leading-relaxed max-w-[240px]">
                 Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.
               </p>
             </motion.div>
@@ -481,21 +468,28 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="bg-white rounded-[32px] border border-stone-100 p-8 flex flex-col items-center justify-center text-center shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer relative overflow-hidden h-[340px]"
+              className="bg-gradient-to-b from-white to-[#faf9f6]/40 rounded-[32px] border border-stone-200/60 p-8 md:p-10 flex flex-col items-center text-center shadow-[0_12px_30px_-15px_rgba(0,0,0,0.04)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_45px_-12px_rgba(22,78,99,0.08)] group cursor-pointer relative overflow-hidden h-[360px]"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-[#164e63]/0 to-[#164e63]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <div className="w-28 h-28 relative mb-6 flex items-center justify-center">
-                <Image
-                  src="/images/cert_globe.png"
-                  alt="ISO Certified"
-                  fill
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
-                />
+              {/* Soft decorative background glow */}
+              <div className="absolute -right-16 -top-16 w-36 h-36 rounded-full bg-[#164e63]/5 blur-2xl group-hover:bg-[#164e63]/10 transition-colors duration-500" />
+              
+              {/* Premium Badge Wrapper for Icon */}
+              <div className="w-24 h-24 rounded-full bg-[#164e63]/5 border border-[#164e63]/10 flex items-center justify-center mb-6 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.03)] group-hover:border-[#164e63]/20 transition-colors duration-300">
+                <div className="w-14 h-14 relative">
+                  <Image
+                    src="/images/cert_globe_clean.png"
+                    alt="ISO Certified"
+                    fill
+                    className="object-contain transition-transform duration-500 group-hover:scale-110"
+                    sizes="56px"
+                  />
+                </div>
               </div>
-              <span className="font-extrabold text-[0.85rem] sm:text-[0.9rem] tracking-[0.2em] text-[#164e63] uppercase mb-3 font-sans">
+              
+              <span className="font-extrabold text-[0.85rem] tracking-[0.25em] text-[#164e63] uppercase mb-3 font-sans">
                 ISO CERTIFIED
               </span>
-              <p className="text-[0.75rem] sm:text-[0.8rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
+              <p className="text-[0.78rem] text-stone-500 font-medium font-sans leading-relaxed max-w-[240px]">
                 International standard production with strict hygiene and quality management protocols.
               </p>
             </motion.div>

@@ -51,7 +51,7 @@ const staggerContainer = {
   }
 };
 
-export default function QualityPage() {
+export default function ProductTracingSourcingPage() {
   return (
     <div className="w-full flex flex-col bg-[#fcfbf9] overflow-x-hidden">
       
@@ -78,10 +78,10 @@ export default function QualityPage() {
           className="relative z-10 max-w-3xl mx-auto space-y-3"
         >
           <span className="text-cap-gold text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase font-sans block">
-            Quality & Certifications
+            Product Tracing & Sourcing
           </span>
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight font-serif text-white">
-            QUALITY & CERTIFICATIONS:<br />
+            PRODUCT TRACING & SOURCING:<br />
             <span className="text-[#eacda3]">Lion Logo Authenticity, Farm to World</span>
           </h1>
         </motion.div>

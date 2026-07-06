@@ -105,7 +105,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
     { href: "/products", label: "Products" },
-    { href: "/quality", label: "Quality & Certifications" },
+    { href: "/product-tracing-sourcing", label: "Product Tracing & Sourcing" },
     { href: "/contact", label: "Contact" }
   ];
 

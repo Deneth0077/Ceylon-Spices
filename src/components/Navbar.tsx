@@ -123,7 +123,7 @@ export default function Navbar() {
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center group">
                 <img
-                  src="/images/new-logo.jpeg"
+                  src="/images/logo-v4.png"
                   alt="True Cinnamon Care Logo"
                   className="h-10 md:h-14 w-auto object-contain mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.03]"
                 />

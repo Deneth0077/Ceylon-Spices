@@ -45,91 +45,99 @@ const slideInRight = {
 };
 
 export default function Home() {
-  const [sliderIndex, setSliderIndex] = useState(7); // Start at index 7 (middle copy)
-  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [sliderIndex, setSliderIndex] = useState(0);
 
   const heroProducts = [
     {
-      id: "cinnamon",
-      displayName: "Cinnamon",
-      image: "/images/card_cinnamon.png",
+      id: "coriander",
+      displayName: "Coriander Seeds",
+      image: "/images/hero_coriander.png",
     },
     {
-      id: "pepper",
-      displayName: "Pepper",
-      image: "/images/card_pepper.png",
-    },
-    {
-      id: "turmeric",
-      displayName: "Turmeric",
-      image: "/images/card_turmeric.png",
-    },
-    {
-      id: "nutmeg",
-      displayName: "Nutmeg",
-      image: "/images/card_nutmeg.png",
+      id: "cardamom",
+      displayName: "Green Cardamom",
+      image: "/images/hero_cardamom.png",
     },
     {
       id: "cloves",
       displayName: "Cloves",
-      image: "/images/card_cloves.png",
+      image: "/images/hero_cloves.png",
     },
     {
-      id: "chilli",
-      displayName: "Chilli",
-      image: "/images/card_chilli.png",
-    },
-    {
-      id: "cardamom",
-      displayName: "Cardamom",
-      image: "/images/card_cardamom.png",
+      id: "turmeric",
+      displayName: "Turmeric Root Powder",
+      image: "/images/hero_turmeric.png",
     }
   ];
 
-  // Tripled list for infinite scrolling
-  const tripledProducts = [...heroProducts, ...heroProducts, ...heroProducts];
-
   const handleNext = () => {
-    if (!isTransitioning) return;
-    setSliderIndex((prev) => prev + 1);
+    setSliderIndex((prev) => (prev + 1) % heroProducts.length);
   };
 
   const handlePrev = () => {
-    if (!isTransitioning) return;
-    setSliderIndex((prev) => prev - 1);
+    setSliderIndex((prev) => (prev - 1 + heroProducts.length) % heroProducts.length);
   };
-
-  const handleTransitionEnd = () => {
-    if (sliderIndex >= 14) {
-      setIsTransitioning(false);
-      setSliderIndex(sliderIndex - 7);
-    } else if (sliderIndex < 7) {
-      setIsTransitioning(false);
-      setSliderIndex(sliderIndex + 7);
-    }
-  };
-
-  useEffect(() => {
-    if (!isTransitioning) {
-      const timer = setTimeout(() => {
-        setIsTransitioning(true);
-      }, 50);
-      return () => clearTimeout(timer);
-    }
-  }, [isTransitioning]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setSliderIndex((prev) => prev + 1);
-    }, 3800);
+      setSliderIndex((prev) => (prev + 1) % heroProducts.length);
+    }, 3000); // 3 seconds interval
     return () => clearInterval(timer);
-  }, [sliderIndex]);
+  }, []);
+
+  const getCardStyle = (idx: number) => {
+    let diff = idx - sliderIndex;
+    const count = heroProducts.length;
+
+    if (diff > count / 2) diff -= count;
+    if (diff < -count / 2) diff += count;
+
+    const isActive = diff === 0;
+    
+    let x = 0;
+    let scale = 1;
+    let rotateY = 0;
+    let opacity = 1;
+    let zIndex = 1;
+    let filter = "none";
+
+    if (diff === 0) {
+      x = 0;
+      scale = 1.05;
+      rotateY = 0;
+      opacity = 1;
+      zIndex = 10;
+    } else if (diff === 1 || diff === -3) {
+      x = 160;
+      scale = 0.85;
+      rotateY = -35;
+      opacity = 0.6;
+      zIndex = 5;
+      filter = "blur(1px)";
+    } else if (diff === -1 || diff === 3) {
+      x = -160;
+      scale = 0.85;
+      rotateY = 35;
+      opacity = 0.6;
+      zIndex = 5;
+      filter = "blur(1px)";
+    } else {
+      x = 0;
+      scale = 0.7;
+      rotateY = 0;
+      opacity = 0;
+      zIndex = 1;
+      filter = "blur(4px)";
+    }
+
+    return { x, scale, rotateY, opacity, zIndex, filter, isActive };
+  };
 
   return (
     <div className="w-full flex flex-col bg-white overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative w-full h-auto min-h-[600px] md:h-[700px] overflow-hidden flex flex-col items-center justify-center z-20 pt-24 pb-20 md:py-0">
+      <section className="relative w-full h-auto min-h-[650px] md:h-[750px] overflow-hidden flex flex-col items-center justify-center z-20 pt-24 pb-20 md:py-0">
 
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
@@ -137,7 +145,7 @@ export default function Home() {
         </div>
 
         {/* Dark overlay to make the center blob pop */}
-        <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/45 z-0 pointer-events-none" />
 
         {/* Luminous Wave Design */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden z-10 pointer-events-none leading-[0]">
@@ -181,8 +189,8 @@ export default function Home() {
             {/* Translucent wave overlay 2 (Gold tinted) */}
             <path d="M0,180 C250,250 550,110 950,180 C1200,220 1350,100 1440,60 L1440,250 L0,250 Z" fill="url(#waveGrad2)" />
 
-            {/* Solid base matching next section #FAF7F2 */}
-            <path d="M0,200 C300,260 600,150 1000,210 C1250,240 1350,140 1440,110 L1440,250 L0,250 Z" fill="#FAF7F2" />
+            {/* Solid base matching next section #faf8f5 */}
+            <path d="M0,200 C300,260 600,150 1000,210 C1250,240 1350,140 1440,110 L1440,250 L0,250 Z" fill="#faf8f5" />
           </svg>
         </div>
 
@@ -195,7 +203,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold text-white leading-[1.1] font-serif mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
+              className="text-4xl sm:text-5xl md:text-[3.5rem] font-bold text-[#eed4a9] leading-[1.1] font-serif mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]"
             >
               Sri Lankan Spices: <br />
               Pure, Authentic, <br />
@@ -210,7 +218,7 @@ export default function Home() {
             >
               DISCOVER THE TRUE FLAVORS OF CEYLON
             </motion.p>
-
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -218,7 +226,7 @@ export default function Home() {
             >
               <button 
                 onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
-                className="px-8 py-3.5 bg-[#c09257] hover:bg-[#ba874a] text-white font-extrabold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(192,146,87,0.35)] hover:-translate-y-[1px] active:translate-y-[0px] w-fit"
+                className="px-8 py-3.5 bg-[#c09257] hover:bg-[#ba874a] text-white font-extrabold text-xs tracking-[0.15em] uppercase rounded-full transition-all duration-300 shadow-[0_6px_20px_rgba(192,146,87,0.35)] hover:-translate-y-[1px] active:translate-y-[0px] w-fit cursor-pointer"
               >
                 Learn More
               </button>
@@ -226,66 +234,70 @@ export default function Home() {
           </div>
 
           {/* Right Product Slider Column */}
-          <div className="lg:col-span-6 w-full flex flex-col items-center lg:items-start relative pointer-events-auto overflow-visible">
+          <div className="lg:col-span-6 w-full flex flex-col items-center lg:items-center relative pointer-events-auto overflow-visible mt-8 lg:mt-0">
             {/* Carousel Container */}
-            <div className="relative w-full overflow-hidden h-[410px] flex items-center">
-              <div 
-                onTransitionEnd={handleTransitionEnd}
-                className="flex gap-6"
-                style={{ 
-                  transform: `translateX(-${sliderIndex * 304}px)`,
-                  transition: isTransitioning ? 'transform 700ms cubic-bezier(0.16, 1, 0.3, 1)' : 'none',
-                  paddingLeft: 'calc(50% - 140px)'
-                }}
-              >
-                {tripledProducts.map((p, idx) => {
-                  const isActive = idx === sliderIndex;
-                  return (
-                    <div 
-                      key={`${p.id}-${idx}`}
-                      className={`w-[280px] h-[350px] bg-white border-2 border-[#1c120c] flex flex-col justify-between transition-all duration-700 ease-out relative overflow-hidden select-none ${
-                        isActive 
-                          ? 'scale-[1.05] opacity-100 z-20 translate-y-[-10px] shadow-[6px_6px_0px_0px_rgba(28,15,8,0.3)]' 
-                          : 'scale-95 opacity-40 z-10 translate-y-0 shadow-[4px_4px_0px_0px_rgba(28,15,8,0.15)] pointer-events-none'
-                      }`}
-                      style={{ borderRadius: '8px' }}
-                    >
-                      {/* Top: Image Section */}
-                      <div className="w-full h-[260px] relative overflow-hidden border-b-2 border-[#1c120c]">
-                        <Image 
-                          src={p.image} 
-                          alt={p.displayName} 
-                          fill
-                          sizes="280px"
-                          className="object-cover"
-                          priority={isActive}
-                        />
-                      </div>
-                      
-                      {/* Bottom: Text Section */}
-                      <div className="w-full h-[86px] bg-white flex items-center justify-center">
-                        <h4 className="font-serif font-bold text-3xl tracking-wide text-[#3a100e] text-center select-none">
-                          {p.displayName}
-                        </h4>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+            <div 
+              className="relative w-full h-[380px] sm:h-[420px] flex items-center justify-center overflow-visible"
+              style={{ perspective: "1000px" }}
+            >
+              {heroProducts.map((p, idx) => {
+                const { x, scale, rotateY, opacity, zIndex, filter, isActive } = getCardStyle(idx);
+                return (
+                  <motion.div
+                    key={p.id}
+                    style={{
+                      zIndex,
+                      position: "absolute",
+                    }}
+                    animate={{
+                      x,
+                      scale,
+                      rotateY,
+                      opacity,
+                      filter,
+                      // Floating effect for active item only
+                      y: isActive ? [0, -8, 0] : 0,
+                    }}
+                    transition={{
+                      x: { type: "spring", stiffness: 150, damping: 20 },
+                      scale: { type: "spring", stiffness: 150, damping: 20 },
+                      rotateY: { type: "spring", stiffness: 150, damping: 20 },
+                      opacity: { duration: 0.3 },
+                      filter: { duration: 0.3 },
+                      y: {
+                        repeat: Infinity,
+                        duration: 3,
+                        ease: "easeInOut"
+                      }
+                    }}
+                    className={`w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] overflow-hidden select-none rounded-2xl shadow-2xl transition-shadow duration-300 ${
+                      isActive ? 'shadow-[0_25px_50px_rgba(0,0,0,0.65)]' : 'shadow-md pointer-events-none'
+                    }`}
+                  >
+                    <Image 
+                      src={p.image} 
+                      alt={p.displayName} 
+                      fill
+                      sizes="(max-width: 768px) 260px, 300px"
+                      className="object-cover"
+                      priority={isActive}
+                    />
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Carousel Controls */}
-            <div className="flex items-center justify-between w-[280px] mt-4 px-2">
+            <div className="flex items-center justify-between w-[260px] sm:w-[300px] mt-6 px-2 relative z-30">
               {/* Pagination Dots */}
               <div className="flex gap-2">
                 {heroProducts.map((_, idx) => {
-                  const isDotActive = idx === (sliderIndex % 7);
+                  const isDotActive = idx === sliderIndex;
                   return (
                     <button
                       key={idx}
                       onClick={() => {
-                        if (!isTransitioning) return;
-                        setSliderIndex(idx + 7);
+                        setSliderIndex(idx);
                       }}
                       className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${isDotActive ? 'bg-[#c09257] w-4' : 'bg-white/40'}`}
                     />

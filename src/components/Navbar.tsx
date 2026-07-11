@@ -68,6 +68,22 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
+    // Unregister any stale service workers that interfere with Next.js development HMR
+    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (const registration of registrations) {
+          registration.unregister().then((success) => {
+            if (success) {
+              console.log("Successfully unregistered stale service worker:", registration);
+              window.location.reload();
+            }
+          });
+        }
+      });
+    }
+  }, []);
+
+  useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsSearchOpen(false);
   }, [pathname]);

@@ -428,7 +428,7 @@ export default function Home() {
               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-20 h-2.5 bg-gradient-to-r from-[#aa7c11] via-[#ffd700] to-[#aa7c11] border border-[#8c620c] rounded-[1px] shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-20 select-none" />
             </motion.div>
 
-            {/* Ceylon Spices Card (Middle Featured Card) */}
+            {/* True Cinnamon Care Card (Middle Featured Card) */}
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -445,9 +445,9 @@ export default function Home() {
               <div className="w-full h-full bg-gradient-to-br from-[#ffe79a] via-[#e6c15c] to-[#b38f2d]/95 border-2 border-[#b38f2d] rounded-[4px] p-5 flex flex-col items-center justify-center text-center relative z-10 shadow-inner select-none">
                 {/* Seal */}
                 <div className="w-14 h-14 rounded-full border-2 border-[#b38f2d] flex items-center justify-center bg-[#ffe79a] shadow-[0_3px_6px_rgba(0,0,0,0.1)] mb-4 overflow-hidden p-2">
-                  <Image src="/images/shiield logo.png" alt="Ceylon Spices Lion" width={32} height={32} className="object-contain" />
+                  <Image src="/images/shiield logo.png" alt="True Cinnamon Care Lion" width={32} height={32} className="object-contain" />
                 </div>
-                <h3 className="font-serif font-bold text-2xl text-[#3d240e] mb-2 select-none">Ceylon Spices</h3>
+                <h3 className="font-serif font-bold text-xl text-[#3d240e] mb-2 select-none">True Cinnamon Care</h3>
                 <div className="w-10 h-[1.5px] bg-[#5c3a21] mb-3" />
                 <p className="text-[11px] text-[#3d240e] font-sans font-semibold leading-relaxed max-w-[190px] select-none">
                   Authentic Ceylon origin stamp, carrying the world-renowned purity and flavor profile.

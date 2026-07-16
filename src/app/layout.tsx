@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col font-sans bg-white text-gray-900">
+      <body className="min-h-full flex flex-col font-sans bg-white text-gray-900" suppressHydrationWarning>
         <CartProvider>
           <Navbar />
           <main className="flex-grow">

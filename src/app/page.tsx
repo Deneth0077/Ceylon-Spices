@@ -133,7 +133,7 @@ export default function Home() {
 
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
-          <Image src="/images/rustic-spices-bg.png" alt="Rustic Spice Background" fill className="object-cover" priority />
+          <Image src="/images/rustic-spices-bg.png" alt="Rustic Spice Background" fill sizes="100vw" className="object-cover" priority />
         </div>
 
         {/* Dark overlay to make the center blob pop */}
@@ -408,7 +408,7 @@ export default function Home() {
             >
               {/* Background texture */}
               <div className="absolute inset-0 z-0 select-none pointer-events-none">
-                <Image src="/images/cardamom_bg_card.png" alt="Green Marble" fill className="object-cover contrast-[1.1] saturate-[0.6] brightness-[0.8]" />
+                <Image src="/images/cardamom_bg_card.png" alt="Green Marble" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover contrast-[1.1] saturate-[0.6] brightness-[0.8]" />
               </div>
               
               {/* Inner Panel */}
@@ -438,7 +438,7 @@ export default function Home() {
             >
               {/* Background texture */}
               <div className="absolute inset-0 z-0 select-none pointer-events-none">
-                <Image src="/images/cinnamon_bg_card.png" alt="Wood Texture" fill className="object-cover brightness-[0.7] contrast-[1.05]" />
+                <Image src="/images/cinnamon_bg_card.png" alt="Wood Texture" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover brightness-[0.7] contrast-[1.05]" />
               </div>
               
               {/* Inner Panel */}
@@ -499,6 +499,7 @@ export default function Home() {
             src="/images/products_section_bg.png"
             alt="Products Section Background Texture"
             fill
+            sizes="100vw"
             className="object-cover opacity-90"
             priority
           />
@@ -543,7 +544,7 @@ export default function Home() {
             >
 
 
-              <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill className="object-cover" style={{ objectPosition: "center 30%", transform: "scaleX(-1) scale(1.15)" }} />
+              <Image src="/images/cinnamon_bg_card.png" alt="Ceylon Cinnamon Card Background" fill sizes="(max-width: 1200px) 100vw, 1200px" className="object-cover" style={{ objectPosition: "center 30%", transform: "scaleX(-1) scale(1.15)" }} />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
@@ -584,7 +585,7 @@ export default function Home() {
               variants={slideInLeft}
               className="w-full relative aspect-[1000/495] rounded-[24px] md:rounded-[32px] overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] border border-stone-200/40"
             >
-              <Image src="/images/cardamom_bg_card_v2.png" alt="Green Cardamom Card Background" fill className="object-cover scale-[1.2]" />
+              <Image src="/images/cardamom_bg_card_v2.png" alt="Green Cardamom Card Background" fill sizes="(max-width: 1200px) 100vw, 1200px" className="object-cover scale-[1.2]" />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the marble panel of the image) */}
               <div className="absolute left-[55%] right-[5%] top-[2%] bottom-[14%] flex flex-col justify-center z-10">
@@ -626,7 +627,7 @@ export default function Home() {
             >
 
 
-              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill className="object-cover" style={{ transform: "scaleX(-1) scale(1.2)" }} />
+              <Image src="/images/cloves_bg_card.png" alt="Organic Cloves Card Background" fill sizes="(max-width: 1200px) 100vw, 1200px" className="object-cover" style={{ transform: "scaleX(-1) scale(1.2)" }} />
 
               {/* Dynamic Content Overlay (Perfectly Positioned Inside the empty Frosted Panel) */}
 
@@ -671,6 +672,7 @@ export default function Home() {
             src="/images/values_bg.png" 
             alt="Values Background" 
             fill 
+            sizes="100vw"
             className="object-cover opacity-80" 
             priority 
           />

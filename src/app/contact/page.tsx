@@ -41,6 +41,7 @@ export default function ContactPage() {
           src="/images/hero_spices_1781650500572.png" 
           alt="Contact and Export Spices Assortment" 
           fill
+          sizes="100vw"
           priority
           className="object-cover filter brightness-[0.8] contrast-[1.02] scale-100"
         />

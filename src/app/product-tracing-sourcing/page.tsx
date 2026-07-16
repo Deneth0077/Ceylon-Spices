@@ -116,6 +116,7 @@ export default function ProductTracingSourcingPage() {
                 src="/images/media__1781649846239.png" 
                 alt="Traditional Sri Lankan spice cultivation" 
                 fill 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             </div>
@@ -137,6 +138,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649879280.png" 
                   alt="Harvesting bark" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
@@ -145,6 +147,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/cardamom_pods_1781650532128.png" 
                   alt="Green cardamom pods" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
@@ -157,6 +160,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649925972.png" 
                   alt="Sun Drying Racks" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover" 
                 />
               </div>
@@ -177,6 +181,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649964744.png" 
                   alt="Grading spices" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
@@ -185,6 +190,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/cloves_dried_1781650553541.png" 
                   alt="Cloves selection" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
@@ -266,6 +272,7 @@ export default function ProductTracingSourcingPage() {
                 src="/images/media__1781649901584.png" 
                 alt="Modern analytical laboratory testing" 
                 fill 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
             </div>
@@ -287,6 +294,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649901584.png" 
                   alt="Microscopic analysis" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover scale-150 origin-top-left transition-transform duration-500 group-hover:scale-[1.6]" 
                 />
               </div>
@@ -295,6 +303,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649901584.png" 
                   alt="Chemical verification" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover scale-150 origin-bottom-right transition-transform duration-500 group-hover:scale-[1.6]" 
                 />
               </div>
@@ -307,6 +316,7 @@ export default function ProductTracingSourcingPage() {
                   src="/images/media__1781649901584.png" 
                   alt="Purity verification" 
                   fill 
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover scale-125 origin-center" 
                 />
               </div>

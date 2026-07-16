@@ -88,6 +88,7 @@ export default function AboutPage() {
               src="/images/media__1781649846239.png" 
               alt="Sri Lankan Spice Garden" 
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" 
             />
             {/* Dark bottom overlay */}
@@ -129,6 +130,7 @@ export default function AboutPage() {
               src="/images/export_farmers_1781650578148.png" 
               alt="Empowering Our Communities" 
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
             />
           </motion.div>

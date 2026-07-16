@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-
+import { useCart } from "@/context/CartContext";
 
 interface ProductCardProps {
   id: number;
@@ -24,7 +24,7 @@ export default function ProductCard({
   buttonClass = "bg-[#ab5e3b] hover:bg-[#8e4c2e] text-white",
   bgGlowClass = "from-amber-600/20 to-orange-400/25"
 }: ProductCardProps) {
-
+  const { addToCart } = useCart();
 
   return (
     <div className="bg-gradient-to-b from-white to-[#fdfcfb] rounded-[28px] border border-[#b48648]/14 p-6 flex flex-col h-full hover:shadow-[0_20px_50px_rgba(139,90,43,0.08)] hover:-translate-y-1.5 transition-all duration-500 group relative overflow-hidden">
@@ -75,15 +75,15 @@ export default function ProductCard({
       </p>
       
       {/* Action Button */}
-      <Link 
-        href={`/products/${id}`}
+      <button 
+        onClick={() => addToCart({ id, title, image, description })}
         className={`w-full py-3 rounded-xl font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 cursor-pointer relative overflow-hidden flex items-center justify-center gap-1.5 ${buttonClass}`}
       >
-        <span>View Details</span>
+        <span>Add to Cart</span>
         <svg className="w-3.5 h-3.5 transition-transform duration-300 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
-      </Link>
+      </button>
     </div>
   );
 }

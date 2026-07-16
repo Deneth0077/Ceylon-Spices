@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, User, Menu, X, ArrowRight } from "lucide-react";
-
+import { Search, ShoppingCart, User, Menu, X, Plus, Minus, Trash2, ArrowRight } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 const searchProducts = [
   {
@@ -52,6 +52,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const pathname = usePathname();
+  const { cart, updateQuantity, removeFromCart, isCartOpen, setIsCartOpen, totalItemsCount } = useCart();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,6 +100,22 @@ export default function Navbar() {
       p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+  const handleCheckout = () => {
+    if (cart.length === 0) return;
+
+    let message = `*True Cinnamon Care - New Order*\n`;
+    message += `=================================\n`;
+    cart.forEach((item, index) => {
+      message += `${index + 1}. *${item.title}* - Qty: ${item.quantity}\n`;
+    });
+    message += `=================================\n`;
+    message += `Please confirm my order. Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/94761193338?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -189,6 +206,19 @@ export default function Navbar() {
               </button>
 
               <button
+                className="relative p-2.5 rounded-full bg-white/30 backdrop-blur-md border border-[#B68D40]/40 shadow-sm hover:bg-white/60 hover:border-[#B68D40]/80 hover:shadow-md transition-all duration-300 flex items-center justify-center text-gray-700 hover:text-[#B68D40] hover:-translate-y-[1px]"
+                onClick={() => setIsCartOpen(true)}
+                aria-label="Shopping Cart"
+              >
+                <ShoppingCart className="w-4 h-4 lg:w-5 lg:h-5" />
+                {totalItemsCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-[#b0633b] text-white text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center font-bold animate-pulse shadow-sm border border-[#B68D40]/50">
+                    {totalItemsCount}
+                  </span>
+                )}
+              </button>
+
+              <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden p-2.5 rounded-full bg-white/30 backdrop-blur-md border border-[#B68D40]/40 shadow-sm hover:bg-white/60 hover:border-[#B68D40]/80 hover:shadow-md transition-all duration-300 flex items-center justify-center text-gray-700 hover:text-[#B68D40]"
                 aria-label="Mobile Menu"
@@ -220,6 +250,121 @@ export default function Navbar() {
         )}
       </nav>
 
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsCartOpen(false)} />
+
+          <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div className="w-screen max-w-md bg-white/85 backdrop-blur-2xl shadow-[-10px_0_30px_rgba(0,0,0,0.1)] border-l border-white/40 flex flex-col h-full transform transition-transform duration-500 ease-in-out">
+              <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between">
+                <h2 className="text-lg font-bold text-gray-900 flex items-center gap-2">
+                  <ShoppingCart className="w-5 h-5 text-cap-gold" />
+                  Your Shopping Cart
+                </h2>
+                <button
+                  type="button"
+                  className="p-2 -mr-2 text-gray-400 hover:text-gray-500 focus:outline-none"
+                  onClick={() => setIsCartOpen(false)}
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto py-6 px-4 sm:px-6">
+                {cart.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center px-4">
+                    <div className="w-20 h-20 rounded-full bg-amber-50 flex items-center justify-center mb-4 text-cap-gold">
+                      <ShoppingCart className="w-8 h-8" />
+                    </div>
+                    <p className="text-gray-900 font-bold text-lg mb-1">Your cart is empty</p>
+                    <p className="text-gray-500 text-sm mb-6">Start adding authentic Sri Lankan spices!</p>
+                    <button
+                      onClick={() => {
+                        setIsCartOpen(false);
+                        window.location.href = "/products";
+                      }}
+                      className="px-6 py-2.5 bg-cap-gold hover:bg-cap-gold-hover text-white rounded-xl text-sm font-semibold transition"
+                    >
+                      Browse Products
+                    </button>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    {cart.map((item) => (
+                      <div key={item.id} className="flex py-4 border-b border-gray-100 group">
+                        <div className="h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-gray-50 p-2 border border-gray-100 relative">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="h-full w-full object-contain mix-blend-multiply"
+                          />
+                        </div>
+
+                        <div className="ml-4 flex flex-1 flex-col">
+                          <div>
+                            <div className="flex justify-between text-sm font-semibold text-gray-900">
+                              <h3>{item.title}</h3>
+                              <button
+                                type="button"
+                                onClick={() => removeFromCart(item.id)}
+                                className="text-gray-400 hover:text-red-500 p-1"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </button>
+                            </div>
+                            <p className="mt-1 text-xs text-gray-500 line-clamp-1">{item.description}</p>
+                          </div>
+                          <div className="flex flex-1 items-end justify-between text-xs">
+                            <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                              <button
+                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                className="p-1.5 hover:bg-gray-100 text-gray-500 transition-colors"
+                              >
+                                <Minus className="w-3.5 h-3.5" />
+                              </button>
+                              <span className="px-3 font-semibold text-gray-800">{item.quantity}</span>
+                              <button
+                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                className="p-1.5 hover:bg-gray-100 text-gray-500 transition-colors"
+                              >
+                                <Plus className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {cart.length > 0 && (
+                <div className="border-t border-gray-100 py-6 px-4 sm:px-6 bg-gray-50/70">
+                  <div className="flex justify-between text-sm font-bold text-gray-900 mb-4">
+                    <span>Total Items</span>
+                    <span>{totalItemsCount} item(s)</span>
+                  </div>
+                  <p className="text-xs text-gray-500 mb-6 font-sans">
+                    Shipping is calculated on order confirmation.
+                  </p>
+                  <div>
+                    <button
+                      onClick={handleCheckout}
+                      className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white py-4 px-6 rounded-2xl font-bold tracking-wide transition-all shadow-md hover:scale-[1.01] active:scale-95 cursor-pointer text-sm"
+                    >
+                      <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.49-4.734c1.652.98 3.284 1.493 4.887 1.493 5.485 0 9.948-4.467 9.95-9.95.002-2.653-1.03-5.15-2.906-7.03C16.6 1.899 14.1 .865 11.446.865c-5.485 0-9.949 4.469-9.95 9.954-.001 1.905.518 3.738 1.5 5.367l-.955 3.486 3.572-.937zm12.333-6.242c-.302-.151-1.786-.881-2.062-.982-.276-.1-.476-.151-.676.151-.2.302-.776.982-.95 1.182-.175.201-.35.226-.652.076-.302-.151-1.274-.469-2.428-1.498-.898-.8-1.503-1.79-1.68-2.091-.176-.302-.019-.465.132-.615.136-.135.302-.351.453-.527.151-.176.201-.302.302-.503.101-.201.05-.377-.026-.527-.075-.151-.676-1.631-.926-2.235-.243-.587-.49-.507-.676-.517-.175-.01-.376-.01-.576-.01-.2 0-.526.075-.802.377-.276.302-1.052 1.03-1.052 2.515 0 1.485 1.077 2.918 1.227 3.12.15.201 2.119 3.235 5.132 4.536.717.31 1.277.495 1.713.633.721.23 1.378.197 1.896.12.578-.088 1.786-.73 2.037-1.435.251-.704.251-1.307.176-1.435-.076-.12-.276-.197-.577-.348z" />
+                      </svg>
+                      Order via WhatsApp
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
       {isSearchOpen && (
         <div className="fixed inset-0 z-50 overflow-hidden flex items-start justify-center pt-20 px-4">
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onClick={() => setIsSearchOpen(false)} />
@@ -250,7 +395,7 @@ export default function Navbar() {
                 </div>
               ) : filteredProducts.length === 0 ? (
                 <div className="text-center py-10">
-                  <p className="text-gray-500 font-medium mb-1">No products found matching &ldquo;{searchQuery}&rdquo;</p>
+                  <p className="text-gray-500 font-medium mb-1">No products found matching "{searchQuery}"</p>
                   <p className="text-gray-400 text-xs">Try different keywords or check spelling.</p>
                 </div>
               ) : (

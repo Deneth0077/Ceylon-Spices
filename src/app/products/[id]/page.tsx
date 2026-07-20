@@ -154,11 +154,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const resolvedParams = use(params);
   const productId = parseInt(resolvedParams.id);
   const { addToCart } = useCart();
-  
+
   const [quantity, setQuantity] = useState(1);
   const [activeThumb, setActiveThumb] = useState(0);
   const [size, setSize] = useState("100g Jar");
-  
+
   // Accordion drawer states
   const [isSensoryOpen, setIsSensoryOpen] = useState(true);
   const [isBenefitsOpen, setIsBenefitsOpen] = useState(false);
@@ -182,13 +182,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden py-12">
-      
+
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-        
+
         {/* Breadcrumb / Back Navigation */}
         <div className="mb-8 flex items-center justify-between">
-          <Link 
-            href="/products" 
+          <Link
+            href="/products"
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#52443f] hover:text-[#42190a] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Collection
@@ -200,20 +200,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
         {/* 1. Main Product Overview Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
-          
+
           {/* Left Side: Images Showcase (5 Cols) */}
           <div className="lg:col-span-6 space-y-4">
-            
+
             {/* Big Main Image Card */}
             <div className="relative w-full aspect-square bg-[#f6f3f2] rounded-xl border border-[#eae7e7]/70 flex items-center justify-center p-8 overflow-hidden shadow-premium">
               {/* Organic background blob */}
               <div className="absolute inset-8 bg-[#ffdfa0]/30 rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] -z-10 animate-morph-1 opacity-70" />
-              
+
               <div className="w-[85%] h-[85%] relative flex items-center justify-center">
-                <img 
-                  src={product.thumbs[activeThumb] || product.image} 
-                  alt={product.title} 
-                  className="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-xl" 
+                <img
+                  src={product.thumbs[activeThumb] || product.image}
+                  alt={product.title}
+                  className="max-w-full max-h-full object-contain mix-blend-multiply drop-shadow-xl"
                 />
               </div>
             </div>
@@ -224,16 +224,15 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                 <button
                   key={idx}
                   onClick={() => setActiveThumb(idx)}
-                  className={`aspect-square rounded-lg border bg-[#f6f3f2]/30 p-1 overflow-hidden transition-all flex items-center justify-center cursor-pointer ${
-                    activeThumb === idx 
-                      ? "border-[#795900] ring-1 ring-[#795900]/30 shadow-sm" 
+                  className={`aspect-square rounded-lg border bg-[#f6f3f2]/30 p-1 overflow-hidden transition-all flex items-center justify-center cursor-pointer ${activeThumb === idx
+                      ? "border-[#795900] ring-1 ring-[#795900]/30 shadow-sm"
                       : "border-[#eae7e7] hover:border-[#85736e]"
-                  }`}
+                    }`}
                 >
-                  <img 
-                    src={thumb} 
-                    alt={`Thumbnail ${idx + 1}`} 
-                    className="max-w-full max-h-full object-contain mix-blend-multiply" 
+                  <img
+                    src={thumb}
+                    alt={`Thumbnail ${idx + 1}`}
+                    className="max-w-full max-h-full object-contain mix-blend-multiply"
                   />
                 </button>
               ))}
@@ -242,13 +241,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
           {/* Right Side: Product Details Column (6 Cols) */}
           <div className="lg:col-span-6 space-y-6">
-            
+
             {/* Category / Star rating */}
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#795900] bg-[#ffdfa0]/40 px-3 py-1 rounded">
                 {product.origin}
               </span>
-              
+
               <div className="flex items-center gap-2">
                 <div className="flex text-[#795900]">
                   {[...Array(5)].map((_, i) => (
@@ -289,11 +288,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <button
                     key={s}
                     onClick={() => setSize(s)}
-                    className={`px-4 py-2 border rounded text-xs font-bold transition-all cursor-pointer ${
-                      size === s 
-                        ? "border-[#42190a] bg-[#42190a] text-white" 
+                    className={`px-4 py-2 border rounded text-xs font-bold transition-all cursor-pointer ${size === s
+                        ? "border-[#42190a] bg-[#42190a] text-white"
                         : "border-[#eae7e7] hover:border-[#85736e] text-[#52443f]"
-                    }`}
+                      }`}
                   >
                     {s}
                   </button>
@@ -316,7 +314,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
             {/* Cart controls / Add to Bag */}
             <div className="flex flex-col sm:flex-row gap-4 border-t border-[#eae7e7] pt-6">
-              
+
               {/* Quantity selector */}
               <div className="flex items-center border border-[#eae7e7] bg-[#f6f3f2]/40 rounded-lg overflow-hidden self-start">
                 <button
@@ -352,7 +350,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="space-y-2 border-t border-[#eae7e7] pt-6">
               {/* Sensory Profile */}
               <div className="border border-[#eae7e7] rounded-lg overflow-hidden bg-white shadow-sm">
-                <button 
+                <button
                   onClick={() => setIsSensoryOpen(!isSensoryOpen)}
                   className="w-full px-4 py-3 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#42190a] hover:bg-[#f6f3f2]/30 text-left cursor-pointer"
                 >
@@ -368,7 +366,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
               {/* Health Benefits */}
               <div className="border border-[#eae7e7] rounded-lg overflow-hidden bg-white shadow-sm">
-                <button 
+                <button
                   onClick={() => setIsBenefitsOpen(!isBenefitsOpen)}
                   className="w-full px-4 py-3 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#42190a] hover:bg-[#f6f3f2]/30 text-left cursor-pointer"
                 >
@@ -437,8 +435,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <h2 className="font-serif text-2xl font-bold text-[#42190a]">The Artisan's Pantry</h2>
             </div>
             <div className="flex gap-2">
-              <Link 
-                href="/products" 
+              <Link
+                href="/products"
                 className="text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline"
               >
                 View All Spices
@@ -448,7 +446,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {detailedProducts.filter(p => p.id !== product.id).slice(0, 4).map(p => (
-              <div 
+              <div
                 key={p.id}
                 className="bg-white rounded-lg border border-[#eae7e7]/60 p-4 flex flex-col hover:shadow-premium transition-all group"
               >
@@ -473,12 +471,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         {/* 4. Whispers from the Kitchen (Reviews Showcase) */}
         <section className="bg-[#f6f3f2]/50 rounded-xl border border-[#eae7e7] p-8 md:p-12 mb-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Left summary column */}
             <div className="lg:col-span-4 space-y-4">
               <p className="text-[9px] font-bold uppercase tracking-wider text-[#795900]">Whispers from the Kitchen</p>
               <h2 className="font-serif text-2xl font-bold text-[#42190a]">Verified Reviews</h2>
-              
+
               <div className="flex items-end gap-3 pt-2">
                 <span className="text-4xl font-serif font-bold text-[#42190a]">{product.rating.toFixed(1)}</span>
                 <div>

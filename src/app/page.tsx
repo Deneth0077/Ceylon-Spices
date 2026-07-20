@@ -152,7 +152,13 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left: Headline and Badges list */}
-          <div className="lg:col-span-5 space-y-4">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="lg:col-span-5 space-y-4"
+          >
             <div className="inline-flex items-center gap-1.5 text-[#192a14] bg-[#d3e9c7] text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded">
               certified
             </div>
@@ -170,7 +176,7 @@ export default function Home() {
                 <Leaf className="w-4 h-4 text-[#795900]" /> 100% Organic
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Announcement Text */}
           <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-[#eae7e7] shadow-sm">
@@ -184,11 +190,17 @@ export default function Home() {
 
       {/* 3. Why Choose Us Section */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[600px] mx-auto mb-16"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Us</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Quality & Sustainability</h2>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
@@ -251,43 +263,54 @@ export default function Home() {
           </div>
 
           {/* Right Column Content */}
-          <div className="md:col-span-6 flex flex-col space-y-8">
-            <div className="space-y-4">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="md:col-span-6 flex flex-col space-y-8"
+          >
+            <motion.div variants={fadeInUp} className="space-y-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Legacy</p>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">The Heritage of Wellness</h2>
               <p className="text-sm text-[#52443f] leading-relaxed">
                 For centuries, the highlands of Sri Lanka have nurtured spices prized by empires. Our spice farmers preserve this heritage through regenerative farming, keeping our soils vibrant and spices pure. We bring you these pristine treasures directly, completely untouched by additives.
               </p>
-            </div>
-
-            <div className="space-y-4">
+            </motion.div>
+ 
+            <motion.div variants={fadeInUp} className="space-y-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Future</p>
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">Sustainable Cultivation</h2>
               <p className="text-sm text-[#52443f] leading-relaxed">
                 By maintaining forest-gardens that mimic natural ecosystems, we preserve Sri Lanka's unique biodiversity. This protects wildlife, sustains water cycles, and ensures the purest organic harvest for generations to come.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="pt-4">
+            <motion.div variants={fadeInUp} className="pt-4">
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#42190a] hover:bg-[#5d2e1d] text-white rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
               >
                 Explore Sustainable Practices <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-            </div>
-          </div>
-
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* 5. Discover Our Collection (2-Column Blurred-Background Layout) */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 bg-[#fcf9f8]">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[600px] mx-auto mb-16"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">OUR OFFERINGS</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Discover Our Collection</h2>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -364,7 +387,13 @@ export default function Home() {
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 border-t border-[#eae7e7]/60">
 
         {/* Title and Header Actions */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10"
+        >
           <div className="space-y-2">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">
               Explore our Artisanal Collections
@@ -379,7 +408,7 @@ export default function Home() {
           >
             View All Spices
           </Link>
-        </div>
+        </motion.div>
 
         {/* Asymmetrical Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">

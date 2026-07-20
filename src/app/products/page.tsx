@@ -5,6 +5,16 @@ import Link from "next/link";
 import { Search, ShoppingBag, Shield, Heart, HelpCircle, Star, Filter, RotateCcw, Award } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import TransparentImage from "@/components/TransparentImage";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
+  }
+};
 
 interface Product {
   id: number;
@@ -169,22 +179,33 @@ export default function ShopPage() {
       </div>
 
       {/* 1. Header & Title */}
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8 text-center max-w-[700px] mx-auto mb-16">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-[1280px] mx-auto px-6 md:px-8 text-center max-w-[700px] mx-auto mb-16"
+      >
         <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#42190a] leading-tight mb-4">
           Our Artisanal Collection
         </h1>
         <p className="text-xs md:text-sm text-[#52443f] leading-relaxed max-w-[600px] mx-auto">
           Discover the soul of Sri Lanka through our hand-curated spices. Harvested at the peak of ripeness and processed with ancestral techniques to preserve therapeutic potency.
         </p>
-      </div>
+      </motion.div>
 
       {/* 2. Why Choose Our Spices: Wellness & Potency */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 mb-20">
-        <div className="text-center max-w-[500px] mx-auto mb-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[500px] mx-auto mb-10"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Our Spices</p>
           <h2 className="font-serif text-xl md:text-2xl font-bold text-[#42190a]">Wellness & Potency Standards</h2>
           <div className="w-12 h-0.5 bg-[#795900] mx-auto mt-2" />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-[#f6f3f2]/50 p-6 rounded-lg border border-[#eae7e7]/70 text-center flex flex-col items-center">

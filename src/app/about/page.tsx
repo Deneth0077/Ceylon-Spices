@@ -97,11 +97,17 @@ export default function AboutPage() {
 
       {/* 2. Why Choose Us Section */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 border-b border-[#eae7e7]">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[600px] mx-auto mb-16"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Us</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Quality & Sustainability</h2>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center">
@@ -138,11 +144,17 @@ export default function AboutPage() {
 
       {/* 3. The Spice Trail Section */}
       <section id="spice-trail" className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 space-y-24">
-        <div className="text-center max-w-[600px] mx-auto">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[600px] mx-auto"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Our Process</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">The Spice Trail</h2>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         {/* Trail Item 1: Legacy */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -187,7 +199,13 @@ export default function AboutPage() {
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-12">
         <div className="bg-[#192a14] rounded-2xl overflow-hidden shadow-premium grid grid-cols-1 md:grid-cols-12 gap-8 p-8 md:p-12 text-white items-center">
           
-          <div className="md:col-span-7 space-y-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="md:col-span-7 space-y-6"
+          >
             <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">Our Origins</span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white">Soil, Sun & Rain</h2>
             <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
@@ -201,7 +219,7 @@ export default function AboutPage() {
                 Learn More <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-          </div>
+          </motion.div>
           
           <div className="md:col-span-5 relative h-[300px] md:h-[350px] flex items-center justify-center">
             <div className="relative w-[80%] h-full rounded-xl overflow-hidden border border-white/15">
@@ -220,11 +238,17 @@ export default function AboutPage() {
 
       {/* 5. Meet the Artisans Section */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 border-t border-[#eae7e7] mt-12">
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center max-w-[600px] mx-auto mb-16"
+        >
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Our People</p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Meet the Artisans</h2>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
@@ -295,7 +319,13 @@ export default function AboutPage() {
       <section className="bg-[#5d2e1d] text-white py-20 px-6 md:px-8 border-t border-[#eae7e7]">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           
-          <div className="md:col-span-7 space-y-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="md:col-span-7 space-y-6"
+          >
             <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight">
               Grown in Soils,<br />Committed to Quality
             </h2>
@@ -319,7 +349,7 @@ export default function AboutPage() {
               <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 px-4 py-2 rounded border border-white/10">Single Origin</span>
               <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 px-4 py-2 rounded border border-white/10">Organic & Clean</span>
             </div>
-          </div>
+          </motion.div>
           
           <div className="md:col-span-5 relative h-[350px] md:h-[450px] flex items-center justify-center">
             <div className="relative w-full h-full rounded-xl overflow-hidden shadow-premium">

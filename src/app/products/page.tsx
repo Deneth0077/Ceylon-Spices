@@ -401,10 +401,13 @@ export default function ShopPage() {
                     </span>
                     
                     <button 
-                      onClick={() => addToCart({ id: p.id, title: p.title, image: p.image, description: p.description })}
-                      className="px-4 py-2 bg-[#795900] hover:bg-[#5c4300] text-white rounded font-bold text-[10px] uppercase tracking-wider transition-colors cursor-pointer"
+                      onClick={() => {
+                        const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\nPrice: *$${p.price.toFixed(2)}*\n=================================\nPlease confirm my order. Thank you!`;
+                        window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
+                      }}
+                      className="px-4 py-2 bg-[#2e4028] hover:bg-[#192a14] text-white rounded font-bold text-[10px] uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-1.5"
                     >
-                      Quick Add
+                      Order on WhatsApp
                     </button>
                   </div>
 

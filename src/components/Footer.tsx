@@ -10,9 +10,13 @@ export default function Footer() {
           
           {/* Column 1: BRAND DETAIL */}
           <div className="flex flex-col gap-4">
-            <h3 className="font-serif text-lg md:text-xl font-bold tracking-tight text-white">
-              Ceylon Spice Artisans
-            </h3>
+            <Link href="/" className="inline-block self-start">
+              <img 
+                src="/images/new_brand_logo.png" 
+                alt="True Cinnamon Care Logo" 
+                className="h-10 md:h-12 w-auto object-contain brightness-0 invert" 
+              />
+            </Link>
             <p className="text-xs text-[#eae7e7]/70 leading-relaxed max-w-[270px]">
               Dedicated to the preservation of traditional organic farming and the global distribution of Sri Lanka's finest spices. Culinary heritage since 1826.
             </p>

@@ -140,10 +140,12 @@ export default function Navbar() {
 
             {/* Left Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center gap-1 group">
-                <span className="font-serif text-lg md:text-2xl font-bold tracking-tight text-[#42190a] transition-colors group-hover:text-[#795900]">
-                  Ceylon Spice Artisans
-                </span>
+              <Link href="/" className="flex items-center group">
+                <img 
+                  src="/images/new_brand_logo.png" 
+                  alt="True Cinnamon Care Logo"
+                  className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                />
               </Link>
             </div>
 
@@ -172,7 +174,7 @@ export default function Navbar() {
             {/* Right Icons */}
             <div className="flex items-center space-x-2 md:space-x-3">
               <button
-                className="p-2.5 text-[#52443f] hover:text-[#42190a] transition-colors flex items-center justify-center"
+                className="p-2.5 text-[#52443f] hover:text-[#42190a] transition-colors flex items-center justify-center cursor-pointer"
                 onClick={() => setIsSearchOpen(true)}
                 aria-label="Search"
               >
@@ -180,23 +182,10 @@ export default function Navbar() {
               </button>
 
               <button
-                className="p-2.5 text-[#52443f] hover:text-[#42190a] transition-colors hidden sm:flex items-center justify-center"
+                className="p-2.5 text-[#52443f] hover:text-[#42190a] transition-colors hidden sm:flex items-center justify-center cursor-pointer"
                 aria-label="User Account"
               >
                 <User className="w-[18px] h-[18px]" />
-              </button>
-
-              <button
-                className="relative p-2.5 text-[#52443f] hover:text-[#42190a] transition-colors flex items-center justify-center"
-                onClick={() => setIsCartOpen(true)}
-                aria-label="Shopping Cart"
-              >
-                <ShoppingCart className="w-[18px] h-[18px]" />
-                {totalItemsCount > 0 && (
-                  <span className="absolute top-1 right-1 bg-[#795900] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
-                    {totalItemsCount}
-                  </span>
-                )}
               </button>
 
               <button
@@ -233,118 +222,7 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Cart Drawer */}
-      {isCartOpen && (
-        <div className="fixed inset-0 z-50 overflow-hidden" role="dialog" aria-modal="true">
-          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsCartOpen(false)} />
 
-          <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div className="w-screen max-w-md bg-[#fcf9f8] shadow-[-10px_0_30px_rgba(93,46,29,0.08)] border-l border-[#eae7e7] flex flex-col h-full transform transition-transform duration-500 ease-in-out">
-              <div className="px-6 py-5 border-b border-[#eae7e7] flex items-center justify-between">
-                <h2 className="text-base font-serif font-bold text-[#42190a] flex items-center gap-2">
-                  <ShoppingCart className="w-5 h-5 text-[#795900]" />
-                  Your Spice Selection
-                </h2>
-                <button
-                  type="button"
-                  className="p-2 -mr-2 text-[#52443f] hover:text-[#42190a]"
-                  onClick={() => setIsCartOpen(false)}
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-
-              <div className="flex-grow overflow-y-auto py-6 px-6">
-                {cart.length === 0 ? (
-                  <div className="h-full flex flex-col items-center justify-center text-center px-4">
-                    <div className="w-16 h-16 rounded-full bg-[#f6f3f2] flex items-center justify-center mb-4 text-[#795900]">
-                      <ShoppingCart className="w-6 h-6" />
-                    </div>
-                    <p className="font-serif text-[#42190a] text-lg font-bold mb-1">Your cart is empty</p>
-                    <p className="text-[#52443f] text-xs mb-6">Start adding authentic Ceylon Spices!</p>
-                    <button
-                      onClick={() => {
-                        setIsCartOpen(false);
-                        window.location.href = "/products";
-                      }}
-                      className="px-6 py-2.5 bg-[#795900] hover:bg-[#5c4300] text-white rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
-                    >
-                      Browse Collection
-                    </button>
-                  </div>
-                ) : (
-                  <div className="space-y-6">
-                    {cart.map((item) => (
-                      <div key={item.id} className="flex py-4 border-b border-[#eae7e7]/60 group">
-                        <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg bg-[#f6f3f2] p-1 border border-[#eae7e7]/80 relative flex items-center justify-center">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="h-full w-full object-contain mix-blend-multiply"
-                          />
-                        </div>
-
-                        <div className="ml-4 flex flex-1 flex-col">
-                          <div>
-                            <div className="flex justify-between text-sm font-serif font-bold text-[#42190a]">
-                              <h3>{item.title}</h3>
-                              <button
-                                type="button"
-                                onClick={() => removeFromCart(item.id)}
-                                className="text-[#85736e] hover:text-[#ba1a1a] p-1 transition-colors"
-                              >
-                                <Trash2 className="h-4 w-4" />
-                              </button>
-                            </div>
-                            <p className="mt-1 text-xs text-[#52443f] line-clamp-1">{item.description}</p>
-                          </div>
-                          <div className="flex flex-1 items-end justify-between text-xs mt-2">
-                            <div className="flex items-center border border-[#eae7e7] bg-white rounded-md overflow-hidden">
-                              <button
-                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                className="p-1 hover:bg-[#f6f3f2] text-[#85736e] transition-colors"
-                              >
-                                <Minus className="w-3 h-3" />
-                              </button>
-                              <span className="px-2.5 font-bold text-[#42190a]">{item.quantity}</span>
-                              <button
-                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="p-1 hover:bg-[#f6f3f2] text-[#85736e] transition-colors"
-                              >
-                                <Plus className="w-3 h-3" />
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {cart.length > 0 && (
-                <div className="border-t border-[#eae7e7] py-6 px-6 bg-[#f6f3f2]">
-                  <div className="flex justify-between text-sm font-bold text-[#42190a] mb-2 font-serif">
-                    <span>Total Selection</span>
-                    <span>{totalItemsCount} item(s)</span>
-                  </div>
-                  <p className="text-[10px] text-[#52443f] mb-6">
-                    Sourcing directly ensures ultimate freshness. Orders are compiled and finalized via WhatsApp.
-                  </p>
-                  <div>
-                    <button
-                      onClick={handleCheckout}
-                      className="w-full flex items-center justify-center gap-2 bg-[#2e4028] hover:bg-[#192a14] text-white py-3.5 px-6 rounded-lg font-bold tracking-wider uppercase transition-colors shadow-sm text-xs cursor-pointer"
-                    >
-                      Confirm Order via WhatsApp
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Search Drawer */}
       {isSearchOpen && (

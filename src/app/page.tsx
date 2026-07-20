@@ -296,6 +296,135 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 6. Explore our Artisanal Collections (Mockup Grid) */}
+      <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 border-t border-[#eae7e7]/60">
+        
+        {/* Title and Header Actions */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div className="space-y-2">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">
+              Explore our Artisanal Collections
+            </h2>
+            <p className="text-xs md:text-sm text-[#52443f] max-w-[650px] leading-relaxed">
+              Selected harvests from the most fertile regions of Ceylon, chosen for their superior flavor and medicinal properties.
+            </p>
+          </div>
+          <Link 
+            href="/products" 
+            className="text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline hover-underline-animation self-start md:self-auto"
+          >
+            View All Spices
+          </Link>
+        </div>
+
+        {/* Asymmetrical Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          
+          {/* Card 1: Cinnamon (col-span 8) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#42190a] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/images/card_cinnamon.png" 
+                alt="Ceylon Cinnamon Close Up" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 66vw"
+                className="object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            </div>
+            
+            <div className="relative z-10 space-y-3 max-w-[480px]">
+              <h3 className="font-serif text-2xl font-bold text-white">Cinnamon</h3>
+              <p className="text-xs text-white/85 leading-relaxed">
+                True Alba Grade Ceylon Cinnamon, known for its sweet aroma and delicate flavor profile.
+              </p>
+              <Link 
+                href="/products/1" 
+                className="inline-block px-5 py-2 bg-white text-[#42190a] rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
+              >
+                Shop Selection
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2: Turmeric (col-span 4) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#ffdfa0] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/images/card_turmeric.png" 
+                alt="Turmeric Roots & Powder" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover opacity-75 group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            </div>
+            
+            <div className="relative z-10 space-y-3">
+              <h3 className="font-serif text-2xl font-bold text-white">Turmeric</h3>
+              <Link 
+                href="/products/3" 
+                className="inline-block px-5 py-2 border border-white/50 bg-white/10 backdrop-blur-md text-white rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-white/20 text-center"
+              >
+                Explore
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 3: Black Pepper (col-span 4) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#303030] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/images/card_pepper.png" 
+                alt="Black Peppercorns" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover opacity-70 group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            </div>
+            
+            <div className="relative z-10 space-y-3">
+              <h3 className="font-serif text-2xl font-bold text-white">Black Pepper</h3>
+              <Link 
+                href="/products/2" 
+                className="inline-block px-5 py-2 border border-white/50 bg-white/10 backdrop-blur-md text-white rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-white/20 text-center"
+              >
+                Explore
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 4: Cardamom (col-span 8) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#192a14] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/images/card_cardamom.png" 
+                alt="Green Cardamom Pods" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 66vw"
+                className="object-cover opacity-65 group-hover:scale-[1.02] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            </div>
+            
+            <div className="relative z-10 space-y-3 max-w-[480px]">
+              <h3 className="font-serif text-2xl font-bold text-white">Cardamom</h3>
+              <p className="text-xs text-white/85 leading-relaxed">
+                Highly aromatic green pods hand-picked at peak maturity from our mountain estates.
+              </p>
+              <Link 
+                href="/products/4" 
+                className="inline-block px-5 py-2 bg-white text-[#42190a] rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
+              >
+                Shop Selection
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }

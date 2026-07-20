@@ -195,3 +195,21 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #dcd9d9;
 }
+
+/* Custom WhatsApp Floating Pulsing Glow */
+@keyframes whatsapp-glow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5), 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.whatsapp-pulse {
+  animation: whatsapp-glow 2s infinite;
+}
+

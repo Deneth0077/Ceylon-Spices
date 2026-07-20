@@ -56,7 +56,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 80) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -131,9 +131,9 @@ export default function Navbar() {
         ⚡ WORLDWIDE SHIPPING ON ARTISANAL COLLECTIONS
       </div>
 
-      <nav className={`sticky top-0 z-40 w-full transition-all duration-300 ${scrolled
-          ? "bg-[#fcf9f8]/95 backdrop-blur-md shadow-sm border-b border-[#eae7e7]/70 py-1"
-          : "bg-[#fcf9f8] border-b border-[#eae7e7]/40 py-2.5"
+      <nav className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 ease-out transform ${scrolled
+          ? "translate-y-0 opacity-100 bg-[#fcf9f8]/95 backdrop-blur-md shadow-sm border-b border-[#eae7e7]/70 py-1"
+          : "-translate-y-full opacity-0 pointer-events-none py-2.5"
         }`}>
         <div className="max-w-[1280px] mx-auto px-6 md:px-8">
           <div className="flex justify-between items-center h-16 w-full">

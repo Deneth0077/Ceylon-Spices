@@ -175,7 +175,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   };
 
   const handleWhatsAppCheckout = () => {
-    const message = `*Ceylon Spice Artisans - Quick Order*\n=================================\nProduct: *${product.title}*\nSize: *${size}*\nQuantity: *${quantity}*\n=================================\nPlease confirm my order. Thank you!`;
+    const message = `*The Cinnamon Care - Quick Order*\n=================================\nProduct: *${product.title}*\nSize: *${size}*\nQuantity: *${quantity}*\n=================================\nPlease confirm my order. Thank you!`;
     const whatsappUrl = `https://wa.me/94761193338?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };

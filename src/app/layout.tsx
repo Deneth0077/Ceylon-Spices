@@ -16,8 +16,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ceylon Spice Artisans - Premium Sri Lankan Spices",
-  description: "Organic Ceylon Spices sourced directly from the misty highlands of Sri Lanka.",
+  title: "The Cinnamon Care - Premium Sri Lankan Spices",
+  description: "Organic Ceylon Spices sourced directly from the misty highlands of Sri Lanka by The Cinnamon Care.",
 };
 
 export default function RootLayout({

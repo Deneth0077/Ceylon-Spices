@@ -104,7 +104,7 @@ export default function Navbar() {
   const handleCheckout = () => {
     if (cart.length === 0) return;
 
-    let message = `*Ceylon Spice Artisans - New Order*\n`;
+    let message = `*The Cinnamon Care - New Order*\n`;
     message += `=================================\n`;
     cart.forEach((item, index) => {
       message += `${index + 1}. *${item.title}* - Qty: ${item.quantity}\n`;
@@ -127,8 +127,22 @@ export default function Navbar() {
   return (
     <>
       {/* Top Warning/Promo Banner */}
-      <div className="w-full bg-[#ffc641] text-[#42190a] py-2 px-4 text-center text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase z-50 relative select-none">
-        ⚡ WORLDWIDE SHIPPING ON ARTISANAL COLLECTIONS
+      <div className="w-full bg-black text-[#eae7e7] py-2 overflow-hidden z-50 relative select-none border-b border-white/5 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase font-sans">
+        <div className="w-max flex items-center gap-32 md:gap-98 animate-marquee whitespace-nowrap">
+          {/* First set of items */}
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+
+          {/* Second duplicate set of items for seamless loop */}
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+          <span>24/7 Service: +94 77 289 3030</span>
+        </div>
       </div>
 
       <nav className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 ease-out transform ${scrolled
@@ -143,7 +157,7 @@ export default function Navbar() {
               <Link href="/" className="flex items-center group">
                 <img 
                   src="/images/new_brand_logo.png" 
-                  alt="True Cinnamon Care Logo"
+                  alt="The Cinnamon Care Logo"
                   className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                 />
               </Link>

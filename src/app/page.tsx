@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Leaf, Award, ShieldCheck, Heart, ArrowRight, Droplet, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import TransparentImage from "@/components/TransparentImage";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +25,17 @@ const staggerContainer = {
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
+    <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
+      
+      {/* Decorative Single Giant Sri Lankan Cinnamon Bush Centered */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[2800px] w-[500px] md:w-[800px] pointer-events-none z-10 overflow-hidden select-none opacity-[0.06]">
+        <TransparentImage 
+          src="/images/cinnamon_bush.png" 
+          alt="" 
+          className="w-full h-full object-fill object-bottom"
+        />
+      </div>
+
 
       {/* 1. Hero Section (With Background Image and 3D Canister Table Alignment) */}
       <section className="relative w-full overflow-hidden bg-[#fcf9f8] pt-16 pb-20 md:pt-28 md:pb-28 border-b border-[#eae7e7]/40">
@@ -102,7 +113,7 @@ export default function Home() {
             >
               <img 
                 src="/images/cinnamon_canister_3d.png" 
-                alt="True Cinnamon Care Canister 3D" 
+                alt="The Cinnamon Care Canister 3D" 
                 className="max-h-[95%] object-contain"
               />
             </motion.div>
@@ -164,7 +175,7 @@ export default function Home() {
           {/* Right: Announcement Text */}
           <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-[#eae7e7] shadow-sm">
             <p className="text-xs text-[#52443f] leading-relaxed font-medium">
-              True Cinnamon Care is pleased to announce that we are in the process of establishing a GMP-certified facility, aligned with ISO 22000 standards, which we intend to obtain in the near future. FDA approvals are currently underway.
+              The Cinnamon Care is pleased to announce that we are in the process of establishing a GMP-certified facility, aligned with ISO 22000 standards, which we intend to obtain in the near future. FDA approvals are currently underway.
             </p>
           </div>
 
@@ -303,7 +314,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => {
-                  const message = `*True Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Ceylon Cinnamon*\nPrice: *$14.50*\n=================================\nPlease confirm my order. Thank you!`;
+                  const message = `*The Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Ceylon Cinnamon*\nPrice: *$14.50*\n=================================\nPlease confirm my order. Thank you!`;
                   window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
                 }}
                 className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ffc641] hover:underline pt-2 cursor-pointer"
@@ -336,7 +347,7 @@ export default function Home() {
               </p>
               <button
                 onClick={() => {
-                  const message = `*True Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Turmeric*\nPrice: *$12.00*\n=================================\nPlease confirm my order. Thank you!`;
+                  const message = `*The Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Turmeric*\nPrice: *$12.00*\n=================================\nPlease confirm my order. Thank you!`;
                   window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
                 }}
                 className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline pt-2 cursor-pointer"

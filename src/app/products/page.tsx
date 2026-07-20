@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Search, ShoppingBag, Shield, Heart, HelpCircle, Star, Filter, RotateCcw, Award } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import TransparentImage from "@/components/TransparentImage";
 
 interface Product {
   id: number;
@@ -156,7 +157,16 @@ export default function ShopPage() {
   });
 
   return (
-    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden min-h-screen py-16">
+    <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden min-h-screen py-16">
+      
+      {/* Decorative Single Giant Sri Lankan Cinnamon Farmer Centered */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[800px] md:w-[1300px] pointer-events-none z-0 overflow-hidden select-none opacity-[0.12]">
+        <TransparentImage 
+          src="/images/cinnamon_harvest.png" 
+          alt="" 
+          className="w-full h-full object-fill object-bottom"
+        />
+      </div>
 
       {/* 1. Header & Title */}
       <div className="max-w-[1280px] mx-auto px-6 md:px-8 text-center max-w-[700px] mx-auto mb-16">
@@ -341,7 +351,7 @@ export default function ShopPage() {
               {sortedProducts.map((p) => (
                 <div
                   key={p.id}
-                  className="bg-white rounded-2xl border border-[#eae7e7]/60 p-5 flex flex-col h-[460px] hover:shadow-premium transition-all duration-300 group"
+                  className="bg-[#f5ebe0]/20 rounded-2xl border border-[#42190a]/10 p-5 flex flex-col h-[460px] hover:shadow-premium hover:bg-[#f5ebe0]/65 hover:border-[#42190a]/20 transition-all duration-300 group"
                 >
 
                   {/* Origin Badge */}
@@ -398,7 +408,7 @@ export default function ShopPage() {
 
                     <button
                       onClick={() => {
-                        const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\nPrice: *$${p.price.toFixed(2)}*\n=================================\nPlease confirm my order. Thank you!`;
+                        const message = `*The Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\nPrice: *$${p.price.toFixed(2)}*\n=================================\nPlease confirm my order. Thank you!`;
                         window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
                       }}
                       className="w-8 h-8 rounded-full bg-[#ffc641] hover:bg-[#ffb618] text-[#715300] flex items-center justify-center transition-transform group-hover:scale-110 shadow-sm cursor-pointer"

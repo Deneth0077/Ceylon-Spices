@@ -59,7 +59,7 @@ export default function ContactPage() {
                 <span className="text-4xl">🌾</span>
                 <h3 className="font-serif font-bold text-xl text-[#42190a]">Message Dispatched</h3>
                 <p className="text-xs text-[#52443f] max-w-[360px] mx-auto">
-                  Thank you for contacting Ceylon Spice Artisans. Our trade representatives will respond to your business inquiry within 24 hours.
+                  Thank you for contacting The Cinnamon Care. Our trade representatives will respond to your business inquiry within 24 hours.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}

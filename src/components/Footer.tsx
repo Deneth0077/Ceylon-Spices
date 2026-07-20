@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import TransparentImage from "./TransparentImage";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0f0f0f] text-[#eae7e7] pt-20 pb-8 relative z-30 border-t border-[#eae7e7]/10">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
           
@@ -12,9 +13,9 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <Link href="/" className="inline-block self-start">
               <img 
-                src="/images/new_brand_logo.png" 
-                alt="True Cinnamon Care Logo" 
-                className="h-10 md:h-12 w-auto object-contain brightness-0 invert" 
+                src="/images/footer_logo.png" 
+                alt="The Cinnamon Care Logo" 
+                className="h-12 md:h-16 w-auto object-contain" 
               />
             </Link>
             <p className="text-xs text-[#eae7e7]/70 leading-relaxed max-w-[270px]">
@@ -137,9 +138,18 @@ export default function Footer() {
         
         {/* Divider line and copyright block */}
         <div className="border-t border-[#eae7e7]/10 mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] md:text-xs text-[#eae7e7]/40 font-medium font-sans select-none">
-          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} Ceylon Spice Artisans. Handcrafted Heritage from Sri Lanka.</p>
+          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} The Cinnamon Care. Handcrafted Heritage from Sri Lanka.</p>
           <p className="text-right">Design by Ceylon Clicks</p>
         </div>
+      </div>
+      
+      {/* Centered White Cinnamon Bush Background Watermark */}
+      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[500px] md:w-[800px] h-[350px] pointer-events-none z-0 overflow-hidden opacity-[0.03] select-none">
+        <TransparentImage 
+          src="/images/cinnamon_bush.png" 
+          alt="" 
+          className="w-full h-full object-fill object-bottom invert brightness-200" 
+        />
       </div>
     </footer>
   );

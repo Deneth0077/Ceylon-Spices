@@ -57,6 +57,7 @@
   --animate-morph-1: morph-blob-1 15s ease-in-out infinite;
   --animate-morph-2: morph-blob-2 18s ease-in-out infinite;
   --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-marquee: marquee 60s linear infinite;
 }
 
 body {
@@ -211,5 +212,14 @@ body {
 
 .whatsapp-pulse {
   animation: whatsapp-glow 2s infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 

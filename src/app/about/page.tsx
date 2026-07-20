@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Leaf, Award, ShieldCheck, Heart, Droplet, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import TransparentImage from "@/components/TransparentImage";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -24,7 +25,37 @@ const staggerContainer = {
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
+    <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
+      
+      {/* Decorative Background Graphics (Goraka Tree on Right & Climbing Pepper Vine on Left) */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        {/* Right Side: Garcinia (Goraka) Tree near the top (Larger, pointing down) */}
+        <div className="absolute right-[-220px] md:right-[-180px] top-[15%] w-[500px] md:w-[750px] h-[750px] opacity-[0.06] transform rotate-[120deg]">
+          <TransparentImage 
+            src="/images/goraka_tree.png" 
+            alt="" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Right Side: Another Garcinia (Goraka) Tree near the bottom (Larger, pointing down) */}
+        <div className="absolute right-[-240px] md:right-[-200px] top-[65%] w-[500px] md:w-[750px] h-[750px] opacity-[0.05] transform rotate-[140deg]">
+          <TransparentImage 
+            src="/images/goraka_tree.png" 
+            alt="" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Left Side: Single Giant Black Pepper (Gammiris) Vine climbing starting above the brown section to Spice Trail (Wider, spreading) */}
+        <div className="absolute left-[-220px] md:left-[-180px] top-[1400px] bottom-[580px] w-[600px] md:w-[900px] opacity-[0.06]">
+          <TransparentImage 
+            src="/images/pepper_vine.png" 
+            alt="" 
+            className="w-full h-full object-fill object-bottom"
+          />
+        </div>
+      </div>
       
       {/* 1. Hero Section */}
       <section className="relative w-full min-h-[500px] flex items-center justify-center py-20 px-6 md:px-8">
@@ -50,7 +81,7 @@ export default function AboutPage() {
         >
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Legacy</span>
           <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#42190a] mt-2 mb-4">
-            Ceylon Spice Artisans
+            The Cinnamon Care
           </h1>
           <p className="text-xs md:text-sm text-[#52443f] leading-relaxed mb-6">
             For generations, the families of Ceylon have cultivated the soil with deep respect and care. Our mission is to preserve this artisanal wisdom, providing the world with pure spices that capture the true climate and soul of our island.
@@ -133,8 +164,8 @@ export default function AboutPage() {
         </div>
 
         {/* Trail Item 2: Process */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
-          <div className="relative h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-premium md:order-last">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="relative h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-premium">
             <Image 
               src="/images/artisan_turmeric_leela.png" 
               alt="Hands sorting turmeric roots" 

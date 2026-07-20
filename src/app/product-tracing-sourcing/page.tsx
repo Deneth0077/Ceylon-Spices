@@ -126,7 +126,7 @@ export default function ProductTracingSourcingPage() {
               <h3 className="text-xl sm:text-2xl font-bold font-serif text-white">
                 Generations of Expertise
               </h3>
-              <p className="text-[#fcebe3] text-xs sm:text-sm leading-relaxed font-sans">
+              <p className="text-[#fcebe3] text-sm sm:text-base leading-relaxed font-sans">
                 Our centuries of expertise in spices cultivation allows us to provide quality spices from spice farms in Sri Lanka.
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function ProductTracingSourcingPage() {
                 <h4 className="font-bold text-sm sm:text-base font-serif text-[#ffdcd0]">
                   Natural Sun Drying
                 </h4>
-                <p className="text-[#fcebe3]/80 text-[10px] sm:text-xs leading-relaxed font-sans">
+                <p className="text-[#fcebe3]/80 text-xs sm:text-sm leading-relaxed font-sans">
                   Natural Sun Drying is used to preserve the essential oils, colors and flavor content of our spices.
                 </p>
               </div>
@@ -282,8 +282,8 @@ export default function ProductTracingSourcingPage() {
               <h3 className="text-xl sm:text-2xl font-bold font-serif text-white">
                 State-of-the-Art Analysis
               </h3>
-              <p className="text-[#f3f7ef] text-xs sm:text-sm leading-relaxed font-sans">
-                High tech analysis is used to measure parameters like moisture content, volatile oil content, and purity.
+              <p className="text-[#f3f7ef] text-sm sm:text-base leading-relaxed font-sans">
+                High tech analysis is used to measure parameters like volatile oil content and purity.
               </p>
             </div>
 
@@ -324,7 +324,7 @@ export default function ProductTracingSourcingPage() {
                 <h4 className="font-bold text-sm sm:text-base font-serif text-[#e4edd4]">
                   Purity & Potency Testing
                 </h4>
-                <p className="text-[#f3f7ef]/80 text-[10px] sm:text-xs leading-relaxed font-sans">
+                <p className="text-[#f3f7ef]/80 text-xs sm:text-sm leading-relaxed font-sans">
                   Purity & Potency testing is done to ensure the absence of contaminants and verify active ingredients.
                 </p>
               </div>
@@ -338,7 +338,7 @@ export default function ProductTracingSourcingPage() {
                 <h4 className="font-bold text-sm font-serif text-[#ffdcd0] mb-2">
                   Adherence to International Standards
                 </h4>
-                <p className="text-[#f3f7ef]/70 text-[10px] leading-relaxed font-sans">
+                <p className="text-xs text-[#f3f7ef]/70 leading-relaxed font-sans">
                   Adherence to international thresholds, and standards and adherence to global standards.
                 </p>
               </div>
@@ -438,7 +438,7 @@ export default function ProductTracingSourcingPage() {
               <h4 className="font-extrabold text-[11px] sm:text-xs text-gray-950 uppercase tracking-wider font-sans mb-1.5 border-b border-gray-100 pb-1 flex items-center gap-1">
                 <span className="text-[10px]">📍</span> USA
               </h4>
-              <ul className="text-[9px] sm:text-[10px] text-gray-600 font-sans space-y-0.5 leading-tight">
+              <ul className="text-xs text-gray-600 font-sans space-y-0.5 leading-tight">
                 <li>• USA</li>
                 <li>• Germany</li>
                 <li>• Usmea</li>
@@ -455,7 +455,7 @@ export default function ProductTracingSourcingPage() {
               <h4 className="font-extrabold text-[11px] sm:text-xs text-gray-950 uppercase tracking-wider font-sans mb-1.5 border-b border-gray-100 pb-1 flex items-center gap-1">
                 <span className="text-[10px]">📍</span> Europe
               </h4>
-              <ul className="text-[9px] sm:text-[10px] text-gray-600 font-sans space-y-0.5 leading-tight">
+              <ul className="text-xs text-gray-600 font-sans space-y-0.5 leading-tight">
                 <li>• UK</li>
                 <li>• UE</li>
                 <li>• Germany</li>
@@ -471,7 +471,7 @@ export default function ProductTracingSourcingPage() {
               <h4 className="font-extrabold text-[11px] sm:text-xs text-gray-950 uppercase tracking-wider font-sans mb-1.5 border-b border-gray-100 pb-1 flex items-center gap-1">
                 <span className="text-[10px]">📍</span> Mid East
               </h4>
-              <ul className="text-[9px] sm:text-[10px] text-gray-600 font-sans space-y-0.5 leading-tight">
+              <ul className="text-xs text-gray-600 font-sans space-y-0.5 leading-tight">
                 <li>• UAE</li>
                 <li>• Europe</li>
                 <li>• Saudi Arabia</li>

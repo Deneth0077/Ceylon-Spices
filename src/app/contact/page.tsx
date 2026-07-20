@@ -43,7 +43,7 @@ export default function ContactPage() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#42190a] leading-tight mb-4">
             Get in Touch
           </h1>
-          <p className="text-xs md:text-sm text-[#52443f] leading-relaxed max-w-[500px] mx-auto">
+          <p className="text-sm md:text-base text-[#52443f] leading-relaxed max-w-[500px] mx-auto">
             Whether you're looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our artisans are here to assist.
           </p>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
@@ -58,7 +58,7 @@ export default function ContactPage() {
               <div className="text-center py-12 space-y-4">
                 <span className="text-4xl">🌾</span>
                 <h3 className="font-serif font-bold text-xl text-[#42190a]">Message Dispatched</h3>
-                <p className="text-xs text-[#52443f] max-w-[360px] mx-auto">
+                <p className="text-sm text-[#52443f] max-w-[360px] mx-auto">
                   Thank you for contacting The Cinnamon Care. Our trade representatives will respond to your business inquiry within 24 hours.
                 </p>
                 <button 
@@ -150,7 +150,7 @@ export default function ContactPage() {
               <div className="space-y-1.5">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Sri Lanka Headquarters</p>
                 <h4 className="font-serif font-bold text-[#42190a] text-sm">The Source of Heritage</h4>
-                <p className="text-xs text-[#52443f]/80 leading-relaxed">
+                <p className="text-sm text-[#52443f]/80 leading-relaxed">
                   19th Mile Post, Uduwela Road,<br />Thanamalwila, Sri Lanka.
                 </p>
                 <a href="tel:+94777557058" className="inline-flex items-center gap-1 text-xs text-[#42190a] font-bold hover:underline pt-1">

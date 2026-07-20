@@ -174,7 +174,7 @@ export default function Home() {
 
           {/* Right: Announcement Text */}
           <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-[#eae7e7] shadow-sm">
-            <p className="text-xs text-[#52443f] leading-relaxed font-medium">
+            <p className="text-sm text-[#52443f] leading-relaxed font-medium">
               The Cinnamon Care is pleased to announce that we are in the process of establishing a GMP-certified facility, aligned with ISO 22000 standards, which we intend to obtain in the near future. FDA approvals are currently underway.
             </p>
           </div>
@@ -197,7 +197,7 @@ export default function Home() {
               <Leaf className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Ethically Sourced</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               We work directly with small farming cooperatives, ensuring fair wages, sustainable agricultural practices, and community empowerment.
             </p>
           </div>
@@ -208,7 +208,7 @@ export default function Home() {
               <Droplet className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Aromatic Quality</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               Rich essential oils and potent aromas preserved through hand-harvesting and slow natural drying in shaded facilities.
             </p>
           </div>
@@ -219,7 +219,7 @@ export default function Home() {
               <Heart className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Health Benefits</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               Ceylon Spices are famous for their high antioxidants, anti-inflammatory compounds, and low coumarin levels, boosting health.
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Legacy</p>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">The Heritage of Wellness</h2>
-              <p className="text-xs text-[#52443f] leading-relaxed">
+              <p className="text-sm text-[#52443f] leading-relaxed">
                 For centuries, the highlands of Sri Lanka have nurtured spices prized by empires. Our spice farmers preserve this heritage through regenerative farming, keeping our soils vibrant and spices pure. We bring you these pristine treasures directly, completely untouched by additives.
               </p>
             </div>
@@ -263,7 +263,7 @@ export default function Home() {
             <div className="space-y-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Future</p>
               <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">Sustainable Cultivation</h2>
-              <p className="text-xs text-[#52443f] leading-relaxed">
+              <p className="text-sm text-[#52443f] leading-relaxed">
                 By maintaining forest-gardens that mimic natural ecosystems, we preserve Sri Lanka's unique biodiversity. This protects wildlife, sustains water cycles, and ensures the purest organic harvest for generations to come.
               </p>
             </div>
@@ -309,7 +309,7 @@ export default function Home() {
             <div className="relative z-10 space-y-4 text-left">
               <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">100% Organic</span>
               <h3 className="font-serif text-2xl md:text-3xl font-bold">Ceylon Cinnamon</h3>
-              <p className="text-xs text-[#eae7e7]/85 leading-relaxed max-w-[360px]">
+              <p className="text-sm text-[#eae7e7]/85 leading-relaxed max-w-[360px]">
                 The world's finest Alba grade cinnamon quills, hand-peeled, sweet, and low in coumarin. Perfect for wellness.
               </p>
               <button
@@ -342,7 +342,7 @@ export default function Home() {
             <div className="relative z-10 space-y-4 text-left">
               <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#795900] bg-white/70 px-2.5 py-1 rounded">Aromatic Gold</span>
               <h3 className="font-serif text-2xl md:text-3xl font-bold">Turmeric</h3>
-              <p className="text-xs text-[#52443f] leading-relaxed max-w-[360px]">
+              <p className="text-sm text-[#52443f] leading-relaxed max-w-[360px]">
                 Sun-dried turmeric root, rich in active curcumin compounds for peak anti-inflammatory benefits.
               </p>
               <button
@@ -369,7 +369,7 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">
               Explore our Artisanal Collections
             </h2>
-            <p className="text-xs md:text-sm text-[#52443f] max-w-[650px] leading-relaxed">
+            <p className="text-sm md:text-base text-[#52443f] max-w-[650px] leading-relaxed">
               Selected harvests from the most fertile regions of Ceylon, chosen for their superior flavor and medicinal properties.
             </p>
           </div>
@@ -399,7 +399,7 @@ export default function Home() {
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
               <h3 className="font-serif text-2xl font-bold text-white">Cinnamon</h3>
-              <p className="text-xs text-white/85 leading-relaxed">
+              <p className="text-sm text-white/85 leading-relaxed">
                 True Alba Grade Ceylon Cinnamon, known for its sweet aroma and delicate flavor profile.
               </p>
               <Link
@@ -474,7 +474,7 @@ export default function Home() {
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
               <h3 className="font-serif text-2xl font-bold text-white">Cardamom</h3>
-              <p className="text-xs text-white/85 leading-relaxed">
+              <p className="text-sm text-white/85 leading-relaxed">
                 Highly aromatic green pods hand-picked at peak maturity from our mountain estates.
               </p>
               <Link

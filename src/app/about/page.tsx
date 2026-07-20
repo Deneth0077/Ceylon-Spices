@@ -83,7 +83,7 @@ export default function AboutPage() {
           <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#42190a] mt-2 mb-4">
             The Cinnamon Care
           </h1>
-          <p className="text-xs md:text-sm text-[#52443f] leading-relaxed mb-6">
+          <p className="text-sm md:text-base text-[#52443f] leading-relaxed mb-6">
             For generations, the families of Ceylon have cultivated the soil with deep respect and care. Our mission is to preserve this artisanal wisdom, providing the world with pure spices that capture the true climate and soul of our island.
           </p>
           <Link 
@@ -109,7 +109,7 @@ export default function AboutPage() {
               <Leaf className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Ethically Sourced</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               We work directly with traditional families, ensuring fair earnings, premium farm-gate prices, and chemical-free heritage growth.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
               <Droplet className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Aromatic Quality</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               Rich natural oils, pungent flavor profiles, and deep colors are locked inside our spices through natural, small-batch drying.
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function AboutPage() {
               <Heart className="w-5 h-5" />
             </div>
             <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Health Benefits</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               Ceylon Spices are packed with bio-active compounds, antioxidants, and low coumarin levels, offering holistic therapeutic nourishment.
             </p>
           </div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">A Legacy of Ceylon</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               In 1826, our family journey began in the Matale and Kandy highlands. The goal was simple: to work in harmony with nature, cultivating the purest spices that thrive in our specific soil and tropical weather. Today, we remain true to this path.
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function AboutPage() {
           </div>
           <div className="space-y-4">
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">The Artisanal Process</h3>
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               Every cinnamon quill is hand-peeled, and every turmeric root is sorted by the skilled hands of our community. This careful sorting and slow drying process guarantees that only premium quality leaves the plantation for your home.
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
           <div className="md:col-span-7 space-y-6">
             <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">Our Origins</span>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-white">Soil, Sun & Rain</h2>
-            <p className="text-xs text-[#eae7e7]/80 leading-relaxed">
+            <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
               Discover Sri Lanka's unique soil, high elevations, and ideal weather patterns that give Ceylon spices their premium reputation. We nurture the earth with natural compost and forest canopy shade, preserving the soil's natural integrity.
             </p>
             <div className="pt-2">
@@ -242,7 +242,7 @@ export default function AboutPage() {
             <div className="p-6 space-y-2">
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Master Cinnamon Peeler • 42 Years</p>
               <h3 className="font-serif text-lg font-bold text-[#42190a]">Ranjan Silva</h3>
-              <p className="text-xs text-[#52443f] leading-relaxed">
+              <p className="text-sm text-[#52443f] leading-relaxed">
                 Ranjan represents a long family line of master peelers. He handles each quill with precision, sorting Alba quills in the highlands.
               </p>
             </div>
@@ -262,7 +262,7 @@ export default function AboutPage() {
             <div className="p-6 space-y-2">
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Turmeric Cultivator • 18 Years</p>
               <h3 className="font-serif text-lg font-bold text-[#42190a]">Leela Perera</h3>
-              <p className="text-xs text-[#52443f] leading-relaxed">
+              <p className="text-sm text-[#52443f] leading-relaxed">
                 Leela manages the root collection and sun-drying process, ensuring our turmeric retains its bright golden color and natural potency.
               </p>
             </div>
@@ -282,7 +282,7 @@ export default function AboutPage() {
             <div className="p-6 space-y-2">
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Vanilla Curator • 30 Years</p>
               <h3 className="font-serif text-lg font-bold text-[#42190a]">Ravindra Sen</h3>
-              <p className="text-xs text-[#52443f] leading-relaxed">
+              <p className="text-sm text-[#52443f] leading-relaxed">
                 Ravindra oversees the curing and fermentation of vanilla pods, maintaining constant temperature levels to lock in flavor.
               </p>
             </div>
@@ -302,13 +302,13 @@ export default function AboutPage() {
             <div className="space-y-4">
               <div>
                 <h4 className="font-serif font-bold text-lg text-[#ffdfa0]">Sustainable Cultivation</h4>
-                <p className="text-xs text-[#eae7e7]/80 leading-relaxed mt-1">
+                <p className="text-sm text-[#eae7e7]/80 leading-relaxed mt-1">
                   We treat the land with respect. Our farming preserves soil nutrition and avoids chemical enhancers, letting the forest feed the crop.
                 </p>
               </div>
               <div>
                 <h4 className="font-serif font-bold text-lg text-[#ffdfa0]">We Focus on Wellness</h4>
-                <p className="text-xs text-[#eae7e7]/80 leading-relaxed mt-1">
+                <p className="text-sm text-[#eae7e7]/80 leading-relaxed mt-1">
                   Pure spices are natural remedies. We guarantee our clients get unadulterated spices that deliver peak holistic benefits.
                 </p>
               </div>

@@ -276,7 +276,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* Description */}
-            <p className="text-xs text-[#52443f] leading-relaxed">
+            <p className="text-sm text-[#52443f] leading-relaxed">
               {product.description} Sourced directly from agricultural families that use shade-canopy growth, safeguarding ultimate oil concentration and clean natural flavor.
             </p>
 
@@ -358,7 +358,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {isSensoryOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
                 {isSensoryOpen && (
-                  <div className="px-4 pb-4 pt-1 text-[11px] text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
+                  <div className="px-4 pb-4 pt-1 text-xs text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
                     {product.sensoryProfile}
                   </div>
                 )}
@@ -374,7 +374,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   {isBenefitsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 </button>
                 {isBenefitsOpen && (
-                  <div className="px-4 pb-4 pt-1 text-[11px] text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
+                  <div className="px-4 pb-4 pt-1 text-xs text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
                     {product.healthBenefits}
                   </div>
                 )}
@@ -392,7 +392,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="space-y-4">
               <span className="text-[9px] font-bold uppercase tracking-widest text-[#ffdfa0] bg-white/10 px-2.5 py-1 rounded">Heritage</span>
               <h3 className="font-serif text-xl md:text-2xl font-bold">The True Ceylon Origin</h3>
-              <p className="text-xs text-[#eae7e7]/80 leading-relaxed">
+              <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
                 {product.provenanceText} We partner directly with forest farming groups who preserve soil integrity and clean agriculture.
               </p>
             </div>
@@ -414,7 +414,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             <div className="space-y-4">
               <span className="text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">Certified</span>
               <h3 className="font-serif text-xl md:text-2xl font-bold">Certified Organic</h3>
-              <p className="text-xs text-[#eae7e7]/80 leading-relaxed">
+              <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
                 {product.certifiedText} Sourced directly, fair compensation, supporting forest-garden farming and village community prosperity.
               </p>
             </div>

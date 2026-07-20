@@ -192,7 +192,7 @@ export default function ShopPage() {
               <Shield className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-sm font-bold text-[#42190a] mb-2 uppercase tracking-wide">Overall Health</h3>
-            <p className="text-[11px] text-[#52443f] leading-relaxed max-w-[240px]">
+            <p className="text-xs text-[#52443f] leading-relaxed max-w-[240px]">
               Pure, raw spices with zero additives, maintaining their natural chemical profile for maximum wellness impact.
             </p>
           </div>
@@ -201,7 +201,7 @@ export default function ShopPage() {
               <Shield className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-sm font-bold text-[#42190a] mb-2 uppercase tracking-wide">Anti-Oxidant Capacity</h3>
-            <p className="text-[11px] text-[#52443f] leading-relaxed max-w-[240px]">
+            <p className="text-xs text-[#52443f] leading-relaxed max-w-[240px]">
               High ORAC value products, harvested and processed using cold-milling techniques to prevent thermal degradation.
             </p>
           </div>
@@ -210,7 +210,7 @@ export default function ShopPage() {
               <Shield className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-sm font-bold text-[#42190a] mb-2 uppercase tracking-wide">Bioavailability</h3>
-            <p className="text-[11px] text-[#52443f] leading-relaxed max-w-[240px]">
+            <p className="text-xs text-[#52443f] leading-relaxed max-w-[240px]">
               Traditional processing ensures that active compounds like Curcumin and Cinnamaldehyde remain highly bioavailable.
             </p>
           </div>
@@ -392,7 +392,7 @@ export default function ShopPage() {
                         {p.title}
                       </h3>
                     </Link>
-                    <p className="text-[11px] text-[#52443f] leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#52443f] leading-relaxed line-clamp-2">
                       {p.description}
                     </p>
                   </div>

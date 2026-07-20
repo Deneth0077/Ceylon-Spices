@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import Link from "next/link";
+import { Phone, Mail, MapPin, Send, Globe, Award, ShieldCheck, Heart, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Framer Motion Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
   }
 };
 
@@ -19,7 +19,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    spice: "",
+    topic: "Wholesale Opportunities",
     message: ""
   });
   const [submitted, setSubmitted] = useState(false);
@@ -28,295 +28,280 @@ export default function ContactPage() {
     e.preventDefault();
     setTimeout(() => {
       setSubmitted(true);
-      setFormData({ name: "", email: "", spice: "", message: "" });
+      setFormData({ name: "", email: "", topic: "Wholesale Opportunities", message: "" });
     }, 800);
   };
 
   return (
-    <div className="w-full flex flex-col bg-[#ede4d7] overflow-hidden">
+    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden min-h-screen py-16">
       
-      {/* Top Banner / Hero Section */}
-      <section className="relative w-full h-[320px] sm:h-[400px] flex items-center justify-center overflow-hidden z-10">
-        <Image 
-          src="/images/hero_spices_1781650500572.png" 
-          alt="Contact and Export Spices Assortment" 
-          fill
-          sizes="100vw"
-          priority
-          className="object-cover filter brightness-[0.8] contrast-[1.02] scale-100"
-        />
-        {/* Soft vignette/dimming overlay */}
-        <div className="absolute inset-0 bg-black/15 z-10" />
-
-        {/* Banner content */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-20">
-          <div className="relative">
-            {/* Left Leaf branch */}
-            <svg className="w-14 h-14 absolute -left-16 top-1 text-white/70 pointer-events-none hidden lg:block" fill="none" viewBox="0 0 64 64" stroke="currentColor" strokeWidth={1}>
-              <path d="M10,50 Q25,45 45,15" />
-              <path d="M45,15 Q50,10 52,8 Q46,14 45,15" />
-              <path d="M25,35 Q20,30 15,32 Q22,38 25,35" />
-              <path d="M30,30 Q35,22 40,24 Q32,28 30,30" />
-              <path d="M35,25 Q32,15 25,18 Q32,23 35,25" />
-              <path d="M40,20 Q48,15 46,10 Q42,16 40,20" />
-            </svg>
-
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight leading-tight select-none"
-            >
-              Contact and Export Inquiries
-            </motion.h1>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="w-20 h-[2px] bg-[#cca43b]/90 rounded-full my-3" 
-          />
-
-          <div className="relative">
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-sm sm:text-base text-white tracking-wide font-sans max-w-xl select-none"
-            >
-              Connect with us for premium Sri Lankan spices.
-            </motion.p>
-            {/* Right Leaf branch */}
-            <svg className="w-14 h-14 absolute -right-16 -top-4 text-white/70 pointer-events-none hidden lg:block" fill="none" viewBox="0 0 64 64" stroke="currentColor" strokeWidth={1}>
-              <path d="M54,14 Q39,19 19,49" />
-              <path d="M19,49 Q14,54 12,56 Q18,50 19,49" />
-              <path d="M39,29 Q44,34 49,32 Q42,26 39,29" />
-              <path d="M34,34 Q29,42 24,40 Q32,36 34,34" />
-              <path d="M29,39 Q32,49 39,46 Q32,41 29,39" />
-              <path d="M24,44 Q16,49 18,54 Q22,48 24,44" />
-            </svg>
-          </div>
-
-          {/* REQUEST A FREE CONSULTATION Button */}
-          <motion.button
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            onClick={() => document.getElementById('inquiry-card')?.scrollIntoView({ behavior: 'smooth' })}
-            className="mt-6 bg-[#cca43b] hover:bg-[#b58f2f] text-white rounded-full py-3 px-8 font-sans font-bold text-xs tracking-wider uppercase shadow-md transition-all duration-300 hover:-translate-y-[1px] active:translate-y-0 cursor-pointer"
-          >
-            REQUEST A FREE CONSULTATION
-          </motion.button>
+      <div className="max-w-[1280px] mx-auto px-6 md:px-8">
+        
+        {/* 1. Header Title */}
+        <div className="text-center max-w-[600px] mx-auto mb-16">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Heritage & Provenance</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#42190a] leading-tight mb-4">
+            Get in Touch
+          </h1>
+          <p className="text-xs md:text-sm text-[#52443f] leading-relaxed max-w-[500px] mx-auto">
+            Whether you're looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our artisans are here to assist.
+          </p>
+          <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
         </div>
-      </section>
 
-      {/* Main Grid Content */}
-      <section className="max-w-5xl mx-auto w-full px-6 sm:px-8 lg:px-12 py-16 sm:py-24 relative z-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-start">
+        {/* 2. Interactive Form & Side Info Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-24">
           
-          {/* Card 1: Send Your Inquiry Form */}
-          <motion.div 
-            id="inquiry-card"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="bg-gradient-to-br from-[#ebdcb9]/40 via-white to-white rounded-[24px] p-8 sm:p-10 border border-[#b48648]/15 shadow-[0_15px_45px_rgba(40,30,20,0.04)]"
-          >
-            <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mb-8 font-sans tracking-tight">
-              Send Your Inquiry
-            </h2>
-            
+          {/* Left Column: Form (7 Cols) */}
+          <div className="lg:col-span-7 bg-white p-8 md:p-10 rounded-xl border border-[#eae7e7]/80 shadow-premium">
             {submitted ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 rounded-2xl text-center space-y-3"
-              >
-                <span className="text-3xl">✅</span>
-                <h3 className="font-bold text-lg">Thank You for Your Inquiry!</h3>
-                <p className="text-sm text-emerald-700 max-w-md mx-auto">
-                  We have received your message. Our export team will review your requirements and get back to you within 24 business hours.
+              <div className="text-center py-12 space-y-4">
+                <span className="text-4xl">🌾</span>
+                <h3 className="font-serif font-bold text-xl text-[#42190a]">Message Dispatched</h3>
+                <p className="text-xs text-[#52443f] max-w-[360px] mx-auto">
+                  Thank you for contacting Ceylon Spice Artisans. Our trade representatives will respond to your business inquiry within 24 hours.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
-                  className="mt-4 px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wider uppercase rounded-xl transition duration-300 shadow-sm"
+                  className="px-6 py-2 bg-[#795900] text-white rounded font-bold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   Send Another Message
                 </button>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name field */}
-                <div>
-                  <label htmlFor="name" className="block text-[10px] font-extrabold uppercase tracking-widest text-[#5c4f3d] mb-2 font-sans">
-                    NAME
-                  </label>
+                
+                {/* Full name input */}
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-[#52443f]">Full Name</label>
                   <input 
                     type="text" 
-                    id="name"
                     required
-                    placeholder="Your Full Name"
+                    placeholder="e.g. Alexander Wickram"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white text-stone-800 border border-[#dfd4c6] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#cca43b] focus:border-[#cca43b] transition-all duration-300 text-xs font-sans shadow-sm placeholder-stone-400/80" 
+                    className="w-full pb-2 bg-transparent text-xs font-sans text-[#1b1c1c] border-b border-[#eae7e7] focus:outline-none focus:border-[#42190a] transition-all"
                   />
                 </div>
 
-                {/* Email field */}
-                <div>
-                  <label htmlFor="email" className="block text-[10px] font-extrabold uppercase tracking-widest text-[#5c4f3d] mb-2 font-sans">
-                    BUSINESS EMAIL
-                  </label>
+                {/* Email address input */}
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-[#52443f]">Email Address</label>
                   <input 
                     type="email" 
-                    id="email"
                     required
-                    placeholder="e.g., name@company.com"
+                    placeholder="alex@heritage.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white text-stone-800 border border-[#dfd4c6] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#cca43b] focus:border-[#cca43b] transition-all duration-300 text-xs font-sans shadow-sm placeholder-stone-400/80" 
+                    className="w-full pb-2 bg-transparent text-xs font-sans text-[#1b1c1c] border-b border-[#eae7e7] focus:outline-none focus:border-[#42190a] transition-all"
                   />
                 </div>
 
-                {/* Dropdown field */}
-                <div>
-                  <label htmlFor="spice" className="block text-[10px] font-extrabold uppercase tracking-widest text-[#5c4f3d] mb-2 font-sans">
-                    SPICES INTERESTED IN
-                  </label>
-                  <div className="relative">
-                    <select 
-                      id="spice"
-                      required
-                      value={formData.spice}
-                      onChange={(e) => setFormData({ ...formData, spice: e.target.value })}
-                      className="w-full px-4 py-2.5 bg-white text-stone-800 border border-[#dfd4c6] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#cca43b] focus:border-[#cca43b] transition-all duration-300 text-xs font-sans shadow-sm appearance-none cursor-pointer placeholder-stone-400/80"
-                    >
-                      <option value="" disabled>Select Spices...</option>
-                      <option value="cinnamon">Ceylon Cinnamon</option>
-                      <option value="pepper">Organic Black Pepper</option>
-                      <option value="cardamom">Green Cardamom</option>
-                      <option value="cloves">Organic Dried Cloves</option>
-                      <option value="turmeric">Organic Turmeric Powder</option>
-                      <option value="multiple">Multiple Spices / Wholesales</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                      <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </div>
-                  </div>
+                {/* Topic selector */}
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-[#52443f]">Topic of Inquiry</label>
+                  <select 
+                    value={formData.topic}
+                    onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
+                    className="w-full pb-2 bg-transparent text-xs font-sans text-[#1b1c1c] border-b border-[#eae7e7] focus:outline-none focus:border-[#42190a] cursor-pointer"
+                  >
+                    <option value="Wholesale Opportunities">Wholesale Opportunities</option>
+                    <option value="Export & Shipping">Export & Shipping</option>
+                    <option value="Agro-Tourism & Sourcing">Agro-Tourism & Sourcing</option>
+                    <option value="General Question">General Question</option>
+                  </select>
                 </div>
 
-                {/* Message field */}
-                <div>
-                  <label htmlFor="message" className="block text-[10px] font-extrabold uppercase tracking-widest text-[#5c4f3d] mb-2 font-sans">
-                    MESSAGE
-                  </label>
+                {/* Message input */}
+                <div className="space-y-2">
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-[#52443f]">Message</label>
                   <textarea 
-                    id="message"
-                    required
                     rows={4}
-                    placeholder="Tell us about your needs..."
+                    required
+                    placeholder="Tell us about your interest in Ceylon's finest spices..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-white text-stone-800 border border-[#dfd4c6] rounded-xl focus:outline-none focus:ring-1 focus:ring-[#cca43b] focus:border-[#cca43b] transition-all duration-300 text-xs font-sans shadow-sm resize-none placeholder-stone-400/80" 
+                    className="w-full pb-2 bg-transparent text-xs font-sans text-[#1b1c1c] border-b border-[#eae7e7] focus:outline-none focus:border-[#42190a] transition-all resize-none"
                   />
                 </div>
 
-                {/* Button */}
-                <button 
-                  type="submit"
-                  className="w-full py-3 bg-[#1f3621] hover:bg-[#152516] text-white rounded-full transition-all duration-300 font-bold text-xs tracking-widest uppercase shadow-md flex items-center justify-center gap-2 cursor-pointer hover:-translate-y-[1px] active:translate-y-0 group"
-                >
-                  SEND INQUIRY
-                </button>
+                <div className="pt-4 flex justify-between items-center text-[10px] text-[#85736e]">
+                  <span>By sending this message, you agree to our privacy policy regarding data handling.</span>
+                  <button 
+                    type="submit"
+                    className="px-6 py-3 bg-[#ffc641] hover:bg-[#ffdfa0] text-[#42190a] rounded font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center gap-2 cursor-pointer flex-shrink-0"
+                  >
+                    Send Message <Send className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
               </form>
             )}
-          </motion.div>
+          </div>
 
-          {/* Card 2: Quick Contact & Location Details */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="bg-gradient-to-br from-[#ebdcb9]/40 via-white to-white rounded-[24px] p-8 sm:p-10 border border-[#b48648]/15 shadow-[0_15px_45px_rgba(40,30,20,0.04)] space-y-8"
-          >
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-stone-900 mb-4 font-sans tracking-tight">
-                Quick Contact &<br />Location
-              </h2>
-              <div className="w-12 h-[2.5px] bg-[#cca43b] rounded-full mb-2" />
-            </div>
-
-            {/* WhatsApp Button */}
-            <a 
-              href="https://wa.me/94771234567" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="w-full py-3 bg-[#4bae6f] hover:bg-[#3d915b] text-white rounded-full transition-all duration-300 font-bold text-xs tracking-widest uppercase shadow-md flex items-center justify-center gap-2 hover:-translate-y-[1px] active:translate-y-0 group"
-            >
-              {/* Inline WhatsApp SVG */}
-              <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.967C16.528 2.012 14.077.99 11.72.99c-5.439 0-9.865 4.37-9.87 9.8-.001 1.777.464 3.51 1.346 5.048L2.2 20.8l5.09-1.332zm12.193-7.72c-.27-.135-1.597-.788-1.848-.879-.25-.09-.433-.135-.615.135-.183.27-.708.879-.868 1.058-.16.18-.32.203-.59.068-.27-.135-1.14-.42-2.172-1.34-.803-.717-1.345-1.603-1.502-1.873-.16-.27-.018-.416.117-.551.121-.122.27-.315.405-.473.135-.158.18-.27.27-.45.09-.18.045-.338-.023-.473-.068-.135-.615-1.487-.843-2.036-.222-.538-.445-.465-.615-.473-.16-.008-.343-.01-.525-.01-.18 0-.473.068-.72.338-.248.27-.946.923-.946 2.25s.968 2.61 1.103 2.79c.135.18 1.902 2.904 4.61 4.07.644.278 1.148.444 1.54.568.647.206 1.237.177 1.703.107.519-.078 1.597-.653 1.823-1.284.225-.63.225-1.17.158-1.284-.068-.113-.25-.18-.52-.315z"/>
-              </svg>
-              Chat on WhatsApp
-            </a>
-
-            {/* Phone Channels */}
-            <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#f4e6d7] text-[#cca43b] flex items-center justify-center shrink-0 shadow-sm">
-                <Phone className="w-4 h-4" strokeWidth={1.5} />
+          {/* Right Column: Office info cards (5 Cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Headquarters Card */}
+            <div className="bg-[#f6f3f2]/60 p-6 rounded-xl border border-[#eae7e7]/80 flex gap-4">
+              <div className="w-10 h-10 rounded bg-[#42190a]/10 flex items-center justify-center text-[#42190a] flex-shrink-0 mt-0.5">
+                <MapPin className="w-5 h-5" />
               </div>
-              <div className="font-sans text-xs sm:text-sm text-stone-700">
-                <p className="font-bold text-stone-950 mb-1 select-none">Call Channels</p>
-                <a href="tel:+94771234567" className="hover:text-[#cca43b] transition duration-300 block font-medium">+94 77 123 4567</a>
-                <a href="tel:+94112345678" className="hover:text-[#cca43b] transition duration-300 block font-medium">+94 11 234 5678</a>
+              <div className="space-y-1.5">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Sri Lanka Headquarters</p>
+                <h4 className="font-serif font-bold text-[#42190a] text-sm">The Source of Heritage</h4>
+                <p className="text-xs text-[#52443f]/80 leading-relaxed">
+                  19th Mile Post, Uduwela Road,<br />Thanamalwila, Sri Lanka.
+                </p>
+                <a href="tel:+94777557058" className="inline-flex items-center gap-1 text-xs text-[#42190a] font-bold hover:underline pt-1">
+                  <Phone className="w-3.5 h-3.5 text-[#795900]" /> +94 777 557 058
+                </a>
               </div>
             </div>
 
-            {/* Email Channels */}
-            <div className="flex items-start gap-4">
-              <div className="w-9 h-9 rounded-full bg-[#f4e6d7] text-[#cca43b] flex items-center justify-center shrink-0 shadow-sm">
-                <Mail className="w-4 h-4" strokeWidth={1.5} />
+            {/* Global Distribution Card */}
+            <div className="bg-[#f6f3f2]/60 p-6 rounded-xl border border-[#eae7e7]/80 flex gap-4">
+              <div className="w-10 h-10 rounded bg-[#192a14]/10 flex items-center justify-center text-[#192a14] flex-shrink-0 mt-0.5">
+                <Globe className="w-5 h-5" />
               </div>
-              <div className="font-sans text-xs sm:text-sm text-stone-700">
-                <p className="font-bold text-stone-950 mb-1 select-none">Email Accounts</p>
-                <a href="mailto:exports@srilankanspice.com" className="hover:text-[#cca43b] transition duration-300 block font-medium">exports@srilankanspice.com</a>
-                <a href="mailto:info@srilankanspice.com" className="hover:text-[#cca43b] transition duration-300 block font-medium">info@srilankanspice.com</a>
-              </div>
-            </div>
-
-            {/* Location Map Embed */}
-            <div className="space-y-3 pt-2">
-              <p className="text-[10px] font-extrabold uppercase tracking-widest text-[#5c4f3d] font-sans">
-                SRI LANKAN SPICE EXPORTS HQ
-              </p>
-              <div className="relative w-full h-[220px] rounded-[16px] overflow-hidden shadow-inner border border-[#dfd4c6] group">
-                <iframe 
-                  src="https://maps.google.com/maps?q=Matale,%20Sri%20Lanka&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={false} 
-                  loading="lazy"
-                  title="Matale Sri Lanka Map"
-                  className="filter contrast-[0.92] group-hover:scale-[1.015] transition-transform duration-[1.5s] ease-out"
-                />
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-stone-200/60 shadow-sm pointer-events-none flex items-center gap-1.5 z-10 select-none">
-                  <MapPin className="w-3.5 h-3.5 text-[#cca43b]" />
-                  <span className="text-[10px] font-bold text-stone-850 font-sans">Matale, Sri Lanka</span>
+              <div className="space-y-2 flex-grow">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Global Distribution</p>
+                <h4 className="font-serif font-bold text-[#42190a] text-sm">Portways & Logistics</h4>
+                
+                <div className="space-y-1.5 text-xs text-[#52443f]/80">
+                  <div className="flex justify-between border-b border-[#eae7e7]/60 pb-1">
+                    <span>London Hub</span>
+                    <span className="font-bold text-[#192a14] bg-[#d3e9c7] px-2 py-0.25 rounded text-[9px] uppercase">Europe East</span>
+                  </div>
+                  <div className="flex justify-between border-b border-[#eae7e7]/60 pb-1">
+                    <span>Singapore Warehouse</span>
+                    <span className="font-bold text-[#795900] bg-[#ffdfa0] px-2 py-0.25 rounded text-[9px] uppercase">Asia Pacific</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Dubai Logistics</span>
+                    <span className="font-bold text-white bg-[#5d2e1d] px-2 py-0.25 rounded text-[9px] uppercase">Middle East</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-          </motion.div>
-          
+            {/* CTA Card Button */}
+            <Link 
+              href="/about#spice-trail"
+              className="block bg-[#5d2e1d] hover:bg-[#42190a] text-white p-6 rounded-xl shadow-premium text-center transition-colors group cursor-pointer"
+            >
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#ffdfa0] mb-1">Common Questions?</p>
+              <h4 className="font-serif font-bold text-sm text-white group-hover:underline inline-flex items-center gap-1.5 justify-center">
+                Visit Our Artisanal Trail <ArrowRight className="w-3.5 h-3.5 text-[#ffdfa0]" />
+              </h4>
+            </Link>
+
+          </div>
         </div>
-      </section>
-      
+
+        {/* 3. We Export Internationally Map Section */}
+        <section className="bg-[#f6f3f2]/40 rounded-2xl border border-[#eae7e7] p-8 md:p-12 mb-20 text-center">
+          <p className="text-[9px] font-bold uppercase tracking-wider text-[#795900] mb-2">Logistics Coverage</p>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a] mb-8">We Export Internationally</h2>
+          
+          {/* Custom graphic styled World map */}
+          <div className="relative w-full aspect-[2.1/1] max-w-4xl mx-auto rounded-xl overflow-hidden bg-white border border-[#eae7e7]/60 flex items-center justify-center p-6 shadow-sm">
+            {/* Visual World Map (Minimal stylized gray theme) */}
+            <div className="absolute inset-0 opacity-10">
+              <svg className="w-full h-full" viewBox="0 0 1000 500" fill="currentColor">
+                {/* Simplified continents SVGs */}
+                <path d="M150,150 L250,130 L300,160 L320,250 L250,350 L200,420 L150,450 L100,400 L80,300 L90,200 Z" />
+                <path d="M400,120 L480,100 L550,140 L600,200 L580,280 L520,380 L480,450 L440,300 Z" />
+                <path d="M600,100 L720,80 L800,110 L850,220 L800,320 L750,380 L650,250 Z" />
+              </svg>
+            </div>
+            
+            {/* Sourcing / Shipping routes */}
+            <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 1000 500">
+              {/* Colombo hub coordinates: 600, 310 */}
+              <circle cx="600" cy="310" r="8" fill="#795900" className="animate-ping" />
+              <circle cx="600" cy="310" r="5" fill="#795900" />
+              <text x="615" y="315" fill="#42190a" className="font-sans font-bold text-[10px] uppercase tracking-wider">Colombo Hub</text>
+              
+              {/* Shipping lines */}
+              {/* Line 1: Colombo to London (440, 160) */}
+              <path d="M600,310 Q490,200 440,160" fill="none" stroke="#795900" strokeWidth="1.5" strokeDasharray="4 4" />
+              <circle cx="440" cy="160" r="4" fill="#42190a" />
+              
+              {/* Line 2: Colombo to Singapore (720, 350) */}
+              <path d="M600,310 Q680,330 720,350" fill="none" stroke="#795900" strokeWidth="1.5" strokeDasharray="4 4" />
+              <circle cx="720" cy="350" r="4" fill="#42190a" />
+
+              {/* Line 3: Colombo to Dubai (510, 260) */}
+              <path d="M600,310 Q540,280 510,260" fill="none" stroke="#795900" strokeWidth="1.5" strokeDasharray="4 4" />
+              <circle cx="510" cy="260" r="4" fill="#42190a" />
+            </svg>
+            
+            {/* World Map Text */}
+            <div className="absolute bottom-6 left-6 right-6 flex justify-around flex-wrap gap-4 text-left z-20">
+              <div>
+                <p className="text-[10px] uppercase font-bold tracking-wider text-[#85736e]">Single Origin</p>
+                <p className="text-xs font-serif font-bold text-[#42190a]">100% Sri Lankan</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase font-bold tracking-wider text-[#85736e]">Global Reach</p>
+                <p className="text-xs font-serif font-bold text-[#42190a]">Exporting to 30+ Countries</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase font-bold tracking-wider text-[#85736e]">Certifications</p>
+                <p className="text-xs font-serif font-bold text-[#42190a]">Organic & GMP Certified</p>
+              </div>
+              <div>
+                <p className="text-[10px] uppercase font-bold tracking-wider text-[#85736e]">Direct Shipping</p>
+                <p className="text-xs font-serif font-bold text-[#42190a]">From Soil to Your Doorstep</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Our Estate Location Map Section */}
+        <section className="relative rounded-2xl overflow-hidden shadow-premium h-[300px] md:h-[400px]">
+          {/* Background image: plantation */}
+          <div className="absolute inset-0">
+            <Image 
+              src="/images/estate_tea_plantation.png" 
+              alt="Ceylon estate rolling green landscape" 
+              fill 
+              sizes="100vw"
+              className="object-cover brightness-[0.8]"
+            />
+            <div className="absolute inset-0 bg-[#192a14]/25 pointer-events-none" />
+          </div>
+
+          {/* Floating Address Pin */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative">
+              {/* Glowing pin ripple */}
+              <span className="absolute -top-1.5 -left-1.5 w-12 h-12 bg-[#ffdfa0] rounded-full opacity-35 animate-ping" />
+              <div className="w-9 h-9 rounded-full bg-[#795900] text-white flex items-center justify-center relative shadow-md">
+                <MapPin className="w-5 h-5" />
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom left info box */}
+          <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur border border-[#eae7e7] p-5 rounded-lg max-w-[280px] shadow-premium space-y-1.5">
+            <p className="text-[9px] font-bold uppercase tracking-wider text-[#795900]">Our Estate</p>
+            <h4 className="font-serif font-bold text-[#42190a] text-sm">Experience the Harvest at Ceylon</h4>
+            <p className="text-[10px] text-[#52443f] leading-relaxed">
+              Visit our organic fields in Thanamalwila and see the sorting and hand-peeling process.
+            </p>
+            <a 
+              href="https://maps.google.com" 
+              target="_blank" 
+              className="inline-block text-[10px] uppercase font-bold tracking-wider text-[#795900] hover:underline pt-1.5"
+            >
+              Get Directions &gt;
+            </a>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }

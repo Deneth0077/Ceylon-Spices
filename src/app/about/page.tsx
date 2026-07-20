@@ -1,14 +1,14 @@
 'use client';
 
 import Image from "next/image";
-import { Leaf, HeartHandshake, Landmark } from "lucide-react";
+import Link from "next/link";
+import { Leaf, Award, ShieldCheck, Heart, Droplet, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Framer Motion Animation Variants
 const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
   }
@@ -18,200 +18,293 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
-  }
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
+    transition: { staggerChildren: 0.15 }
   }
 };
 
 export default function AboutPage() {
   return (
-    <div className="relative w-full bg-[#fcfbf9] overflow-hidden py-16 px-4 sm:px-6 lg:px-8">
+    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
       
-      {/* Background Watermark Leaves (Left & Right margins) */}
-      <div className="absolute top-[10%] left-[-80px] md:left-[-50px] w-48 h-48 opacity-[0.04] pointer-events-none rotate-45 select-none z-0">
-        <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" width={200} height={200} className="w-full h-full object-contain" />
-      </div>
-      <div className="absolute top-[40%] right-[-80px] md:right-[-50px] w-52 h-52 opacity-[0.04] pointer-events-none -rotate-12 select-none z-0">
-        <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" width={200} height={200} className="w-full h-full object-contain" />
-      </div>
-      <div className="absolute bottom-[20%] left-[-80px] md:left-[-50px] w-56 h-56 opacity-[0.04] pointer-events-none rotate-90 select-none z-0">
-        <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" width={200} height={200} className="w-full h-full object-contain" />
-      </div>
-      <div className="absolute bottom-[5%] right-[-80px] md:right-[-50px] w-48 h-48 opacity-[0.04] pointer-events-none rotate-180 select-none z-0">
-        <Image src="/images/cinnamon_leaf.png" alt="Cinnamon Leaf" width={200} height={200} className="w-full h-full object-contain" />
-      </div>
-
-      <div className="max-w-4xl mx-auto relative z-10 space-y-12">
+      {/* 1. Hero Section */}
+      <section className="relative w-full min-h-[500px] flex items-center justify-center py-20 px-6 md:px-8">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/estate_tea_plantation.png" 
+            alt="Lush tea and spice plantation background" 
+            fill 
+            sizes="100vw"
+            className="object-cover brightness-75"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#42190a]/30 pointer-events-none" />
+        </div>
         
-        {/* Page Title */}
+        {/* Overlay Card */}
         <motion.div 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center"
+          transition={{ duration: 0.9 }}
+          className="relative z-10 max-w-[650px] bg-[#fcf9f8]/90 backdrop-blur-md p-8 md:p-12 rounded-xl shadow-premium border border-white/40 text-center"
         >
-          <h1 className="text-3xl sm:text-5xl font-extrabold font-serif text-gray-900 tracking-tight leading-tight">
-            Our Heritage and People
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Legacy</span>
+          <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#42190a] mt-2 mb-4">
+            Ceylon Spice Artisans
           </h1>
-          <div className="w-24 h-1.5 bg-cap-gold mx-auto mt-4 rounded-full" />
+          <p className="text-xs md:text-sm text-[#52443f] leading-relaxed mb-6">
+            For generations, the families of Ceylon have cultivated the soil with deep respect and care. Our mission is to preserve this artisanal wisdom, providing the world with pure spices that capture the true climate and soul of our island.
+          </p>
+          <Link 
+            href="#spice-trail" 
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#795900] hover:bg-[#5c4300] text-white rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
+          >
+            Discover Our Process <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </motion.div>
+      </section>
 
-        {/* Section 1: Our Heritage Plantation Card */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 p-4 sm:p-6"
-        >
-          <div className="relative w-full h-[220px] sm:h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-inner group">
+      {/* 2. Why Choose Us Section */}
+      <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 border-b border-[#eae7e7]">
+        <div className="text-center max-w-[600px] mx-auto mb-16">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Us</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Quality & Sustainability</h2>
+          <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center">
+            <div className="w-12 h-12 rounded-full bg-[#ffdbcf] text-[#42190a] flex items-center justify-center mx-auto mb-6">
+              <Leaf className="w-5 h-5" />
+            </div>
+            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Ethically Sourced</h3>
+            <p className="text-xs text-[#52443f] leading-relaxed">
+              We work directly with traditional families, ensuring fair earnings, premium farm-gate prices, and chemical-free heritage growth.
+            </p>
+          </div>
+          
+          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center">
+            <div className="w-12 h-12 rounded-full bg-[#d3e9c7] text-[#192a14] flex items-center justify-center mx-auto mb-6">
+              <Droplet className="w-5 h-5" />
+            </div>
+            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Aromatic Quality</h3>
+            <p className="text-xs text-[#52443f] leading-relaxed">
+              Rich natural oils, pungent flavor profiles, and deep colors are locked inside our spices through natural, small-batch drying.
+            </p>
+          </div>
+          
+          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center">
+            <div className="w-12 h-12 rounded-full bg-[#ffdfa0] text-[#795900] flex items-center justify-center mx-auto mb-6">
+              <Heart className="w-5 h-5" />
+            </div>
+            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Health Benefits</h3>
+            <p className="text-xs text-[#52443f] leading-relaxed">
+              Ceylon Spices are packed with bio-active compounds, antioxidants, and low coumarin levels, offering holistic therapeutic nourishment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. The Spice Trail Section */}
+      <section id="spice-trail" className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 space-y-24">
+        <div className="text-center max-w-[600px] mx-auto">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Our Process</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">The Spice Trail</h2>
+          <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
+        </div>
+
+        {/* Trail Item 1: Legacy */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">A Legacy of Ceylon</h3>
+            <p className="text-xs text-[#52443f] leading-relaxed">
+              In 1826, our family journey began in the Matale and Kandy highlands. The goal was simple: to work in harmony with nature, cultivating the purest spices that thrive in our specific soil and tropical weather. Today, we remain true to this path.
+            </p>
+          </div>
+          <div className="relative h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-premium">
             <Image 
-              src="/images/media__1781649846239.png" 
-              alt="Sri Lankan Spice Garden" 
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]" 
+              src="/images/legacy_cinnamon_pots.png" 
+              alt="Artisanal clay pots with spices" 
+              fill 
+              sizes="50vw"
+              className="object-cover"
             />
-            {/* Dark bottom overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4 sm:p-8 text-center text-white">
-              <p className="text-xs sm:text-sm md:text-base font-sans leading-relaxed max-w-2xl mx-auto drop-shadow-md">
-                Ceylon is a Sri Lankan spice garden lived as forest-forest in the Matale/Kandy region with seasonal and spice garden, renowning, cinnamon, cardamom, and for cardamom and clove.
+          </div>
+        </div>
+
+        {/* Trail Item 2: Process */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center md:flex-row-reverse">
+          <div className="relative h-[250px] md:h-[350px] rounded-xl overflow-hidden shadow-premium md:order-last">
+            <Image 
+              src="/images/artisan_turmeric_leela.png" 
+              alt="Hands sorting turmeric roots" 
+              fill 
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="space-y-4">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">The Artisanal Process</h3>
+            <p className="text-xs text-[#52443f] leading-relaxed">
+              Every cinnamon quill is hand-peeled, and every turmeric root is sorted by the skilled hands of our community. This careful sorting and slow drying process guarantees that only premium quality leaves the plantation for your home.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Our Origins Section (Green theme card) */}
+      <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-12">
+        <div className="bg-[#192a14] rounded-2xl overflow-hidden shadow-premium grid grid-cols-1 md:grid-cols-12 gap-8 p-8 md:p-12 text-white items-center">
+          
+          <div className="md:col-span-7 space-y-6">
+            <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">Our Origins</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-white">Soil, Sun & Rain</h2>
+            <p className="text-xs text-[#eae7e7]/80 leading-relaxed">
+              Discover Sri Lanka's unique soil, high elevations, and ideal weather patterns that give Ceylon spices their premium reputation. We nurture the earth with natural compost and forest canopy shade, preserving the soil's natural integrity.
+            </p>
+            <div className="pt-2">
+              <Link 
+                href="/products" 
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#ffc641] hover:bg-[#ffdfa0] text-[#42190a] rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
+              >
+                Learn More <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+          
+          <div className="md:col-span-5 relative h-[300px] md:h-[350px] flex items-center justify-center">
+            <div className="relative w-[80%] h-full rounded-xl overflow-hidden border border-white/15">
+              <Image 
+                src="/images/srilanka_purest_spices.png" 
+                alt="Sri Lanka purest spices packaging mockup" 
+                fill 
+                sizes="40vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. Meet the Artisans Section */}
+      <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 border-t border-[#eae7e7] mt-12">
+        <div className="text-center max-w-[600px] mx-auto mb-16">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Our People</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Meet the Artisans</h2>
+          <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          {/* Artisan 1 */}
+          <div className="bg-[#fcf9f8] rounded-xl overflow-hidden border border-[#eae7e7] hover:shadow-premium transition-all duration-300">
+            <div className="relative h-[250px] w-full">
+              <Image 
+                src="/images/artisan_cinnamon_ranjan.png" 
+                alt="Portrait of Ranjan Silva" 
+                fill 
+                sizes="33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Master Cinnamon Peeler • 42 Years</p>
+              <h3 className="font-serif text-lg font-bold text-[#42190a]">Ranjan Silva</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed">
+                Ranjan represents a long family line of master peelers. He handles each quill with precision, sorting Alba quills in the highlands.
               </p>
             </div>
           </div>
-        </motion.div>
 
-        {/* Section 2: Empowering Our Communities */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="bg-[#fdfaf5] border border-[#cca43b]/25 rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden flex flex-col md:flex-row gap-8 items-center"
-        >
-          {/* Corner Leaves Motif */}
-          <div className="absolute top-0 right-0 w-24 h-24 opacity-15 pointer-events-none select-none">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-emerald-800">
-              <path d="M70,20 C85,35 90,60 90,80 C70,80 45,75 30,60 C45,55 60,35 70,20 Z" />
-              <path d="M50,40 C65,55 70,70 70,85 C55,85 40,80 30,70 C40,65 45,50 50,40 Z" />
-            </svg>
-          </div>
-          <div className="absolute bottom-0 left-0 w-20 h-20 opacity-15 pointer-events-none select-none rotate-180">
-            <svg viewBox="0 0 100 100" className="w-full h-full fill-emerald-800">
-              <path d="M70,20 C85,35 90,60 90,80 C70,80 45,75 30,60 C45,55 60,35 70,20 Z" />
-            </svg>
+          {/* Artisan 2 */}
+          <div className="bg-[#fcf9f8] rounded-xl overflow-hidden border border-[#eae7e7] hover:shadow-premium transition-all duration-300">
+            <div className="relative h-[250px] w-full">
+              <Image 
+                src="/images/artisan_turmeric_leela.png" 
+                alt="Portrait of Leela Perera" 
+                fill 
+                sizes="33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Turmeric Cultivator • 18 Years</p>
+              <h3 className="font-serif text-lg font-bold text-[#42190a]">Leela Perera</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed">
+                Leela manages the root collection and sun-drying process, ensuring our turmeric retains its bright golden color and natural potency.
+              </p>
+            </div>
           </div>
 
-          {/* Left Column: Image */}
-          <motion.div 
-            variants={slideInLeft}
-            className="w-full md:w-[45%] aspect-[4/3] relative rounded-2xl overflow-hidden shadow-md group shrink-0"
-          >
-            <Image 
-              src="/images/export_farmers_1781650578148.png" 
-              alt="Empowering Our Communities" 
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-            />
-          </motion.div>
+          {/* Artisan 3 */}
+          <div className="bg-[#fcf9f8] rounded-xl overflow-hidden border border-[#eae7e7] hover:shadow-premium transition-all duration-300">
+            <div className="relative h-[250px] w-full">
+              <Image 
+                src="/images/artisan_vanilla_ravindra.png" 
+                alt="Portrait of Ravindra Sen" 
+                fill 
+                sizes="33vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-6 space-y-2">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-[#795900]">Vanilla Curator • 30 Years</p>
+              <h3 className="font-serif text-lg font-bold text-[#42190a]">Ravindra Sen</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed">
+                Ravindra oversees the curing and fermentation of vanilla pods, maintaining constant temperature levels to lock in flavor.
+              </p>
+            </div>
+          </div>
 
-          {/* Right Column: Text Content */}
-          <motion.div 
-            variants={slideInRight}
-            className="flex-1 space-y-6 text-gray-800 relative z-10 text-center md:text-left"
-          >
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-serif text-gray-950 leading-tight">
-              Empowering Our Communities
+        </div>
+      </section>
+
+      {/* 6. Grown in Soils Section */}
+      <section className="bg-[#5d2e1d] text-white py-20 px-6 md:px-8 border-t border-[#eae7e7]">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          
+          <div className="md:col-span-7 space-y-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold leading-tight">
+              Grown in Soils,<br />Committed to Quality
             </h2>
-            <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-gray-600 font-sans">
-              <p>
-                We supported local farmers and their families, from as more come to apply in Kandy. From our minimal process was just running local farmers, and their families to make our usability and supporting. The heritage's we're trying to sure our own. Our farmer's wagons who has our all harvests beverageing farmers to help we enhanced our products, and gardens, and their flavors.
-              </p>
-              <p className="font-semibold text-cap-green">
-                We are always details standard, standards to stabilize standard rates.
-              </p>
-              <p className="font-serif font-bold text-gray-950 italic mt-4">
-                Thank you.
-              </p>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-serif font-bold text-lg text-[#ffdfa0]">Sustainable Cultivation</h4>
+                <p className="text-xs text-[#eae7e7]/80 leading-relaxed mt-1">
+                  We treat the land with respect. Our farming preserves soil nutrition and avoids chemical enhancers, letting the forest feed the crop.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-serif font-bold text-lg text-[#ffdfa0]">We Focus on Wellness</h4>
+                <p className="text-xs text-[#eae7e7]/80 leading-relaxed mt-1">
+                  Pure spices are natural remedies. We guarantee our clients get unadulterated spices that deliver peak holistic benefits.
+                </p>
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Section 3: Pillars / Circular Green Badges */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6"
-        >
-          {/* Sustainability Badge */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-col items-center text-center p-4"
-          >
-            <div className="w-28 h-28 rounded-full border-[3px] border-amber-600/30 flex items-center justify-center bg-cap-green text-cap-light-green shadow-lg hover:border-cap-gold hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group cursor-default mb-6">
-              <div className="absolute inset-0 bg-[#cca43b]/10 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full z-0" />
-              <Leaf className="w-12 h-12 text-[#cca43b] z-10 transform group-hover:rotate-12 transition-transform duration-300" strokeWidth={1.5} />
+            
+            <div className="flex flex-wrap gap-3 pt-2">
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 px-4 py-2 rounded border border-white/10">100% Pure Ceylon</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 px-4 py-2 rounded border border-white/10">Single Origin</span>
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-white/10 px-4 py-2 rounded border border-white/10">Organic & Clean</span>
             </div>
-            <h3 className="text-xl font-bold font-serif text-gray-950 mb-3">Sustainability</h3>
-            <p className="text-xs text-gray-500 leading-relaxed max-w-xs font-sans">
-              Sustainability is our vast warns of center and resources to convert to Sustainability.
-            </p>
-          </motion.div>
-
-          {/* Fair Trade Badge */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-col items-center text-center p-4"
-          >
-            <div className="w-28 h-28 rounded-full border-[3px] border-amber-600/30 flex items-center justify-center bg-cap-green text-cap-light-green shadow-lg hover:border-cap-gold hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group cursor-default mb-6">
-              <div className="absolute inset-0 bg-[#cca43b]/10 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full z-0" />
-              <HeartHandshake className="w-12 h-12 text-[#cca43b] z-10 transform group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
+          </div>
+          
+          <div className="md:col-span-5 relative h-[350px] md:h-[450px] flex items-center justify-center">
+            <div className="relative w-full h-full rounded-xl overflow-hidden shadow-premium">
+              <Image 
+                src="/images/spice_jar_plinth.png" 
+                alt="Spice jar on plinth in front of tea fields" 
+                fill 
+                sizes="40vw"
+                className="object-cover"
+              />
             </div>
-            <h3 className="text-xl font-bold font-serif text-gray-950 mb-3">Fair Trade</h3>
-            <p className="text-xs text-gray-500 leading-relaxed max-w-xs font-sans">
-              We now client to monitor Fair Trade and grow to both variables and our growth.
-            </p>
-          </motion.div>
+          </div>
 
-          {/* Ancient Heritage Badge */}
-          <motion.div 
-            variants={fadeInUp}
-            className="flex flex-col items-center text-center p-4"
-          >
-            <div className="w-28 h-28 rounded-full border-[3px] border-amber-600/30 flex items-center justify-center bg-cap-green text-cap-light-green shadow-lg hover:border-cap-gold hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group cursor-default mb-6">
-              <div className="absolute inset-0 bg-[#cca43b]/10 scale-0 group-hover:scale-100 transition-transform duration-500 rounded-full z-0" />
-              <Landmark className="w-12 h-12 text-[#cca43b] z-10 transform group-hover:translate-y-[-2px] transition-transform duration-300" strokeWidth={1.5} />
-            </div>
-            <h3 className="text-xl font-bold font-serif text-gray-950 mb-3">Ancient Heritage</h3>
-            <p className="text-xs text-gray-500 leading-relaxed max-w-xs font-sans">
-              Ancient Heritage is a new location of ceylon and flavor identified by existing of typical fruit.
-            </p>
-          </motion.div>
-        </motion.div>
+        </div>
+      </section>
 
-      </div>
     </div>
   );
 }

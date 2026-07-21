@@ -37,111 +37,100 @@ export default function Home() {
       </div>
 
 
-      {/* 1. Hero Section (With Background Image and 3D Canister Table Alignment) */}
-      <section className="relative w-full overflow-hidden bg-[#fcf9f8] pt-16 pb-20 md:pt-28 md:pb-28 border-b border-[#eae7e7]/40">
+      {/* 1. Hero Section (Centered Layout Matching User's Mockup) */}
+      <section className="relative w-full overflow-hidden bg-[#fbf8f5] min-h-[600px] md:min-h-[660px] lg:min-h-[700px] pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-48 sm:pb-52 md:pb-60 lg:pb-64 border-b border-[#eae7e7]/40 flex flex-col justify-start">
         
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/hero_cinnamon_background.jpg" 
+            src="/images/hero_cinnamon_background.png" 
             alt="Estate tea plantation and cinnamon table background" 
             fill
-            className="object-cover opacity-95 select-none object-bottom"
+            className="object-cover object-bottom select-none"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#fcf9f8]/68 via-[#fcf9f8]/42 to-transparent" />
+          {/* Soft warm gradient overlay on upper sky area to ensure high contrast for centered text */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf8f5]/90 via-[#fbf8f5]/45 to-transparent h-[55%]" />
         </div>
 
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 max-w-[880px] mx-auto px-6 md:px-8 flex flex-col items-center text-center space-y-3 sm:space-y-3.5">
           
-          {/* Left Column Text (Centered layout on mobile, left on desktop) */}
+          {/* 1. Top Pill Badge */}
           <motion.div 
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="flex flex-col space-y-6 md:pr-8 text-left justify-center h-full"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#486338]/30 bg-[#edf3ea]/90 text-[#325220] text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-sm"
           >
-            <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 bg-[#d3e9c7] text-[#192a14] rounded-full text-xs font-bold uppercase tracking-wider self-start">
-              <Leaf className="w-3.5 h-3.5" /> 100% Organic Sourced
-            </motion.div>
-            
-            <motion.h1 variants={fadeInUp} className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#42190a] leading-[1.15]">
-              We bring <span className="text-[#795900] font-sans font-black tracking-wide uppercase block md:inline">True Cinnamon</span> & <br />
-              Hand-selected products <br />
-              <span className="font-sans font-extrabold uppercase text-xs tracking-[0.2em] bg-[#5d2e1d] text-[#ffdfa0] px-3 py-1 rounded inline-block my-2">SINGLE ORIGIN Sri Lanka (CEYLON)</span> <br />
-              so <span className="italic text-[#795900]">authentic</span> you can trust.
-            </motion.h1>
-            
-            <motion.p variants={fadeInUp} className="text-[#52443f] text-sm md:text-base leading-relaxed max-w-[480px]">
-              Sourced directly from village home gardens in the mist-veiled forests of Ceylon. Completely additive-free, pure, and harvested by family farmers who preserve our ancient heritage.
-            </motion.p>
-            
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 pt-4">
-              <Link 
-                href="/products" 
-                className="px-6 py-3.5 bg-[#795900] hover:bg-[#5c4300] text-white rounded-lg font-bold text-xs uppercase tracking-wider transition-all shadow-sm hover:translate-y-[-2px]"
-              >
-                Shop Our Collection
-              </Link>
-              <Link 
-                href="/about" 
-                className="px-6 py-3.5 border border-[#85736e] hover:border-[#42190a] text-[#42190a] rounded-lg font-bold text-xs uppercase tracking-wider transition-all hover:bg-[#f6f3f2]"
-              >
-                Our Process
-              </Link>
-            </motion.div>
+            <Leaf className="w-3.5 h-3.5 text-[#325220]" />
+            <span>100% ORGANIC • ETHICALLY SOURCED</span>
           </motion.div>
           
-          {/* Right Column: 3D Canister Product Showcase */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+          {/* 2. Main Title */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative flex justify-end items-end h-[420px] md:h-[580px]"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-extrabold text-[#2b1810] tracking-tight leading-[1.12] max-w-[780px]"
           >
-            {/* 3D Canister Product (Placed on the table in the background image) */}
-            <motion.div 
-              animate={{ 
-                y: [0, -10, 0]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute z-20 w-[65%] h-[125%] bottom-[5%] right-[5%] md:right-[8%] md:left-auto flex items-end justify-center pointer-events-none drop-shadow-[0_30px_50px_rgba(0,0,0,0.42)]"
-            >
-              <img 
-                src="/images/cinnamon_canister_3d.png" 
-                alt="The Cinnamon Care Canister 3D" 
-                className="max-h-[95%] object-contain"
-              />
-            </motion.div>
+            We bring <span className="text-[#8c4a27] font-serif uppercase tracking-normal">TRUE CINNAMON</span> <br />
+            Hand-selected products
+          </motion.h1>
 
-            {/* Pulsing Shadow under Canister */}
-            <motion.div 
-              animate={{ 
-                scale: [0.9, 1.05, 0.9],
-                opacity: [0.45, 0.28, 0.45]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute bottom-[3%] right-[22%] md:right-[25%] md:left-auto z-10 w-[30%] h-4 bg-black/40 blur-md rounded-full pointer-events-none"
-            />
-            
-            {/* Floating Badge */}
-            <div className="absolute bottom-[8%] left-[2%] md:left-[10%] bg-white border border-[#eae7e7] p-3.5 rounded-xl shadow-premium flex items-center gap-3 z-35 select-none">
-              <div className="w-9 h-9 rounded-full bg-[#ffdfa0] flex items-center justify-center text-[#795900]">
-                <Star className="w-4.5 h-4.5 fill-current" />
-              </div>
-              <div>
-                <p className="text-[9px] font-bold text-[#85736e] uppercase tracking-wider">Premium Quality</p>
-                <p className="text-xs font-serif font-bold text-[#42190a]">Grade A Canister Spices</p>
-              </div>
+          {/* 3. Middle Tag / Badge with decorative lines */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.18 }}
+            className="flex items-center justify-center gap-2.5 my-0.5 w-full max-w-[380px]"
+          >
+            <div className="h-[1px] bg-[#8c4a27]/30 flex-1" />
+            <div className="relative bg-[#4a2617] text-[#fce4b8] px-3.5 py-1 rounded-md text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] shadow-md flex items-center gap-1.5">
+              <span className="text-[8px]">🍃</span>
+              SINGLE ORIGIN Sri Lanka (CEYLON)
             </div>
+            <div className="h-[1px] bg-[#8c4a27]/30 flex-1" />
+          </motion.div>
+
+          {/* 4. Secondary Heading */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.22 }}
+            className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-[34px] font-bold text-[#2b1810] leading-tight"
+          >
+            so <span className="text-[#8c4a27] font-serif uppercase font-black tracking-wide">AUTHENTIC</span> you can <span className="text-[#8c4a27] font-serif uppercase font-black tracking-wide">TRUST</span>
+          </motion.div>
+
+          {/* 5. Sub-paragraph */}
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.26 }}
+            className="text-[#4a3b34] text-xs sm:text-sm leading-relaxed max-w-[540px] pt-0.5 font-medium"
+          >
+            Sourced directly from the fertile lands of Sri Lanka, our cinnamon is pure, aromatic and crafted with care by generations of traditional farmers.
+          </motion.p>
+
+          {/* 6. CTA Buttons */}
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-3 pt-2"
+          >
+            <Link 
+              href="/products" 
+              className="px-6 py-2.5 bg-[#7a421d] hover:bg-[#5f3316] text-white rounded-full font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:translate-y-[-1px] flex items-center gap-2"
+            >
+              Explore Our Products <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link 
+              href="/about" 
+              className="px-6 py-2.5 border-2 border-[#7a421d] text-[#7a421d] hover:bg-[#7a421d]/10 rounded-full font-bold text-xs uppercase tracking-wider transition-all"
+            >
+              Our Story
+            </Link>
           </motion.div>
 
         </div>

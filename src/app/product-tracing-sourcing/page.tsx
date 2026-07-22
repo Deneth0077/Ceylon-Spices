@@ -56,7 +56,7 @@ export default function ProductTracingSourcingPage() {
     <div className="w-full flex flex-col bg-[#fcfbf9] overflow-x-hidden">
       
       {/* Header Section */}
-      <section className="bg-[#532e1c] text-white py-16 px-4 text-center relative overflow-hidden z-10 border-b-4 border-cap-gold/30">
+      <section className="bg-[#532e1c] text-white pt-6 pb-16 px-4 text-center relative overflow-hidden z-10 border-b-4 border-cap-gold/30">
         
         {/* Leaf Watermark Corner SVGs */}
         <div className="absolute top-[-20px] left-[-20px] w-32 h-32 opacity-15 pointer-events-none select-none rotate-45">

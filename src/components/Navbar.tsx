@@ -113,7 +113,7 @@ export default function Navbar() {
     message += `Please confirm my order. Thank you!`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/94761193338?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/94772893030?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -121,16 +121,14 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/products", label: "Our Products" },
     { href: "/about", label: "About Us" },
-    { href: "/about#sustainability", label: "Sustainability" },
-    { href: "/about#process", label: "Process" },
     { href: "/contact", label: "Contact" }
   ];
 
   return (
     <>
-      <header className={`left-0 right-0 z-40 w-full transition-all duration-300 ${scrolled ? "fixed top-0 bg-[#fbf8f5]/95 backdrop-blur-md border-b border-[#eae7e7]/70 shadow-sm" : "absolute top-0 bg-transparent border-b border-transparent"}`}>
-      {/* Top Announcement Bar */}
-      <div className="w-full bg-black/80 backdrop-blur-sm text-[#eae7e7] py-1.5 overflow-hidden z-50 relative select-none border-b border-white/10 text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase font-sans">
+      <header className={`left-0 right-0 z-40 w-full transition-all duration-300 ${scrolled ? "fixed top-0 bg-transparent border-b border-transparent shadow-none" : "absolute top-0 bg-transparent border-b border-transparent"}`}>
+      {/* Top Announcement Bar - Hides smoothly on scroll */}
+      <div className={`w-full text-[#eae7e7] overflow-hidden z-50 relative select-none text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase font-sans transition-all duration-300 ${scrolled ? "max-h-0 py-0 opacity-0 border-none" : "max-h-12 py-1.5 opacity-100 bg-black/80 backdrop-blur-sm border-b border-white/10"}`}>
         <div className="w-max flex items-center gap-32 md:gap-98 animate-marquee whitespace-nowrap">
           <span>24/7 Service: +94 77 289 3030</span>
           <span>24/7 Service: +94 77 289 3030</span>

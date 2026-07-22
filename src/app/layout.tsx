@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-[#fcf9f8] text-[#1b1c1c] relative" suppressHydrationWarning>
         <CartProvider>
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pt-28 sm:pt-32 md:pt-36">
             {children}
           </main>
           <Footer />
@@ -38,7 +38,7 @@ export default function RootLayout({
 
         {/* Persistent Pulsing WhatsApp Floating Button */}
         <a 
-          href="https://wa.me/94761193338" 
+          href="https://wa.me/94772893030" 
           target="_blank" 
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg whatsapp-pulse hover:scale-110 active:scale-95 transition-all duration-300"

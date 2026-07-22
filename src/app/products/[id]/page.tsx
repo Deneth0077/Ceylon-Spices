@@ -176,12 +176,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   const handleWhatsAppCheckout = () => {
     const message = `*The Cinnamon Care - Quick Order*\n=================================\nProduct: *${product.title}*\nSize: *${size}*\nQuantity: *${quantity}*\n=================================\nPlease confirm my order. Thank you!`;
-    const whatsappUrl = `https://wa.me/94761193338?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/94772893030?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden py-12">
+    <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden pb-12 pt-4">
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
 

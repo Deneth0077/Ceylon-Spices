@@ -65,19 +65,19 @@ export default function ProductCard({
       
       {/* Clickable Title */}
       <Link href={`/products/${id}`} className="block group cursor-pointer mt-1">
-        <h3 className="text-base sm:text-lg font-bold text-stone-900 mb-2 font-serif tracking-tight leading-snug group-hover:text-[#ab5e3b] transition-colors duration-300 select-none">
+        <h3 className="text-lg sm:text-xl font-extrabold text-stone-900 mb-2 font-serif tracking-tight leading-snug group-hover:text-[#ab5e3b] transition-colors duration-300 select-none">
           {title}
         </h3>
       </Link>
 
-      <p className="text-xs sm:text-sm text-stone-600 mb-6 flex-grow leading-relaxed font-sans select-none min-h-[44px]">
+      <p className="text-xs sm:text-sm text-stone-700 font-medium mb-6 flex-grow leading-relaxed font-sans select-none min-h-[44px]">
         {description}
       </p>
       
       {/* Action Button */}
       <button 
         onClick={() => addToCart({ id, title, image, description })}
-        className={`w-full py-3 rounded-xl font-bold text-[10px] sm:text-xs tracking-[0.15em] uppercase transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 cursor-pointer relative overflow-hidden flex items-center justify-center gap-1.5 ${buttonClass}`}
+        className={`w-full py-3 rounded-xl font-extrabold text-xs tracking-[0.15em] uppercase transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 cursor-pointer relative overflow-hidden flex items-center justify-center gap-1.5 ${buttonClass}`}
       >
         <span>Add to Cart</span>
         <svg className="w-3.5 h-3.5 transition-transform duration-300 transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

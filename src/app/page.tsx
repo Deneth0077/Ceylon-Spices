@@ -38,7 +38,7 @@ export default function Home() {
 
 
       {/* 1. Hero Section (Centered Layout Matching User's Mockup) */}
-      <section className="relative w-full overflow-hidden bg-[#fbf8f5] min-h-[600px] md:min-h-[660px] lg:min-h-[700px] pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-48 sm:pb-52 md:pb-60 lg:pb-64 border-b border-[#eae7e7]/40 flex flex-col justify-start">
+      <section className="relative w-full overflow-hidden bg-[#fbf8f5] min-h-[550px] md:min-h-[620px] lg:min-h-[660px] pt-6 sm:pt-8 md:pt-10 pb-48 sm:pb-52 md:pb-60 lg:pb-64 border-b border-[#eae7e7]/40 flex flex-col justify-start">
         
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
@@ -287,89 +287,127 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5. Discover Our Collection (2-Column Blurred-Background Layout) */}
+      {/* 5. From Forest Garden To Your Kitchen (Farm-to-Table Craftsmanship Journey) */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 bg-[#fcf9f8]">
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          className="text-center max-w-[600px] mx-auto mb-16"
+          className="text-center max-w-[650px] mx-auto mb-16"
         >
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">OUR OFFERINGS</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Discover Our Collection</h2>
+          <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#795900] mb-2">CEYLON PROVENANCE & HARVEST</p>
+          <h2 className="font-serif text-3xl md:text-4xl font-black text-[#42190a]">From Forest Garden To Your Kitchen</h2>
+          <p className="text-sm md:text-base font-semibold text-[#52443f] mt-3 leading-relaxed">
+            How we harvest, preserve, and deliver Sri Lanka's finest organic spices without compromising natural therapeutic potency.
+          </p>
           <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-          {/* Card 1: Cinnamon (Dark theme) */}
-          <div className="group relative rounded-3xl overflow-hidden shadow-premium bg-[#192a14] text-white h-[380px] flex flex-col justify-end p-8 md:p-12 transition-transform duration-300 hover:translate-y-[-4px]">
-            {/* Background Image Layer with overlay */}
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/alba_cinnamon_detail.png"
-                alt="Ceylon Cinnamon Sticks"
-                fill
-                sizes="50vw"
-                className="object-cover opacity-35 group-hover:scale-[1.03] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#192a14]/95 via-[#192a14]/40 to-transparent" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 space-y-4 text-left">
-              <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">100% Organic</span>
-              <h3 className="font-serif text-2xl md:text-3xl font-bold">Ceylon Cinnamon</h3>
-              <p className="text-sm text-[#eae7e7]/85 leading-relaxed max-w-[360px]">
-                The world's finest Alba grade cinnamon quills, hand-peeled, sweet, and low in coumarin. Perfect for wellness.
+        {/* 4-Step Process Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          
+          {/* Step 1 */}
+          <div className="bg-white p-6 rounded-2xl border border-[#eae7e7] flex flex-col justify-between hover:shadow-premium hover:border-[#795900]/30 transition-all duration-300 group">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-serif font-black text-[#795900]/40 group-hover:text-[#795900] transition-colors">01</span>
+                <div className="w-10 h-10 rounded-xl bg-[#d3e9c7]/50 text-[#192a14] flex items-center justify-center">
+                  <Leaf className="w-5 h-5" />
+                </div>
+              </div>
+              <h3 className="font-serif font-extrabold text-lg text-[#42190a] mb-2">Hand-Peeled at Dawn</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed font-medium">
+                Peeled by master artisans in Kandy & Matale highlands during early morning humidity to retain peak essential oil sweetness.
               </p>
-              <button
-                onClick={() => {
-                  const message = `*The Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Ceylon Cinnamon*\nPrice: *$14.50*\n=================================\nPlease confirm my order. Thank you!`;
-                  window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
-                }}
-                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ffc641] hover:underline pt-2 cursor-pointer"
-              >
-                SHOP CINNAMON &rarr;
-              </button>
+            </div>
+            <div className="mt-4 pt-3 border-t border-[#eae7e7]/60">
+              <span className="text-[9px] font-extrabold text-[#192a14] uppercase tracking-wider bg-[#d3e9c7]/60 px-2 py-0.5 rounded">Ancestral Trade</span>
             </div>
           </div>
 
-          {/* Card 2: Turmeric (Light theme) */}
-          <div className="group relative rounded-3xl overflow-hidden shadow-premium bg-[#ffdfa0] text-[#42190a] h-[380px] flex flex-col justify-end p-8 md:p-12 transition-transform duration-300 hover:translate-y-[-4px]">
-            {/* Background Image Layer with overlay */}
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/turmeric_spoon.png"
-                alt="Vibrant organic turmeric powder"
-                fill
-                sizes="50vw"
-                className="object-cover opacity-25 group-hover:scale-[1.03] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#ffdfa0]/90 via-[#ffdfa0]/30 to-transparent" />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 space-y-4 text-left">
-              <span className="inline-block text-[9px] font-bold uppercase tracking-widest text-[#795900] bg-white/70 px-2.5 py-1 rounded">Aromatic Gold</span>
-              <h3 className="font-serif text-2xl md:text-3xl font-bold">Turmeric</h3>
-              <p className="text-sm text-[#52443f] leading-relaxed max-w-[360px]">
-                Sun-dried turmeric root, rich in active curcumin compounds for peak anti-inflammatory benefits.
+          {/* Step 2 */}
+          <div className="bg-white p-6 rounded-2xl border border-[#eae7e7] flex flex-col justify-between hover:shadow-premium hover:border-[#795900]/30 transition-all duration-300 group">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-serif font-black text-[#795900]/40 group-hover:text-[#795900] transition-colors">02</span>
+                <div className="w-10 h-10 rounded-xl bg-[#ffdfa0]/50 text-[#795900] flex items-center justify-center">
+                  <Droplet className="w-5 h-5" />
+                </div>
+              </div>
+              <h3 className="font-serif font-extrabold text-lg text-[#42190a] mb-2">Slow Shaded Curing</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed font-medium">
+                Sun-cured under shaded solar facilities to prevent thermal degradation and preserve active piperine & curcumin.
               </p>
-              <button
-                onClick={() => {
-                  const message = `*The Cinnamon Care - Home Inquiry*\n=================================\nProduct: *Turmeric*\nPrice: *$12.00*\n=================================\nPlease confirm my order. Thank you!`;
-                  window.open(`https://wa.me/94761193338?text=${encodeURIComponent(message)}`, '_blank');
-                }}
-                className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline pt-2 cursor-pointer"
-              >
-                SHOP TURMERIC &rarr;
-              </button>
+            </div>
+            <div className="mt-4 pt-3 border-t border-[#eae7e7]/60">
+              <span className="text-[9px] font-extrabold text-[#795900] uppercase tracking-wider bg-[#ffdfa0]/60 px-2 py-0.5 rounded">Cold-Milling</span>
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="bg-white p-6 rounded-2xl border border-[#eae7e7] flex flex-col justify-between hover:shadow-premium hover:border-[#795900]/30 transition-all duration-300 group">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-serif font-black text-[#795900]/40 group-hover:text-[#795900] transition-colors">03</span>
+                <div className="w-10 h-10 rounded-xl bg-[#ffdbcf]/50 text-[#42190a] flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5" />
+                </div>
+              </div>
+              <h3 className="font-serif font-extrabold text-lg text-[#42190a] mb-2">Zero-Coumarin Testing</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed font-medium">
+                Strict batch testing ensuring ultra-low coumarin, zero synthetic additives, and 100% USDA Organic compliance.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-[#eae7e7]/60">
+              <span className="text-[9px] font-extrabold text-[#42190a] uppercase tracking-wider bg-[#ffdbcf]/60 px-2 py-0.5 rounded">Lab Verified</span>
+            </div>
+          </div>
+
+          {/* Step 4 */}
+          <div className="bg-white p-6 rounded-2xl border border-[#eae7e7] flex flex-col justify-between hover:shadow-premium hover:border-[#795900]/30 transition-all duration-300 group">
+            <div>
+              <div className="flex justify-between items-center mb-6">
+                <span className="text-2xl font-serif font-black text-[#795900]/40 group-hover:text-[#795900] transition-colors">04</span>
+                <div className="w-10 h-10 rounded-xl bg-[#f5ebe0] text-[#795900] flex items-center justify-center">
+                  <Award className="w-5 h-5" />
+                </div>
+              </div>
+              <h3 className="font-serif font-extrabold text-lg text-[#42190a] mb-2">Origin Sealed Freshness</h3>
+              <p className="text-xs text-[#52443f] leading-relaxed font-medium">
+                Packaged directly at origin in airtight glass jars and eco-pouches, ensuring farm-fresh potency worldwide.
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-[#eae7e7]/60">
+              <span className="text-[9px] font-extrabold text-[#795900] uppercase tracking-wider bg-[#f5ebe0] px-2 py-0.5 rounded">Global Shipping</span>
             </div>
           </div>
 
         </div>
+
+        {/* Quality Highlight Metrics Pill */}
+        <div className="bg-gradient-to-r from-[#42190a] via-[#5c2813] to-[#192a14] rounded-2xl p-6 text-white shadow-premium flex flex-wrap items-center justify-around gap-6 text-center">
+          <div className="space-y-1">
+            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">100%</span>
+            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Single Origin Ceylon</p>
+          </div>
+          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+          <div className="space-y-1">
+            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">&lt; 0.004%</span>
+            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Ultra-Low Coumarin</p>
+          </div>
+          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+          <div className="space-y-1">
+            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">0%</span>
+            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Synthetic Additives</p>
+          </div>
+          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+          <div className="space-y-1">
+            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">180+ Yrs</span>
+            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Artisanal Heritage</p>
+          </div>
+        </div>
+
       </section>
 
       {/* 6. Explore our Artisanal Collections (Mockup Grid) */}
@@ -384,22 +422,22 @@ export default function Home() {
           className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10"
         >
           <div className="space-y-2">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl font-black text-[#42190a] leading-tight">
               Explore our Artisanal Collections
             </h2>
-            <p className="text-sm md:text-base text-[#52443f] max-w-[650px] leading-relaxed">
+            <p className="text-sm md:text-base text-[#52443f] max-w-[650px] leading-relaxed font-medium">
               Selected harvests from the most fertile regions of Ceylon, chosen for their superior flavor and medicinal properties.
             </p>
           </div>
           <Link
             href="/products"
-            className="text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline hover-underline-animation self-start md:self-auto"
+            className="text-xs font-extrabold uppercase tracking-wider text-[#795900] hover:underline hover-underline-animation self-start md:self-auto"
           >
             View All Spices
           </Link>
         </motion.div>
 
-        {/* Asymmetrical Grid */}
+        {/* Asymmetrical Grid featuring Pepper & Garcinia Color Design */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
           {/* Card 1: Cinnamon (col-span 8) */}
@@ -416,7 +454,7 @@ export default function Home() {
             </div>
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
-              <h3 className="font-serif text-2xl font-bold text-white">Cinnamon</h3>
+              <h3 className="font-serif text-2xl font-bold text-white">Ceylon Cinnamon</h3>
               <p className="text-sm text-white/85 leading-relaxed">
                 True Alba Grade Ceylon Cinnamon, known for its sweet aroma and delicate flavor profile.
               </p>
@@ -453,8 +491,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 3: Black Pepper (col-span 4) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#303030] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          {/* Card 3: Black Pepper - Maroon & Green Theme (col-span 4) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-gradient-to-br from-[#4a0e17] via-[#66121e] to-[#1e381b] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
                 src="/images/card_pepper.png"
@@ -463,10 +501,11 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover opacity-70 group-hover:scale-[1.02] transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#4a0e17]/90 via-[#4a0e17]/40 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3">
+              <span className="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#d3e9c7] bg-[#1e381b]/80 px-2 py-0.5 rounded">Maroon & Green</span>
               <h3 className="font-serif text-2xl font-bold text-white">Black Pepper</h3>
               <Link
                 href="/products/2"
@@ -477,29 +516,30 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 4: Cardamom (col-span 8) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#192a14] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          {/* Card 4: Garcinia Goraka - Vibrant Yellow, Green & Red Theme (col-span 8) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-gradient-to-br from-[#d97706] via-[#b91c1c] to-[#15803d] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_cardamom.png"
-                alt="Green Cardamom Pods"
+                src="/images/card_garcinia.png"
+                alt="Organic Garcinia Goraka"
                 fill
                 sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover opacity-65 group-hover:scale-[1.02] transition-transform duration-700"
+                className="object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700 mix-blend-overlay"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#7c2d12]/90 via-[#7c2d12]/30 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
-              <h3 className="font-serif text-2xl font-bold text-white">Cardamom</h3>
-              <p className="text-sm text-white/85 leading-relaxed">
-                Highly aromatic green pods hand-picked at peak maturity from our mountain estates.
+              <span className="inline-block text-[9px] font-extrabold uppercase tracking-widest text-[#fef08a] bg-[#15803d]/80 px-2.5 py-0.5 rounded">Vibrant Yellow, Red & Green</span>
+              <h3 className="font-serif text-2xl font-bold text-white">Organic Garcinia (Goraka)</h3>
+              <p className="text-sm text-white/90 leading-relaxed font-medium">
+                Traditional sun-dried Garcinia segments, widely prized for natural culinary souring and digestive benefits.
               </p>
               <Link
-                href="/products/4"
-                className="inline-block px-5 py-2 bg-white text-[#42190a] rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
+                href="/products/5"
+                className="inline-block px-5 py-2 bg-white text-[#7c2d12] rounded font-extrabold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
               >
-                Shop Selection
+                Shop Garcinia
               </Link>
             </div>
           </div>

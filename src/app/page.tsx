@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Leaf, Award, ShieldCheck, Heart, ArrowRight, Droplet, Star } from "lucide-react";
+import { Leaf, Award, ShieldCheck, Heart, ArrowRight, Droplet, Star, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import TransparentImage from "@/components/TransparentImage";
 
@@ -23,15 +23,51 @@ const staggerContainer = {
   }
 };
 
+/* 1. Botanical Watermark for Card 1, 2, 3 */
+const BotanicalCardWatermark = () => (
+  <div className="absolute -right-2 top-2 bottom-2 w-28 md:w-36 h-[90%] opacity-35 pointer-events-none transition-transform duration-500 group-hover:scale-105 select-none">
+    <Image
+      src="/images/botanical_sketch_watermark.png"
+      alt="Botanical Sketch Watermark"
+      fill
+      className="object-contain object-right-bottom mix-blend-multiply"
+    />
+  </div>
+);
+
+/* 2. Botanical Watermark for Section 4 Right Side */
+const BotanicalSectionWatermark = () => (
+  <div className="absolute right-0 top-4 bottom-4 w-80 md:w-[450px] h-[95%] opacity-30 pointer-events-none z-0 select-none">
+    <Image
+      src="/images/botanical_sketch_watermark.png"
+      alt="Botanical Section Watermark"
+      fill
+      className="object-contain object-right mix-blend-multiply"
+    />
+  </div>
+);
+
+/* 3. Foreground Corner Leaf for Section 4 Bottom-Left */
+const ForegroundCornerLeaf = () => (
+  <div className="absolute -bottom-6 -left-6 w-60 md:w-80 h-60 md:h-80 pointer-events-none z-20 select-none">
+    <TransparentImage
+      src="/images/user_exact_leaf_clean.png"
+      alt="Green Leaf Branch Corner Overlay"
+      threshold={240}
+      className="w-full h-full object-contain filter drop-shadow-sm"
+    />
+  </div>
+);
+
 export default function Home() {
   return (
     <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
-      
+
       {/* Decorative Single Giant Sri Lankan Cinnamon Bush Centered */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[2800px] w-[500px] md:w-[800px] pointer-events-none z-10 overflow-hidden select-none opacity-[0.06]">
-        <TransparentImage 
-          src="/images/cinnamon_bush.png" 
-          alt="" 
+        <TransparentImage
+          src="/images/cinnamon_bush.png"
+          alt=""
           className="w-full h-full object-fill object-bottom"
         />
       </div>
@@ -39,12 +75,12 @@ export default function Home() {
 
       {/* 1. Hero Section (Centered Layout Matching User's Mockup) */}
       <section className="relative w-full overflow-hidden bg-[#fbf8f5] min-h-[550px] md:min-h-[620px] lg:min-h-[660px] pt-6 sm:pt-8 md:pt-10 pb-48 sm:pb-52 md:pb-60 lg:pb-64 border-b border-[#eae7e7]/40 flex flex-col justify-start">
-        
+
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/hero_cinnamon_background.png" 
-            alt="Estate tea plantation and cinnamon table background" 
+          <Image
+            src="/images/hero_cinnamon_background.png"
+            alt="Estate tea plantation and cinnamon table background"
             fill
             className="object-cover object-bottom select-none"
             priority
@@ -54,9 +90,9 @@ export default function Home() {
         </div>
 
         <div className="relative z-10 max-w-[880px] mx-auto px-6 md:px-8 flex flex-col items-center text-center space-y-3 sm:space-y-3.5">
-          
+
           {/* 1. Top Pill Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -65,9 +101,9 @@ export default function Home() {
             <Leaf className="w-3.5 h-3.5 text-[#325220]" />
             <span>100% ORGANIC • ETHICALLY SOURCED</span>
           </motion.div>
-          
+
           {/* 2. Main Title */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -78,7 +114,7 @@ export default function Home() {
           </motion.h1>
 
           {/* 3. Middle Tag / Badge with decorative lines */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.18 }}
@@ -93,7 +129,7 @@ export default function Home() {
           </motion.div>
 
           {/* 4. Secondary Heading */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.22 }}
@@ -103,7 +139,7 @@ export default function Home() {
           </motion.div>
 
           {/* 5. Sub-paragraph */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.26 }}
@@ -113,20 +149,20 @@ export default function Home() {
           </motion.p>
 
           {/* 6. CTA Buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-3 pt-2"
           >
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className="px-6 py-2.5 bg-[#7a421d] hover:bg-[#5f3316] text-white rounded-full font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:translate-y-[-1px] flex items-center gap-2"
             >
               Explore Our Products <ArrowRight className="w-3.5 h-3.5" />
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="px-6 py-2.5 border-2 border-[#7a421d] text-[#7a421d] hover:bg-[#7a421d]/10 rounded-full font-bold text-xs uppercase tracking-wider transition-all"
             >
               Our Story
@@ -137,119 +173,221 @@ export default function Home() {
       </section>
 
       {/* 2. Global Certifications Row & Announcement */}
-      <section className="bg-[#f6f3f2] border-y border-[#eae7e7] py-12">
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* 2. Global Certifications & Compliance Section (Ultra-Stylish Glassmorphic Layout) */}
+      <section className="relative w-full bg-gradient-to-r from-[#192a14] via-[#243b1d] to-[#192a14] text-white py-14 overflow-hidden border-y border-[#795900]/30 shadow-2xl">
+        {/* Ambient glow decorative backgrounds */}
+        <div className="absolute top-1/2 left-10 -translate-y-1/2 w-64 h-64 bg-[#795900]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 -translate-y-1/2 w-64 h-64 bg-[#ffc641]/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          {/* Left: Headline & Badges */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="lg:col-span-5 space-y-4 text-left"
+          >
+            <div className="inline-flex items-center gap-2 text-[#ffc641] bg-[#ffc641]/10 border border-[#ffc641]/30 text-[10px] font-extrabold uppercase tracking-[0.2em] px-3.5 py-1.5 rounded-full backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5" /> International Quality & Standards
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-black tracking-tight text-white">
+              Global Certifications
+            </h2>
+
+            <div className="flex flex-wrap gap-3 pt-2">
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-md">
+                <ShieldCheck className="w-4 h-4 text-[#ffc641]" />
+                <span className="text-xs font-extrabold uppercase tracking-wider text-white">GMP Facility Standard</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/20 shadow-md">
+                <Award className="w-4 h-4 text-[#ffc641]" />
+                <span className="text-xs font-extrabold uppercase tracking-wider text-white">FDA Process Underway</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right: Announcement Card (Glassmorphic) */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="lg:col-span-7 bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/20 shadow-premium relative overflow-hidden group hover:border-[#ffc641]/40 transition-all duration-300"
+          >
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#ffc641]/20 to-transparent rounded-bl-full pointer-events-none" />
+
+            <p className="text-sm md:text-base text-white/90 leading-relaxed font-medium relative z-10">
+              <strong className="text-[#ffc641]">The Cinnamon Care</strong> is pleased to announce that we are in the process of establishing a <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">GMP-certified facility</span>, which we intend to complete in the near future. <span className="font-extrabold text-[#ffc641]">FDA approvals are currently underway.</span>
+            </p>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* 3. Why Choose Us Section (Quality & Sustainability - Reference Matched Design) */}
+      <section className="relative w-full bg-[#f8f6f0] py-24 px-6 md:px-8 border-t border-[#e8e4da]">
+        <div className="max-w-[1280px] mx-auto">
           
-          {/* Left: Headline and Badges list */}
+          {/* Header */}
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="lg:col-span-5 space-y-4"
+            className="text-center max-w-[650px] mx-auto mb-16 space-y-2"
           >
-            <div className="inline-flex items-center gap-1.5 text-[#192a14] bg-[#d3e9c7] text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded">
-              certified
-            </div>
-            <h2 className="font-serif text-2xl font-bold text-[#42190a] tracking-tight">
-              GLOBAL CERTIFICATIONS
-            </h2>
-            <div className="flex flex-wrap gap-4 text-[#52443f]/80 pt-2">
-              <span className="text-xs font-bold uppercase tracking-wider border border-[#eae7e7] bg-white px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-[#795900]" /> USDA Organic
-              </span>
-              <span className="text-xs font-bold uppercase tracking-wider border border-[#eae7e7] bg-white px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-[#795900]" /> GMP Facility
-              </span>
-              <span className="text-xs font-bold uppercase tracking-wider border border-[#eae7e7] bg-white px-3 py-1.5 rounded shadow-sm flex items-center gap-1.5">
-                <Leaf className="w-4 h-4 text-[#795900]" /> 100% Organic
-              </span>
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#967b54]">WHY CHOOSE US</p>
+            <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#2b3024] tracking-tight">Quality & Sustainability</h2>
+            
+            {/* 1. Circled Header Line & Leaf Emblem Divider */}
+            <div className="flex items-center justify-center gap-3 pt-2">
+              <div className="w-20 h-[1px] bg-[#d8d2c5]" />
+              <svg className="w-4 h-4 text-[#88775f] fill-current" viewBox="0 0 24 24">
+                <path d="M17,8C8,10 5,16 3,22C5,22 9,21 13,17C16,14 18,10 17,8Z" />
+                <path d="M21,3C13,5 9,11 7,17C9,17 14,16 18,12C20,10 22,6 21,3Z" opacity="0.7" />
+              </svg>
+              <div className="w-20 h-[1px] bg-[#d8d2c5]" />
             </div>
           </motion.div>
 
-          {/* Right: Announcement Text */}
-          <div className="lg:col-span-7 bg-white p-6 rounded-xl border border-[#eae7e7] shadow-sm">
-            <p className="text-sm text-[#52443f] leading-relaxed font-medium">
-              The Cinnamon Care is pleased to announce that we are in the process of establishing a GMP-certified facility, aligned with ISO 22000 standards, which we intend to obtain in the near future. FDA approvals are currently underway.
-            </p>
-          </div>
+          {/* 3 Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Card 1: Ethically Sourced */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="bg-white rounded-3xl p-8 md:p-10 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[380px]"
+            >
+              {/* 2. Card 1 Pure Transparent Botanical Sketch Watermark */}
+              <BotanicalCardWatermark />
 
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform">
+                  <Leaf className="w-6 h-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-serif font-normal text-2xl text-[#2b3024] mb-3">
+                  Ethically Sourced
+                </h3>
+                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal max-w-[240px]">
+                  We work directly with local farming cooperatives & fair trade partners to support sustainable agriculture and empower rural communities.
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 relative z-10">
+                <Link href="/about#community" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
+                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 2: Aromatic Quality */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="bg-white rounded-3xl p-8 md:p-10 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[380px]"
+            >
+              {/* 3. Card 2 Pure Transparent Botanical Sketch Watermark */}
+              <BotanicalCardWatermark />
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform">
+                  <Droplet className="w-6 h-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-serif font-normal text-2xl text-[#2b3024] mb-3">
+                  Aromatic Quality
+                </h3>
+                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal max-w-[240px]">
+                  Our essential oils and spices are carefully selected and cold-processed to retain natural aroma, potency and therapeutic benefits.
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 relative z-10">
+                <Link href="/products" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
+                  EXPLORE QUALITY <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 3: Health Benefits */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="bg-white rounded-3xl p-8 md:p-10 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[380px]"
+            >
+              {/* 4. Card 3 Pure Transparent Botanical Sketch Watermark */}
+              <BotanicalCardWatermark />
+
+              <div className="relative z-10">
+                <div className="w-14 h-14 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-6 shadow-sm group-hover:scale-105 transition-transform">
+                  <Heart className="w-6 h-6" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-serif font-normal text-2xl text-[#2b3024] mb-3">
+                  Health Benefits
+                </h3>
+                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal max-w-[240px]">
+                  Ceylon Spices are world-famous for high antioxidant levels, active anti-inflammatory compounds, and are free from harmful additives.
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 relative z-10">
+                <Link href="/about" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
+                  DISCOVER BENEFITS <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
-      {/* 3. Why Choose Us Section */}
-      <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="text-center max-w-[600px] mx-auto mb-16"
-        >
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Us</p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a]">Quality & Sustainability</h2>
-          <div className="w-16 h-1 bg-[#795900] mx-auto mt-4 rounded-full" />
-        </motion.div>
+      {/* 4. Our Legacy & Future Section (Reference Matched Design) */}
+      <section className="relative w-full bg-[#f2efe9] py-24 px-6 md:px-8 border-t border-[#e2ddd3] overflow-hidden">
+        
+        {/* 6. Section 4 Right Pure Transparent Background Botanical Watermark */}
+        <BotanicalSectionWatermark />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center hover:shadow-premium transition-all duration-300">
-            <div className="w-12 h-12 rounded-full bg-[#ffdbcf] text-[#42190a] flex items-center justify-center mx-auto mb-6">
-              <Leaf className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Ethically Sourced</h3>
-            <p className="text-sm text-[#52443f] leading-relaxed">
-              We work directly with small farming cooperatives, ensuring fair wages, sustainable agricultural practices, and community empowerment.
-            </p>
-          </div>
+        {/* 7. Section 4 Bottom-Left Pure Transparent Foreground Green Leaf Corner */}
+        <ForegroundCornerLeaf />
 
-          {/* Card 2 */}
-          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center hover:shadow-premium transition-all duration-300">
-            <div className="w-12 h-12 rounded-full bg-[#d3e9c7] text-[#192a14] flex items-center justify-center mx-auto mb-6">
-              <Droplet className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Aromatic Quality</h3>
-            <p className="text-sm text-[#52443f] leading-relaxed">
-              Rich essential oils and potent aromas preserved through hand-harvesting and slow natural drying in shaded facilities.
-            </p>
-          </div>
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
 
-          {/* Card 3 */}
-          <div className="bg-[#fcf9f8] p-8 rounded-xl border border-[#eae7e7] text-center hover:shadow-premium transition-all duration-300">
-            <div className="w-12 h-12 rounded-full bg-[#ffdfa0] text-[#795900] flex items-center justify-center mx-auto mb-6">
-              <Heart className="w-5 h-5" />
-            </div>
-            <h3 className="font-serif font-bold text-lg text-[#42190a] mb-3">Health Benefits</h3>
-            <p className="text-sm text-[#52443f] leading-relaxed">
-              Ceylon Spices are famous for their high antioxidants, anti-inflammatory compounds, and low coumarin levels, boosting health.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Our Legacy & Future Double-Layered Section */}
-      <section className="bg-[#f6f3f2] border-y border-[#eae7e7] py-20 px-6 md:px-8">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-
-          {/* Left Column Stacked Images */}
-          <div className="md:col-span-6 relative h-[380px] md:h-[480px] flex items-center justify-center">
-            {/* Base Image */}
-            <div className="relative w-[75%] h-[80%] rounded-xl overflow-hidden shadow-premium z-10">
+          {/* Left Column: Image with Overlay Stamp */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="md:col-span-6 relative flex justify-center"
+          >
+            <div className="relative w-full aspect-square max-w-[480px] rounded-3xl overflow-hidden shadow-lg border-4 border-white group">
               <Image
                 src="/images/legacy_cinnamon_pots.png"
-                alt="Cinnamon sticks in rustic clay pots"
+                alt="Rustic cinnamon sticks in clay pots"
                 fill
-                sizes="50vw"
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
+              
+              {/* Floating Dark Olive Stamp Badge */}
+              <div className="absolute top-6 right-6 bg-[#2f3928] text-white px-5 py-3.5 rounded-2xl shadow-xl border border-white/20 text-center max-w-[200px] backdrop-blur-md">
+                <svg className="w-4 h-4 text-[#ffdfa0] mx-auto mb-1 fill-current" viewBox="0 0 24 24">
+                  <path d="M17,8C8,10 5,16 3,22C5,22 9,21 13,17C16,14 18,10 17,8Z" />
+                </svg>
+                <p className="text-[11px] font-normal leading-tight text-[#f2efe9]">
+                  Rooted in Sri Lanka's Natural Heritage
+                </p>
+              </div>
             </div>
-
-            {/* Top overlapping stamp/badge */}
-            <div className="absolute top-[10%] right-[5%] bg-[#192a14] text-white p-6 rounded-xl shadow-premium z-20 max-w-[180px] text-center">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-[#97ac8d] mb-1">Single Origin</p>
-              <h4 className="font-serif font-bold text-sm leading-tight text-white">Knuckles Mountain Range</h4>
-            </div>
-          </div>
+          </motion.div>
 
           {/* Right Column Content */}
           <motion.div 
@@ -257,39 +395,52 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="md:col-span-6 flex flex-col space-y-8"
+            className="md:col-span-6 flex flex-col space-y-6"
           >
-            <motion.div variants={fadeInUp} className="space-y-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Legacy</p>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">The Heritage of Wellness</h2>
-              <p className="text-sm text-[#52443f] leading-relaxed">
-                For centuries, the highlands of Sri Lanka have nurtured spices prized by empires. Our spice farmers preserve this heritage through regenerative farming, keeping our soils vibrant and spices pure. We bring you these pristine treasures directly, completely untouched by additives.
-              </p>
-            </motion.div>
- 
-            <motion.div variants={fadeInUp} className="space-y-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#795900]">Our Future</p>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-[#42190a]">Sustainable Cultivation</h2>
-              <p className="text-sm text-[#52443f] leading-relaxed">
-                By maintaining forest-gardens that mimic natural ecosystems, we preserve Sri Lanka's unique biodiversity. This protects wildlife, sustains water cycles, and ensures the purest organic harvest for generations to come.
+            {/* Our Legacy */}
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#967b54]">OUR LEGACY</p>
+              <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#2b3024]">The Heritage of Wellness</h2>
+              <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal pt-1">
+                For centuries, Sri Lanka has been blessed with a rich heritage of spices and botanical treasures. Passed down through generations, our traditions continue to inspire premium products that nurture well-being, naturally.
               </p>
             </motion.div>
 
+            {/* 5. Middle Section Divider with Leaf Emblem */}
+            <motion.div variants={fadeInUp} className="flex items-center gap-3 py-2">
+              <div className="w-20 h-[1px] bg-[#d8d2c5]" />
+              <svg className="w-3.5 h-3.5 text-[#88775f] fill-current" viewBox="0 0 24 24">
+                <path d="M17,8C8,10 5,16 3,22C5,22 9,21 13,17C16,14 18,10 17,8Z" />
+              </svg>
+              <div className="w-20 h-[1px] bg-[#d8d2c5]" />
+            </motion.div>
+
+            {/* Our Future */}
+            <motion.div variants={fadeInUp} className="space-y-2">
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#967b54]">OUR FUTURE</p>
+              <h2 className="font-serif text-2xl md:text-3xl font-normal text-[#2b3024]">Sustainable Cultivation</h2>
+              <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal pt-1">
+                By maintaining strong relationships with local growers and practicing eco-friendly cultivation, we ensure the purest organic harvests for a healthier tomorrow.
+              </p>
+            </motion.div>
+
+            {/* CTA Button */}
             <motion.div variants={fadeInUp} className="pt-4">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#42190a] hover:bg-[#5d2e1d] text-white rounded-lg font-bold text-xs uppercase tracking-wider transition-colors shadow-sm"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#2f3928] hover:bg-[#1e251a] text-white rounded-full text-[11px] font-extrabold uppercase tracking-wider transition-all shadow-sm hover:shadow-md cursor-pointer"
               >
-                Explore Sustainable Practices <ArrowRight className="w-3.5 h-3.5" />
+                EXPLORE SUSTAINABLE PRACTICES <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </motion.div>
           </motion.div>
+
         </div>
       </section>
 
       {/* 5. From Forest Garden To Your Kitchen (Farm-to-Table Craftsmanship Journey) */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 bg-[#fcf9f8]">
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -306,7 +457,7 @@ export default function Home() {
 
         {/* 4-Step Process Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          
+
           {/* Step 1 */}
           <div className="bg-white p-6 rounded-2xl border border-[#eae7e7] flex flex-col justify-between hover:shadow-premium hover:border-[#795900]/30 transition-all duration-300 group">
             <div>
@@ -414,7 +565,7 @@ export default function Home() {
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 py-16 border-t border-[#eae7e7]/60">
 
         {/* Title and Header Actions */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

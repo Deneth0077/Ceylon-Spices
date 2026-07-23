@@ -311,7 +311,7 @@ export default function ShopPage() {
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Global Certifications</h4>
             <div className="space-y-2.5">
               <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#192a14]">
-                <span className="w-2 h-2 rounded-full bg-[#192a14]" /> Organic Certified
+                <span className="w-2 h-2 rounded-full bg-[#192a14]" /> Single Origin Harvest
               </div>
               <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#795900]">
                 <span className="w-2 h-2 rounded-full bg-[#795900]" /> GMP Facility Standard
@@ -320,7 +320,7 @@ export default function ShopPage() {
                 <span className="w-2 h-2 rounded-full bg-[#42190a]" /> HACCP Safety Standard
               </div>
               <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#52443f]">
-                <span className="w-2 h-2 rounded-full bg-[#52443f]" /> ISO 22000 Certified
+                <span className="w-2 h-2 rounded-full bg-[#52443f]" /> FDA Registration Underway
               </div>
             </div>
             <p className="text-[10px] text-[#52443f] font-medium leading-relaxed mt-2">

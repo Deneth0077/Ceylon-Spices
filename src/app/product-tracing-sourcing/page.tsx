@@ -208,7 +208,7 @@ export default function ProductTracingSourcingPage() {
               variants={scaleBadge}
               className="w-18 h-18 rounded-full bg-white border-[3px] border-blue-600 shadow-xl flex items-center justify-center font-extrabold text-blue-700 text-[10px] tracking-wide hover:scale-110 hover:rotate-12 transition-transform cursor-default"
             >
-              ISO 22000
+              FDA Pending
             </motion.div>
             
             {/* HACCP Badge */}

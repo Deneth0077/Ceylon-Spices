@@ -56,7 +56,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 40) {
         setScrolled(true);
       } else {
         setScrolled(false);
@@ -120,15 +120,17 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/products", label: "Our Products" },
+    { href: "/sourcing", label: "Our Sourcing" },
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact" }
   ];
 
+  const isHomePage = pathname === "/";
+
   return (
     <>
-      <header className={`left-0 right-0 z-40 w-full transition-all duration-300 ${scrolled ? "fixed top-0 bg-transparent border-b border-transparent shadow-none" : "absolute top-0 bg-transparent border-b border-transparent"}`}>
-      {/* Top Announcement Bar - Hides smoothly on scroll */}
-      <div className={`w-full text-[#eae7e7] overflow-hidden z-50 relative select-none text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase font-sans transition-all duration-300 ${scrolled ? "max-h-0 py-0 opacity-0 border-none" : "max-h-12 py-1.5 opacity-100 bg-black/80 backdrop-blur-sm border-b border-white/10"}`}>
+      {/* 1. Top Black Announcement Bar - Static at the very top of the page */}
+      <div className="w-full bg-black/90 text-[#eae7e7] overflow-hidden z-30 relative select-none text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase font-sans py-1.5 border-b border-white/10">
         <div className="w-max flex items-center gap-32 md:gap-98 animate-marquee whitespace-nowrap">
           <span>24/7 Service: +94 77 289 3030</span>
           <span>24/7 Service: +94 77 289 3030</span>
@@ -140,102 +142,109 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <nav className={`w-full transition-all duration-300 ${scrolled ? "py-1" : "py-2 md:py-3"}`}>
-        <div className="max-w-[1280px] mx-auto px-6 md:px-8">
-          <div className="flex justify-between items-center h-20 md:h-22 w-full">
+      {/* 2. Main Navigation Header - Hidden at top, slides down fixed when scrolling */}
+      <header className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-300 transform ${
+        scrolled
+          ? isHomePage
+            ? "translate-y-0 opacity-100 pointer-events-auto bg-[#fcf9f8]/95 backdrop-blur-md border-b border-[#eae7e7] shadow-sm"
+            : "translate-y-0 opacity-100 pointer-events-auto bg-[#fcf9f8] border-b border-[#eae7e7] shadow-sm"
+          : "-translate-y-full opacity-0 pointer-events-none bg-transparent"
+      }`}>
+        <nav className="w-full py-1.5 md:py-2">
+          <div className="max-w-[1280px] mx-auto px-6 md:px-8">
+            <div className="flex justify-between items-center h-14 md:h-16 w-full">
 
-            {/* Left Logo - Enlarged for crystal clear text readability */}
-            <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="flex items-center group py-1">
-                <img 
-                  src="/images/new_brand_logo.png" 
-                  alt="The Cinnamon Care Logo"
-                  className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
-                />
+              {/* Left Logo */}
+              <div className="flex-shrink-0 flex items-center">
+                <Link href="/" className="flex items-center group py-0.5">
+                  <img 
+                    src="/images/new_brand_logo.png" 
+                    alt="The Cinnamon Care Logo"
+                    className="h-10 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                </Link>
+              </div>
+
+              {/* Center Nav Links */}
+              <div className="hidden md:flex flex-1 justify-center px-4">
+                <div className="flex space-x-6 lg:space-x-8 items-center">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${
+                        isActive(link.href)
+                          ? "text-[#42190a]"
+                          : "text-[#52443f] hover:text-[#42190a]"
+                      }`}
+                    >
+                      {link.label}
+                      {isActive(link.href) && (
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Icons (Search, User Account, Language Dropdown) */}
+              <div className="flex items-center space-x-2 md:space-x-4">
+                <button
+                  className="p-2 text-[#52443f] hover:text-[#42190a] transition-colors flex items-center justify-center cursor-pointer"
+                  onClick={() => setIsSearchOpen(true)}
+                  aria-label="Search"
+                >
+                  <Search className="w-5 h-5" />
+                </button>
+
+                <button
+                  className="p-2 text-[#52443f] hover:text-[#42190a] transition-colors hidden sm:flex items-center justify-center cursor-pointer"
+                  aria-label="User Account"
+                >
+                  <User className="w-5 h-5" />
+                </button>
+
+                {/* Language Selector Dropdown pill */}
+                <div className="hidden sm:flex items-center gap-1 border border-[#eae7e7] bg-white px-3 py-1.5 rounded-full text-xs font-bold text-[#52443f] cursor-pointer hover:border-[#85736e] transition-colors shadow-sm">
+                  <span>EN</span>
+                  <span className="text-[9px] opacity-70">▼</span>
+                </div>
+
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="md:hidden p-2 text-[#52443f] hover:text-[#42190a] transition-colors"
+                  aria-label="Mobile Menu"
+                >
+                  {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+        </nav>
+
+      {/* Mobile menu dropdown inside header */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-[#fcf9f8] border-t border-b border-[#eae7e7] w-full left-0 shadow-md transition-all">
+          <div className="px-4 py-3 space-y-1 flex flex-col">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2.5 rounded-lg text-sm font-bold uppercase tracking-wider transition-colors ${
+                  isActive(link.href)
+                    ? "bg-[#eae7e7]/50 text-[#42190a]"
+                    : "text-[#52443f] hover:bg-[#eae7e7]/30 hover:text-[#42190a]"
+                }`}
+              >
+                {link.label}
               </Link>
-            </div>
-
-            {/* Center Nav Links */}
-            <div className="hidden md:flex flex-1 justify-center px-4">
-              <div className="flex space-x-6 lg:space-x-8 items-center">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${
-                      isActive(link.href)
-                        ? "text-[#42190a]"
-                        : "text-[#52443f] hover:text-[#42190a]"
-                    }`}
-                  >
-                    {link.label}
-                    {isActive(link.href) && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Icons (Search, User Account, Language Dropdown) */}
-            <div className="flex items-center space-x-2 md:space-x-4">
-              <button
-                className="p-2 text-[#52443f] hover:text-[#42190a] transition-colors flex items-center justify-center cursor-pointer"
-                onClick={() => setIsSearchOpen(true)}
-                aria-label="Search"
-              >
-                <Search className="w-5 h-5" />
-              </button>
-
-              <button
-                className="p-2 text-[#52443f] hover:text-[#42190a] transition-colors hidden sm:flex items-center justify-center cursor-pointer"
-                aria-label="User Account"
-              >
-                <User className="w-5 h-5" />
-              </button>
-
-              {/* Language Selector Dropdown pill */}
-              <div className="hidden sm:flex items-center gap-1 border border-[#eae7e7] bg-white px-3 py-1.5 rounded-full text-xs font-bold text-[#52443f] cursor-pointer hover:border-[#85736e] transition-colors shadow-sm">
-                <span>EN</span>
-                <span className="text-[9px] opacity-70">▼</span>
-              </div>
-
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 text-[#52443f] hover:text-[#42190a] transition-colors"
-                aria-label="Mobile Menu"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-
+            ))}
           </div>
         </div>
-
-      </nav>
+      )}
     </header>
-
-    {/* Mobile menu dropdown */}
-    {isMobileMenuOpen && (
-      <div className="md:hidden bg-[#fcf9f8] border-t border-[#eae7e7] fixed top-24 w-full left-0 z-50 shadow-md">
-        <div className="px-4 py-4 space-y-2 flex flex-col">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wider transition-colors ${
-                isActive(link.href)
-                  ? "bg-[#eae7e7]/50 text-[#42190a]"
-                  : "text-[#52443f] hover:bg-[#eae7e7]/30 hover:text-[#42190a]"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    )}
 
     {/* Search Drawer */}
     {isSearchOpen && (

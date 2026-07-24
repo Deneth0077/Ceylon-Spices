@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-sans bg-[#fcf9f8] text-[#1b1c1c] relative" suppressHydrationWarning>
         <CartProvider>
           <Navbar />
-          <main className="flex-grow pt-28 sm:pt-32 md:pt-36">
+          <main className="flex-grow pt-4 sm:pt-6 md:pt-8">
             {children}
           </main>
           <Footer />

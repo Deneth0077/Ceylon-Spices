@@ -14,11 +14,11 @@ export default function Footer() {
             <h4 className="text-xs font-extrabold tracking-[0.18em] uppercase text-white font-sans">
               GET TO KNOW US
             </h4>
-            <Link href="/" className="inline-block self-start my-1">
+            <Link href="/" className="inline-block self-start my-2">
               <img 
-                src="/images/new_brand_logo.png" 
+                src="/images/footer_logo.png" 
                 alt="True Cinnamon Care Logo" 
-                className="h-12 md:h-14 w-auto object-contain grayscale brightness-0 invert opacity-90" 
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform hover:scale-[1.02]" 
               />
             </Link>
             <p className="text-xs text-[#eae7e7]/75 leading-relaxed max-w-[320px] font-medium">

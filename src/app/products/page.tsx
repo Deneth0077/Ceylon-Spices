@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Search, ShoppingBag, Shield, Heart, HelpCircle, Star, Filter, RotateCcw, Award } from "lucide-react";
+import { Search, ShoppingBag, Shield, Star, Filter, RotateCcw, Award } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import TransparentImage from "@/components/TransparentImage";
 import { motion } from "framer-motion";
+import { productsData, Product } from "@/data/products";
+import InquiryModal from "@/components/InquiryModal";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,94 +18,6 @@ const fadeInUp = {
   }
 };
 
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  origin: string;
-  tags: string[];
-  rating: number;
-  reviewsCount: number;
-}
-
-const initialProducts: Product[] = [
-  {
-    id: 1,
-    title: "True Ceylon Cinnamon",
-    description: "Premium hand-rolled Alba grade quills from Kandy. Sweet flavor, high antioxidants.",
-    price: 14.50,
-    image: "/images/alba_cinnamon_detail.png",
-    category: "Whole Spices",
-    origin: "Kandy Highlands",
-    tags: ["Woody", "Sweet"],
-    rating: 5.0,
-    reviewsCount: 12
-  },
-  {
-    id: 3,
-    title: "Golden Sun Turmeric",
-    description: "Sun-dried turmeric root ground to a fine powder. High active curcumin levels.",
-    price: 12.00,
-    image: "/images/turmeric_spoon.png",
-    category: "Ground Powders",
-    origin: "Matale Gardens",
-    tags: ["Earthy", "Healing"],
-    rating: 4.9,
-    reviewsCount: 18
-  },
-  {
-    id: 4,
-    title: "Green Queen Cardamom",
-    description: "Lush green pods handpicked in the Knuckles Range. Intense floral aroma.",
-    price: 18.75,
-    image: "/images/cardamom_bowl.png",
-    category: "Whole Spices",
-    origin: "Kandy Highlands",
-    tags: ["Floral", "Aromatic"],
-    rating: 4.8,
-    reviewsCount: 14
-  },
-  {
-    id: 2,
-    title: "Bold Black Pepper",
-    description: "Rich, hand-sorted organic black peppercorns. Sharp heat, high piperine.",
-    price: 15.00,
-    image: "/images/black_pepper_1781650594175.png",
-    category: "Whole Spices",
-    origin: "Matale Gardens",
-    tags: ["Pungent", "Bold"],
-    rating: 4.7,
-    reviewsCount: 9
-  },
-  {
-    id: 5,
-    title: "Organic Garcinia (Goraka)",
-    description: "Traditional sun-dried Garcinia segments, widely prized for natural culinary souring.",
-    price: 13.80,
-    image: "/images/card_garcinia.png",
-    category: "Whole Spices",
-    origin: "Matale Gardens",
-    tags: ["Sour", "Digestive"],
-    rating: 4.9,
-    reviewsCount: 7
-  },
-  {
-    id: 6,
-    title: "Artisanal Chilli Blend",
-    description: "Coarsely ground sun-dried red chillies for the perfect balanced heat.",
-    price: 13.80,
-    image: "/images/card_chilli.png",
-    category: "Artisanal Blends",
-    origin: "Kandy Highlands",
-    tags: ["Fiery", "Zesty"],
-    rating: 4.8,
-    reviewsCount: 11
-  }
-];
-
 export default function ShopPage() {
   const { addToCart } = useCart();
 
@@ -112,6 +26,8 @@ export default function ShopPage() {
   const [selectedOrigins, setSelectedOrigins] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("Most Popular");
+  const [selectedProductForInquiry, setSelectedProductForInquiry] = useState<Product | null>(null);
+  const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
 
   // Sync category from URL query if present
   useEffect(() => {
@@ -120,9 +36,8 @@ export default function ShopPage() {
       const catParam = params.get("category");
       if (catParam) {
         let matched = "";
-        if (catParam === "Whole Spices") matched = "Whole Spices";
-        if (catParam === "Powders") matched = "Ground Powders";
-        if (catParam === "Organic Spices") matched = "Whole Spices"; // map to category
+        if (catParam === "Whole Spices" || catParam === "Organic Spices") matched = "Whole Spices";
+        if (catParam === "Cinnamon" || catParam === "Signature Range") matched = "Cinnamon";
         if (matched) {
           setSelectedCategories([matched]);
         }
@@ -149,9 +64,15 @@ export default function ShopPage() {
     setSortBy("Most Popular");
   };
 
+  const handleOpenInquiry = (product: Product) => {
+    setSelectedProductForInquiry(product);
+    setIsInquiryModalOpen(true);
+  };
+
   // Filtered Products logic
-  const filteredProducts = initialProducts.filter(p => {
-    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(p.category);
+  const filteredProducts = productsData.filter(p => {
+    const pCategory = p.subCategory || (p.category === "Signature Range" ? "Signature Range" : "Whole Spices");
+    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(pCategory) || (selectedCategories.includes("Signature Range") && p.category === "Signature Range");
     const matchesOrigin = selectedOrigins.length === 0 || selectedOrigins.includes(p.origin);
     const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -160,10 +81,7 @@ export default function ShopPage() {
 
   // Sort logic
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    if (sortBy === "Price: Low to High") return a.price - b.price;
-    if (sortBy === "Price: High to Low") return b.price - a.price;
-    if (sortBy === "Rating") return b.rating - a.rating;
-    return b.reviewsCount - a.reviewsCount; // Default: Most Popular
+    return (b.id - a.id); // Default
   });
 
   return (
@@ -274,7 +192,7 @@ export default function ShopPage() {
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Category</h4>
             <div className="space-y-2 text-xs sm:text-sm">
-              {["Whole Spices", "Ground Powders", "Artisanal Blends"].map((cat) => (
+              {["Signature Range", "Whole Spices", "Cinnamon"].map((cat) => (
                 <label key={cat} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
                   <input
                     type="checkbox"
@@ -292,7 +210,7 @@ export default function ShopPage() {
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Origin</h4>
             <div className="space-y-2 text-xs sm:text-sm">
-              {["Kandy Highlands", "Matale Gardens"].map((orig) => (
+              {["Single-Origin Sri Lanka"].map((orig) => (
                 <label key={orig} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
                   <input
                     type="checkbox"
@@ -372,9 +290,9 @@ export default function ShopPage() {
               {sortedProducts.map((p) => (
                 <div
                   key={p.id}
-                  className={`rounded-2xl border p-5 flex flex-col h-[480px] hover:shadow-premium transition-all duration-300 group ${
-                    p.id === 2 ? "bg-gradient-to-br from-[#4a0e17]/10 via-[#5c1320]/15 to-[#192a14]/10 border-[#4a0e17]/25 hover:bg-[#4a0e17]/20" :
-                    p.id === 5 ? "bg-gradient-to-br from-[#f59e0b]/15 via-[#dc2626]/10 to-[#16a34a]/10 border-[#ea580c]/25 hover:bg-[#f59e0b]/25" :
+                  className={`rounded-2xl border p-5 flex flex-col h-[520px] hover:shadow-premium transition-all duration-300 group ${
+                    p.id === 1 || p.id === 102 ? "bg-gradient-to-br from-[#4a0e17]/10 via-[#5c1320]/15 to-[#192a14]/10 border-[#4a0e17]/25 hover:bg-[#4a0e17]/20" :
+                    p.id === 3 ? "bg-gradient-to-br from-[#f59e0b]/15 via-[#dc2626]/10 to-[#16a34a]/10 border-[#ea580c]/25 hover:bg-[#f59e0b]/25" :
                     "bg-[#f5ebe0]/30 border-[#42190a]/15 hover:bg-[#f5ebe0]/80 hover:border-[#42190a]/30"
                   }`}
                 >
@@ -382,15 +300,15 @@ export default function ShopPage() {
                   {/* Origin Badge */}
                   <div className="flex justify-between items-center mb-3">
                     <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-md border ${
-                      p.id === 2 ? "bg-[#58141c] text-[#d3e9c7] border-[#225729]/40" :
-                      p.id === 5 ? "bg-[#ea580c] text-white border-[#f59e0b]/40" :
+                      p.id === 1 || p.id === 102 ? "bg-[#58141c] text-[#d3e9c7] border-[#225729]/40" :
+                      p.id === 3 ? "bg-[#ea580c] text-white border-[#f59e0b]/40" :
                       "text-[#795900] bg-[#ffdfa0]/60 border-[#795900]/20"
                     }`}>
                       {p.origin}
                     </span>
                     <div className="flex items-center gap-1 text-xs font-extrabold text-[#795900]">
                       <Star className="w-4 h-4 fill-current" />
-                      <span>{p.rating}</span>
+                      <span>5.0</span>
                     </div>
                   </div>
 
@@ -400,8 +318,8 @@ export default function ShopPage() {
                     className="relative w-full aspect-[4/3] overflow-hidden flex items-center justify-center p-4 mb-4 cursor-pointer"
                   >
                     <div className={`absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03] ${
-                      p.id === 2 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-gradient-to-br from-[#58141c] via-[#4a0e17] to-[#1e381b] opacity-95" :
-                      p.id === 5 ? "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#16a34a] opacity-95" :
+                      p.id === 1 || p.id === 102 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-gradient-to-br from-[#58141c] via-[#4a0e17] to-[#1e381b] opacity-95" :
+                      p.id === 3 ? "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#16a34a] opacity-95" :
                       p.id % 4 === 1 ? "rounded-[50%_50%_30%_70%_/_50%_60%_40%_50%] bg-[#ebdcb9]" :
                       p.id % 4 === 2 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-[#d3e9c7]/80" :
                       p.id % 4 === 3 ? "rounded-[60%_40%_50%_50%_/_50%_40%_60%_50%] bg-[#ffdfa0]/40" :
@@ -428,26 +346,22 @@ export default function ShopPage() {
                     </p>
                   </div>
 
-                  {/* Actions */}
-                  <div className="flex items-center justify-between pt-3 border-t border-[#eae7e7] mt-auto">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-[#795900] uppercase tracking-wider font-extrabold">Price</span>
-                      <span className="font-serif font-black text-base sm:text-lg text-[#42190a]">
-                        ${p.price.toFixed(2)}
-                      </span>
-                    </div>
-
+                  {/* Actions - INQUIRE NOW & WHATSAPP (Matched to User Mockup Image) */}
+                  <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-[#eae7e7]/80 mt-auto">
+                    <button
+                      onClick={() => handleOpenInquiry(p)}
+                      className="py-2 px-2 bg-[#6c7073] hover:bg-[#575a5d] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer text-center"
+                    >
+                      INQUIRE NOW
+                    </button>
                     <button
                       onClick={() => {
-                        const message = `*The Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\nPrice: *$${p.price.toFixed(2)}*\n=================================\nPlease confirm my order. Thank you!`;
+                        const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\n=================================\nPlease confirm details. Thank you!`;
                         window.open(`https://wa.me/94772893030?text=${encodeURIComponent(message)}`, '_blank');
                       }}
-                      className="w-9 h-9 rounded-full bg-[#ffc641] hover:bg-[#ffb618] text-[#715300] flex items-center justify-center transition-transform group-hover:scale-110 shadow-sm cursor-pointer"
-                      title="Inquire on WhatsApp"
+                      className="py-2 px-2 bg-[#6ba343] hover:bg-[#598c36] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer text-center"
                     >
-                      <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.62.962 3.222 1.488 4.887 1.489 5.485 0 9.948-4.468 9.951-9.953.001-2.657-1.02-5.155-2.877-7.016C16.756 1.813 14.264.796 11.602.796c-5.49 0-9.957 4.469-9.96 9.957-.002 1.8.48 3.553 1.396 5.113l-.997 3.645 3.73-.977zm12.188-7.042c-.3-.15-1.77-.874-2.045-.974-.275-.1-.475-.15-.675.15-.2.3-.775.974-.95 1.174-.175.2-.35.225-.65.075-1.02-.52-1.745-.96-2.425-2.12-.175-.3-.175-.52-.025-.67.125-.125.3-.35.45-.525.15-.175.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.675-1.625-.925-2.225-.244-.589-.492-.51-.675-.52-.172-.007-.368-.009-.565-.009-.196 0-.518.074-.789.37-.27.295-1.034 1.012-1.034 2.467s1.056 2.855 1.204 3.052c.148.197 2.078 3.175 5.034 4.453.703.304 1.253.486 1.68.621.71.224 1.353.193 1.86.119.566-.082 1.77-.724 2.02-1.417.25-.693.25-1.288.175-1.418-.075-.13-.275-.205-.575-.355z"/>
-                      </svg>
+                      WHATSAPP
                     </button>
                   </div>
 
@@ -474,6 +388,13 @@ export default function ShopPage() {
         </div>
 
       </section>
+
+      {/* Inquiry Form Modal */}
+      <InquiryModal
+        isOpen={isInquiryModalOpen}
+        onClose={() => setIsInquiryModalOpen(false)}
+        productTitle={selectedProductForInquiry?.title}
+      />
 
     </div>
   );

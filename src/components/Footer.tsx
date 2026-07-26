@@ -111,7 +111,7 @@ export default function Footer() {
         
         {/* Divider line and copyright block */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] md:text-xs text-[#eae7e7]/40 font-medium font-sans select-none">
-          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} The Cinnamon Care. Handcrafted Heritage from Sri Lanka.</p>
+          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} True Cinnamon Care. Handcrafted Heritage from Sri Lanka.</p>
           <p className="text-right">Design by Ceylon Clicks</p>
         </div>
       </div>

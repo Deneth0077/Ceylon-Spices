@@ -1,9 +1,10 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Leaf, Award, ShieldCheck, Heart, ArrowRight, Droplet, Star, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
+import { Leaf, Award, ShieldCheck, Heart, ArrowRight, Droplet, Star, Sparkles, Plus, Minus, PhoneCall } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import TransparentImage from "@/components/TransparentImage";
 
 const fadeInUp = {
@@ -59,7 +60,50 @@ const ForegroundCornerLeaf = () => (
   </div>
 );
 
+const faqData = [
+  {
+    id: 1,
+    question: "Sri Lanka? What is this Country?",
+    answer: "Sri Lanka also known as Ceylon, a South Asian tropical island nation located near the equator known as “Pearl of the Indian Ocean”. The world’s finest Cinnamon originates only in Sri Lanka’s fertile soil. Sri Lanka holds the EU-issued Geographical Indication (GI) certification for Ceylon cinnamon."
+  },
+  {
+    id: 2,
+    question: "Is there Two types Cinnamon in the World?",
+    answer: "Yes, Ceylon Cinnamon and Cassia. Real cinnamon is “Ceylon Cinnamon” and it is special. Ceylon Cinnamon is full of wellness properties and healthy for daily use. Cassia is not healthy for daily use. Cassia cause liver damage."
+  },
+  {
+    id: 3,
+    question: "How can I identify the difference between Ceylon Cinnamon and Cassia?",
+    answer: "Ceylon Cinnamon stick is filled with thin fine multiple layers inside and its soft and delicate aroma. It is in Gold mixed light brown colour. Cassia is rough and no fillings inside. Just a rolled rough bark in dark brown."
+  },
+  {
+    id: 4,
+    question: "Will my Cinnamon quality preserved when get to my Hands?",
+    answer: "Absolutely. Our cinnamon sticks are vacuum-sealed for freshness, aroma and elegantly packed in a recyclable paper canister."
+  },
+  {
+    id: 5,
+    question: "Is my cinnamon Traceable?",
+    answer: "Of course. Our company adhere with Single-Origin concept. We source Cinnamon from our own plantations. Hence, transparency and traceability is very clear."
+  },
+  {
+    id: 6,
+    question: "How should I store my cinnamon to ensure freshness?",
+    answer: "Your goods are vacuum-packed. Once open Store in a air-tight, cool, dry place away from direct sunlight."
+  },
+  {
+    id: 7,
+    question: "Is True Cinnamon Care Pvt Ltd committed to ethical and sustainable practices?",
+    answer: "Absolutely. We ensure our farmers are fairly compensated and not overworked. Through sustainable and ethical practices, we safeguard Sri Lanka’s unique spices and natural heritage for the next generations to come."
+  }
+];
+
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
   return (
     <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
 
@@ -219,7 +263,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#ffc641]/20 to-transparent rounded-bl-full pointer-events-none" />
 
             <p className="text-sm md:text-base text-white/90 leading-relaxed font-medium relative z-10">
-              <strong className="text-[#ffc641]">The Cinnamon Care</strong> is pleased to announce that we are in the process of establishing a <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">GMP-certified facility</span>, which we intend to complete in the near future. <span className="font-extrabold text-[#ffc641]">FDA approvals are currently underway.</span>
+              <strong className="text-[#ffc641]">True Cinnamon Care</strong> is pleased to announce that we are in the process of establishing a <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">GMP-certified facility</span>, which we intend to complete in the near future. <span className="font-extrabold text-[#ffc641]">FDA approvals are currently underway.</span>
             </p>
           </motion.div>
 
@@ -693,6 +737,144 @@ export default function Home() {
                 Shop Garcinia
               </Link>
             </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 7. FAQ Section (Frequently Asked Questions) */}
+      <section className="relative w-full bg-[#f7f4ee] py-20 px-6 md:px-8 border-t border-[#e5dfd5]">
+        <div className="max-w-[1280px] mx-auto">
+
+          {/* Section Header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-left mb-12 space-y-2"
+          >
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#795900] bg-[#795900]/10 border border-[#795900]/20 px-3 py-1 rounded-full inline-block">
+              Question?
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#2b1810] tracking-tight">
+              F.A.Q
+            </h2>
+            <p className="text-xs md:text-sm text-[#52443f] max-w-[600px] font-medium leading-relaxed">
+              Find answers to common questions about authentic Ceylon Cinnamon, quality guarantees, and single-origin sourcing.
+            </p>
+          </motion.div>
+
+          {/* Grid Layout: Left Column (FAQ Accordion 7 cols), Right Column (Got Questions Box 5 cols) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            {/* Left Column: FAQ Accordion List (7 Cols) */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="lg:col-span-7 space-y-3.5"
+            >
+              {faqData.map((item, index) => {
+                const isOpen = openFaq === index;
+                return (
+                  <motion.div
+                    key={item.id}
+                    variants={fadeInUp}
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                      isOpen
+                        ? "bg-white border-[#795900]/40 shadow-md"
+                        : "bg-white/80 hover:bg-white border-[#e2ddd3] shadow-sm"
+                    }`}
+                  >
+                    <button
+                      onClick={() => toggleFaq(index)}
+                      className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-bold text-sm md:text-base text-[#2b1810] cursor-pointer select-none"
+                    >
+                      <span className="flex-1 font-sans font-bold text-sm text-[#2b1810]">
+                        {item.question}
+                      </span>
+                      <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
+                        isOpen ? "bg-[#795900] text-white" : "bg-[#f2efe9] text-[#795900]"
+                      }`}>
+                        {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                      </div>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                        >
+                          <div className="px-5 pb-5 pt-1 text-xs md:text-sm text-[#52443f] leading-relaxed font-medium border-t border-[#f2efe9]">
+                            {item.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+
+            {/* Right Column: Got Questions CTA Card (5 Cols) - Matched to Mockup Image 2 */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="lg:col-span-5 sticky top-24 space-y-6"
+            >
+              <div className="bg-white rounded-3xl p-6 md:p-8 border border-[#e2ddd3] shadow-md flex flex-col justify-between overflow-hidden relative group">
+
+                <div className="space-y-4 relative z-10">
+                  <div>
+                    <h3 className="font-serif text-2xl font-black text-[#2b1810]">
+                      Got <span className="underline decoration-[#6ba343] decoration-2 underline-offset-4">Questions</span> ?
+                    </h3>
+                  </div>
+
+                  <div className="pt-1">
+                    <a
+                      href="https://wa.me/94772893030"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xl md:text-2xl font-black text-[#6ba343] hover:text-[#528431] transition-colors tracking-tight font-sans"
+                    >
+                      <PhoneCall className="w-5 h-5 text-[#6ba343]" />
+                      +94 77 289 3030
+                    </a>
+                  </div>
+
+                  <div className="pt-2">
+                    <Link
+                      href="/contact"
+                      className="w-full py-3.5 px-6 bg-[#6ba343] hover:bg-[#598c36] text-white text-center font-extrabold text-xs uppercase tracking-widest rounded-xl transition-all shadow-md hover:shadow-lg inline-block cursor-pointer"
+                    >
+                      CONTACT US
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Cinnamon Sticks Image Box matching Mockup 2 */}
+                <div className="mt-6 relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden border border-[#eae7e7]">
+                  <Image
+                    src="/images/card_cinnamon.png"
+                    alt="Ceylon Cinnamon Quills and Powder"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 40vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+
+              </div>
+            </motion.div>
+
           </div>
 
         </div>

@@ -135,6 +135,23 @@ export default function Home() {
 
         <div className="relative z-10 max-w-[880px] mx-auto px-6 md:px-8 flex flex-col items-center text-center space-y-3 sm:space-y-3.5">
 
+          {/* Vertical Brand Logo in Upper-Center Hero Position */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative w-44 h-24 md:w-56 md:h-28 mb-1"
+          >
+            <Image
+              src="/images/new_brand_logo.png"
+              alt="True Cinnamon Care Brand Logo"
+              fill
+              sizes="(max-width: 768px) 176px, 224px"
+              className="object-contain filter drop-shadow-md"
+              priority
+            />
+          </motion.div>
+
           {/* 1. Top Pill Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -263,7 +280,7 @@ export default function Home() {
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-[#ffc641]/20 to-transparent rounded-bl-full pointer-events-none" />
 
             <p className="text-sm md:text-base text-white/90 leading-relaxed font-medium relative z-10">
-              <strong className="text-[#ffc641]">True Cinnamon Care</strong> is pleased to announce that we are in the process of establishing a <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">GMP-certified facility</span>, which we intend to complete in the near future. <span className="font-extrabold text-[#ffc641]">FDA approvals are currently underway.</span>
+              <strong className="text-[#ffc641]">True Cinnamon Care</strong> is pleased to announce that we are in the process of establishing a <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">GMP-certified facility</span>, aligned with <span className="underline decoration-[#ffc641]/50 underline-offset-4 font-bold text-white">ISO 22000 standards</span>, which we intend to obtain in the near future. <span className="font-extrabold text-[#ffc641]">FDA approvals are currently underway.</span>
             </p>
           </motion.div>
 

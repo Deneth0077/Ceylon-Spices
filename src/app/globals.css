@@ -6,8 +6,8 @@
 }
 
 @theme {
-  --font-serif: var(--font-playfair), Georgia, serif;
-  --font-sans: var(--font-manrope), sans-serif;
+  --font-serif: Helvetica, Arial, "Helvetica Neue", var(--font-playfair), sans-serif;
+  --font-sans: Helvetica, Arial, "Helvetica Neue", var(--font-manrope), sans-serif;
   
   --color-primary: #42190a;
   --color-on-primary: #ffffff;
@@ -63,7 +63,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
+  font-family: Helvetica, Arial, "Helvetica Neue", var(--font-sans), sans-serif;
   overflow-x: hidden;
 }
 

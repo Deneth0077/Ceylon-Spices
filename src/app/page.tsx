@@ -662,12 +662,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 2: Turmeric (col-span 4) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#ffdfa0] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          {/* Card 2: Ceylon Cinnamon Leaf Oil (col-span 4) */}
+          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#1e381b] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_turmeric.png"
-                alt="Turmeric Roots & Powder"
+                src="/images/artisan_vanilla_ravindra.png"
+                alt="Ceylon Cinnamon Leaf Oil"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover opacity-75 group-hover:scale-[1.02] transition-transform duration-700"
@@ -676,12 +676,12 @@ export default function Home() {
             </div>
 
             <div className="relative z-10 space-y-3">
-              <h3 className="font-serif text-2xl font-bold text-white">Turmeric</h3>
+              <h3 className="font-serif text-xl font-bold text-white">Cinnamon Leaf Oil</h3>
               <Link
-                href="/products/3"
+                href="/products/2"
                 className="inline-block px-5 py-2 border border-white/50 bg-white/10 backdrop-blur-md text-white rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-white/20 text-center"
               >
-                Explore
+                Explore Oil
               </Link>
             </div>
           </div>

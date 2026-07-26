@@ -2,7 +2,7 @@
 
 import { use, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Plus, Minus, ShieldCheck, Leaf, Star, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Leaf, Star, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
 import { productsData, Product } from "@/data/products";
 import InquiryModal from "@/components/InquiryModal";
 
@@ -10,7 +10,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const resolvedParams = use(params);
   const productId = parseInt(resolvedParams.id);
 
-  const [quantity, setQuantity] = useState(1);
   const [activeThumb, setActiveThumb] = useState(0);
   const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
 
@@ -21,7 +20,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const product: Product = productsData.find((p) => p.id === productId) || productsData[0];
 
   const handleWhatsAppCheckout = () => {
-    const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${product.title}*\nQuantity: *${quantity}*\n=================================\nPlease confirm availability & details. Thank you!`;
+    const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${product.title}*\n=================================\nPlease confirm availability & details. Thank you!`;
     const whatsappUrl = `https://wa.me/94772893030?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -44,14 +43,21 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </span>
         </div>
 
+        {/* Header Heading matching Client Mockup */}
+        <div className="mb-6 border-b border-[#eae7e7] pb-4">
+          <h1 className="font-serif text-3xl md:text-4xl font-black text-[#2b1810]">
+            {product.title}
+          </h1>
+        </div>
+
         {/* 1. Main Product Overview Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20">
 
           {/* Left Side: Images Showcase (5 Cols) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-5 space-y-4">
 
             {/* Big Main Image Card */}
-            <div className="relative w-full aspect-square bg-[#f6f3f2] rounded-xl border border-[#eae7e7]/70 flex items-center justify-center p-8 overflow-hidden shadow-premium">
+            <div className="relative w-full aspect-square bg-[#f6f3f2] rounded-2xl border border-[#eae7e7]/70 flex items-center justify-center p-8 overflow-hidden shadow-premium">
               {/* Organic background blob */}
               <div className="absolute inset-8 bg-[#ffdfa0]/30 rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] -z-10 animate-morph-1 opacity-70" />
 
@@ -71,8 +77,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                   <button
                     key={idx}
                     onClick={() => setActiveThumb(idx)}
-                    className={`aspect-square rounded-lg border bg-[#f6f3f2]/30 p-1 overflow-hidden transition-all flex items-center justify-center cursor-pointer ${activeThumb === idx
-                        ? "border-[#795900] ring-1 ring-[#795900]/30 shadow-sm"
+                    className={`aspect-square rounded-xl border bg-[#f6f3f2]/30 p-1 overflow-hidden transition-all flex items-center justify-center cursor-pointer ${activeThumb === idx
+                        ? "border-[#795900] ring-2 ring-[#795900]/30 shadow-sm"
                         : "border-[#eae7e7] hover:border-[#85736e]"
                       }`}
                   >
@@ -87,10 +93,10 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             )}
           </div>
 
-          {/* Right Side: Product Details Column (6 Cols) */}
-          <div className="lg:col-span-6 space-y-6">
+          {/* Right Side: Product Details & Green Outline Box Column (7 Cols) */}
+          <div className="lg:col-span-7 space-y-6">
 
-            {/* Category / Origin Badge */}
+            {/* Origin Badge */}
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="text-[10px] font-bold uppercase tracking-widest text-[#795900] bg-[#ffdfa0]/40 px-3 py-1 rounded">
                 {product.origin}
@@ -108,47 +114,24 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
             </div>
 
-            {/* Title / Subtitle */}
-            <div className="space-y-2">
-              <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#42190a] leading-tight">
+            {/* Green Outline Description Box matching Client Uploaded Mockup Images */}
+            <div className="border-2 border-[#81b752] bg-white rounded-[32px] p-6 sm:p-8 shadow-sm space-y-4">
+              <h3 className="font-serif font-black text-xl text-[#2b1810]">
                 {product.title}
-              </h1>
-              {product.subtitle && (
-                <p className="text-xs font-bold text-[#52443f] tracking-wide uppercase italic">
-                  {product.subtitle}
-                </p>
-              )}
-            </div>
-
-            {/* Green Outline Description Box matching Client Mockup */}
-            <div className="border-2 border-[#81b752] bg-white rounded-[24px] p-6 shadow-sm space-y-3">
-              <h3 className="font-serif font-black text-lg text-[#2b1810]">Product Details & Specs</h3>
-              <p className="text-xs sm:text-sm text-[#2b1810] font-medium leading-relaxed whitespace-pre-line">
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-[#2b1810] font-medium leading-relaxed whitespace-pre-line">
                 {product.detailedDescription || product.description}
               </p>
               {product.packaging && (
-                <p className="text-xs text-[#52443f] pt-1">
+                <p className="text-xs sm:text-sm text-[#52443f] pt-1">
                   <strong>Packaging:</strong> {product.packaging}
                 </p>
               )}
               {product.netWeight && (
-                <p className="text-xs text-[#52443f]">
+                <p className="text-xs sm:text-sm text-[#52443f]">
                   <strong>Net Weight:</strong> {product.netWeight}
                 </p>
               )}
-            </div>
-
-            {/* Custom tags */}
-            <div className="flex flex-wrap gap-2 pt-1">
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
-                <Leaf className="w-3 h-3" /> Organic Certified
-              </span>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
-                <Sparkles className="w-3 h-3" /> Single Origin Ceylon
-              </span>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
-                <ShieldCheck className="w-3 h-3" /> Eco Friendly Packaging
-              </span>
             </div>
 
             {/* Action Buttons: INQUIRE NOW (Gray Modal) & WHATSAPP (Green) */}
@@ -168,39 +151,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </button>
             </div>
 
-            {/* Collapsible drawers */}
-            <div className="space-y-2 border-t border-[#eae7e7] pt-6">
-              {/* Sensory Profile */}
-              <div className="border border-[#eae7e7] rounded-lg overflow-hidden bg-white shadow-sm">
-                <button
-                  onClick={() => setIsSensoryOpen(!isSensoryOpen)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#42190a] hover:bg-[#f6f3f2]/30 text-left cursor-pointer"
-                >
-                  <span>Sensory Profile & Specifications</span>
-                  {isSensoryOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </button>
-                {isSensoryOpen && (
-                  <div className="px-4 pb-4 pt-1 text-xs text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
-                    Exceptional aroma with complex citrus and woody notes. Sourced directly from single-origin plantations in Sri Lanka.
-                  </div>
-                )}
-              </div>
-
-              {/* Health Benefits */}
-              <div className="border border-[#eae7e7] rounded-lg overflow-hidden bg-white shadow-sm">
-                <button
-                  onClick={() => setIsBenefitsOpen(!isBenefitsOpen)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#42190a] hover:bg-[#f6f3f2]/30 text-left cursor-pointer"
-                >
-                  <span>Health Benefits & Purity</span>
-                  {isBenefitsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </button>
-                {isBenefitsOpen && (
-                  <div className="px-4 pb-4 pt-1 text-xs text-[#52443f] leading-relaxed border-t border-[#eae7e7]/40">
-                    Low coumarin content compared to Cassia. Rich in natural antioxidants and active therapeutic compounds.
-                  </div>
-                )}
-              </div>
+            {/* Custom tags */}
+            <div className="flex flex-wrap gap-2 pt-2">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
+                <Leaf className="w-3 h-3" /> Organic Certified
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
+                <Sparkles className="w-3 h-3" /> Single Origin Ceylon
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
+                <ShieldCheck className="w-3 h-3" /> Eco Friendly Packaging
+              </span>
             </div>
 
           </div>
@@ -244,46 +205,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               </div>
               <span className="text-[10px] uppercase font-bold tracking-widest text-[#97ac8d]">USDA & EU GI Certified</span>
             </div>
-          </div>
-        </section>
-
-        {/* 3. The Artisan's Pantry (Recommended Pairings) */}
-        <section className="mb-20">
-          <div className="flex justify-between items-end border-b border-[#eae7e7] pb-4 mb-8">
-            <div>
-              <p className="text-[9px] font-bold uppercase tracking-wider text-[#795900]">Recommended Pairings</p>
-              <h2 className="font-serif text-2xl font-bold text-[#42190a]">The Artisan's Pantry</h2>
-            </div>
-            <div className="flex gap-2">
-              <Link
-                href="/products"
-                className="text-xs font-bold uppercase tracking-wider text-[#795900] hover:underline"
-              >
-                View All Spices
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {productsData.filter(p => p.id !== product.id).slice(0, 4).map(p => (
-              <div
-                key={p.id}
-                className="bg-white rounded-lg border border-[#eae7e7]/60 p-4 flex flex-col hover:shadow-premium transition-all group"
-              >
-                <Link href={`/products/${p.id}`} className="relative w-full aspect-square bg-[#f6f3f2]/40 rounded-lg overflow-hidden flex items-center justify-center p-2 mb-3">
-                  <img src={p.image} alt={p.title} className="w-[80%] h-[80%] object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-300" />
-                </Link>
-                <Link href={`/products/${p.id}`}>
-                  <h4 className="font-serif font-bold text-[#42190a] text-sm hover:text-[#795900] leading-snug">{p.title}</h4>
-                </Link>
-                <p className="text-[10px] text-[#85736e] uppercase font-bold tracking-wider mt-1">{p.origin}</p>
-                <div className="flex justify-between items-center mt-3 pt-2 border-t border-[#eae7e7]/30">
-                  <Link href={`/products/${p.id}`} className="text-[10px] font-bold uppercase tracking-wider text-[#795900] hover:underline">
-                    View Specs
-                  </Link>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 

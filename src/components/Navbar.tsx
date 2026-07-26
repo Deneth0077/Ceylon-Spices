@@ -8,40 +8,40 @@ import { useCart } from "@/context/CartContext";
 
 const searchProducts = [
   {
-    id: 1,
-    title: "Cinnamon (C5 Alba Grade)",
-    description: "Premium hand-rolled quills from Ceylon, delicate flavor.",
+    id: 4,
+    title: "Ceylon Cinnamon",
+    description: "Delicate, sweet flavor with citrus and floral notes, fine layered quills.",
     image: "/images/alba_cinnamon_detail.png"
   },
   {
-    id: 2,
-    title: "Black Pepper (Organic)",
-    description: "Bold, aromatic peppercorns with high piperine.",
+    id: 1,
+    title: "Black pepper",
+    description: "Prized worldwide for its highest piperine content (5–9%) and strong pungency.",
     image: "/images/black_pepper_1781650594175.png"
   },
   {
-    id: 3,
-    title: "Turmeric Powder (Organic)",
-    description: "Vibrant, high curcumin content for wellness.",
-    image: "/images/turmeric_spoon.png"
+    id: 2,
+    title: "Ceylon Cinnamon Leaf Oil",
+    description: "Warm, spicy essential oil distilled from True Cinnamon leaves, high Eugenol content.",
+    image: "/images/artisan_vanilla_ravindra.png"
   },
   {
-    id: 4,
-    title: "Nutmeg & Mace",
-    description: "Fragrant whole nutmeg with protective mace.",
-    image: "/images/hero_spices_1781650500572.png"
+    id: 3,
+    title: "Ceylon Dried-Garcinia",
+    description: "Traditional sun-dried Goraka native to Sri Lanka, valued for culinary souring.",
+    image: "/images/card_garcinia.png"
   },
   {
     id: 5,
-    title: "Cloves (Handpicked)",
-    description: "Plump, aromatic buds for rich flavor.",
-    image: "/images/cloves_dried_1781650553541.png"
+    title: "Ceylon Cinnamon Other Grades",
+    description: "Alba Grade, Continental (C), Mexican (M), and Hamburg (H) commercial grades.",
+    image: "/images/cinnamon_tree.png"
   },
   {
-    id: 6,
-    title: "Green Cardamom",
-    description: "Plump green pods filled with highly aromatic seeds.",
-    image: "/images/cardamom_bowl.png"
+    id: 101,
+    title: "Cinnamon Premium Pack- Giftable",
+    description: "Elegantly packed in a recyclable paper canister inspired by Sri Lanka's heritage.",
+    image: "/images/cinnamon_canister_3d.png"
   }
 ];
 

@@ -111,50 +111,7 @@ export default function ShopPage() {
         </p>
       </motion.div>
 
-      {/* 2. Why Choose Our Spices: Wellness & Potency */}
-      <section className="max-w-[1280px] mx-auto px-6 md:px-8 mb-20">
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="text-center max-w-[550px] mx-auto mb-10"
-        >
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-[#795900] mb-2">Why Choose Our Spices</p>
-          <h2 className="font-serif text-2xl md:text-3xl font-black text-[#42190a]">Wellness & Potency Standards</h2>
-          <div className="w-14 h-1 bg-[#795900] mx-auto mt-3 rounded-full" />
-        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-[#f6f3f2]/60 p-6 rounded-xl border border-[#eae7e7] text-center flex flex-col items-center shadow-sm">
-            <div className="w-12 h-12 rounded-full bg-[#ffdfa0]/40 text-[#795900] flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-base font-extrabold text-[#42190a] mb-2 uppercase tracking-wide">Overall Health</h3>
-            <p className="text-xs sm:text-sm font-medium text-[#42190a]/90 leading-relaxed max-w-[260px]">
-              Pure, raw spices with zero additives, maintaining their natural chemical profile for maximum wellness impact.
-            </p>
-          </div>
-          <div className="bg-[#f6f3f2]/60 p-6 rounded-xl border border-[#eae7e7] text-center flex flex-col items-center shadow-sm">
-            <div className="w-12 h-12 rounded-full bg-[#ffdfa0]/40 text-[#795900] flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-base font-extrabold text-[#42190a] mb-2 uppercase tracking-wide">Anti-Oxidant Capacity</h3>
-            <p className="text-xs sm:text-sm font-medium text-[#42190a]/90 leading-relaxed max-w-[260px]">
-              High ORAC value products, harvested and processed using cold-milling techniques to prevent thermal degradation.
-            </p>
-          </div>
-          <div className="bg-[#f6f3f2]/60 p-6 rounded-xl border border-[#eae7e7] text-center flex flex-col items-center shadow-sm">
-            <div className="w-12 h-12 rounded-full bg-[#ffdfa0]/40 text-[#795900] flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="font-serif text-base font-extrabold text-[#42190a] mb-2 uppercase tracking-wide">Bioavailability</h3>
-            <p className="text-xs sm:text-sm font-medium text-[#42190a]/90 leading-relaxed max-w-[260px]">
-              Traditional processing ensures that active compounds like Curcumin and Cinnamaldehyde remain highly bioavailable.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* 3. Shop Workspace Grid */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
@@ -192,7 +149,7 @@ export default function ShopPage() {
           <div className="space-y-3">
             <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Category</h4>
             <div className="space-y-2 text-xs sm:text-sm">
-              {["Signature Range", "Whole Spices", "Cinnamon"].map((cat) => (
+              {["Whole Spices", "Cinnamon"].map((cat) => (
                 <label key={cat} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
                   <input
                     type="checkbox"
@@ -290,18 +247,18 @@ export default function ShopPage() {
               {sortedProducts.map((p) => (
                 <div
                   key={p.id}
-                  className={`rounded-2xl border p-5 flex flex-col h-[520px] hover:shadow-premium transition-all duration-300 group ${
-                    p.id === 1 || p.id === 102 ? "bg-gradient-to-br from-[#4a0e17]/10 via-[#5c1320]/15 to-[#192a14]/10 border-[#4a0e17]/25 hover:bg-[#4a0e17]/20" :
-                    p.id === 3 ? "bg-gradient-to-br from-[#f59e0b]/15 via-[#dc2626]/10 to-[#16a34a]/10 border-[#ea580c]/25 hover:bg-[#f59e0b]/25" :
-                    "bg-[#f5ebe0]/30 border-[#42190a]/15 hover:bg-[#f5ebe0]/80 hover:border-[#42190a]/30"
+                  className={`rounded-2xl border p-4 flex flex-col h-[440px] justify-between hover:shadow-premium transition-all duration-300 group ${
+                    p.id === 1 ? "bg-gradient-to-br from-[#4a0e17]/10 via-[#5c1320]/15 to-[#192a14]/10 border-[#4a0e17]/25 hover:bg-[#4a0e17]/20" :
+                    p.id === 3 ? "bg-gradient-to-br from-[#16a34a]/10 via-[#15803d]/15 to-[#795900]/10 border-[#16a34a]/25 hover:bg-[#16a34a]/20" :
+                    "bg-[#f5ebe0]/40 border-[#42190a]/15 hover:bg-[#f5ebe0]/90 hover:border-[#42190a]/30"
                   }`}
                 >
 
                   {/* Origin Badge */}
-                  <div className="flex justify-between items-center mb-3">
+                  <div className="flex justify-between items-center mb-2">
                     <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-md border ${
-                      p.id === 1 || p.id === 102 ? "bg-[#58141c] text-[#d3e9c7] border-[#225729]/40" :
-                      p.id === 3 ? "bg-[#ea580c] text-white border-[#f59e0b]/40" :
+                      p.id === 1 ? "bg-[#58141c] text-[#d3e9c7] border-[#225729]/40" :
+                      p.id === 3 ? "bg-[#15803d] text-white border-[#16a34a]/40" :
                       "text-[#795900] bg-[#ffdfa0]/60 border-[#795900]/20"
                     }`}>
                       {p.origin}
@@ -312,42 +269,42 @@ export default function ShopPage() {
                     </div>
                   </div>
 
-                  {/* Centered Image inside Organic Shape */}
+                  {/* Centered 3D Floating Image inside Organic Shape */}
                   <Link
                     href={`/products/${p.id}`}
-                    className="relative w-full aspect-[4/3] overflow-hidden flex items-center justify-center p-4 mb-4 cursor-pointer"
+                    className="relative w-full h-48 overflow-visible flex items-center justify-center p-2 mb-2 cursor-pointer group/img"
                   >
-                    <div className={`absolute inset-0 transition-transform duration-700 group-hover:scale-[1.03] ${
-                      p.id === 1 || p.id === 102 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-gradient-to-br from-[#58141c] via-[#4a0e17] to-[#1e381b] opacity-95" :
-                      p.id === 3 ? "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-gradient-to-br from-[#f59e0b] via-[#ea580c] to-[#16a34a] opacity-95" :
+                    <div className={`absolute inset-2 transition-transform duration-700 group-hover/img:scale-[1.04] ${
+                      p.id === 1 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-gradient-to-br from-[#58141c] via-[#4a0e17] to-[#1e381b] opacity-90" :
+                      p.id === 3 ? "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#795900] opacity-90" :
                       p.id % 4 === 1 ? "rounded-[50%_50%_30%_70%_/_50%_60%_40%_50%] bg-[#ebdcb9]" :
-                      p.id % 4 === 2 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-[#d3e9c7]/80" :
-                      p.id % 4 === 3 ? "rounded-[60%_40%_50%_50%_/_50%_40%_60%_50%] bg-[#ffdfa0]/40" :
+                      p.id % 4 === 2 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-[#d3e9c7]" :
+                      p.id % 4 === 3 ? "rounded-[60%_40%_50%_50%_/_50%_40%_60%_50%] bg-[#ffdfa0]/50" :
                       "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-[#ffdbcf]"
                     }`} />
-                    <div className="w-[78%] h-[78%] relative flex items-center justify-center transition-transform duration-500 group-hover:scale-105 z-10">
+                    <div className="w-[105%] h-[105%] relative flex items-center justify-center transition-transform duration-500 group-hover/img:scale-110 group-hover/img:-translate-y-2 z-10">
                       <img
                         src={p.image}
                         alt={p.title}
-                        className="max-w-full max-h-full object-contain drop-shadow-md"
+                        className="max-w-none w-[105%] h-[105%] object-contain drop-shadow-[0_12px_12px_rgba(0,0,0,0.25)] transition-all duration-500"
                       />
                     </div>
                   </Link>
 
                   {/* Details */}
-                  <div className="space-y-1.5 text-left flex-grow flex flex-col justify-start">
+                  <div className="space-y-1 text-left flex-grow flex flex-col justify-start my-1">
                     <Link href={`/products/${p.id}`} className="block">
-                      <h3 className="font-serif font-extrabold text-[#42190a] text-lg sm:text-xl hover:text-[#795900] transition-colors leading-snug line-clamp-1">
+                      <h3 className="font-serif font-black text-[#42190a] text-base sm:text-lg hover:text-[#795900] transition-colors leading-snug line-clamp-1">
                         {p.title}
                       </h3>
                     </Link>
-                    <p className="text-xs sm:text-sm text-[#42190a]/85 font-medium leading-relaxed line-clamp-2">
+                    <p className="text-xs text-[#42190a]/85 font-medium leading-relaxed line-clamp-2">
                       {p.description}
                     </p>
                   </div>
 
-                  {/* Actions - INQUIRE NOW & WHATSAPP (Matched to User Mockup Image) */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-[#eae7e7]/80 mt-auto">
+                  {/* Actions - INQUIRE NOW & WHATSAPP */}
+                  <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-[#eae7e7]/80 mt-auto">
                     <button
                       onClick={() => handleOpenInquiry(p)}
                       className="py-2 px-2 bg-[#6c7073] hover:bg-[#575a5d] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer text-center"

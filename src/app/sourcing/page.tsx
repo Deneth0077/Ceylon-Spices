@@ -182,7 +182,7 @@ export default function OurSourcingPage() {
                 <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#4a2717] bg-[#e3d0b8] px-3 py-1 rounded-full border border-[#c4ae95]">
                   <MapPin className="w-3.5 h-3.5 text-[#8c502b]" /> Matara District
                 </span>
-                <span className="text-[11px] font-mono text-[#6b4735] font-bold">6.0667° N, 80.6000° E</span>
+                <span className="text-[11px] font-mono text-[#6b4735] font-bold">6.1268° N, 80.6398° E</span>
               </div>
               <h3 className="font-serif text-xl font-bold text-[#3a1b0e]">Southern Ceylon Highlands</h3>
               <p className="text-xs text-[#593d2e] leading-relaxed">
@@ -285,7 +285,7 @@ export default function OurSourcingPage() {
 
               {/* Styled High-Res Map Frame */}
               <a
-                href="https://www.google.com/maps/search/?api=1&query=6.0667,80.6000"
+                href="https://www.google.com/maps/search/?api=1&query=6.126765,80.639771"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-full h-[260px] sm:h-[280px] bg-[#efe6d8] border-2 border-[#cbbb9e] rounded-2xl overflow-hidden shadow-inner group flex items-center justify-center p-2 block"
@@ -303,7 +303,7 @@ export default function OurSourcingPage() {
                 {/* Top-Left Location Badge Overlay */}
                 <div className="absolute top-3 left-3 bg-[#3a1b0e]/95 backdrop-blur-sm text-[#f7f2ea] px-3 py-1.5 rounded-lg border border-[#8c502b]/50 shadow-md text-[11px] z-20 flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-[#e08e45] rounded-full animate-ping" />
-                  <span className="font-bold font-serif">Matara Facility (6.0667° N, 80.6000° E)</span>
+                  <span className="font-bold font-serif">Matara Facility (6°07&apos;36.4&quot;N 80°38&apos;23.2&quot;E)</span>
                 </div>
 
                 {/* Bottom Center Hover Callout */}
@@ -317,10 +317,10 @@ export default function OurSourcingPage() {
               <div className="p-4 bg-[#efe6d8] rounded-2xl border border-[#d6c4ae] flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
                 <div>
                   <span className="text-[10px] uppercase font-bold text-[#8c502b] block tracking-widest">COORDINATES</span>
-                  <span className="text-xs sm:text-sm font-mono font-bold text-[#3a1b0e]">Lat: 6.0667° N | Long: 80.6000° E</span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-[#3a1b0e]">Lat: 6.126765° N | Long: 80.639771° E (6°07&apos;36.4&quot;N 80°38&apos;23.2&quot;E)</span>
                 </div>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=6.0667,80.6000"
+                  href="https://www.google.com/maps/search/?api=1&query=6.126765,80.639771"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2.5 bg-[#3a1b0e] text-[#f7f2ea] rounded-xl text-xs font-bold uppercase tracking-wider hover:bg-[#522b19] active:scale-95 transition-all flex items-center justify-center gap-2 shadow-md"

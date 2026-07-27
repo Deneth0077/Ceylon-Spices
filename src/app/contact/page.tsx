@@ -251,8 +251,9 @@ export default function ContactPage() {
               Visit our organic fields in Thanamalwila and see the sorting and hand-peeling process.
             </p>
             <a 
-              href="https://maps.google.com" 
+              href="https://www.google.com/maps/search/?api=1&query=6.126765,80.639771" 
               target="_blank" 
+              rel="noopener noreferrer"
               className="inline-block text-xs uppercase font-black tracking-wider text-[#795900] hover:underline pt-1"
             >
               Get Directions &gt;

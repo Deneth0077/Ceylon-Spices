@@ -28,6 +28,7 @@ export default function ShopPage() {
   const [sortBy, setSortBy] = useState("Most Popular");
   const [selectedProductForInquiry, setSelectedProductForInquiry] = useState<Product | null>(null);
   const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   // Sync category from URL query if present
   useEffect(() => {
@@ -117,90 +118,110 @@ export default function ShopPage() {
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
 
         {/* Left Filters Sidebar (col-span-3) */}
-        <aside className="lg:col-span-3 space-y-8 bg-[#f6f3f2]/60 p-6 rounded-2xl border border-[#eae7e7] self-start shadow-sm">
-          <div className="flex items-center justify-between border-b border-[#eae7e7] pb-4">
-            <h3 className="font-serif font-black text-lg text-[#42190a] flex items-center gap-2">
-              <Filter className="w-5 h-5 text-[#795900]" /> Filters
-            </h3>
+        <aside className="lg:col-span-3 space-y-4 lg:space-y-8 bg-[#f6f3f2]/90 p-4 sm:p-6 rounded-2xl border border-[#eae7e7] self-start shadow-sm">
+          
+          {/* Mobile Filter Header Toggle Button */}
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
+              className="lg:pointer-events-none font-serif font-black text-base sm:text-lg text-[#42190a] flex items-center gap-2 cursor-pointer w-full justify-between lg:justify-start"
+            >
+              <span className="flex items-center gap-2">
+                <Filter className="w-5 h-5 text-[#795900]" /> Filters & Search
+              </span>
+              <span className="lg:hidden text-xs font-sans font-bold text-[#795900] bg-white px-2.5 py-1 rounded-full border border-[#eae7e7]">
+                {isMobileFilterOpen ? "Hide ▲" : "Show ▼"}
+              </span>
+            </button>
             <button
               onClick={resetFilters}
-              className="text-xs uppercase font-extrabold tracking-wider text-[#795900] hover:text-[#5c4300] flex items-center gap-1 cursor-pointer"
+              className="hidden lg:flex text-xs uppercase font-extrabold tracking-wider text-[#795900] hover:text-[#5c4300] items-center gap-1 cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" /> Reset
             </button>
           </div>
 
-          {/* Search box within filters */}
-          <div className="space-y-2">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Search Spices</h4>
-            <div className="relative flex items-center bg-white border border-[#eae7e7] rounded-lg px-3 py-2 focus-within:border-[#795900] shadow-sm">
-              <input
-                type="text"
-                placeholder="Type keywords..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full text-xs sm:text-sm font-semibold bg-transparent focus:outline-none text-[#1b1c1c]"
-              />
-              <Search className="w-4 h-4 text-[#85736e] absolute right-3" />
+          {/* Filter Content Container (Always visible on lg+, toggleable on mobile) */}
+          <div className={`${isMobileFilterOpen ? "block" : "hidden"} lg:block space-y-6 pt-2 border-t lg:border-t-0 border-[#eae7e7]`}>
+            {/* Reset button for mobile */}
+            <div className="flex justify-end lg:hidden">
+              <button
+                onClick={resetFilters}
+                className="text-xs uppercase font-extrabold tracking-wider text-[#795900] flex items-center gap-1 cursor-pointer py-1"
+              >
+                <RotateCcw className="w-3.5 h-3.5" /> Clear All Filters
+              </button>
             </div>
-          </div>
 
-          {/* Category Filter */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Category</h4>
-            <div className="space-y-2 text-xs sm:text-sm">
-              {["Whole Spices", "Cinnamon"].map((cat) => (
-                <label key={cat} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
-                  <input
-                    type="checkbox"
-                    checked={selectedCategories.includes(cat)}
-                    onChange={() => handleCategoryChange(cat)}
-                    className="accent-[#795900] w-4 h-4 rounded text-white cursor-pointer"
-                  />
-                  <span>{cat}</span>
-                </label>
-              ))}
+            {/* Search box within filters */}
+            <div className="space-y-2">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Search Spices</h4>
+              <div className="relative flex items-center bg-white border border-[#eae7e7] rounded-lg px-3 py-2 focus-within:border-[#795900] shadow-sm">
+                <input
+                  type="text"
+                  placeholder="Type keywords..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full text-xs sm:text-sm font-semibold bg-transparent focus:outline-none text-[#1b1c1c]"
+                />
+                <Search className="w-4 h-4 text-[#85736e] absolute right-3" />
+              </div>
             </div>
-          </div>
 
-          {/* Origin Filter */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Origin</h4>
-            <div className="space-y-2 text-xs sm:text-sm">
-              {["Single-Origin Sri Lanka"].map((orig) => (
-                <label key={orig} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
-                  <input
-                    type="checkbox"
-                    checked={selectedOrigins.includes(orig)}
-                    onChange={() => handleOriginChange(orig)}
-                    className="accent-[#795900] w-4 h-4 rounded text-white cursor-pointer"
-                  />
-                  <span>{orig}</span>
-                </label>
-              ))}
+            {/* Category Filter */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Category</h4>
+              <div className="space-y-2 text-xs sm:text-sm">
+                {["Whole Spices", "Cinnamon"].map((cat) => (
+                  <label key={cat} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(cat)}
+                      onChange={() => handleCategoryChange(cat)}
+                      className="accent-[#795900] w-4 h-4 rounded text-white cursor-pointer"
+                    />
+                    <span>{cat}</span>
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
 
-          {/* Certifications Box (Visual indicator) */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Global Certifications</h4>
-            <div className="space-y-2.5">
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#192a14]">
-                <span className="w-2 h-2 rounded-full bg-[#192a14]" /> Single Origin Harvest
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#795900]">
-                <span className="w-2 h-2 rounded-full bg-[#795900]" /> GMP Facility Standard
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#42190a]">
-                <span className="w-2 h-2 rounded-full bg-[#42190a]" /> HACCP Safety Standard
-              </div>
-              <div className="flex items-center gap-2 bg-white/80 p-2.5 rounded-lg border border-[#eae7e7] text-xs font-extrabold text-[#52443f]">
-                <span className="w-2 h-2 rounded-full bg-[#52443f]" /> FDA Registration Underway
+            {/* Origin Filter */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Origin</h4>
+              <div className="space-y-2 text-xs sm:text-sm">
+                {["Single-Origin Sri Lanka"].map((orig) => (
+                  <label key={orig} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
+                    <input
+                      type="checkbox"
+                      checked={selectedOrigins.includes(orig)}
+                      onChange={() => handleOriginChange(orig)}
+                      className="accent-[#795900] w-4 h-4 rounded text-white cursor-pointer"
+                    />
+                    <span>{orig}</span>
+                  </label>
+                ))}
               </div>
             </div>
-            <p className="text-[10px] text-[#52443f] font-medium leading-relaxed mt-2">
-              Our facilities are independently audited for complete compliance.
-            </p>
+
+            {/* Certifications Box (Visual indicator) */}
+            <div className="space-y-3 pt-2 border-t border-[#eae7e7]">
+              <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Global Certifications</h4>
+              <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
+                <div className="flex items-center gap-2 bg-white/80 p-2 rounded-lg border border-[#eae7e7] text-[11px] font-extrabold text-[#192a14]">
+                  <span className="w-2 h-2 rounded-full bg-[#192a14]" /> Single Origin
+                </div>
+                <div className="flex items-center gap-2 bg-white/80 p-2 rounded-lg border border-[#eae7e7] text-[11px] font-extrabold text-[#795900]">
+                  <span className="w-2 h-2 rounded-full bg-[#795900]" /> GMP Facility
+                </div>
+                <div className="flex items-center gap-2 bg-white/80 p-2 rounded-lg border border-[#eae7e7] text-[11px] font-extrabold text-[#42190a]">
+                  <span className="w-2 h-2 rounded-full bg-[#42190a]" /> HACCP Safety
+                </div>
+                <div className="flex items-center gap-2 bg-white/80 p-2 rounded-lg border border-[#eae7e7] text-[11px] font-extrabold text-[#52443f]">
+                  <span className="w-2 h-2 rounded-full bg-[#52443f]" /> FDA Underway
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
 
@@ -208,7 +229,7 @@ export default function ShopPage() {
         <main className="lg:col-span-9 space-y-6">
 
           {/* Header Actions */}
-          <div className="flex items-center justify-between border-b border-[#eae7e7] pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#eae7e7] pb-4 gap-3">
             <p className="text-sm text-[#42190a] font-semibold">
               Showing <span className="font-extrabold text-[#795900] text-base">{sortedProducts.length}</span> premium spices
             </p>
@@ -243,7 +264,7 @@ export default function ShopPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {sortedProducts.map((p) => (
                 <div
                   key={p.id}

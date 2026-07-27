@@ -6,9 +6,11 @@ export interface Product {
   detailedDescription?: string;
   image: string;
   thumbs: string[];
-  category: "Wholesale";
+  category: string;
   subCategory?: string;
   origin: string;
+  packaging?: string;
+  netWeight?: string;
 }
 
 export const productsData: Product[] = [

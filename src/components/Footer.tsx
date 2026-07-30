@@ -18,7 +18,7 @@ export default function Footer() {
               <img 
                 src="/images/footer_logo.png" 
                 alt="True Cinnamon Care Logo" 
-                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform hover:scale-[1.02]" 
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform hover:scale-[1.02] filter brightness-0 invert opacity-95" 
               />
             </Link>
             <p className="text-xs text-[#eae7e7]/75 leading-relaxed max-w-[320px] font-medium">
@@ -51,20 +51,25 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Column 2: EXPLORE THE DIFFERENCE */}
+          {/* Column 2: EXPLORE */}
           <div className="flex flex-col gap-5">
             <h4 className="text-xs font-extrabold tracking-[0.18em] uppercase text-white font-sans">
-              EXPLORE THE DIFFERENCE
+              EXPLORE
             </h4>
             <ul className="space-y-3.5 text-xs text-[#eae7e7]/75 font-medium">
               <li>
+                <Link href="/about" className="hover:text-white transition-colors">
+                  The Difference
+                </Link>
+              </li>
+              <li>
                 <Link href="/products" className="hover:text-white transition-colors">
-                  Ceylon Cinnamon
+                  The Ceylon Cinnamon
                 </Link>
               </li>
               <li>
                 <Link href="/product-tracing-sourcing" className="hover:text-white transition-colors">
-                  The Heritage of wellness
+                  The Heritage of Wellness
                 </Link>
               </li>
               <li>
@@ -93,14 +98,14 @@ export default function Footer() {
             
             <ul className="space-y-3 text-xs text-[#eae7e7]/80 font-medium mt-2">
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#eae7e7]/60" strokeWidth={1.5} />
-                <a href="mailto:spice@capceylon.com" className="hover:text-white transition-colors">
+                <Mail className="w-4 h-4 text-[#eae7e7]/80" strokeWidth={1.5} />
+                <a href="mailto:spice@capceylon.com" className="text-white font-semibold hover:underline transition-colors">
                   spice@capceylon.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#eae7e7]/60" strokeWidth={1.5} />
-                <a href="tel:+94772893030" className="hover:text-white transition-colors">
+                <Phone className="w-4 h-4 text-[#eae7e7]/80" strokeWidth={1.5} />
+                <a href="tel:+94772893030" className="text-white font-semibold hover:underline transition-colors">
                   +94 77 289 3030
                 </a>
               </li>
@@ -110,8 +115,8 @@ export default function Footer() {
         </div>
         
         {/* Divider line and copyright block */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] md:text-xs text-[#eae7e7]/40 font-medium font-sans select-none">
-          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} True Cinnamon Care. Handcrafted Heritage from Sri Lanka.</p>
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center text-[10px] md:text-xs text-[#eae7e7]/60 font-medium font-sans select-none">
+          <p className="mb-2 sm:mb-0">© {new Date().getFullYear()} True Cinnamon Care Pvt Ltd. Handcrafted Heritage from Sri Lanka.</p>
           <p className="text-right">Design by Ceylon Clicks</p>
         </div>
       </div>

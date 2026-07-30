@@ -140,14 +140,14 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative w-64 h-40 sm:w-80 sm:h-52 md:w-96 md:h-60 mb-2"
+            className="relative w-44 h-24 md:w-56 md:h-28 mb-1"
           >
             <Image
-              src="/images/hero_vertical_logo.png"
+              src="/images/new_brand_logo.png"
               alt="True Cinnamon Care Brand Logo"
               fill
-              sizes="(max-width: 768px) 320px, 384px"
-              className="object-contain filter drop-shadow-md mix-blend-multiply"
+              sizes="(max-width: 768px) 176px, 224px"
+              className="object-contain filter drop-shadow-md"
               priority
             />
           </motion.div>
@@ -800,8 +800,8 @@ export default function Home() {
                     key={item.id}
                     variants={fadeInUp}
                     className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
-                        ? "bg-white border-[#795900]/40 shadow-md"
-                        : "bg-white/80 hover:bg-white border-[#e2ddd3] shadow-sm"
+                      ? "bg-white border-[#795900]/40 shadow-md"
+                      : "bg-white/80 hover:bg-white border-[#e2ddd3] shadow-sm"
                       }`}
                   >
                     <button

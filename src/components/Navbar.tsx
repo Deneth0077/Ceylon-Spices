@@ -119,9 +119,9 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
     { href: "/products", label: "Our Products" },
     { href: "/sourcing", label: "Our Sourcing" },
-    { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact" }
   ];
 
@@ -144,8 +144,8 @@ export default function Navbar() {
 
       {/* 2. Main Navigation Header - Always accessible sticky header */}
       <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${scrolled
-          ? "bg-[#fcf9f8]/95 backdrop-blur-md border-b border-[#eae7e7] shadow-md py-1.5 md:py-2"
-          : "bg-[#fcf9f8]/90 backdrop-blur-sm border-b border-[#eae7e7]/50 py-2 md:py-2.5"
+        ? "bg-[#fcf9f8]/95 backdrop-blur-md border-b border-[#eae7e7] shadow-md py-1.5 md:py-2"
+        : "bg-[#fcf9f8]/90 backdrop-blur-sm border-b border-[#eae7e7]/50 py-2 md:py-2.5"
         }`}>
         <nav className="w-full">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
@@ -170,8 +170,8 @@ export default function Navbar() {
                       key={link.href}
                       href={link.href}
                       className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${isActive(link.href)
-                          ? "text-[#42190a]"
-                          : "text-[#52443f] hover:text-[#42190a]"
+                        ? "text-[#42190a]"
+                        : "text-[#52443f] hover:text-[#42190a]"
                         }`}
                     >
                       {link.label}
@@ -230,8 +230,8 @@ export default function Navbar() {
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${isActive(link.href)
-                      ? "bg-[#42190a] text-white shadow-sm"
-                      : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"
+                    ? "bg-[#42190a] text-white shadow-sm"
+                    : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"
                     }`}
                 >
                   {link.label}

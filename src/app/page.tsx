@@ -140,14 +140,14 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="relative w-44 h-24 md:w-56 md:h-28 mb-1"
+            className="relative w-64 h-40 sm:w-80 sm:h-52 md:w-96 md:h-60 mb-2"
           >
             <Image
-              src="/images/new_brand_logo.png"
+              src="/images/hero_vertical_logo.png"
               alt="True Cinnamon Care Brand Logo"
               fill
-              sizes="(max-width: 768px) 176px, 224px"
-              className="object-contain filter drop-shadow-md"
+              sizes="(max-width: 768px) 320px, 384px"
+              className="object-contain filter drop-shadow-md mix-blend-multiply"
               priority
             />
           </motion.div>
@@ -290,9 +290,9 @@ export default function Home() {
       {/* 3. Why Choose Us Section (Quality & Sustainability - Reference Matched Design) */}
       <section className="relative w-full bg-[#f8f6f0] py-24 px-6 md:px-8 border-t border-[#e8e4da]">
         <div className="max-w-[1280px] mx-auto">
-          
+
           {/* Header */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -301,7 +301,7 @@ export default function Home() {
           >
             <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#967b54]">WHY CHOOSE US</p>
             <h2 className="font-serif text-3xl md:text-5xl font-normal text-[#2b3024] tracking-tight">Quality & Sustainability</h2>
-            
+
             {/* 1. Circled Header Line & Leaf Emblem Divider */}
             <div className="flex items-center justify-center gap-3 pt-2">
               <div className="w-20 h-[1px] bg-[#d8d2c5]" />
@@ -315,9 +315,9 @@ export default function Home() {
 
           {/* 3 Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Card 1: Ethically Sourced */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -347,7 +347,7 @@ export default function Home() {
             </motion.div>
 
             {/* Card 2: Aromatic Quality */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -377,7 +377,7 @@ export default function Home() {
             </motion.div>
 
             {/* Card 3: Health Benefits */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -412,7 +412,7 @@ export default function Home() {
 
       {/* 4. Our Legacy & Future Section (Reference Matched Design) */}
       <section className="relative w-full bg-[#f2efe9] py-24 px-6 md:px-8 border-t border-[#e2ddd3] overflow-hidden">
-        
+
         {/* 6. Section 4 Right Pure Transparent Background Botanical Watermark */}
         <BotanicalSectionWatermark />
 
@@ -422,7 +422,7 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
 
           {/* Left Column: Image with Overlay Stamp */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -437,7 +437,7 @@ export default function Home() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              
+
               {/* Floating Dark Olive Stamp Badge */}
               <div className="absolute top-6 right-6 bg-[#2f3928] text-white px-5 py-3.5 rounded-2xl shadow-xl border border-white/20 text-center max-w-[200px] backdrop-blur-md">
                 <svg className="w-4 h-4 text-[#ffdfa0] mx-auto mb-1 fill-current" viewBox="0 0 24 24">
@@ -451,7 +451,7 @@ export default function Home() {
           </motion.div>
 
           {/* Right Column Content */}
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
@@ -799,11 +799,10 @@ export default function Home() {
                   <motion.div
                     key={item.id}
                     variants={fadeInUp}
-                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                      isOpen
+                    className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                         ? "bg-white border-[#795900]/40 shadow-md"
                         : "bg-white/80 hover:bg-white border-[#e2ddd3] shadow-sm"
-                    }`}
+                      }`}
                   >
                     <button
                       onClick={() => toggleFaq(index)}
@@ -812,9 +811,8 @@ export default function Home() {
                       <span className="flex-1 font-sans font-bold text-sm text-[#2b1810]">
                         {item.question}
                       </span>
-                      <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
-                        isOpen ? "bg-[#795900] text-white" : "bg-[#f2efe9] text-[#795900]"
-                      }`}>
+                      <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${isOpen ? "bg-[#795900] text-white" : "bg-[#f2efe9] text-[#795900]"
+                        }`}>
                         {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
                       </div>
                     </button>

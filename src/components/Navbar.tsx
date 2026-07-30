@@ -143,11 +143,10 @@ export default function Navbar() {
       </div>
 
       {/* 2. Main Navigation Header - Always accessible sticky header */}
-      <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-        scrolled
+      <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${scrolled
           ? "bg-[#fcf9f8]/95 backdrop-blur-md border-b border-[#eae7e7] shadow-md py-1.5 md:py-2"
           : "bg-[#fcf9f8]/90 backdrop-blur-sm border-b border-[#eae7e7]/50 py-2 md:py-2.5"
-      }`}>
+        }`}>
         <nav className="w-full">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
             <div className="flex justify-between items-center h-12 sm:h-14 md:h-16 w-full">
@@ -155,8 +154,8 @@ export default function Navbar() {
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="flex items-center group py-0.5" onClick={() => setIsMobileMenuOpen(false)}>
-                  <img 
-                    src="/images/new_brand_logo.png" 
+                  <img
+                    src="/images/new_brand_logo.png"
                     alt="True Cinnamon Care Logo"
                     className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                   />
@@ -170,11 +169,10 @@ export default function Navbar() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${
-                        isActive(link.href)
+                      className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${isActive(link.href)
                           ? "text-[#42190a]"
                           : "text-[#52443f] hover:text-[#42190a]"
-                      }`}
+                        }`}
                     >
                       {link.label}
                       {isActive(link.href) && (
@@ -222,109 +220,108 @@ export default function Navbar() {
           </div>
         </nav>
 
-      {/* Mobile menu dropdown inside header */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#fcf9f8] border-t border-b border-[#eae7e7] w-full left-0 shadow-lg transition-all animate-fadeIn">
-          <div className="px-4 py-4 space-y-1 flex flex-col">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${
-                  isActive(link.href)
-                    ? "bg-[#42190a] text-white shadow-sm"
-                    : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+        {/* Mobile menu dropdown inside header */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-[#fcf9f8] border-t border-b border-[#eae7e7] w-full left-0 shadow-lg transition-all animate-fadeIn">
+            <div className="px-4 py-4 space-y-1 flex flex-col">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${isActive(link.href)
+                      ? "bg-[#42190a] text-white shadow-sm"
+                      : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
 
-            <div className="pt-3 mt-2 border-t border-[#eae7e7] space-y-2.5">
+              <div className="pt-3 mt-2 border-t border-[#eae7e7] space-y-2.5">
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsSearchOpen(true);
+                  }}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#eae7e7] text-xs font-bold text-[#42190a] uppercase tracking-wider"
+                >
+                  <Search className="w-4 h-4 text-[#795900]" /> Search Spices & Collections
+                </button>
+
+                <a
+                  href="https://wa.me/94772893030"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm"
+                >
+                  <span>WhatsApp 24/7 Service: +94 77 289 3030</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Search Drawer */}
+      {isSearchOpen && (
+        <div className="fixed inset-0 z-50 overflow-hidden flex items-start justify-center pt-20 px-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsSearchOpen(false)} />
+
+          <div className="bg-[#fcf9f8] border border-[#eae7e7] rounded-2xl w-full max-w-2xl shadow-[0_20px_50px_rgba(93,46,29,0.12)] relative z-10 overflow-hidden max-h-[80vh] flex flex-col transform transition-all duration-300">
+            <div className="p-6 border-b border-[#eae7e7] flex items-center gap-3">
+              <Search className="w-5 h-5 text-[#795900] flex-shrink-0" />
+              <input
+                type="text"
+                placeholder="Search premium spices (e.g. Cinnamon, Cardamom...)"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                autoFocus
+                className="w-full text-sm border-none focus:outline-none text-[#1b1c1c] font-sans bg-transparent"
+              />
               <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  setIsSearchOpen(true);
-                }}
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#eae7e7] text-xs font-bold text-[#42190a] uppercase tracking-wider"
+                onClick={() => setIsSearchOpen(false)}
+                className="p-1 hover:bg-[#f6f3f2] rounded-full transition-colors text-[#85736e] hover:text-[#42190a]"
               >
-                <Search className="w-4 h-4 text-[#795900]" /> Search Spices & Collections
+                <X className="w-5 h-5" />
               </button>
+            </div>
 
-              <a
-                href="https://wa.me/94772893030"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#25D366] text-white text-xs font-extrabold uppercase tracking-wider shadow-sm"
-              >
-                <span>WhatsApp 24/7 Service: +94 77 289 3030</span>
-              </a>
+            <div className="flex-grow overflow-y-auto p-6">
+              {searchQuery.trim() === "" ? (
+                <div className="text-center py-10">
+                  <p className="text-[#85736e] text-xs">Type to search Sri Lankan spices...</p>
+                </div>
+              ) : filteredProducts.length === 0 ? (
+                <div className="text-center py-10">
+                  <p className="text-[#42190a] font-serif font-bold text-sm mb-1">No spices match "{searchQuery}"</p>
+                  <p className="text-[#52443f] text-xs">Try searching for Cardamom, Cinnamon, or Turmeric.</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <p className="text-[10px] font-bold text-[#795900] tracking-widest uppercase mb-4">Matches found ({filteredProducts.length})</p>
+                  {filteredProducts.map(product => (
+                    <Link
+                      key={product.id}
+                      href={`/products/${product.id}`}
+                      className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#f6f3f2] border border-transparent hover:border-[#eae7e7] transition-all group"
+                    >
+                      <div className="w-12 h-12 bg-[#f6f3f2] rounded-lg p-1 border border-[#eae7e7] flex-shrink-0 flex items-center justify-center">
+                        <img src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
+                      </div>
+                      <div className="flex-grow">
+                        <h4 className="font-serif font-bold text-[#42190a] text-sm group-hover:text-[#795900] transition-colors">{product.title}</h4>
+                        <p className="text-xs text-[#52443f] line-clamp-1">{product.description}</p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#85736e] group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
       )}
-    </header>
-
-    {/* Search Drawer */}
-    {isSearchOpen && (
-      <div className="fixed inset-0 z-50 overflow-hidden flex items-start justify-center pt-20 px-4">
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={() => setIsSearchOpen(false)} />
-
-        <div className="bg-[#fcf9f8] border border-[#eae7e7] rounded-2xl w-full max-w-2xl shadow-[0_20px_50px_rgba(93,46,29,0.12)] relative z-10 overflow-hidden max-h-[80vh] flex flex-col transform transition-all duration-300">
-          <div className="p-6 border-b border-[#eae7e7] flex items-center gap-3">
-            <Search className="w-5 h-5 text-[#795900] flex-shrink-0" />
-            <input
-              type="text"
-              placeholder="Search premium spices (e.g. Cinnamon, Cardamom...)"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              autoFocus
-              className="w-full text-sm border-none focus:outline-none text-[#1b1c1c] font-sans bg-transparent"
-            />
-            <button
-              onClick={() => setIsSearchOpen(false)}
-              className="p-1 hover:bg-[#f6f3f2] rounded-full transition-colors text-[#85736e] hover:text-[#42190a]"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="flex-grow overflow-y-auto p-6">
-            {searchQuery.trim() === "" ? (
-              <div className="text-center py-10">
-                <p className="text-[#85736e] text-xs">Type to search Sri Lankan spices...</p>
-              </div>
-            ) : filteredProducts.length === 0 ? (
-              <div className="text-center py-10">
-                <p className="text-[#42190a] font-serif font-bold text-sm mb-1">No spices match "{searchQuery}"</p>
-                <p className="text-[#52443f] text-xs">Try searching for Cardamom, Cinnamon, or Turmeric.</p>
-              </div>
-            ) : (
-              <div className="space-y-4">
-                <p className="text-[10px] font-bold text-[#795900] tracking-widest uppercase mb-4">Matches found ({filteredProducts.length})</p>
-                {filteredProducts.map(product => (
-                  <Link
-                    key={product.id}
-                    href={`/products/${product.id}`}
-                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#f6f3f2] border border-transparent hover:border-[#eae7e7] transition-all group"
-                  >
-                    <div className="w-12 h-12 bg-[#f6f3f2] rounded-lg p-1 border border-[#eae7e7] flex-shrink-0 flex items-center justify-center">
-                      <img src={product.image} alt={product.title} className="w-full h-full object-contain mix-blend-multiply" />
-                    </div>
-                    <div className="flex-grow">
-                      <h4 className="font-serif font-bold text-[#42190a] text-sm group-hover:text-[#795900] transition-colors">{product.title}</h4>
-                      <p className="text-xs text-[#52443f] line-clamp-1">{product.description}</p>
-                    </div>
-                    <ArrowRight className="w-4 h-4 text-[#85736e] group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    )}
-  </>
+    </>
   );
 }

@@ -123,17 +123,7 @@ export default function OurSourcingPage() {
         </div>
 
         <div className="relative z-10 max-w-[1100px] mx-auto px-6 text-center space-y-5">
-          
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#d4bca0]/30 bg-[#251008]/80 text-[#e6cfb8] text-xs font-bold uppercase tracking-[0.2em]"
-          >
-            <Compass className="w-4 h-4 text-[#d4a373]" />
-            <span>OUR SOURCING • SINGLE-ORIGIN TRACEABILITY</span>
-          </motion.div>
-
+        
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -202,13 +192,7 @@ export default function OurSourcingPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#2c1810]/60 via-transparent to-transparent rounded-xl pointer-events-none" />
               
               {/* Map Pin Badge */}
-              <div className="absolute bottom-4 left-4 right-4 bg-[#3a1b0e]/90 backdrop-blur-sm text-[#f7f2ea] p-3 rounded-xl border border-[#8c502b]/40 flex items-center justify-between z-10 shadow-lg">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-3 h-3 bg-[#8c502b] rounded-full animate-ping" />
-                  <span className="text-xs font-bold font-serif">Single-Origin Plantation: Matara</span>
-                </div>
-                <span className="text-[10px] uppercase font-bold text-[#e08e45] tracking-widest">Selected Region</span>
-              </div>
+           
             </div>
           </motion.div>
 
@@ -254,7 +238,7 @@ export default function OurSourcingPage() {
       {/* ========================================================================= */}
       {/* 3. TRACEABILITY & PROCESS FLOW SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 md:py-20 bg-[#efe6d8] border-y border-[#d6c4ae]">
+      <section className="py-16 md:py-20 bg-[#debf92] border-y border-[#d6c4ae]">
         <div className="max-w-[1240px] mx-auto px-6 md:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -375,7 +359,7 @@ export default function OurSourcingPage() {
           </div>
 
           {/* 6-Step Visual Process Flowchart */}
-          <div className="mb-14">
+          <div id="processing-production-journey" className="mb-14 scroll-mt-24">
             <h3 className="font-serif text-2xl font-bold text-[#3a1b0e] text-center mb-8">
               Processing & Production Journey
             </h3>
@@ -480,7 +464,8 @@ export default function OurSourcingPage() {
       {/* ========================================================================= */}
       {/* 5. CULINARY & PRODUCT GALLERY SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 bg-[#efe6d8] border-t border-[#d6c4ae]">
+      <section className="py-16 bg-[#a1b58f]
+       border-t border-[#d6c4ae]">
         <div className="max-w-[1240px] mx-auto px-6 md:px-8 text-center space-y-8">
           
           <div className="space-y-2">

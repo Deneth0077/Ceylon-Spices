@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Send, Globe, Award, ShieldCheck, Heart, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import TransparentImage from "@/components/TransparentImage";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,6 +20,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     topic: "Wholesale Opportunities",
     message: ""
   });
@@ -31,6 +33,9 @@ export default function ContactPage() {
     text += `=================================\n`;
     text += `*Name:* ${formData.name}\n`;
     text += `*Email:* ${formData.email}\n`;
+    if (formData.phone) {
+      text += `*Phone:* ${formData.phone}\n`;
+    }
     text += `*Topic:* ${formData.topic}\n`;
     if (formData.message) {
       text += `*Message:* ${formData.message}\n`;
@@ -50,12 +55,12 @@ export default function ContactPage() {
         
         {/* 1. Header Title */}
         <div className="text-center max-w-[650px] mx-auto mb-16">
-          <p className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#795900] mb-2">Heritage & Provenance</p>
+  
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-[#42190a] leading-tight mb-4">
             Get in Touch
           </h1>
           <p className="text-base md:text-lg font-semibold text-[#52443f] leading-relaxed max-w-[580px] mx-auto">
-            Whether you're looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our artisans are here to assist.
+            Whether you're looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our Team is hear to assist.
           </p>
           <div className="w-16 h-1.5 bg-[#795900] mx-auto mt-4 rounded-full" />
         </div>
@@ -112,6 +117,20 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Phone number input */}
+                <div className="space-y-2">
+                  <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#42190a]">
+                    Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    placeholder="+94 77 289 3030"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full pb-3 pt-1 bg-transparent text-sm sm:text-base font-semibold text-[#1b1c1c] placeholder:text-[#85736e]/70 border-b-2 border-[#eae7e7] focus:outline-none focus:border-[#795900] transition-all"
+                  />
+                </div>
+
                 {/* Topic selector */}
                 <div className="space-y-2">
                   <label className="block text-xs sm:text-sm font-extrabold uppercase tracking-wider text-[#42190a]">
@@ -161,46 +180,37 @@ export default function ContactPage() {
           {/* Right Column: Office info cards (5 Cols) */}
           <div className="lg:col-span-5 space-y-6">
             
-            {/* Headquarters Card */}
+            {/* Top Logo Card */}
+            <div className="bg-[#f6f3f2]/80 p-6 rounded-2xl border border-[#eae7e7] flex items-center justify-center shadow-sm">
+              <div className="relative w-56 h-28 flex items-center justify-center">
+                <TransparentImage
+                  src="/images/logo.jpg"
+                  alt="True Cinnamon Care Logo"
+                  threshold={240}
+                  className="max-w-full max-h-full object-contain filter drop-shadow-sm mix-blend-multiply"
+                />
+              </div>
+            </div>
+
+            {/* Headquarters Card (Moved Down) */}
             <div className="bg-[#f6f3f2]/80 p-7 rounded-2xl border border-[#eae7e7] flex gap-5 shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-[#42190a]/10 flex items-center justify-center text-[#42190a] flex-shrink-0 mt-0.5">
                 <MapPin className="w-6 h-6" />
               </div>
               <div className="space-y-2">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-[#795900]">Sri Lanka Headquarters</p>
-                <h4 className="font-serif font-black text-[#42190a] text-lg sm:text-xl">The Source of Heritage</h4>
+                <p className="text-xs font-extrabold uppercase tracking-wider text-[#795900]">
+                 Colombo Head Office, Sri Lanka 
+                </p>
+                <h4 className="font-serif font-black text-[#42190a] text-lg sm:text-xl">
+                  The Source of Heritage
+                </h4>
                 <p className="text-sm sm:text-base font-semibold text-[#2b1810] leading-relaxed">
-                  19th Mile Post, Uduwela Road,<br />Thanamalwila, Sri Lanka.
+                  No. 11/10, Karadiyana Road,Thumbowila,
+                  <br />Piliyandala
                 </p>
                 <a href="tel:+94772893030" className="inline-flex items-center gap-2 text-sm sm:text-base text-[#795900] font-black hover:text-[#528431] pt-1 transition-colors">
                   <Phone className="w-4 h-4 text-[#795900]" /> +94 77 289 3030
                 </a>
-              </div>
-            </div>
-
-            {/* Global Distribution Card */}
-            <div className="bg-[#f6f3f2]/80 p-7 rounded-2xl border border-[#eae7e7] flex gap-5 shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-[#192a14]/10 flex items-center justify-center text-[#192a14] flex-shrink-0 mt-0.5">
-                <Globe className="w-6 h-6" />
-              </div>
-              <div className="space-y-3 flex-grow">
-                <p className="text-xs font-extrabold uppercase tracking-wider text-[#795900]">Global Distribution</p>
-                <h4 className="font-serif font-black text-[#42190a] text-lg sm:text-xl">Portways & Logistics</h4>
-                
-                <div className="space-y-2 text-sm text-[#2b1810]">
-                  <div className="flex justify-between items-center border-b border-[#eae7e7] pb-2">
-                    <span className="font-extrabold text-[#2b1810]">London Hub</span>
-                    <span className="font-extrabold text-[#192a14] bg-[#d3e9c7] px-2.5 py-0.5 rounded-md text-[10px] uppercase tracking-wider">Europe East</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b border-[#eae7e7] pb-2">
-                    <span className="font-extrabold text-[#2b1810]">Singapore Warehouse</span>
-                    <span className="font-extrabold text-[#795900] bg-[#ffdfa0] px-2.5 py-0.5 rounded-md text-[10px] uppercase tracking-wider">Asia Pacific</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-0.5">
-                    <span className="font-extrabold text-[#2b1810]">Dubai Logistics</span>
-                    <span className="font-extrabold text-white bg-[#5d2e1d] px-2.5 py-0.5 rounded-md text-[10px] uppercase tracking-wider">Middle East</span>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -248,7 +258,7 @@ export default function ContactPage() {
             <p className="text-xs font-extrabold uppercase tracking-wider text-[#795900]">Our Estate</p>
             <h4 className="font-serif font-black text-[#42190a] text-base">Experience the Harvest at Ceylon</h4>
             <p className="text-xs text-[#52443f] leading-relaxed font-semibold">
-              Visit our organic fields in Thanamalwila and see the sorting and hand-peeling process.
+              Visit our field in Denegama-Matara and see the sorting, hand-peeling and manufacturing process
             </p>
             <a 
               href="https://www.google.com/maps/search/?api=1&query=6.126765,80.639771" 

@@ -134,20 +134,20 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               )}
             </div>
 
-            {/* Action Buttons: INQUIRE NOW (Gray Modal) & WHATSAPP (Green) */}
+            {/* Action Buttons: Inquire Now & WhatsApp matching Mockups */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-[#eae7e7] pt-6">
               <button
                 onClick={() => setIsInquiryModalOpen(true)}
-                className="py-3.5 px-6 bg-[#6c7073] hover:bg-[#575a5d] text-white text-center font-extrabold text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer"
+                className="py-3.5 px-6 bg-[#7c7c7c] hover:bg-[#636363] text-white text-center font-extrabold text-xs sm:text-sm rounded-2xl transition-all shadow-md hover:scale-[1.02] cursor-pointer"
               >
-                INQUIRE NOW
+                Inquire Now
               </button>
 
               <button
                 onClick={handleWhatsAppCheckout}
-                className="py-3.5 px-6 bg-[#6ba343] hover:bg-[#598c36] text-white text-center font-extrabold text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer"
+                className="py-3.5 px-6 bg-[#6ba343] hover:bg-[#598c36] text-white text-center font-extrabold text-xs sm:text-sm rounded-2xl transition-all shadow-md hover:scale-[1.02] cursor-pointer"
               >
-                WHATSAPP
+                WhatsApp
               </button>
             </div>
 
@@ -167,44 +167,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           </div>
         </div>
 
-        {/* 2. Deep Provenance Section */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {/* True Ceylon Origin (Brown card) */}
-          <div className="bg-[#5d2e1d] text-white p-8 rounded-xl relative overflow-hidden shadow-premium flex flex-col justify-between min-h-[220px]">
-            <div className="space-y-4">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#ffdfa0] bg-white/10 px-2.5 py-1 rounded">Heritage</span>
-              <h3 className="font-serif text-xl md:text-2xl font-bold">The True Ceylon Origin</h3>
-              <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
-                Harvested directly from our single-origin plantations in Sri Lanka. We partner directly with forest farming groups who preserve soil integrity and clean agriculture.
-              </p>
-            </div>
-            <div className="flex gap-6 mt-6 border-t border-white/10 pt-4 text-center">
-              <div>
-                <p className="text-[10px] uppercase font-bold tracking-wider text-[#ffdfa0]">Purity</p>
-                <p className="text-sm font-serif font-bold">100% Single Origin</p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase font-bold tracking-wider text-[#ffdfa0]">Quality</p>
-                <p className="text-sm font-serif font-bold">Export Grade</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Certified Organic (Green card) */}
-          <div className="bg-[#192a14] text-white p-8 rounded-xl relative overflow-hidden shadow-premium flex flex-col justify-between min-h-[220px]">
-            <div className="space-y-4">
-              <span className="text-[9px] font-bold uppercase tracking-widest text-[#97ac8d] bg-[#2e4028] px-2.5 py-1 rounded">Certified</span>
-              <h3 className="font-serif text-xl md:text-2xl font-bold">Certified Organic & Ethical</h3>
-              <p className="text-sm text-[#eae7e7]/80 leading-relaxed">
-                100% chemical-free and sustainably harvested. Sourced directly with fair compensation, supporting forest-garden farming and village community prosperity.
-              </p>
-            </div>
-            <div className="flex items-center gap-3 mt-6 border-t border-[#eae7e7]/10 pt-4">
-              <div className="w-8 h-8 rounded-full bg-[#2e4028] flex items-center justify-center text-[#97ac8d]">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <span className="text-[10px] uppercase font-bold tracking-widest text-[#97ac8d]">USDA & EU GI Certified</span>
-            </div>
+        {/* 2. Deep Provenance & Brand Promise Section (Clean Boxless Layout) */}
+        <section className="my-12 py-8 px-6 sm:px-8 bg-transparent border-t border-[#eae7e7]">
+          <div className="max-w-[950px] mx-auto space-y-4 text-left">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#795900]">OUR UNCOMPROMISING COMMITMENT</p>
+            <p className="text-base sm:text-lg md:text-xl text-[#2b1810] leading-relaxed font-medium">
+              At True Cinnamon Care, we are not spice traders. We Go Beyond delivering spice. Committed to deliver Trust, Accountability, Heritage, and Uncompromising Quality. Our cinnamon is Single-Origin and sourced exclusively from Sri Lanka, ensuring authenticity and naturally negligible coumarin levels for Safe Daily Use. By partnering with local people, we uphold Ethical Practices that support communities and Preserve the Environment. Every stick is carefully graded, tested, and Hand-Packaged in a recyclable premium design that reflect the Sustainability and Luxury of our brand. Choosing us means choosing purity, Transparency, and a taste experience that is Truly Unique which is Exclusive to Our Plantation.
+            </p>
           </div>
         </section>
 

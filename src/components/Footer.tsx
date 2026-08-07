@@ -59,12 +59,13 @@ export default function Footer() {
             <ul className="space-y-3.5 text-xs text-[#eae7e7]/75 font-medium">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  The Difference
+                The Ceylon Cinnamon
+                 
                 </Link>
               </li>
               <li>
                 <Link href="/products" className="hover:text-white transition-colors">
-                  The Ceylon Cinnamon
+                   The Difference
                 </Link>
               </li>
               <li>
@@ -96,16 +97,23 @@ export default function Footer() {
               </button>
             </div>
             
-            <ul className="space-y-3 text-xs text-[#eae7e7]/80 font-medium mt-2">
+            <ul className="space-y-4 text-xs text-[#eae7e7]/80 font-medium mt-2">
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#eae7e7]/80" strokeWidth={1.5} />
-                <a href="mailto:spice@capceylon.com" className="text-white font-semibold hover:underline transition-colors">
-                  spice@capceylon.com
+                <a href="mailto:info@truecca.com" className="text-white font-semibold hover:underline transition-colors">
+                  info@truecca.com
                 </a>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#eae7e7]/80" strokeWidth={1.5} />
-                <a href="tel:+94772893030" className="text-white font-semibold hover:underline transition-colors">
+
+              <li className="pt-2 space-y-1.5">
+                <p className="text-xl font-bold text-white uppercase tracking-wider">
+                  Questions?
+                </p>
+                <a 
+                  href="tel:+94772893030" 
+                  className="flex items-center gap-2.5 text-lg md:text-l font-black text-white hover:text-[#e2ca9c] transition-colors tracking-tight font-sans"
+                >
+                  <Phone className="w-5 h-5 text-[#e2ca9c]" strokeWidth={2} />
                   +94 77 289 3030
                 </a>
               </li>

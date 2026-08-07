@@ -72,8 +72,9 @@ export default function ShopPage() {
 
   // Filtered Products logic
   const filteredProducts = productsData.filter(p => {
-    const pCategory = p.subCategory || (p.category === "Signature Range" ? "Signature Range" : "Whole Spices");
-    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(pCategory) || (selectedCategories.includes("Signature Range") && p.category === "Signature Range");
+    const matchesCategory = selectedCategories.length === 0 ||
+      selectedCategories.includes(p.category) ||
+      (p.subCategory && selectedCategories.includes(p.subCategory));
     const matchesOrigin = selectedOrigins.length === 0 || selectedOrigins.includes(p.origin);
     const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       p.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -89,7 +90,7 @@ export default function ShopPage() {
     <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden min-h-screen pb-16 pt-4">
       
       {/* Decorative Single Giant Sri Lankan Cinnamon Farmer Centered */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[800px] md:w-[1300px] pointer-events-none z-0 overflow-hidden select-none opacity-[0.12]">
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[800px] md:w-[1300px] pointer-events-none z-0 overflow-hidden select-none opacity-[0.03]">
         <TransparentImage 
           src="/images/cinnamon_harvest.png" 
           alt="" 
@@ -108,7 +109,7 @@ export default function ShopPage() {
           Our Artisanal Collection
         </h1>
         <p className="text-sm md:text-base font-semibold text-[#42190a]/90 leading-relaxed max-w-[640px] mx-auto">
-          Discover the soul of Sri Lanka through our hand-curated spices. Harvested at the peak of ripeness and processed with ancestral techniques to preserve therapeutic potency.
+          Discover the soul of Ceylon through our hand-selected and sustainable harvesting with ancestral techniques to preserve Nature
         </p>
       </motion.div>
 
@@ -117,8 +118,8 @@ export default function ShopPage() {
       {/* 3. Shop Workspace Grid */}
       <section className="max-w-[1280px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
 
-        {/* Left Filters Sidebar (col-span-3) */}
-        <aside className="lg:col-span-3 space-y-4 lg:space-y-8 bg-[#f6f3f2]/90 p-4 sm:p-6 rounded-2xl border border-[#eae7e7] self-start shadow-sm">
+        {/* Left Filters Sidebar (col-span-3) - Clean boxless styling */}
+        <aside className="lg:col-span-3 space-y-4 lg:space-y-8 p-2 sm:p-4 self-start">
           
           {/* Mobile Filter Header Toggle Button */}
           <div className="flex items-center justify-between">
@@ -172,7 +173,7 @@ export default function ShopPage() {
             <div className="space-y-3">
               <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#42190a]">Category</h4>
               <div className="space-y-2 text-xs sm:text-sm">
-                {["Whole Spices", "Cinnamon"].map((cat) => (
+                {["Signature Range", "Wholesale", "Whole Spices", "Cinnamon"].map((cat) => (
                   <label key={cat} className="flex items-center gap-2.5 cursor-pointer text-[#2b1810] font-bold">
                     <input
                       type="checkbox"

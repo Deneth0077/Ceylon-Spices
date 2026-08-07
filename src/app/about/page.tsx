@@ -74,15 +74,13 @@ export default function AboutPage() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 max-w-[850px] bg-[#fcf9f8]/95 backdrop-blur-md p-8 md:p-14 rounded-2xl shadow-premium border border-white/60 text-center"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#795900]/10 border border-[#795900]/20 text-[#795900] text-[11px] font-bold uppercase tracking-[0.2em] mb-4">
-            <Sparkles className="w-3.5 h-3.5" /> About True Cinnamon Care
-          </div>
+         
           <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#42190a] leading-tight mb-4">
-            Rooted in Sri Lanka's Heritage,<br className="hidden md:inline" /> Elevating Pure Ceylon Spices
+            We are a SINGLE ORIGIN,
+            <br className="hidden md:inline" />
+           premium CEYLON-ingredients EXPORT partner for overseas importers
           </h1>
-          <p className="text-base md:text-lg text-[#52443f] leading-relaxed max-w-[700px] mx-auto mb-8 font-medium">
-            We are a single ORIGIN, premium CEYLON-ingredients EXPORT partner for overseas importers.
-          </p>
+        
           <div className="flex flex-wrap justify-center gap-4">
             <Link 
               href="#who-we-are" 
@@ -228,30 +226,26 @@ export default function AboutPage() {
             </p>
           </motion.div>
 
-          {/* Product Sample & Community Feature Badges */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[950px] mx-auto pt-6">
-            <div className="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/15 text-left flex items-start gap-4">
-              <div className="p-3 bg-[#795900] rounded-lg text-white font-bold">01</div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-base">Community First</h4>
-                <p className="text-xs text-white/70 mt-1">Direct support to cultivator families and infrastructure development.</p>
+          {/* Community Farmers Photo Banner */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="pt-6 max-w-[1100px] mx-auto"
+          >
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-[#192a14] group">
+              <div className="relative w-full aspect-[1024/258] min-h-[220px] sm:min-h-[280px] md:min-h-[360px]">
+                <Image
+                  src="/images/ceylon_farming_community_banner.png"
+                  alt="Ceylon Farming Community Support Pictures"
+                  fill
+                  sizes="(max-width: 1280px) 100vw, 1100px"
+                  className="object-cover group-hover:scale-[1.01] transition-transform duration-700"
+                />
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/15 text-left flex items-start gap-4">
-              <div className="p-3 bg-[#795900] rounded-lg text-white font-bold">02</div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-base">Value-Added Products</h4>
-                <p className="text-xs text-white/70 mt-1">Transforming raw harvest into premium exports & wellness extracts.</p>
-              </div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md p-5 rounded-xl border border-white/15 text-left flex items-start gap-4">
-              <div className="p-3 bg-[#795900] rounded-lg text-white font-bold">03</div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-base">Eco Stewardship</h4>
-                <p className="text-xs text-white/70 mt-1">Preserving biodiversity and chemical-free soil nutrition in southern Sri Lanka.</p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -339,10 +333,6 @@ export default function AboutPage() {
                 <p className="text-xs font-bold uppercase tracking-wider text-[#795900]">
                   FOUNDER | MANAGING DIRECTOR
                 </p>
-              </div>
-
-              <div className="bg-[#ffdfa0]/30 px-4 py-3 rounded-xl border border-[#795900]/20 text-xs text-[#795900] font-semibold max-w-[240px]">
-                "Blending innovation, branding, and modern design to empower local communities."
               </div>
             </div>
           </motion.div>
@@ -477,7 +467,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6. CALL TO ACTION SECTION */}
-      <section className="relative z-10 bg-[#5d2e1d] text-white py-20 px-6 md:px-8">
+      <section className="relative z-10 bg-[#e3c294] text-white py-20 px-6 md:px-8">
         <div className="max-w-[1000px] mx-auto text-center space-y-8">
           <motion.div 
             initial="hidden"

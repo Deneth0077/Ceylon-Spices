@@ -15,7 +15,7 @@ const searchProducts = [
   },
   {
     id: 1,
-    title: "Black pepper",
+    title: "Cones Black pepper",
     description: "Prized worldwide for its highest piperine content (5–9%) and strong pungency.",
     image: "/images/black_pepper_1781650594175.png"
   },
@@ -125,7 +125,13 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" }
   ];
 
-  const isHomePage = pathname === "/";
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+
+  const productSubLinks = [
+    { href: "/products/signature-range", label: "Signature Range" },
+    { href: "/products/wholesale", label: "Wholesale" },
+    { href: "/products", label: "All Products" }
+  ];
 
   return (
     <>
@@ -165,21 +171,70 @@ export default function Navbar() {
               {/* Center Nav Links */}
               <div className="hidden md:flex flex-1 justify-center px-4">
                 <div className="flex space-x-6 lg:space-x-8 items-center">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${isActive(link.href)
-                        ? "text-[#42190a]"
-                        : "text-[#52443f] hover:text-[#42190a]"
-                        }`}
+                  <Link
+                    href="/"
+                    className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${pathname === "/" ? "text-[#42190a]" : "text-[#52443f] hover:text-[#42190a]"}`}
+                  >
+                    Home
+                    {pathname === "/" && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
+                  </Link>
+
+                  <Link
+                    href="/about"
+                    className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${pathname === "/about" ? "text-[#42190a]" : "text-[#52443f] hover:text-[#42190a]"}`}
+                  >
+                    About Us
+                    {pathname === "/about" && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
+                  </Link>
+
+                  {/* PRODUCTS + Dropdown */}
+                  <div
+                    className="relative group py-2 cursor-pointer"
+                    onMouseEnter={() => setIsProductsDropdownOpen(true)}
+                    onMouseLeave={() => setIsProductsDropdownOpen(false)}
+                  >
+                    <div
+                      className={`flex items-center gap-1.5 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors select-none ${isActive("/products") ? "text-[#42190a]" : "text-[#52443f] group-hover:text-[#42190a]"}`}
                     >
-                      {link.label}
-                      {isActive(link.href) && (
-                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />
-                      )}
-                    </Link>
-                  ))}
+                      <Link href="/products">PRODUCTS +</Link>
+                      {isActive("/products") && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
+                    </div>
+
+                    {/* Dropdown Menu */}
+                    {isProductsDropdownOpen && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-56 bg-[#fcf9f8] border border-[#eae7e7] rounded-xl shadow-xl py-2 z-50 animate-fadeIn">
+                        {productSubLinks.map((subLink) => (
+                          <Link
+                            key={subLink.href}
+                            href={subLink.href}
+                            className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
+                              pathname === subLink.href
+                                ? "bg-[#795900] text-white"
+                                : "text-[#42190a] hover:bg-[#eae7e7]/60 hover:text-[#795900]"
+                            }`}
+                          >
+                            {subLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <Link
+                    href="/sourcing"
+                    className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${pathname === "/sourcing" ? "text-[#42190a]" : "text-[#52443f] hover:text-[#42190a]"}`}
+                  >
+                    Our Sourcing
+                    {pathname === "/sourcing" && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className={`relative py-2 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors ${pathname === "/contact" ? "text-[#42190a]" : "text-[#52443f] hover:text-[#42190a]"}`}
+                  >
+                    Contact
+                    {pathname === "/contact" && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
+                  </Link>
                 </div>
               </div>
 
@@ -224,19 +279,56 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-[#fcf9f8] border-t border-b border-[#eae7e7] w-full left-0 shadow-lg transition-all animate-fadeIn">
             <div className="px-4 py-4 space-y-1 flex flex-col">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${isActive(link.href)
-                    ? "bg-[#42190a] text-white shadow-sm"
-                    : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"
-                    }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${pathname === "/" ? "bg-[#42190a] text-white shadow-sm" : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"}`}
+              >
+                Home
+              </Link>
+
+              <Link
+                href="/about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${pathname === "/about" ? "bg-[#42190a] text-white shadow-sm" : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"}`}
+              >
+                About Us
+              </Link>
+
+              {/* PRODUCTS + Mobile expandable section */}
+              <div className="space-y-1">
+                <div className="px-4 py-3 text-sm font-bold uppercase tracking-wider text-[#42190a] border-b border-[#eae7e7]/60 flex items-center justify-between">
+                  <span>PRODUCTS +</span>
+                </div>
+                <div className="pl-4 space-y-1">
+                  {productSubLinks.map((subLink) => (
+                    <Link
+                      key={subLink.href}
+                      href={subLink.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center ${pathname === subLink.href ? "bg-[#795900] text-white" : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"}`}
+                    >
+                      {subLink.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <Link
+                href="/sourcing"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${pathname === "/sourcing" ? "bg-[#42190a] text-white shadow-sm" : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"}`}
+              >
+                Our Sourcing
+              </Link>
+
+              <Link
+                href="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`px-4 py-3 rounded-xl text-sm font-bold uppercase tracking-wider transition-colors min-h-[44px] flex items-center ${pathname === "/contact" ? "bg-[#42190a] text-white shadow-sm" : "text-[#52443f] hover:bg-[#eae7e7]/50 hover:text-[#42190a]"}`}
+              >
+                Contact
+              </Link>
 
               <div className="pt-3 mt-2 border-t border-[#eae7e7] space-y-2.5">
                 <button

@@ -48,6 +48,7 @@ const searchProducts = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -125,11 +126,11 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" }
   ];
 
-  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
-
   const productSubLinks = [
     { href: "/products/signature-range", label: "Signature Range" },
     { href: "/products/wholesale", label: "Wholesale" },
+    { href: "/products/ceylon-cinnamon", label: "The Ceylon Cinnamon" },
+    { href: "/products/the-difference", label: "The Difference" },
     { href: "/products", label: "All Products" }
   ];
 

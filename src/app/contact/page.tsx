@@ -51,16 +51,15 @@ export default function ContactPage() {
   return (
     <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden min-h-screen pb-16 pt-6">
       
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
         
         {/* 1. Header Title */}
         <div className="text-center max-w-[650px] mx-auto mb-16">
-  
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-[#42190a] leading-tight mb-4">
             Get in Touch
           </h1>
           <p className="text-base md:text-lg font-semibold text-[#52443f] leading-relaxed max-w-[580px] mx-auto">
-            Whether you're looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our Team is hear to assist.
+            Whether you&apos;re looking for wholesale spice solutions or want to learn more about our organic farms in Sri Lanka, our Team is here to assist.
           </p>
           <div className="w-16 h-1.5 bg-[#795900] mx-auto mt-4 rounded-full" />
         </div>
@@ -216,50 +215,70 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* 4. Our Estate Location Map Section */}
-        <section className="relative rounded-3xl overflow-hidden shadow-premium h-[320px] md:h-[420px]">
-          {/* Background image: plantation */}
-          <div className="absolute inset-0">
-            <Image 
-              src="/images/ceylon_spice_farm_contact.png" 
-              alt="Ceylon organic spice farm aerial landscape" 
-              fill 
-              sizes="100vw"
-              className="object-cover brightness-[0.8]"
-            />
-            <div className="absolute inset-0 bg-[#192a14]/25 pointer-events-none" />
+      </div>
+
+      {/* 4. Our Estate & Factory Location Map Section - Extended Screen Width */}
+      <div className="w-full px-2 sm:px-6 md:px-10 lg:px-12 my-16">
+        <section className="space-y-6 w-full max-w-[1600px] mx-auto">
+          <div className="text-center max-w-3xl mx-auto space-y-2 px-4">
+            <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#795900]">
+              Factory Location & Agro-Climatic Zones
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#42190a]">
+              Strategic Location in Sri Lanka&apos;s Prime Spice Belt
+            </h3>
+            <p className="text-xs sm:text-sm font-semibold text-[#52443f] leading-relaxed">
+              Our state-of-the-art processing facility is situated in Hakmana, Matara within the pristine Wet Zone, conveniently connected via expressway from Colombo (CMB) and Mattala Airports.
+            </p>
           </div>
 
-          {/* Floating Address Pin */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              {/* Glowing pin ripple */}
-              <span className="absolute -top-1.5 -left-1.5 w-12 h-12 bg-[#ffdfa0] rounded-full opacity-35 animate-ping" />
-              <div className="w-10 h-10 rounded-full bg-[#795900] text-white flex items-center justify-center relative shadow-md">
-                <MapPin className="w-6 h-6" />
+          {/* Full-Width Extended Map Banner Card */}
+          <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#eae7e7] shadow-2xl bg-white group">
+            
+            {/* Extended Wide Map Image Banner */}
+            <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px]">
+              <img 
+                src="/images/factory_location_map.png" 
+                alt="Sri Lanka Agro-Climatic Spice Zones and Factory Route Map from Colombo to Hakmana Matara" 
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.01]"
+              />
+            </div>
+
+            {/* Info Box Positioned comfortably on the Far Left in empty space - Balanced Dimensions */}
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-10 lg:left-14 z-10 bg-white/95 backdrop-blur-md border border-[#eae7e7] p-5 sm:p-6 rounded-3xl max-w-[320px] sm:max-w-[370px] md:max-w-[400px] shadow-[0_20px_40px_rgba(66,25,10,0.15)] space-y-3.5">
+              <div className="flex items-center gap-2 text-[#795900] text-[11px] font-extrabold uppercase tracking-widest">
+                <MapPin className="w-4 h-4 text-[#8e4c2e] shrink-0" />
+                <span>Our Manufacturing Facility</span>
+              </div>
+              
+              <h4 className="font-serif font-extrabold text-[#42190a] text-lg sm:text-xl leading-snug">
+                Hakmana, Matara – Sri Lanka
+              </h4>
+              
+              <p className="text-xs sm:text-sm text-[#52443f] leading-relaxed font-medium">
+                Located in Southern Sri Lanka&apos;s rich cinnamon harvesting zone. Visitors and wholesale partners can observe our eco-friendly bark peeling, solar drying, and certified packaging.
+              </p>
+
+              <div className="pt-1 flex items-center justify-between gap-3 flex-wrap">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Hakmana,Matara,Sri+Lanka" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4.5 py-2.5 bg-[#795900] hover:bg-[#5c4300] text-white text-xs font-extrabold uppercase tracking-wider rounded-xl shadow-md transition-all shrink-0"
+                >
+                  Get Directions <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+                
+                <span className="px-3 py-1.5 bg-[#e8f3e8] text-[#2d5a27] text-[10px] font-bold uppercase tracking-wider rounded-lg border border-[#2d5a27]/20 shrink-0">
+                  Wet Zone Eco Estate
+                </span>
               </div>
             </div>
-          </div>
 
-          {/* Bottom left info box */}
-          <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur border border-[#eae7e7] p-6 rounded-2xl max-w-[320px] shadow-premium space-y-2">
-            <p className="text-xs font-extrabold uppercase tracking-wider text-[#795900]">Our Estate</p>
-            <h4 className="font-serif font-black text-[#42190a] text-base">Experience the Harvest at Ceylon</h4>
-            <p className="text-xs text-[#52443f] leading-relaxed font-semibold">
-              Visit our field in Denegama-Matara and see the sorting, hand-peeling and manufacturing process
-            </p>
-            <a 
-              href="https://www.google.com/maps/search/?api=1&query=6.126765,80.639771" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block text-xs uppercase font-black tracking-wider text-[#795900] hover:underline pt-1"
-            >
-              Get Directions &gt;
-            </a>
           </div>
         </section>
-
       </div>
+
     </div>
   );
 }

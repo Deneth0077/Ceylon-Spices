@@ -68,7 +68,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/sourcing" className="hover:text-white transition-colors">
+                <Link href="/heritage-of-wellness" className="hover:text-white transition-colors">
                   The Heritage of Wellness
                 </Link>
               </li>

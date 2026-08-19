@@ -127,13 +127,15 @@ export default function TheCeylonCinnamonPage() {
           {/* Showcase Box matching Image 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
             
-            {/* Left Image Box */}
-            <div className="lg:col-span-5 w-full h-72 sm:h-80 bg-white border border-[#eae7e7] rounded-2xl p-4 flex items-center justify-center overflow-hidden shadow-sm">
-              <img
-                src="/images/alba_cinnamon_detail.png"
-                alt="Story of Ceylon Cinnamon"
-                className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow-md"
-              />
+            {/* Left Image Box - Luxury Portrait Frame */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[380px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group bg-[#2b1e17]">
+                <img
+                  src="/images/ceylon_cinnamon_history_quills.jpg"
+                  alt="Golden Ceylon Cinnamon quills on natural stone background"
+                  className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
 
             {/* Right Green Outline Box matching Image 2 */}
@@ -198,13 +200,15 @@ export default function TheCeylonCinnamonPage() {
               </p>
             </div>
 
-            {/* Right Image Box */}
-            <div className="lg:col-span-5 w-full h-72 sm:h-80 bg-white border border-[#eae7e7] rounded-2xl p-4 flex items-center justify-center overflow-hidden shadow-sm">
-              <img
-                src="/images/card_cinnamon.png"
-                alt="Pure Ceylon Cinnamon Compounds"
-                className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow-md"
-              />
+            {/* Right Image Box - Luxury Portrait Frame */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-[380px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white group bg-[#2b1e17]">
+                <img
+                  src="/images/ceylon_cinnamon_overview_leaves.jpg"
+                  alt="Ceylon Cinnamon quills with fresh leaves and flowers on rock"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                />
+              </div>
             </div>
 
           </div>

@@ -129,8 +129,6 @@ export default function Navbar() {
   const productSubLinks = [
     { href: "/products/signature-range", label: "Signature Range" },
     { href: "/products/wholesale", label: "Wholesale" },
-    { href: "/products/ceylon-cinnamon", label: "The Ceylon Cinnamon" },
-    { href: "/products/the-difference", label: "The Difference" },
     { href: "/products", label: "All Products" }
   ];
 
@@ -152,7 +150,9 @@ export default function Navbar() {
       {/* 2. Main Navigation Header - Always accessible sticky header */}
       <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${scrolled
         ? "bg-[#fcf9f8]/95 backdrop-blur-md border-b border-[#eae7e7] shadow-md py-1.5 md:py-2"
-        : "bg-[#fcf9f8]/90 backdrop-blur-sm border-b border-[#eae7e7]/50 py-2 md:py-2.5"
+        : pathname === "/"
+          ? "bg-[#f5edd9] border-b border-[#e5dac4]/60 py-2 md:py-2.5"
+          : "bg-[#fcf9f8]/90 backdrop-blur-sm border-b border-[#eae7e7]/50 py-2 md:py-2.5"
         }`}>
         <nav className="w-full">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
@@ -197,7 +197,7 @@ export default function Navbar() {
                     <div
                       className={`flex items-center gap-1.5 text-xs md:text-sm tracking-[0.08em] font-bold transition-colors select-none ${isActive("/products") ? "text-[#42190a]" : "text-[#52443f] group-hover:text-[#42190a]"}`}
                     >
-                      <Link href="/products">PRODUCTS +</Link>
+                      <Link href="/products">Our Products +</Link>
                       {isActive("/products") && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
                     </div>
 
@@ -299,7 +299,7 @@ export default function Navbar() {
               {/* PRODUCTS + Mobile expandable section */}
               <div className="space-y-1">
                 <div className="px-4 py-3 text-sm font-bold uppercase tracking-wider text-[#42190a] border-b border-[#eae7e7]/60 flex items-center justify-between">
-                  <span>PRODUCTS +</span>
+                  <span>Our Products +</span>
                 </div>
                 <div className="pl-4 space-y-1">
                   {productSubLinks.map((subLink) => (

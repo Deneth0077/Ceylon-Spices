@@ -91,50 +91,52 @@ export default function TheDifferencePage() {
           </h2>
         </div>
 
-        {/* 3. Showcase Grid matching user Image 1 layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+        {/* 3. Showcase Grid matching user layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
           
           {/* Left Column: Pictures Box (Cassia Picture + Ceylon Cinnamon Picture) */}
-          <div className="lg:col-span-4 bg-white border-2 border-[#81b752] rounded-2xl p-5 shadow-sm space-y-6">
+          <div className="lg:col-span-4 bg-white border-2 border-[#81b752] rounded-2xl p-5 shadow-sm space-y-6 flex flex-col justify-between">
             
             {/* Cassia Picture */}
             <div className="space-y-2">
-              <span className="block text-xs font-extrabold uppercase tracking-wider text-[#991b1b] text-center bg-[#fee2e2] py-1 rounded">
-                Cassia Picture (Thick Hard Bark)
+              <span className="block text-xs font-extrabold uppercase tracking-wider text-[#991b1b] text-center bg-[#fee2e2] py-1.5 rounded-lg border border-[#fecaca]">
+                Cassia Bark (Thick Hard Bark)
               </span>
-              <div className="w-full h-44 bg-[#faf8f5] rounded-xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-2">
+              <div className="w-full h-48 sm:h-52 relative rounded-2xl overflow-hidden shadow-md border-2 border-white group bg-[#2b1e17]">
                 <img
                   src="/images/card_cinnamon.png"
                   alt="Cassia Cinnamon Bark"
-                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             </div>
 
-            {/* Ceylon Cinnamon Picture */}
+            {/* Ceylon Cinnamon Picture - Redesigned with Real Photo */}
             <div className="space-y-2 pt-2 border-t border-[#eae7e7]">
-              <span className="block text-xs font-extrabold uppercase tracking-wider text-[#166534] text-center bg-[#dcfce7] py-1 rounded">
-                Ceylon Cinnamon Picture (Paper-Thin Quills)
+              <span className="block text-xs font-extrabold uppercase tracking-wider text-[#166534] text-center bg-[#dcfce7] py-1.5 rounded-lg border border-[#bbf7d0]">
+                Ceylon Cinnamon (Paper-Thin Quills)
               </span>
-              <div className="w-full h-44 bg-[#faf8f5] rounded-xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-2">
+              <div className="w-full h-48 sm:h-52 relative rounded-2xl overflow-hidden shadow-md border-2 border-white group bg-[#2b1e17]">
                 <img
-                  src="/images/alba_cinnamon_detail.png"
-                  alt="Pure Ceylon Cinnamon Quills"
-                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
+                  src="/images/ceylon_cinnamon_history_quills.jpg"
+                  alt="Pure Ceylon Cinnamon Paper-Thin Quills"
+                  className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Green Outline Text Container matching Image 1 */}
-          <div className="lg:col-span-8 border-2 border-[#81b752] bg-white rounded-[32px] p-6 sm:p-8 shadow-sm space-y-5 text-left">
-            <div className="space-y-3">
+          {/* Right Column: Green Outline Text Container Vertically Centered & Height Matched */}
+          <div className="lg:col-span-8 border-2 border-[#81b752] bg-white rounded-[32px] p-6 sm:p-10 shadow-sm space-y-6 text-left flex flex-col justify-center h-full">
+            <div className="space-y-4">
               <p className="text-xs sm:text-sm md:text-base text-[#1f2937] leading-relaxed">
                 <strong className="text-[#991b1b] font-bold">Cassia Cinnamon (Cinnamomum Cassia)</strong> is a cheaper, stronger-flavoured spice compared to True Ceylon Cinnamon. Its bark is darker, thicker, and rougher, with a brown exterior and reddish-brown interior. Unlike Ceylon Cinnamon, Cassia is just a single thick bark layer rolled into sticks, requiring less processing. Commonly sourced from China, Indonesia, and Vietnam, it contains high levels of <strong className="text-[#991b1b]">Coumarin</strong>, giving it a strong aroma and taste but not safer to daily use.
               </p>
 
-              <div className="border-t border-[#81b752]/30 pt-3">
+              <div className="border-t border-[#81b752]/30 pt-4">
                 <p className="text-xs sm:text-sm md:text-base text-[#1f2937] leading-relaxed">
                   <strong className="text-[#166534] font-bold">Pure Ceylon Cinnamon (Cinnamomum Zeylanicum Blume)</strong> is rare and pricier, grown only in Sri Lanka. Its quills are light brown, silky, paper-thin, and delicately layered. Unlike Cassia, it has a sweeter, softer, citrus flavour, making it the premium choice for culinary and artistic uses plus safer to daily use.
                 </p>
@@ -142,21 +144,20 @@ export default function TheDifferencePage() {
             </div>
 
             {/* Quick trust metrics */}
-            <div className="grid grid-cols-2 gap-3 pt-3 border-t border-[#eae7e7]">
-              <div className="flex items-center gap-2 bg-[#dcfce7]/60 p-2.5 rounded-xl border border-[#86efac]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4 border-t border-[#eae7e7]">
+              <div className="flex items-center gap-2.5 bg-[#dcfce7]/60 p-3 rounded-xl border border-[#86efac]">
                 <ShieldCheck className="w-5 h-5 text-[#166534] flex-shrink-0" />
-                <span className="text-[11px] font-extrabold text-[#166534]">Ultra-Low Coumarin (0.017mg/tsp)</span>
+                <span className="text-[11px] md:text-xs font-extrabold text-[#166534]">Ultra-Low Coumarin (0.017mg/tsp)</span>
               </div>
-              <div className="flex items-center gap-2 bg-[#fee2e2]/60 p-2.5 rounded-xl border border-[#fca5a5]">
+              <div className="flex items-center gap-2.5 bg-[#fee2e2]/60 p-3 rounded-xl border border-[#fca5a5]">
                 <ShieldAlert className="w-5 h-5 text-[#991b1b] flex-shrink-0" />
-                <span className="text-[11px] font-extrabold text-[#991b1b]">Cassia High Coumarin (7-18mg/tsp)</span>
+                <span className="text-[11px] md:text-xs font-extrabold text-[#991b1b]">Cassia High Coumarin (7-18mg/tsp)</span>
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* 4. Comprehensive Comparison Table matching Image 1 layout */}
+        {/* 4. Comparison Table matching Image 1 layout */}
         <div className="mb-16">
           <h3 className="font-serif font-black text-xl md:text-2xl text-[#111827] mb-6 text-left">
             Detailed Comparison: Ceylon Cinnamon vs Cassia

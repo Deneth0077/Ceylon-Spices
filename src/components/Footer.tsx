@@ -58,18 +58,17 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3.5 text-xs text-[#eae7e7]/75 font-medium">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                The Ceylon Cinnamon
-                 
+                <Link href="/products/ceylon-cinnamon" className="hover:text-white transition-colors">
+                  The Ceylon Cinnamon
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="hover:text-white transition-colors">
-                   The Difference
+                <Link href="/products/the-difference" className="hover:text-white transition-colors">
+                  The Difference
                 </Link>
               </li>
               <li>
-                <Link href="/product-tracing-sourcing" className="hover:text-white transition-colors">
+                <Link href="/sourcing" className="hover:text-white transition-colors">
                   The Heritage of Wellness
                 </Link>
               </li>

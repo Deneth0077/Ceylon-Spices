@@ -192,7 +192,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Headquarters Card (Moved Down) */}
+            {/* Headquarters Card */}
             <div className="bg-[#f6f3f2]/80 p-7 rounded-2xl border border-[#eae7e7] flex gap-5 shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-[#42190a]/10 flex items-center justify-center text-[#42190a] flex-shrink-0 mt-0.5">
                 <MapPin className="w-6 h-6" />
@@ -202,28 +202,16 @@ export default function ContactPage() {
                  Colombo Head Office, Sri Lanka 
                 </p>
                 <h4 className="font-serif font-black text-[#42190a] text-lg sm:text-xl">
-                  The Source of Heritage
+                  True Cinnamon Care (Pvt) Ltd
                 </h4>
                 <p className="text-sm sm:text-base font-semibold text-[#2b1810] leading-relaxed">
-                  No. 11/10, Karadiyana Road,Thumbowila,
-                  <br />Piliyandala
+                  No. 11/10, Centerpoint, Thumbowila, Piliyandala, 10300, Western Province, Sri Lanka.
                 </p>
                 <a href="tel:+94772893030" className="inline-flex items-center gap-2 text-sm sm:text-base text-[#795900] font-black hover:text-[#528431] pt-1 transition-colors">
                   <Phone className="w-4 h-4 text-[#795900]" /> +94 77 289 3030
                 </a>
               </div>
             </div>
-
-            {/* CTA Card Button */}
-            <Link 
-              href="/about"
-              className="block bg-[#5d2e1d] hover:bg-[#42190a] text-white p-7 rounded-2xl shadow-premium text-center transition-colors group cursor-pointer"
-            >
-              <p className="text-xs font-extrabold uppercase tracking-wider text-[#ffdfa0] mb-1">Common Questions?</p>
-              <h4 className="font-serif font-black text-base sm:text-lg text-white group-hover:underline inline-flex items-center gap-2 justify-center">
-                Visit Our Artisanal Trail <ArrowRight className="w-4 h-4 text-[#ffdfa0]" />
-              </h4>
-            </Link>
 
           </div>
         </div>

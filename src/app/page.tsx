@@ -24,29 +24,11 @@ const staggerContainer = {
   }
 };
 
-/* 1. Botanical Watermark for Card 1, 2, 3 */
-const BotanicalCardWatermark = () => (
-  <div className="absolute -right-2 top-2 bottom-2 w-28 md:w-36 h-[90%] opacity-35 pointer-events-none transition-transform duration-500 group-hover:scale-105 select-none">
-    <Image
-      src="/images/botanical_sketch_watermark.png"
-      alt="Botanical Sketch Watermark"
-      fill
-      className="object-contain object-right-bottom mix-blend-multiply"
-    />
-  </div>
-);
+/* 1. Botanical Watermark for Card 1, 2, 3 (Disabled per user request) */
+const BotanicalCardWatermark = () => null;
 
-/* 2. Botanical Watermark for Section 4 Right Side */
-const BotanicalSectionWatermark = () => (
-  <div className="absolute right-0 top-4 bottom-4 w-80 md:w-[450px] h-[95%] opacity-30 pointer-events-none z-0 select-none">
-    <Image
-      src="/images/botanical_sketch_watermark.png"
-      alt="Botanical Section Watermark"
-      fill
-      className="object-contain object-right mix-blend-multiply"
-    />
-  </div>
-);
+/* 2. Botanical Watermark for Section (Disabled per user request) */
+const BotanicalSectionWatermark = () => null;
 
 /* 3. Foreground Corner Leaf for Section 4 Bottom-Left */
 const ForegroundCornerLeaf = () => (
@@ -107,105 +89,18 @@ export default function Home() {
   return (
     <div className="relative w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden">
 
-      {/* Decorative Single Giant Sri Lankan Cinnamon Bush Centered */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-0 h-[2800px] w-[500px] md:w-[800px] pointer-events-none z-10 overflow-hidden select-none opacity-[0.06]">
-        <TransparentImage
-          src="/images/cinnamon_bush.png"
-          alt=""
-          className="w-full h-full object-fill object-bottom"
-        />
-      </div>
 
-
-      {/* 1. Hero Section (Centered Layout Matching User's Mockup) */}
-      <section className="relative w-full overflow-hidden bg-[#fbf8f5] min-h-[550px] md:min-h-[620px] lg:min-h-[660px] pt-6 sm:pt-8 md:pt-10 pb-48 sm:pb-52 md:pb-60 lg:pb-64 border-b border-[#eae7e7]/40 flex flex-col justify-start">
-
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 z-0">
+      {/* 1. Hero Section (Full Width Edge-to-Edge Banner) */}
+      <section className="relative w-full overflow-hidden bg-[#f5edd9] border-b border-[#e5dac4]/80">
+        <div className="w-full">
           <Image
-            src="/images/hero_cinnamon_background.png"
-            alt="Estate tea plantation and cinnamon table background"
-            fill
-            className="object-cover object-bottom select-none"
+            src="/images/hero_tcc_banner.png"
+            alt="True Cinnamon Care - Hand-selected Single Origin Sri Lanka Ceylon Spices"
+            width={1920}
+            height={914}
             priority
+            className="w-full h-auto block object-cover select-none"
           />
-          {/* Soft warm gradient overlay on upper sky area to ensure high contrast for centered text */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf8f5]/90 via-[#fbf8f5]/45 to-transparent h-[55%]" />
-        </div>
-
-        <div className="relative z-10 max-w-[880px] mx-auto px-6 md:px-8 flex flex-col items-center text-center space-y-3 sm:space-y-3.5">
-
-          {/* Vertical Brand Logo in Upper-Center Hero Position */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="relative w-52 h-28 sm:w-60 sm:h-32 md:w-72 md:h-38 mb-2 flex items-center justify-center"
-          >
-            <TransparentImage
-              src="/images/logo.jpg"
-              alt="True Cinnamon Care Logo"
-              threshold={240}
-              className="max-w-full max-h-full object-contain filter drop-shadow-md mix-blend-multiply"
-            />
-          </motion.div>
-
-          {/* 1. Top Pill Badge
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#486338]/30 bg-[#edf3ea]/90 text-[#325220] text-[10px] sm:text-xs font-bold uppercase tracking-wider shadow-sm"
-          >
-            <Leaf className="w-3.5 h-3.5 text-[#325220]" />
-            <span>100% ORGANIC • ETHICALLY SOURCED</span>
-          </motion.div> */}
-
-          {/* 2. Main Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-black text-[#2b1810] tracking-tight leading-[1.12] max-w-[900px] text-center"
-          >
-            FROM CEYLON SOIL <br />
-            <span className="text-[#8c4a27] font-serif uppercase tracking-normal">TO YOUR TABLE</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl font-extrabold uppercase tracking-[0.18em] text-[#795900] mt-3 text-center"
-          >
-            world's finest Ceylon cinnamon
-          </motion.p>
-
-          {/* 5. Sub-paragraph */}
-         
-
-          {/* 6. CTA Buttons */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-3 pt-2"
-          >
-            <Link
-              href="/products"
-              className="px-6 py-2.5 bg-[#7a421d] hover:bg-[#5f3316] text-white rounded-full font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:translate-y-[-1px] flex items-center gap-2"
-            >
-              Explore Our Products <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <Link
-              href="/about"
-              className="px-6 py-2.5 border-2 border-[#7a421d] text-[#7a421d] hover:bg-[#7a421d]/10 rounded-full font-bold text-xs uppercase tracking-wider transition-all"
-            >
-              Our Story
-            </Link>
-          </motion.div> */}
-
         </div>
       </section>
 
@@ -270,6 +165,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 2.5 Feature Link Cards (The Ceylon Cinnamon & The Difference) */}
+      <section className="relative w-full bg-[#fdfbf7] py-16 px-6 md:px-8 border-b border-[#eae5d9]">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+
+            {/* Card 1: THE CEYLON CINNAMON */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeInUp}
+              className="group relative bg-gradient-to-br from-[#fbf4eb] to-[#f4e6d4] rounded-3xl p-8 md:p-10 border border-[#e4d3bf] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <BotanicalCardWatermark />
+              <div className="relative z-10 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#8c4a27]/30 bg-[#8c4a27]/10 text-[#7a3b1a] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-[#8c4a27]" />
+                  <span>ORIGIN & HERITAGE</span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#2b1810] tracking-tight group-hover:text-[#8c4a27] transition-colors">
+                  THE CEYLON CINNAMON
+                </h3>
+
+                <p className="text-sm md:text-base text-[#5c473a] leading-relaxed font-medium">
+                  Discover the sacred history, soft delicate quills, and rich aroma of true <em>Cinnamomum zeylanicum</em> native exclusively to Sri Lanka's tropical soil.
+                </p>
+              </div>
+
+              <div className="pt-6 relative z-10">
+                <Link
+                  href="/products/ceylon-cinnamon"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#7a421d] hover:bg-[#5f3316] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>Explore Ceylon Cinnamon</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 2: THE DIFFERENCE */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeInUp}
+              className="group relative bg-gradient-to-br from-[#f2f6ed] to-[#e1ebd7] rounded-3xl p-8 md:p-10 border border-[#ccd9be] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <BotanicalCardWatermark />
+              <div className="relative z-10 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-[#486338]/30 bg-[#486338]/10 text-[#325220] text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#325220]" />
+                  <span>PURE VS CASSIA</span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#1c2e17] tracking-tight group-hover:text-[#325220] transition-colors">
+                  THE DIFFERENCE
+                </h3>
+
+                <p className="text-sm md:text-base text-[#3d5236] leading-relaxed font-medium">
+                  Learn why Ceylon Cinnamon is ultra-low in coumarin, safe for daily wellness, and completely distinct from common commercial Cassia bark.
+                </p>
+              </div>
+
+              <div className="pt-6 relative z-10">
+                <Link
+                  href="/products/the-difference"
+                  className="inline-flex items-center gap-2.5 px-6 py-3 bg-[#325220] hover:bg-[#233d16] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+                >
+                  <span>See The Difference</span>
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </Link>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
+
       {/* 3. Why Choose Us Section (Quality & Sustainability - Reference Matched Design) */}
       <section id="why-choose-us" className="relative w-full bg-[#f8f6f0] py-24 px-6 md:px-8 border-t border-[#e8e4da] scroll-mt-24">
         <div className="max-w-[1280px] mx-auto">
@@ -283,7 +257,7 @@ export default function Home() {
             className="text-center max-w-[650px] mx-auto mb-16 space-y-2"
           >
             <p className="text-[11px] font-extrabold uppercase tracking-[0.25em] text-[#967b54]">WHY CHOOSE US</p>
-            <h2 className="font-serif text-4xl md:text-6xl lg:text-[62px] font-normal text-[#2b3024] tracking-tight">Quality & Sustainability</h2>
+            <h2 className="font-serif text-4xl md:text-6xl lg:text-[62px] font-normal text-[#2b3024] tracking-tight">Quality & Values</h2>
 
             {/* 1. Circled Header Line & Leaf Emblem Divider */}
             <div className="flex items-center justify-center gap-3 pt-2">
@@ -299,170 +273,176 @@ export default function Home() {
           {/* 6 Cards Grid (Compact Sizing) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
 
-            {/* Card 1: Ethical and Sustainability */}
+            {/* Card 1: Go Beyond with Accountability */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
             >
               <BotanicalCardWatermark />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
-                  <Leaf className="w-5 h-5" strokeWidth={1.75} />
-                </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
-                  Ethical and Sustainability
-                </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  We work directly with local farming cooperatives & fair trade partners to support sustainable agriculture and empower rural communities.
-                </p>
-              </div>
-
-              <div className="pt-4 mt-4 relative z-10">
-                <Link href="/about#community" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Card 2: Go Beyond with Accountability */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
-            >
-              <BotanicalCardWatermark />
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Award className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
                   Go Beyond with Accountability
                 </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  Our processes adhere strictly to global quality standards, ensuring complete transparency and uncompromised excellence at every step.
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  We are not spice traders. We go beyond delivering spices. Committed to deliver Trust, Quality & Accountability at every step
                 </p>
               </div>
 
               <div className="pt-4 mt-4 relative z-10">
-                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
 
-            {/* Card 3: Single-Origin */}
+            {/* Card 2: Single-Origin */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
             >
               <BotanicalCardWatermark />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Sparkles className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
                   Single-Origin
                 </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  Pure Ceylon Spices sourced exclusively from our dedicated plantations in southern Sri Lanka, guaranteed authentic and unblended.
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  Our Cinnamon is Single-Origin and sourced exclusively from southern part of Sri Lanka, Matara District ensuring uncomprising Quality
                 </p>
               </div>
 
               <div className="pt-4 mt-4 relative z-10">
-                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
 
-            {/* Card 4: Aromatic Quality */}
+            {/* Card 3: Ethical & Sustainability */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
             >
               <BotanicalCardWatermark />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
+                  <Leaf className="w-5 h-5" strokeWidth={1.75} />
+                </div>
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
+                  Ethical & Sustainability
+                </h3>
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  We uphold ethical practices that support communities and preserve the environment for the future generations. Choosing us means the brand that cares for people and nature alike.
+                </p>
+              </div>
+
+              <div className="pt-4 mt-4 relative z-10">
+                <Link href="/about#community" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Card 4: Hand Packed */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+            >
+              <BotanicalCardWatermark />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Droplet className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
-                  Hand-Packaged
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
+                  Hand Packed
                 </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  Our essential oils and spices are cold-processed to retain maximum natural essential oils, delicate aroma, and therapeutic potency.
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  Every stick is carefully tested & Hand-Packaged in a premium design, reflects natural purity & the Luxury of our brand. Personal touch ensures consistency & craftsmanship at every stage
                 </p>
               </div>
 
               <div className="pt-4 mt-4 relative z-10">
-                <Link href="/products" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/products" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
 
-            {/* Card 5: Health & Wellness */}
+            {/* Card 5: Transparency */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
             >
               <BotanicalCardWatermark />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <Heart className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
                   Transparency
                 </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  Ceylon Cinnamon is world-famous for ultra-low coumarin (&lt;0.004%), high antioxidants, and active anti-inflammatory compounds.
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  Choosing us means choosing Transparency from sourcing to packaging. We openly share our processes with integrity, so you know exactly what goes until deliver the product to you
                 </p>
               </div>
 
               <div className="pt-4 mt-4 relative z-10">
-                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
 
-            {/* Card 6: Pure & Unadulterated */}
+            {/* Card 6: Exclusive to our plantation */}
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="bg-white rounded-3xl p-6 sm:p-7 border border-[#e6e2da] shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
+              className="bg-white hover:bg-[#eaf1e3] rounded-3xl p-6 sm:p-7 border border-[#e6e2da] hover:border-[#8fad77] shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group min-h-[300px]"
             >
               <BotanicalCardWatermark />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-[#5d634f] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-105 transition-transform">
+                <div className="w-12 h-12 rounded-full bg-[#5d634f] group-hover:bg-[#2e4220] text-white flex items-center justify-center mb-4 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
                   <ShieldCheck className="w-5 h-5" strokeWidth={1.75} />
                 </div>
-                <h3 className="font-serif font-normal text-xl text-[#2b3024] mb-2.5">
-                   Exclusive from Our Plantation
+                <h3 className="font-serif font-normal text-xl text-[#2b3024] group-hover:text-[#1c2e17] mb-2.5 transition-colors duration-300">
+                  Exclusive to our plantation
                 </h3>
-                <p className="text-xs md:text-sm text-[#635f56] leading-relaxed font-normal">
-                  Free from synthetic chemicals, filler barks, or additives. Packed fresh at origin to ensure farm-to-table natural purity.
+                <p className="text-xs md:text-sm text-[#635f56] group-hover:text-[#384831] leading-relaxed font-normal transition-colors duration-300">
+                  Experience the Taste that is Truly Unique which is Exclusive to our Plantation. This ensures the complete control of our Values from soil to shelf
                 </p>
               </div>
 
               <div className="pt-4 mt-4 relative z-10">
-                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#5d634f] transition-colors">
-                  LEARN MORE <ArrowRight className="w-3.5 h-3.5" />
+                <Link href="/sourcing" className="inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-widest text-[#2b3024] group-hover:text-[#2e4220] transition-colors">
+                  <span>LEARN MORE</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </motion.div>
@@ -473,49 +453,76 @@ export default function Home() {
 
 
 
-      {/* 5. From Forest Garden To Your Kitchen (Farm-to-Table Craftsmanship Journey) */}
-      
-      <section id="processing-production-journey" className="max-w-[1280px] mx-auto px-6 md:px-8 py-20 bg-[#edd6b4] scroll-mt-24">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="text-center max-w-[650px] mx-auto mb-16"
-        >
-          
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-black text-[#42190a]">From Forest Garden To Your Table</h2>
-          <p className="text-sm md:text-base font-semibold text-[#52443f] mt-3 leading-relaxed">
-            How we harvest, preserve, and deliver Sri Lanka's finest spices without compromising natural environment
-          </p>
-          <div className="w-16 h-1 bg-[#e6d8bc] mx-auto mt-4 rounded-full" />
-        </motion.div>
+      {/* 5. From Forest Garden To Your Table Section */}
+      <section id="processing-production-journey" className="relative w-full bg-[#edd6b4] py-16 md:py-20 px-6 md:px-8 border-t border-[#dfc5a0] scroll-mt-24">
+        <div className="max-w-[1280px] mx-auto space-y-12">
 
+          {/* Top 2-Column Grid: Left Text & Right Farmer Harvesting Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
 
+            {/* Left Content Column */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="lg:col-span-7 text-left space-y-4"
+            >
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#42190a] leading-tight">
+                From Forest Garden To Your Table
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl font-medium text-[#52443f] leading-relaxed max-w-[620px]">
+                How we harvest, preserve, and deliver Sri Lanka's finest spices without compromising natural environment
+              </p>
+              <div className="w-20 h-1 bg-[#42190a] rounded-full mt-2" />
+            </motion.div>
 
-        {/* Quality Highlight Metrics Pill */}
-        <div className="bg-gradient-to-r from-[#42190a] via-[#5c2813] to-[#192a14] rounded-2xl p-6 text-white shadow-premium flex flex-wrap items-center justify-around gap-6 text-center">
-          <div className="space-y-1">
-            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">100%</span>
-            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Single Origin Ceylon</p>
+            {/* Right Image Column (Farmer Harvesting Cinnamon in Forest) */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="lg:col-span-5 flex justify-center lg:justify-end"
+            >
+              <div className="relative w-full max-w-[400px] aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 group">
+                <Image
+                  src="/images/forest_garden_harvest.jpg"
+                  alt="Sri Lankan Farmer Harvesting Cinnamon in Forest Garden"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  priority
+                />
+              </div>
+            </motion.div>
+
           </div>
-          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
-          <div className="space-y-1">
-            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">&lt; 0.004%</span>
-            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Ultra-Low Coumarin</p>
+
+          {/* Quality Highlight Metrics Pill */}
+          <div className="bg-gradient-to-r from-[#42190a] via-[#5c2813] to-[#192a14] rounded-2xl p-6 text-white shadow-premium flex flex-wrap items-center justify-around gap-6 text-center">
+            <div className="space-y-1">
+              <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">100%</span>
+              <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Single Origin Ceylon</p>
+            </div>
+            <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+            <div className="space-y-1">
+              <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">&lt; 0.004%</span>
+              <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Ultra-Low Coumarin</p>
+            </div>
+            <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+            <div className="space-y-1">
+              <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">0%</span>
+              <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Synthetic Additives</p>
+            </div>
+            <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
+            <div className="space-y-1">
+              <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">180+ Yrs</span>
+              <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Artisanal Heritage</p>
+            </div>
           </div>
-          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
-          <div className="space-y-1">
-            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">0%</span>
-            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Synthetic Additives</p>
-          </div>
-          <div className="h-8 w-[1px] bg-white/20 hidden sm:block" />
-          <div className="space-y-1">
-            <span className="font-serif text-2xl md:text-3xl font-black text-[#ffc641]">180+ Yrs</span>
-            <p className="text-[10px] uppercase tracking-widest font-extrabold text-white/80">Artisanal Heritage</p>
-          </div>
+
         </div>
-
       </section>
 
       {/* 6. Explore our Artisanal Collections (Mockup Grid) */}
@@ -545,24 +552,25 @@ export default function Home() {
           </Link>
         </motion.div>
 
-        {/* Asymmetrical Grid featuring Pepper & Garcinia Color Design */}
+        {/* Asymmetrical Grid featuring Clean Natural Photos */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
           {/* Card 1: Cinnamon (col-span 8) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#42190a] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_cinnamon.png"
-                alt="Ceylon Cinnamon Close Up"
+                src="/images/card_cinnamon_powder_real.jpg"
+                alt="Ceylon Cinnamon Quills and Powder in Clay Bowl"
                 fill
                 sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700"
+                className="object-cover object-top opacity-100 group-hover:scale-[1.02] transition-transform duration-700"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
-              <h3 className="font-serif text-2xl font-bold text-white">Ceylon Cinnamon</h3>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">Ceylon Cinnamon</h3>
               <p className="text-sm text-white/85 leading-relaxed">
           
               </p>
@@ -576,20 +584,20 @@ export default function Home() {
           </div>
 
           {/* Card 2: Ceylon Cinnamon Leaf Oil (col-span 4) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-[#1e381b] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/artisan_vanilla_ravindra.png"
+                src="/images/card_leaf_oil_real.jpg"
                 alt="Ceylon Cinnamon Leaf Oil"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover opacity-75 group-hover:scale-[1.02] transition-transform duration-700"
+                className="object-cover object-center opacity-100 group-hover:scale-[1.02] transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3">
-              <h3 className="font-serif text-xl font-bold text-white">Cinnamon Leaf Oil</h3>
+              <h3 className="font-serif text-xl md:text-2xl font-bold text-white">Cinnamon Leaf Oil</h3>
               <Link
                 href="/products"
                 className="inline-block px-5 py-2 border border-white/50 bg-white/10 backdrop-blur-md text-white rounded font-bold text-xs uppercase tracking-wider transition-colors hover:bg-white/20 text-center"
@@ -599,17 +607,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 3: Black Pepper - Maroon & Green Theme (col-span 4) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-gradient-to-br from-[#4a0e17] via-[#66121e] to-[#1e381b] text-white h-[320px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          {/* Card 3: Black Pepper (col-span 4) */}
+          <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_pepper.png"
-                alt="Black Peppercorns"
+                src="/images/card_pepper_real.jpg"
+                alt="Black Peppercorns in Clay Bowl"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover opacity-70 group-hover:scale-[1.02] transition-transform duration-700"
+                className="object-cover object-center opacity-100 group-hover:scale-[1.02] transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#4a0e17]/90 via-[#4a0e17]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3">
@@ -624,28 +632,28 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Card 4: Garcinia Goraka - Vibrant Yellow, Green & Red Theme (col-span 8) */}
-          <div className="group relative rounded-xl overflow-hidden shadow-premium bg-gradient-to-br from-[#d97706] via-[#b91c1c] to-[#15803d] text-white h-[320px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
+          {/* Card 4: Garcinia Goraka (col-span 8) */}
+          <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_garcinia.png"
+                src="/images/card_garcinia_real.jpg"
                 alt="Organic Garcinia Goraka"
                 fill
                 sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover opacity-60 group-hover:scale-[1.02] transition-transform duration-700 mix-blend-overlay"
+                className="object-cover object-center opacity-100 group-hover:scale-[1.02] transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#7c2d12]/90 via-[#7c2d12]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
             </div>
 
             <div className="relative z-10 space-y-3 max-w-[480px]">
 
-              <h3 className="font-serif text-2xl font-bold text-white">Ceylon Organic Garcinia (Goraka)</h3>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold text-white">Ceylon Organic Garcinia (Goraka)</h3>
               <p className="text-sm text-white/90 leading-relaxed font-medium">
                 
               </p>
               <Link
                 href="/products"
-                className="inline-block px-5 py-2 bg-white text-[#7c2d12] rounded font-extrabold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
+                className="inline-block px-5 py-2 bg-white text-gray-900 rounded font-extrabold text-xs uppercase tracking-wider transition-colors hover:bg-[#eae7e7]"
               >
                 LEARN MORE
               </Link>
@@ -771,16 +779,16 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Cinnamon Sticks Image Box matching Mockup 2 */}
+                {/* Cinnamon Sticks Image Box matching User Requested Photo */}
                 <div className="mt-6 relative w-full h-48 sm:h-56 rounded-2xl overflow-hidden border border-[#eae7e7]">
                   <Image
-                    src="/images/card_cinnamon.png"
-                    alt="Ceylon Cinnamon Quills and Powder"
+                    src="/images/faq_cinnamon_bundle.jpg"
+                    alt="Authentic Ceylon Cinnamon Quill Bundle"
                     fill
                     sizes="(max-width: 768px) 100vw, 40vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                 </div>
 
               </div>
@@ -812,31 +820,20 @@ export default function Home() {
                   Visit Sri Lanka
                 </h2>
 
-                <p className="text-xs sm:text-sm md:text-base text-[#575045] leading-relaxed font-normal max-w-[600px]">
-                  Discover Sri Lanka, an island of breathtaking landscapes, rich cultural heritage, and vibrant biodiversity. From pristine beaches and world-class surfing spots to lush tea plantations and historic landmarks like the Nine Arches Bridge, Sri Lanka offers an unforgettable blend of adventure and tranquility. Explore its renowned wildlife, ancient temples, and flavorful Ceylon spices, all while experiencing the warmth of its people and the richness of its traditions.
+                <p className="text-xs sm:text-sm md:text-base text-[#575045] leading-relaxed font-normal max-w-[640px]">
+                  Sri Lanka is an island of stunning beauty and wild life, where breath-taking landscapes meet rich cultural heritage and vibrant biodiversity. From golden beaches and lush Tea/Cinnamon plantations, Paddy-fields to ancient temples and iconic landmarks like Sigiriya, Nine Arches Bridge, offers a perfect blend of adventure and serenity. Experience world-class surfing at southern beaches of Sri Lanka and flavourful Ceylon spices all over the country. With the warmth of its people, your journey will be truly unforgettable.
                 </p>
 
-                {/* Button & QR Code Row */}
-                <div className="pt-4 flex flex-wrap items-center gap-6 sm:gap-8">
-                  <Link
-                    href="https://www.srilanka.travel"
+                {/* Button Row */}
+                <div className="pt-2 flex items-center">
+                  <a
+                    href="https://www.evergotravels.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#787165] hover:bg-[#5f594e] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#787165] hover:bg-[#5f594e] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-lg hover:scale-105 cursor-pointer"
                   >
                     Learn More <ArrowRight className="w-4 h-4" />
-                  </Link>
-
-                  {/* QR Code Container */}
-                  <div className="bg-white p-2 rounded-2xl shadow-md border border-white/60">
-                    <Image
-                      src="/images/visit_srilanka_qr_code.png"
-                      alt="Scan to Visit Sri Lanka Tourism"
-                      width={100}
-                      height={100}
-                      className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-xl"
-                    />
-                  </div>
+                  </a>
                 </div>
               </div>
 
@@ -859,26 +856,82 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 9. Local Farming Community & Heritage Banner */}
+      {/* 9. Local Farming Community & Heritage Gallery */}
       <section className="w-full bg-[#f8f6f0] pb-16 md:pb-24 px-6 md:px-8">
         <div className="max-w-[1280px] mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="relative rounded-3xl md:rounded-[36px] overflow-hidden shadow-lg border border-[#e6e2da] bg-white group"
-          >
-            <div className="relative w-full aspect-[1024/258] min-h-[220px] sm:min-h-[280px] md:min-h-[360px]">
+
+          {/* 3-Card Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
+
+            {/* Left Card: Farmer Harvesting */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="group relative rounded-3xl md:rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl border border-[#e6e2da] hover:border-[#8fad77] bg-white h-[340px] sm:h-[400px] md:h-[440px] transition-all duration-500 hover:-translate-y-1"
+            >
               <Image
-                src="/images/ceylon_farming_community_banner.png"
-                alt="Local Sri Lankan Spice Farming Community"
+                src="/images/community_farmer_cutting.jpg"
+                alt="Sri Lankan Farmer Harvesting Cinnamon"
                 fill
-                sizes="100vw"
-                className="object-cover group-hover:scale-[1.01] transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
-            </div>
-          </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white z-10">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ffc641]">Artisanal Craft</span>
+                <h3 className="font-serif text-lg font-bold text-white mt-0.5">Traditional Harvesting</h3>
+              </div>
+            </motion.div>
+
+            {/* Center Card: Mother & Child (Ammayi Babayi) - Featured Center Position */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="group relative rounded-3xl md:rounded-[32px] overflow-hidden shadow-xl hover:shadow-2xl border-2 border-[#8fad77] bg-white h-[360px] sm:h-[420px] md:h-[460px] transition-all duration-500 hover:-translate-y-1.5 md:-mt-3"
+            >
+              <Image
+                src="/images/community_mother_child.jpg"
+                alt="Sri Lankan Mother and Child with Cinnamon Sticks"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white z-10">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ffc641]">Family Plantation</span>
+                <h3 className="font-serif text-xl font-bold text-white mt-0.5">Sustaining Future Generations</h3>
+              </div>
+            </motion.div>
+
+            {/* Right Card: Two Farmers in Estate */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="group relative rounded-3xl md:rounded-[32px] overflow-hidden shadow-lg hover:shadow-2xl border border-[#e6e2da] hover:border-[#8fad77] bg-white h-[340px] sm:h-[400px] md:h-[440px] transition-all duration-500 hover:-translate-y-1"
+            >
+              <Image
+                src="/images/community_two_farmers.jpg"
+                alt="Local Sri Lankan Spice Farmers in Cinnamon Estate"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white z-10">
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#ffc641]">Fair Trade</span>
+                <h3 className="font-serif text-lg font-bold text-white mt-0.5">Empowering Rural Farmers</h3>
+              </div>
+            </motion.div>
+
+          </div>
+
         </div>
       </section>
 

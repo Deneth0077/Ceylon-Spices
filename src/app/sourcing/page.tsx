@@ -108,42 +108,37 @@ export default function OurSourcingPage() {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
-      <section className="relative w-full min-h-[480px] md:min-h-[540px] bg-[#3a1b0e] text-[#f7f2ea] flex items-center justify-center overflow-hidden pt-12 pb-16">
+      <section className="relative w-full min-h-[500px] md:min-h-[560px] flex items-center justify-center overflow-hidden py-20 md:py-28 px-6 md:px-8 border-b border-[#eae7e7]">
         
-        {/* Background Image with Warm Kraft Overlay */}
+        {/* Background Image with About Hero Gradient Overlay */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/ceylon_cinnamon_estate_about.png"
-            alt="Ceylon Cinnamon Estate"
+            src="/images/about_soil_to_table_bg.jpg"
+            alt="Lush Sri Lankan river and cinnamon estate landscape"
             fill
-            className="object-cover object-center opacity-40 mix-blend-luminosity"
+            quality={100}
+            unoptimized
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#3a1b0e]/90 via-[#3a1b0e]/75 to-[#3a1b0e]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/30 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 max-w-[1100px] mx-auto px-6 text-center space-y-5">
-        
-          <motion.h1
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl md:text-6xl font-black text-[#faf6f0] tracking-tight leading-[1.15]"
-          >
-            FROM CEYLON SOIL <br className="hidden sm:inline" />
-            <span className="text-[#d4a373] italic">TO YOUR TABLE</span>
-          </motion.h1>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 max-w-[950px] mx-auto text-center space-y-6"
+        >
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg tracking-tight">
+            FROM CEYLON SOIL <span className="text-[#ffdfa0]">TO YOUR TABLE</span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-sm sm:text-base md:text-lg text-[#ded3c5] max-w-[780px] mx-auto font-light leading-relaxed"
-          >
+          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-[780px] mx-auto font-medium leading-relaxed drop-shadow-md">
             Single-Origin, Sustainability, Genuine & Premium Sourcing. <br className="hidden sm:inline" />
             Discover how True Cinnamon Care brings you the world's finest Ceylon cinnamon, sourced with integrity and passion.
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
       </section>
 
 
@@ -405,8 +400,8 @@ export default function OurSourcingPage() {
           <h2 className="font-serif text-3xl md:text-4xl font-extrabold text-[#3a1b0e]">
             Why Choose Us
           </h2>
-          <p className="text-xs sm:text-sm text-[#593d2e] max-w-[800px] mx-auto leading-relaxed text-justify sm:text-center">
-            At <strong>True Cinnamon Care</strong>, we are not spice traders. We <strong>Go Beyond</strong> delivering spice. Committed to deliver Trust, <strong>Accountability</strong>, Heritage, and <strong>Uncompromising Quality</strong>. Our cinnamon is <strong>Single-Origin</strong> and sourced exclusively from <strong>Sri Lanka</strong>, ensuring authenticity and naturally negligible coumarin levels for <strong>Safe Daily Use</strong>. By partnering with local people, we uphold <strong>Ethical Practices</strong> that support communities and <strong>Preserve the Environment</strong>. Every stick is carefully graded, tested, and <strong>Hand-Packaged</strong> in a recyclable premium design that reflect the <strong>Sustainability</strong> and <strong>Luxury</strong> of our brand. Choosing us means choosing purity, <strong>Transparency</strong>, and a taste experience that is <strong>Truly Unique</strong> which is <strong>Exclusive</strong> to <strong>Our Plantation</strong>.
+          <p className="text-sm sm:text-base text-[#4a3429] max-w-[850px] mx-auto leading-relaxed text-justify sm:text-center">
+            At <strong className="font-extrabold text-[#2b1810] text-[1.08em]">True Cinnamon Care</strong>, we are not spice traders. We <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Go Beyond</strong> delivering spice. Committed to deliver Trust, <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Accountability</strong>, Heritage, and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Uncompromising Quality</strong>. Our cinnamon is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Single-Origin</strong> and sourced exclusively from <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Sri Lanka</strong>, ensuring authenticity and naturally negligible coumarin levels for <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Safe Daily Use</strong>. By partnering with local people, we uphold <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Ethical Practices</strong> that support communities and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Preserve the Environment</strong>. Every stick is carefully graded, tested, and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Hand-Packaged</strong> in a recyclable premium design that reflect the <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Sustainability</strong> and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Luxury</strong> of our brand. Choosing us means choosing purity, <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Transparency</strong>, and a taste experience that is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Truly Unique</strong> which is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Exclusive to Our Plantation</strong>.
           </p>
           <div className="w-16 h-1 bg-[#8c502b] mx-auto rounded-full" />
         </div>

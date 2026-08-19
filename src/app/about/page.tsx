@@ -55,44 +55,42 @@ export default function AboutPage() {
       </div>
       
       {/* 1. Hero Section */}
-      <section className="relative w-full min-h-[480px] flex items-center justify-center pt-6 pb-20 md:pb-24 px-6 md:px-8 border-b border-[#eae7e7]">
+      <section className="relative w-full min-h-[520px] md:min-h-[580px] flex items-center justify-center py-20 md:py-28 px-6 md:px-8 border-b border-[#eae7e7]">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/ceylon_cinnamon_estate_about.png" 
-            alt="Lush organic Ceylon cinnamon estate in Sri Lankan highlands" 
+            src="/images/cinnamon_plantation_banner.jpg" 
+            alt="Lush organic Ceylon cinnamon plantation in Sri Lanka" 
             fill 
             sizes="100vw"
-            className="object-cover brightness-[0.65]"
+            className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#192a14]/80 via-[#42190a]/40 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30 pointer-events-none" />
         </div>
         
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-[850px] bg-[#fcf9f8]/95 backdrop-blur-md p-8 md:p-14 rounded-2xl shadow-premium border border-white/60 text-center"
+          className="relative z-10 max-w-[950px] mx-auto text-center space-y-8"
         >
-         
-          <h1 className="font-serif text-3xl md:text-5xl font-bold text-[#42190a] leading-tight mb-4">
-            We are a SINGLE ORIGIN,
-            <br className="hidden md:inline" />
-           premium CEYLON-ingredients EXPORT partner for overseas importers
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg tracking-tight">
+            We are a <span className="text-[#ffdfa0]">SINGLE ORIGIN</span>, premium <span className="text-[#ffdfa0]">CEYLON</span>-ingredients <span className="text-[#ffdfa0]">EXPORT</span> partner for overseas importers
           </h1>
         
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-4 pt-2">
             <Link 
               href="#who-we-are" 
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#42190a] hover:bg-[#5d2e1d] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#325220] hover:bg-[#233d16] text-white rounded-full font-extrabold text-xs uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl hover:scale-105"
             >
-              Who We Are <ArrowRight className="w-4 h-4" />
+              <span>Who We Are</span>
+              <ArrowRight className="w-4 h-4 text-white" />
             </Link>
             <Link 
               href="/contact" 
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#795900] hover:bg-[#5c4300] text-white rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg"
+              className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#795900] hover:bg-[#5c4300] text-white rounded-full font-extrabold text-xs uppercase tracking-wider transition-all shadow-xl hover:shadow-2xl hover:scale-105"
             >
-              Contact Us
+              <span>Contact Us</span>
             </Link>
           </div>
         </motion.div>
@@ -130,8 +128,8 @@ export default function AboutPage() {
           >
             <div className="relative w-full h-[380px] lg:h-[100%] min-h-[380px] rounded-2xl overflow-hidden shadow-premium border-2 border-[#795900]/20 group">
               <Image 
-                src="/images/farmer_community.png" 
-                alt="Sri Lankan farming family holding Ceylon cinnamon harvest" 
+                src="/images/about_who_we_are_farmers.jpg" 
+                alt="Sri Lankan cinnamon farmers in lush plantation" 
                 fill 
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -192,58 +190,67 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. CONNECT WITH NATURE SECTION */}
-      <section className="relative z-10 w-full py-16 bg-[#192a14] text-white overflow-hidden shadow-2xl">
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="/images/community_nature_grid.png" 
-            alt="Connect with Nature community support pictures" 
-            fill 
-            sizes="100vw"
-            className="object-cover opacity-25 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#192a14] via-[#192a14]/85 to-[#192a14]" />
-        </div>
-
+      {/* 3. ELEVATING COMMUNITY SECTION */}
+      <section className="relative z-10 w-full py-20 bg-[#e9f0e1] text-[#2b3024] overflow-hidden border-y border-[#d4e0c9]">
         <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 text-center space-y-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="space-y-4"
+            className="space-y-3"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ffdfa0] text-[11px] font-bold uppercase tracking-[0.25em]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#325220]/10 border border-[#325220]/20 text-[#325220] text-[11px] font-extrabold uppercase tracking-[0.25em]">
               <Globe2 className="w-3.5 h-3.5" /> Ethical & Sustainable Growth
             </div>
             
-            <h2 className="font-serif text-4xl md:text-6xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ffdfa0] to-white drop-shadow-md">
-              CONNECT WITH NATURE
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#1c2e17]">
+              ELEVATING COMMUNITY
             </h2>
-
-            <p className="text-sm md:text-base text-[#eae7e7]/90 max-w-[650px] mx-auto font-medium">
-              Few Community support pictures with our product samples
-            </p>
           </motion.div>
 
-          {/* Community Farmers Photo Banner */}
-          <motion.div
+          {/* 3-Photo Community Impact Grid */}
+          <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="pt-6 max-w-[1100px] mx-auto"
+            className="pt-6 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-[#192a14] group">
-              <div className="relative w-full aspect-[1024/258] min-h-[220px] sm:min-h-[280px] md:min-h-[360px]">
-                <Image
-                  src="/images/ceylon_farming_community_banner.png"
-                  alt="Ceylon Farming Community Support Pictures"
-                  fill
-                  sizes="(max-width: 1280px) 100vw, 1100px"
-                  className="object-cover group-hover:scale-[1.01] transition-transform duration-700"
-                />
-              </div>
+            {/* Left Photo: Harvesting in Forest */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_harvest_left.jpg"
+                alt="Farmers harvesting cinnamon in Sri Lankan forest garden"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </div>
+
+            {/* Middle Photo: Little Boy Holding Cinnamon Quills (Center Position) */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-[#795900]/40 bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_child_middle.jpg"
+                alt="Child of cinnamon farming family holding fresh Ceylon cinnamon quills"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </div>
+
+            {/* Right Photo: Master Artisan Peeling Cinnamon */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_peeling_right.jpg"
+                alt="Master spice artisan hand peeling Ceylon cinnamon quills"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </div>
           </motion.div>
         </div>
@@ -281,11 +288,11 @@ export default function AboutPage() {
           >
             <div className="relative w-full h-[450px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image 
-                src="/images/founder_nuwan.png" 
+                src="/images/about_founder_portrait.jpg" 
                 alt="Nuwan M. Abeysekara Founder and Managing Director" 
                 fill 
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#42190a]/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 p-4 bg-[#192a14]/90 backdrop-blur-md rounded-xl text-white border border-white/20">
@@ -424,12 +431,12 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeInUp}
-          className="bg-white rounded-3xl p-8 md:p-12 border border-[#eae7e7] shadow-premium grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          className="bg-[#f7eddf] rounded-3xl p-8 md:p-12 border border-[#e8dac9] shadow-premium grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
         >
-          <div className="lg:col-span-7 relative h-[300px] md:h-[380px] rounded-2xl overflow-hidden border border-[#eae7e7] group">
+          <div className="lg:col-span-7 relative h-[300px] md:h-[380px] rounded-2xl overflow-hidden border border-[#e8dac9] group">
             <Image 
-              src="/images/premium_ceylon_spice_exports.png" 
-              alt="Premium Ceylon organic spices, cinnamon Alba quills, turmeric, cardamom, black pepper" 
+              src="/images/about_black_pepper_leaf.jpg" 
+              alt="Black peppercorns on fresh betel leaf" 
               fill 
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -440,17 +447,17 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-5 flex flex-col items-center text-center space-y-5 p-2">
-            <div className="relative w-[180px] h-[100px]">
+            <div className="relative w-[220px] h-[110px]">
               <Image 
-                src="/images/new_brand_logo.png" 
-                alt="True Cinnamon Care Brand Emblem" 
+                src="/images/about_tcc_full_logo.png" 
+                alt="True Cinnamon Care Full Logo" 
                 fill 
-                sizes="180px"
+                sizes="220px"
                 className="object-contain"
               />
             </div>
             <div className="space-y-2">
-              <h4 className="font-serif font-black text-2xl text-[#42190a]">True Cinnamon Care</h4>
+              <h4 className="font-serif font-black text-2xl text-[#2b1810]">True Cinnamon Care</h4>
               <p className="text-xs text-[#795900] font-extrabold uppercase tracking-widest">PREMIUM CEYLON EXPORT PARTNER</p>
               <p className="text-sm text-[#52443f] max-w-[340px] mx-auto leading-relaxed pt-1 font-medium">
                 Delivering high-value Ceylon spices & organic extracts to international markets with uncompromised quality and single-origin authenticity.
@@ -467,7 +474,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6. CALL TO ACTION SECTION */}
-      <section className="relative z-10 bg-[#e3c294] text-white py-20 px-6 md:px-8">
+      <section className="relative z-10 bg-[#f7eddf] text-[#1b1c1c] py-20 px-6 md:px-8 border-t border-[#e8dac9]">
         <div className="max-w-[1000px] mx-auto text-center space-y-8">
           <motion.div 
             initial="hidden"
@@ -476,13 +483,13 @@ export default function AboutPage() {
             variants={fadeInUp}
             className="space-y-4"
           >
-            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.25em] text-[#ffdfa0] bg-white/10 px-4 py-1.5 rounded-full border border-white/15">
+            <span className="inline-block text-[10px] font-extrabold uppercase tracking-[0.25em] text-[#42190a] bg-[#42190a]/10 px-4 py-1.5 rounded-full border border-[#42190a]/20">
               Connect With Us
             </span>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-black text-[#1b1c1c] leading-tight">
               Partner with Sri Lanka's Finest<br />Single-Origin Spice Exporter
             </h2>
-            <p className="text-sm md:text-base text-[#eae7e7]/90 max-w-[650px] mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-[#52443f] max-w-[650px] mx-auto leading-relaxed font-medium">
               Whether you are an overseas importer, buyer, or trade partner, we invite you to experience authentic Ceylon cinnamon and value-added agro produce.
             </p>
           </motion.div>
@@ -496,7 +503,7 @@ export default function AboutPage() {
           >
             <Link 
               href="/contact" 
-              className="inline-flex items-center gap-3 px-9 py-4 bg-[#ffc641] hover:bg-[#ffdfa0] text-[#42190a] rounded-xl font-bold text-xs uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-3 px-9 py-4 bg-[#42190a] hover:bg-[#5d2e1d] text-white rounded-xl font-extrabold text-xs uppercase tracking-widest transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
             >
               CONTACT US <ArrowRight className="w-4 h-4" />
             </Link>

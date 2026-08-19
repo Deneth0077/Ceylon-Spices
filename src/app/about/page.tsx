@@ -72,9 +72,9 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="relative z-10 max-w-[950px] mx-auto text-center space-y-8"
+          className="relative z-10 max-w-[850px] mx-auto text-center space-y-6"
         >
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg tracking-tight">
+          <h1 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white leading-snug drop-shadow-lg tracking-tight">
             We are a <span className="text-[#ffdfa0]">SINGLE ORIGIN</span>, premium <span className="text-[#ffdfa0]">CEYLON</span>-ingredients <span className="text-[#ffdfa0]">EXPORT</span> partner for overseas importers
           </h1>
         
@@ -190,71 +190,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. ELEVATING COMMUNITY SECTION */}
-      <section className="relative z-10 w-full py-20 bg-[#e9f0e1] text-[#2b3024] overflow-hidden border-y border-[#d4e0c9]">
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 text-center space-y-6">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="space-y-3"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#325220]/10 border border-[#325220]/20 text-[#325220] text-[11px] font-extrabold uppercase tracking-[0.25em]">
-              <Globe2 className="w-3.5 h-3.5" /> Ethical & Sustainable Growth
+      {/* 3. OUR SPICE COLLECTION SHOWCASE SECTION (Commented Out for now) */}
+      {/* 
+      <section className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 py-16 border-b border-[#eae7e7]">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+          className="bg-[#f7eddf] rounded-3xl p-8 md:p-12 border border-[#e8dac9] shadow-premium grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+        >
+          <div className="lg:col-span-7 relative h-[300px] md:h-[380px] rounded-2xl overflow-hidden border border-[#e8dac9] group">
+            <Image 
+              src="/images/about_black_pepper_leaf.jpg" 
+              alt="Black peppercorns on fresh betel leaf" 
+              fill 
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute top-4 left-4 bg-[#42190a]/95 text-white px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md">
+              OUR SPICE COLLECTION
             </div>
-            
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#1c2e17]">
-              ELEVATING COMMUNITY
-            </h2>
-          </motion.div>
+          </div>
 
-          {/* 3-Photo Community Impact Grid */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="pt-6 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {/* Left Photo: Harvesting in Forest */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
-              <Image
-                src="/images/community_harvest_left.jpg"
-                alt="Farmers harvesting cinnamon in Sri Lankan forest garden"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+          <div className="lg:col-span-5 flex flex-col items-center text-center space-y-5 p-2">
+            <div className="relative w-[220px] h-[110px]">
+              <Image 
+                src="/images/about_tcc_full_logo.png" 
+                alt="True Cinnamon Care Full Logo" 
+                fill 
+                sizes="220px"
+                className="object-contain"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             </div>
-
-            {/* Middle Photo: Little Boy Holding Cinnamon Quills (Center Position) */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-[#795900]/40 bg-[#dce7d3] h-[360px] md:h-[420px] group">
-              <Image
-                src="/images/community_child_middle.jpg"
-                alt="Child of cinnamon farming family holding fresh Ceylon cinnamon quills"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="space-y-2">
+              <h4 className="font-serif font-black text-2xl text-[#2b1810]">True Cinnamon Care</h4>
+              <p className="text-xs text-[#795900] font-extrabold uppercase tracking-widest">PREMIUM CEYLON EXPORT PARTNER</p>
+              <p className="text-sm text-[#52443f] max-w-[340px] mx-auto leading-relaxed pt-1 font-medium">
+                Delivering high-value Ceylon spices & organic extracts to international markets with uncompromised quality and single-origin authenticity.
+              </p>
             </div>
-
-            {/* Right Photo: Master Artisan Peeling Cinnamon */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
-              <Image
-                src="/images/community_peeling_right.jpg"
-                alt="Master spice artisan hand peeling Ceylon cinnamon quills"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            </div>
-          </motion.div>
-        </div>
+            <Link 
+              href="/products" 
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#795900] hover:bg-[#5c4300] text-white rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer"
+            >
+              Explore All Spices <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </motion.div>
       </section>
+      */}
+
 
       {/* 4. FOUNDER & MANAGING DIRECTOR SECTION */}
       <section className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 py-24 border-b border-[#eae7e7]">
@@ -427,52 +413,69 @@ export default function AboutPage() {
           </motion.div>
         </div>
 
-        {/* Product & Logo Showcase Card */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={fadeInUp}
-          className="bg-[#f7eddf] rounded-3xl p-8 md:p-12 border border-[#e8dac9] shadow-premium grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-        >
-          <div className="lg:col-span-7 relative h-[300px] md:h-[380px] rounded-2xl overflow-hidden border border-[#e8dac9] group">
-            <Image 
-              src="/images/about_black_pepper_leaf.jpg" 
-              alt="Black peppercorns on fresh betel leaf" 
-              fill 
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute top-4 left-4 bg-[#42190a]/95 text-white px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider backdrop-blur-md shadow-md">
-              OUR SPICE COLLECTION
-            </div>
-          </div>
+      </section>
 
-          <div className="lg:col-span-5 flex flex-col items-center text-center space-y-5 p-2">
-            <div className="relative w-[220px] h-[110px]">
-              <Image 
-                src="/images/about_tcc_full_logo.png" 
-                alt="True Cinnamon Care Full Logo" 
-                fill 
-                sizes="220px"
-                className="object-contain"
+      {/* ELEVATING COMMUNITY SECTION (Positioned right below OUR MISSION & VISION) */}
+      <section className="relative z-10 w-full py-20 bg-[#e9f0e1] text-[#2b3024] overflow-hidden border-y border-[#d4e0c9]">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 text-center space-y-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="space-y-3 flex flex-col items-center justify-center"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#325220]/10 border border-[#325220]/25 text-[#325220] text-[11px] font-extrabold uppercase tracking-[0.25em]">
+              <Globe2 className="w-3.5 h-3.5" /> ETHICAL & SUSTAINABLE GROWTH
+            </div>
+            
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#1c2e17]">
+              ELEVATING COMMUNITY
+            </h2>
+          </motion.div>
+
+          {/* 3-Photo Community Impact Grid */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="pt-6 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {/* Left Photo: Harvesting in Forest */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_harvest_left.jpg"
+                alt="Farmers harvesting cinnamon in Sri Lankan forest garden"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
               />
             </div>
-            <div className="space-y-2">
-              <h4 className="font-serif font-black text-2xl text-[#2b1810]">True Cinnamon Care</h4>
-              <p className="text-xs text-[#795900] font-extrabold uppercase tracking-widest">PREMIUM CEYLON EXPORT PARTNER</p>
-              <p className="text-sm text-[#52443f] max-w-[340px] mx-auto leading-relaxed pt-1 font-medium">
-                Delivering high-value Ceylon spices & organic extracts to international markets with uncompromised quality and single-origin authenticity.
-              </p>
+
+            {/* Middle Photo: Little Boy Holding Cinnamon Quills (Center Position) */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-[#795900]/40 bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_child_middle.jpg"
+                alt="Child of cinnamon farming family holding fresh Ceylon cinnamon quills"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
             </div>
-            <Link 
-              href="/products" 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#795900] hover:bg-[#5c4300] text-white rounded-xl font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg cursor-pointer"
-            >
-              Explore All Spices <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </motion.div>
+
+            {/* Right Photo: Master Artisan Peeling Cinnamon */}
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+              <Image
+                src="/images/community_peeling_right.jpg"
+                alt="Master spice artisan hand peeling Ceylon cinnamon quills"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-700"
+              />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* 6. CALL TO ACTION SECTION */}

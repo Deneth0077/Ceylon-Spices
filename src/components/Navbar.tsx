@@ -156,15 +156,15 @@ export default function Navbar() {
         }`}>
         <nav className="w-full">
           <div className="max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
-            <div className="flex justify-between items-center h-12 sm:h-14 md:h-16 w-full">
+            <div className="flex justify-between items-center h-14 sm:h-16 md:h-18 w-full">
 
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="flex items-center group py-0.5" onClick={() => setIsMobileMenuOpen(false)}>
                   <img
-                    src="/images/new_brand_logo.png"
+                    src="/images/navbar_brand_logo.png"
                     alt="True Cinnamon Care Logo"
-                    className="h-9 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="h-10 sm:h-11 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 </Link>
               </div>

@@ -416,20 +416,20 @@ export default function AboutPage() {
       </section>
 
       {/* ELEVATING COMMUNITY SECTION (Positioned right below OUR MISSION & VISION) */}
-      <section className="relative z-10 w-full py-20 bg-[#e9f0e1] text-[#2b3024] overflow-hidden border-y border-[#d4e0c9]">
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 text-center space-y-6">
+      <section className="relative z-10 w-full py-12 md:py-16 bg-[#e9f0e1] text-[#2b3024] overflow-hidden border-y border-[#d4e0c9]">
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8 text-center space-y-5">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="space-y-3 flex flex-col items-center justify-center"
+            className="space-y-2 flex flex-col items-center justify-center"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#325220]/10 border border-[#325220]/25 text-[#325220] text-[11px] font-extrabold uppercase tracking-[0.25em]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#325220]/10 border border-[#325220]/25 text-[#325220] text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.2em]">
               <Globe2 className="w-3.5 h-3.5" /> ETHICAL & SUSTAINABLE GROWTH
             </div>
             
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#1c2e17]">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#1c2e17]">
               ELEVATING COMMUNITY
             </h2>
           </motion.div>
@@ -440,10 +440,10 @@ export default function AboutPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="pt-6 max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="pt-4 max-w-[980px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-5"
           >
             {/* Left Photo: Harvesting in Forest */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-md border border-[#c5d6b8] bg-[#dce7d3] h-[260px] sm:h-[290px] md:h-[320px] group">
               <Image
                 src="/images/community_harvest_left.jpg"
                 alt="Farmers harvesting cinnamon in Sri Lankan forest garden"
@@ -454,7 +454,7 @@ export default function AboutPage() {
             </div>
 
             {/* Middle Photo: Little Boy Holding Cinnamon Quills (Center Position) */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-xl border-2 border-[#795900]/40 bg-[#dce7d3] h-[360px] md:h-[420px] group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border-2 border-[#795900]/40 bg-[#dce7d3] h-[260px] sm:h-[290px] md:h-[320px] group">
               <Image
                 src="/images/community_child_middle.jpg"
                 alt="Child of cinnamon farming family holding fresh Ceylon cinnamon quills"
@@ -465,7 +465,7 @@ export default function AboutPage() {
             </div>
 
             {/* Right Photo: Master Artisan Peeling Cinnamon */}
-            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-lg border border-[#c5d6b8] bg-[#dce7d3] h-[360px] md:h-[420px] group">
+            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden shadow-md border border-[#c5d6b8] bg-[#dce7d3] h-[260px] sm:h-[290px] md:h-[320px] group">
               <Image
                 src="/images/community_peeling_right.jpg"
                 alt="Master spice artisan hand peeling Ceylon cinnamon quills"

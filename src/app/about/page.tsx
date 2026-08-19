@@ -288,9 +288,10 @@ export default function AboutPage() {
           >
             <div className="relative w-full h-[450px] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <Image 
-                src="/images/about_founder_portrait.jpg" 
+                src="/images/founder_nuwan_abeysekara.jpg" 
                 alt="Nuwan M. Abeysekara Founder and Managing Director" 
                 fill 
+                unoptimized
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-top"
               />
@@ -329,9 +330,10 @@ export default function AboutPage() {
               <div className="space-y-1">
                 <div className="relative w-[220px] h-[65px]">
                   <Image 
-                    src="/images/founder_signature.png" 
+                    src="/images/nuwan_abeysekara_signature.png" 
                     alt="Nuwan M. Abeysekara Signature" 
                     fill 
+                    unoptimized
                     sizes="220px"
                     className="object-contain object-left mix-blend-multiply"
                   />

@@ -93,10 +93,9 @@ export default function OurSourcingPage() {
   ];
 
   const galleryImages = [
-    { src: "/images/hero_spices_1781650500572.png", alt: "Ceylon Cinnamon Tea", caption: "Artisanal Cinnamon Tea" },
-    { src: "/images/card_cinnamon.png", alt: "Fresh Cinnamon Quills", caption: "Hand-rolled Quills" },
-    { src: "/images/black_pepper_1781650594175.png", alt: "Spiced Gourmet Dishes", caption: "Gourmet Culinary Use" },
-    { src: "/images/srilanka_purest_spices.png", alt: "Cinnamon Rice & Spices", caption: "Traditional Island Spices" }
+    { src: "/images/gourmet_cinnamon_tea.jpg", alt: "Artisanal Ceylon Cinnamon Tea", caption: "Artisanal Cinnamon Tea" },
+    { src: "/images/gourmet_savory_dish.jpg", alt: "Gourmet Savory Culinary Creation", caption: "Gourmet Culinary Use" },
+    { src: "/images/gourmet_dessert_pear.jpg", alt: "Poached Pear & Cinnamon Dessert", caption: "Traditional Island Spices" }
   ];
 
   return (
@@ -470,12 +469,12 @@ export default function OurSourcingPage() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
             {galleryImages.map((img, idx) => (
-              <div key={idx} className="group relative h-48 sm:h-56 bg-[#faf5ed] rounded-2xl overflow-hidden border border-[#d6c4ae] shadow-sm">
-                <Image src={img.src} alt={img.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2c1810]/80 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                <span className="absolute bottom-3 left-3 right-3 text-xs font-bold text-[#f7f2ea] font-serif text-left">
+              <div key={idx} className="group relative h-56 sm:h-64 bg-[#faf5ed] rounded-3xl overflow-hidden border-2 border-[#d6c4ae]/60 shadow-md hover:shadow-xl transition-all duration-300">
+                <Image src={img.src} alt={img.alt} fill unoptimized className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2c1810]/85 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <span className="absolute bottom-4 left-4 right-4 text-sm font-bold text-[#f7f2ea] font-serif text-left">
                   {img.caption}
                 </span>
               </div>

@@ -247,14 +247,14 @@ export default function ContactPage() {
           </div>
 
           {/* Full-Width Extended Map Banner Card */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#eae7e7] shadow-2xl bg-white group">
+          <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#d0d4ba] shadow-2xl bg-[#ced2b8] group">
             
             {/* Original Map Image Banner */}
-            <div className="relative w-full h-[360px] sm:h-[480px] md:h-[580px] lg:h-[660px] bg-[#cdd1bb] p-2 sm:p-4">
+            <div className="relative w-full h-[260px] sm:h-[380px] md:h-[460px] lg:h-[520px] xl:h-[560px] bg-[#ced2b8]">
               <img 
                 src="/images/factory_location_map.png" 
                 alt="Sri Lanka Agro-Climatic Spice Zones and Factory Route Map from Colombo to Hakmana Matara" 
-                className="w-full h-full object-contain object-center drop-shadow-md rounded-2xl"
+                className="w-full h-full object-cover object-center"
               />
             </div>
 

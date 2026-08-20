@@ -18,6 +18,14 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "True Cinnamon Care - Premium Sri Lankan Spices",
   description: "Organic Ceylon Spices sourced directly from the misty highlands of Sri Lanka by True Cinnamon Care.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/tcc_favicon.png", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

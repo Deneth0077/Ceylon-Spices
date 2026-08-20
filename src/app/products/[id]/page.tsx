@@ -20,23 +20,23 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const product: Product = productsData.find((p) => p.id === productId) || productsData[0];
 
   const handleWhatsAppCheckout = () => {
-    let message = `🌿 *TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
-    message += `──────────────────────────────\n`;
-    message += `✨ *PRODUCT INQUIRY*\n\n`;
-    message += `📌 *Selected Product Details:*\n`;
-    message += `• *Product Name:* ${product.title}\n`;
-    if (product.subtitle) message += `• *Category / Spec:* ${product.subtitle}\n`;
-    message += `• *Origin:* 100% ${product.origin}\n`;
-    if (product.packaging) message += `• *Packaging:* ${product.packaging}\n`;
-    if (product.netWeight) message += `• *Net Weight:* ${product.netWeight}\n`;
-    message += `\n──────────────────────────────\n`;
-    message += `📝 *Inquiry Request:*\n`;
-    message += `Hello True Cinnamon Care Team,\n`;
+    let message = `*TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+    message += `--------------------------------------------------\n`;
+    message += `*PRODUCT INQUIRY*\n\n`;
+    message += `*SELECTED PRODUCT DETAILS:*\n`;
+    message += `- Product Name: *${product.title}*\n`;
+    if (product.subtitle) message += `- Category / Spec: ${product.subtitle}\n`;
+    message += `- Origin: ${product.origin}\n`;
+    if (product.packaging) message += `- Packaging: ${product.packaging}\n`;
+    if (product.netWeight) message += `- Net Weight: ${product.netWeight}\n`;
+    message += `\n--------------------------------------------------\n`;
+    message += `*INQUIRY REQUEST:*\n`;
+    message += `Hello True Cinnamon Care Team,\n\n`;
     message += `I am inquiring about *${product.title}*. Kindly provide availability, export quotation, and shipping terms.\n\n`;
     message += `Thank you!\n`;
-    message += `──────────────────────────────\n`;
-    message += `🌐 *True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
-    message += `📞 *24/7 Hotline:* +94 77 289 3030`;
+    message += `--------------------------------------------------\n`;
+    message += `*True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+    message += `Hotline: +94 77 289 3030`;
     const whatsappUrl = `https://wa.me/94772893030?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };

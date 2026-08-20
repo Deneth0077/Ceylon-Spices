@@ -190,22 +190,22 @@ export default function ShopPage() {
                   </button>
                   <button
                     onClick={() => {
-                      let message = `🌿 *TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
-                      message += `──────────────────────────────\n`;
-                      message += `✨ *PRODUCT INQUIRY*\n\n`;
-                      message += `📌 *Selected Product Details:*\n`;
-                      message += `• *Product Name:* ${p.title}\n`;
-                      if (p.subtitle) message += `• *Category / Spec:* ${p.subtitle}\n`;
-                      message += `• *Origin:* 100% ${p.origin}\n`;
-                      if (p.netWeight) message += `• *Net Weight:* ${p.netWeight}\n`;
-                      message += `\n──────────────────────────────\n`;
-                      message += `📝 *Inquiry Request:*\n`;
-                      message += `Hello True Cinnamon Care Team,\n`;
-                      message += `I am interested in *${p.title}*. Kindly share availability, wholesale pricing, and export packaging specifications.\n\n`;
+                      let message = `*TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+                      message += `--------------------------------------------------\n`;
+                      message += `*PRODUCT INQUIRY*\n\n`;
+                      message += `*SELECTED PRODUCT DETAILS:*\n`;
+                      message += `- Product Name: *${p.title}*\n`;
+                      if (p.subtitle) message += `- Category / Spec: ${p.subtitle}\n`;
+                      message += `- Origin: ${p.origin}\n`;
+                      if (p.netWeight) message += `- Net Weight: ${p.netWeight}\n`;
+                      message += `\n--------------------------------------------------\n`;
+                      message += `*INQUIRY REQUEST:*\n`;
+                      message += `Hello True Cinnamon Care Team,\n\n`;
+                      message += `I am interested in *${p.title}*. Kindly share product availability, wholesale pricing, and export packaging specifications.\n\n`;
                       message += `Thank you!\n`;
-                      message += `──────────────────────────────\n`;
-                      message += `🌐 *True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
-                      message += `📞 *24/7 Hotline:* +94 77 289 3030`;
+                      message += `--------------------------------------------------\n`;
+                      message += `*True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+                      message += `Hotline: +94 77 289 3030`;
                       window.open(`https://wa.me/94772893030?text=${encodeURIComponent(message)}`, '_blank');
                     }}
                     className="py-2.5 px-2 bg-[#25D366] hover:bg-[#1fb958] text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer text-center flex items-center justify-center gap-1"

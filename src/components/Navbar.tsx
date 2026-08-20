@@ -29,7 +29,7 @@ const searchProducts = [
     id: 3,
     title: "Ceylon Dried-Garcinia",
     description: "Traditional sun-dried Goraka native to Sri Lanka, valued for culinary souring.",
-    image: "/images/card_garcinia.png"
+    image: "/images/garcinia_pot_outer_zoomed.jpg"
   },
   {
     id: 5,

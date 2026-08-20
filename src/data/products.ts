@@ -21,8 +21,9 @@ export const productsData: Product[] = [
     subtitle: "Whole Spices • Highest Piperine Content (5–9%)",
     description: "Ceylon black pepper is prized worldwide for its highest piperine content (5–9%), complex citrus-floral aroma and strong pungency. It commands premium in gourmet markets due to its terroir, artisanal cultivation, and authentic origin.",
     detailedDescription: "Ceylon pepper has been traded since ancient times and even found in Egyptian mummies. Ceylon black pepper is prized worldwide for its highest piperine content (5–9%), complex citrus-floral aroma and strong pungency. It commands premium in gourmet markets due to its terroir, artisanal cultivation, and authentic origin.",
-    image: "/images/3d_black_pepper.png",
+    image: "/images/black_pepper_detail_leaf.jpg",
     thumbs: [
+      "/images/black_pepper_detail_leaf.jpg",
       "/images/3d_black_pepper.png",
       "/images/black_pepper_1781650594175.png"
     ],
@@ -53,10 +54,11 @@ export const productsData: Product[] = [
     subtitle: "Whole Spices • Traditional Sun-Dried Goraka",
     description: "Ceylon Garcinia (Goraka / Brindleberry) is a sour tropical fruit native to Sri Lanka. Valued for its tangy flavour, digestive benefits and hydroxycitric acid (HCA).",
     detailedDescription: "Ceylon Garcinia (locally called Goraka, internationally as brindleberry) is a sour tropical fruit native to Sri Lanka. Widely used in traditional cooking, Ayurveda and global wellness markets. Valued for its tangy flavour, digestive benefits and the presence of hydroxycitric acid (HCA).",
-    image: "/images/3d_dried_garcinia.png",
+    image: "/images/garcinia_pot_outer_zoomed.jpg",
     thumbs: [
-      "/images/3d_dried_garcinia.png",
-      "/images/card_garcinia.png"
+      "/images/garcinia_pot_outer_zoomed.jpg",
+      "/images/garcinia_inner_detail.jpg",
+      "/images/3d_dried_garcinia.png"
     ],
     category: "Wholesale",
     subCategory: "Whole Spices",
@@ -188,6 +190,7 @@ export const productsData: Product[] = [
     image: "/images/cinnamon_canister_3d.png",
     thumbs: [
       "/images/cinnamon_canister_3d.png",
+      "/images/black_pepper_detail_leaf.jpg",
       "/images/3d_black_pepper.png",
       "/images/black_pepper_1781650594175.png"
     ],

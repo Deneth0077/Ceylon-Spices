@@ -93,7 +93,7 @@ export default function OurSourcingPage() {
   ];
 
   const galleryImages = [
-    { src: "/images/gourmet_cinnamon_tea.jpg", alt: "Artisanal Ceylon Cinnamon Tea", caption: "Artisanal Cinnamon Tea" },
+    { src: "/images/gourmet_cinnamon_tea.png", alt: "Artisanal Ceylon Cinnamon Tea", caption: "Artisanal Cinnamon Tea" },
     { src: "/images/gourmet_savory_dish.jpg", alt: "Gourmet Savory Culinary Creation", caption: "Gourmet Culinary Use" },
     { src: "/images/gourmet_dessert_pear.jpg", alt: "Poached Pear & Cinnamon Dessert", caption: "Traditional Island Spices" }
   ];

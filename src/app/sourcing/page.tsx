@@ -58,37 +58,37 @@ export default function OurSourcingPage() {
       step: 1,
       title: "Cultivation & Harvesting",
       desc: "Two Pictures of the own Cultivation and Harvesting",
-      image: "/images/cinnamon_harvest.png"
+      image: "/images/process_step_1_cultivation.jpg"
     },
     {
       step: 2,
       title: "Transport by Foot",
       desc: "Picture of Farmers bringing cinnamon Barks to the processing facility by foot",
-      image: "/images/artisan_cinnamon_ranjan.png"
+      image: "/images/process_step_2_transport.jpg"
     },
     {
       step: 3,
       title: "Peeling & Drying",
       desc: "Two Pictures of our processing facility (Bark peeling and Drying)",
-      image: "/images/alba_cinnamon_detail.png"
+      image: "/images/process_step_3_peeling.jpg"
     },
     {
       step: 4,
-      title: "Cutting & Packing",
-      desc: "Picture of our processing facility-Cutting & packing",
-      image: "/images/cinnamon_canister_3d.png"
+      title: "Facility Construction & Cutting",
+      desc: "Picture of our processing facility site & preparation",
+      image: "/images/process_step_4_facility_construction.jpg"
     },
     {
       step: 5,
-      title: "Quality Check & Packing",
-      desc: "Pictures of our processing facility-Cutting & packing",
-      image: "/images/value_added_products.png"
+      title: "Facility Construction & Processing",
+      desc: "Pictures of our processing facility construction & foundation work",
+      image: "/images/process_step_5_facility_building.jpg"
     },
     {
       step: 6,
-      title: "Shipping",
-      desc: "Picture of Shipping",
-      image: "/images/ceylon_spice_farm_contact.png"
+      title: "Shipping & Global Export",
+      desc: "Export quality packaged products loaded for shipping",
+      image: "/images/process_step_6_shipping_export.jpg"
     }
   ];
 
@@ -356,7 +356,7 @@ export default function OurSourcingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {processSteps.map((s) => (
                 <div key={s.step} className="bg-[#faf5ed] border border-[#d6c4ae] rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col space-y-3">
-                  <div className="relative w-full h-40 bg-[#efe6d8] rounded-xl overflow-hidden">
+                  <div className="relative w-full h-52 bg-[#efe6d8] rounded-xl overflow-hidden">
                     <Image src={s.image} alt={s.title} fill className="object-cover" />
                     <div className="absolute top-2 left-2 w-7 h-7 bg-[#3a1b0e] text-[#f7f2ea] rounded-full flex items-center justify-center font-bold text-xs shadow-md">
                       {s.step}

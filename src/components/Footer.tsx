@@ -82,41 +82,62 @@ export default function Footer() {
           
           {/* Column 3: STAY CONNECTED */}
           <div className="flex flex-col gap-5">
-            <h4 className="text-xs font-extrabold tracking-[0.18em] uppercase text-white font-sans">
-              STAY CONNECTED
-            </h4>
-            <div className="flex gap-2 max-w-[320px]">
+            <div className="space-y-1">
+              <h4 className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#ffc641] font-sans">
+                STAY CONNECTED
+              </h4>
+              <p className="text-[11px] text-white/60 font-medium">
+                Subscribe for authentic Ceylon spice updates & export insights.
+              </p>
+            </div>
+
+            {/* Newsletter Input */}
+            <div className="relative flex items-center max-w-[360px] group">
+              <div className="absolute left-3.5 text-white/40 group-focus-within:text-[#ffc641] transition-colors pointer-events-none">
+                <Mail className="w-4 h-4" />
+              </div>
               <input 
                 type="email" 
                 placeholder="your.email@example.com" 
-                className="px-3.5 py-2.5 bg-white text-[#1b1c1c] rounded-md placeholder-[#85736e] font-sans focus:outline-none w-full text-xs font-medium" 
+                className="w-full pl-10 pr-28 py-3 bg-white/10 text-white rounded-xl placeholder-white/40 border border-white/15 focus:border-[#ffc641] focus:bg-white/15 focus:outline-none text-xs font-medium transition-all shadow-inner" 
               />
-              <button className="px-5 py-2.5 bg-[#ab5e3b] hover:bg-[#8e4c2e] text-white rounded-md font-extrabold text-xs uppercase tracking-wider transition-colors cursor-pointer flex-shrink-0">
+              <button className="absolute right-1.5 px-4 py-2 bg-gradient-to-r from-[#ab5e3b] to-[#8c502b] hover:from-[#c8734a] hover:to-[#9e5c33] text-white rounded-lg font-extrabold text-[11px] uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer flex-shrink-0">
                 SUBSCRIBE
               </button>
             </div>
-            
-            <ul className="space-y-4 text-xs text-[#eae7e7]/80 font-medium mt-2">
-              <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#eae7e7]/80" strokeWidth={1.5} />
-                <a href="mailto:info@truecca.com" className="text-white font-semibold hover:underline transition-colors">
-                  info@truecca.com
-                </a>
-              </li>
 
-              <li className="pt-2 space-y-1.5">
-                <p className="text-xl font-bold text-white uppercase tracking-wider">
-                  Questions?
-                </p>
-                <a 
-                  href="tel:+94772893030" 
-                  className="flex items-center gap-2.5 text-lg md:text-l font-black text-white hover:text-[#e2ca9c] transition-colors tracking-tight font-sans"
-                >
-                  <Phone className="w-5 h-5 text-[#e2ca9c]" strokeWidth={2} />
-                  +94 77 289 3030
-                </a>
-              </li>
-            </ul>
+            {/* Email Contact Link */}
+            <a 
+              href="mailto:info@truecca.com" 
+              className="inline-flex items-center gap-2.5 text-xs text-white/80 hover:text-[#ffc641] font-semibold transition-colors group max-w-fit"
+            >
+              <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-[#ffc641] group-hover:bg-[#ffc641]/10 group-hover:border-[#ffc641]/30 transition-all">
+                <Mail className="w-3.5 h-3.5" />
+              </div>
+              <span>info@truecca.com</span>
+            </a>
+
+            {/* Premium QUESTIONS & Hotline Card */}
+            <div className="p-4.5 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/15 shadow-xl hover:border-[#ffc641]/40 transition-all max-w-[360px]">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-serif font-black uppercase tracking-wider text-[#ffc641]">
+                  QUESTIONS?
+                </span>
+                <span className="text-[10px] uppercase tracking-widest font-extrabold px-2.5 py-0.5 rounded-full bg-[#ffc641]/15 text-[#ffc641] border border-[#ffc641]/30">
+                  Hotline
+                </span>
+              </div>
+              <a 
+                href="tel:+94772893030" 
+                className="flex items-center gap-3 text-lg sm:text-xl font-black text-white hover:text-[#ffc641] transition-colors tracking-tight font-sans group/phone"
+              >
+                <div className="w-9 h-9 rounded-xl bg-[#ffc641] text-[#2c1810] flex items-center justify-center shadow-md flex-shrink-0 group-hover/phone:scale-105 transition-transform">
+                  <Phone className="w-4 h-4 fill-current" strokeWidth={2.5} />
+                </div>
+                <span>+94 77 289 3030</span>
+              </a>
+            </div>
+
           </div>
           
         </div>

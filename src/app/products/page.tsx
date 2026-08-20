@@ -221,9 +221,7 @@ export default function ShopPage() {
           {/* Pagination */}
           {sortedProducts.length > 0 && (
             <div className="flex justify-center items-center gap-2 pt-10">
-              <span className="w-8 h-8 rounded-full border border-[#eae7e7] flex items-center justify-center text-xs font-bold text-[#52443f] bg-white cursor-pointer select-none">1</span>
-              <span className="w-8 h-8 rounded-full hover:bg-[#f6f3f2] flex items-center justify-center text-xs font-bold text-[#85736e] cursor-pointer select-none">2</span>
-              <span className="w-8 h-8 rounded-full hover:bg-[#f6f3f2] flex items-center justify-center text-xs font-bold text-[#85736e] cursor-pointer select-none">3</span>
+              <span className="w-9 h-9 rounded-full border-2 border-[#795900] flex items-center justify-center text-xs font-black text-white bg-[#795900] shadow-md select-none">1</span>
             </div>
           )}
 

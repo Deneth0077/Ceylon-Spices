@@ -67,7 +67,8 @@ export default function OurSourcingPage() {
     {
       step: 3,
       title: "Peeling & Drying",
-      image: "/images/process_step_3_peeling.jpg"
+      image: "/images/process_step_3_peeling.jpg",
+      objectFit: "object-contain bg-[#eae0d2] p-1"
     },
     {
       step: 4,
@@ -101,7 +102,7 @@ export default function OurSourcingPage() {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
-      <section className="relative w-full min-h-[500px] md:min-h-[560px] flex items-center justify-center overflow-hidden py-20 md:py-28 px-6 md:px-8 border-b border-[#eae7e7]">
+      <section className="relative w-full min-h-[380px] md:min-h-[440px] flex items-start justify-center overflow-hidden pt-12 sm:pt-16 md:pt-20 pb-24 px-6 md:px-8 border-b border-[#eae7e7]">
         
         {/* Background Image with About Hero Gradient Overlay */}
         <div className="absolute inset-0 z-0">
@@ -350,8 +351,8 @@ export default function OurSourcingPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {processSteps.map((s) => (
                 <div key={s.step} className="bg-[#faf5ed] border border-[#d6c4ae] rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col space-y-3">
-                  <div className="relative w-full h-52 bg-[#efe6d8] rounded-xl overflow-hidden">
-                    <Image src={s.image} alt={s.title} fill className="object-cover" />
+                  <div className="relative w-full h-56 bg-[#efe6d8] rounded-xl overflow-hidden">
+                    <Image src={s.image} alt={s.title} fill className={s.objectFit || "object-cover object-center"} />
                     <div className="absolute top-2 left-2 w-7 h-7 bg-[#3a1b0e] text-[#f7f2ea] rounded-full flex items-center justify-center font-bold text-xs shadow-md">
                       {s.step}
                     </div>

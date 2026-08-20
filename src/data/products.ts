@@ -179,10 +179,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Mexican (M), Hamburg (H) & Custom Bulk Grades",
     description: "We supply all commercial export grades of Ceylon Cinnamon including Mexican (M), Hamburg (H), and custom bulk cuts to meet global buyer requirements.",
     detailedDescription: "Comprehensive supply of all Ceylon Cinnamon commercial grades:\n\n• Mexican (M) Grade - Bold medium-thick quills popular in Latin America\n• Hamburg (H) Grade - Thicker quills widely used for grinding and extracts\n• Custom Wholesale Blends - Tailored cut lengths and bulk specifications",
-    image: "/images/3d_cinnamon_grades.png",
+    image: "/images/cinnamon_other_grades_cutout.png",
     thumbs: [
-      "/images/3d_cinnamon_grades.png",
-      "/images/cinnamon_tree.png"
+      "/images/cinnamon_other_grades_cutout.png"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",

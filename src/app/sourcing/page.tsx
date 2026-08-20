@@ -242,7 +242,7 @@ export default function OurSourcingPage() {
           </div>
 
           {/* Upper Split: Google Map Callout & Transparency Card */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-14 items-start">
             
             {/* Left Card: Factory Location Coordinates & Interactive Map */}
             <div className="lg:col-span-6 bg-[#faf5ed] border-2 border-[#d6c4ae] rounded-3xl p-6 sm:p-8 shadow-md flex flex-col justify-between space-y-5">
@@ -284,11 +284,6 @@ export default function OurSourcingPage() {
                   <span className="font-bold font-serif">Matara Facility (6°07&apos;36.4&quot;N 80°38&apos;23.2&quot;E)</span>
                 </div>
 
-                {/* Bottom Center Hover Callout */}
-                <div className="absolute bottom-3 bg-[#3a1b0e]/90 text-[#f7f2ea] px-4 py-1.5 rounded-full text-xs font-bold shadow-lg opacity-90 group-hover:opacity-100 group-hover:bg-[#522b19] transition-all flex items-center gap-1.5">
-                  <span>View Location on Google Maps</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#e08e45] group-hover:translate-x-1 transition-transform" />
-                </div>
               </a>
 
               {/* Coordinates Pill & Direct Google Maps CTA */}
@@ -311,16 +306,16 @@ export default function OurSourcingPage() {
             </div>
 
             {/* Right Card: Single Origin & Same-Land Processing */}
-            <div className="lg:col-span-6 bg-[#faf5ed] border-2 border-[#d6c4ae] rounded-3xl p-6 sm:p-8 shadow-md flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-6 bg-[#faf5ed] border-2 border-[#d6c4ae] rounded-3xl p-6 sm:p-8 shadow-md flex flex-col justify-start space-y-3 sm:space-y-4">
               
-              <div className="space-y-3">
+              <div className="space-y-1.5">
                 <span className="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-widest text-[#486338] bg-[#e5ebd9] px-3 py-1 rounded-full border border-[#b8c9a3]">
                   <Leaf className="w-3.5 h-3.5 text-[#486338]" /> Single-Origin Guarantee
                 </span>
                 <h4 className="font-serif font-extrabold text-2xl sm:text-3xl text-[#3a1b0e]">Single Origin & Same-Land Processing</h4>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-2">
                 <p className="text-xs sm:text-sm text-[#4a3429] leading-relaxed">
                   Our <strong>Cultivation</strong> and <strong>Processing</strong> facility are located side by side on the <strong>Same Land</strong> to <strong>Ensure</strong> absolute purity, uncompromised <strong>Freshness</strong> and traceability.
                 </p>
@@ -330,7 +325,7 @@ export default function OurSourcingPage() {
               </div>
 
               {/* 3 Feature Pills */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
                 <div className="p-3 bg-[#efe6d8] rounded-xl border border-[#d6c4ae] text-center space-y-1">
                   <span className="text-lg block">🌱</span>
                   <span className="text-[11px] font-bold text-[#3a1b0e] block">100% Single Origin</span>

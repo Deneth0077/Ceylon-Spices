@@ -63,23 +63,6 @@ export default function SignatureRangePage() {
                 <span className="text-[#ffdfa0] italic font-serif">Signature Range</span>
               </h1>
 
-              <p className="text-xs sm:text-sm md:text-base text-[#eae7e7]/90 font-medium leading-relaxed max-w-xl">
-                Single-origin Sri Lanka export-grade gift canisters. Vacuum-sealed for peak volatile oil freshness and presented in luxury recyclable paper canisters inspired by Sri Lanka’s cultural heritage.
-              </p>
-
-              {/* Feature Badges */}
-              <div className="flex flex-wrap gap-2.5 pt-2">
-                <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl text-[11px] font-bold text-white">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#ffdfa0]" /> 100% Single Origin
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl text-[11px] font-bold text-white">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#ffdfa0]" /> Vacuum-Sealed Freshness
-                </span>
-                <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl text-[11px] font-bold text-white">
-                  <Leaf className="w-3.5 h-3.5 text-[#ffdfa0]" /> Recyclable Heritage Canister
-                </span>
-              </div>
-
               {/* Call to Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-4">
                 <button
@@ -123,7 +106,7 @@ export default function SignatureRangePage() {
             SIGNATURE RANGE
           </h2>
           <p className="text-xs sm:text-sm text-[#52443f] font-medium mt-2 max-w-2xl">
-            Single-origin Sri Lanka export-grade gift canisters. Vacuum-sealed for freshness and packaged in recyclable paper canisters inspired by Sri Lanka's rich heritage.
+            Single-origin Sri Lanka export-grade gift canisters. Vacuum-sealed for peak volatile oil freshness and presented in luxury recyclable paper canisters inspired by Sri Lanka’s cultural heritage.
           </p>
         </div>
 

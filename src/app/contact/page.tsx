@@ -194,8 +194,8 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Top Logo Card */}
-            <div className="bg-[#f6f3f2]/80 p-6 rounded-2xl border border-[#eae7e7] flex items-center justify-center shadow-sm">
-              <div className="relative w-56 h-28 flex items-center justify-center">
+            <div className="bg-[#f6f3f2]/80 p-8 rounded-2xl border border-[#eae7e7] flex items-center justify-center shadow-sm">
+              <div className="relative w-80 h-44 flex items-center justify-center">
                 <TransparentImage
                   src="/images/logo.jpg"
                   alt="True Cinnamon Care Logo"

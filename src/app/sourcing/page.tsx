@@ -57,37 +57,31 @@ export default function OurSourcingPage() {
     {
       step: 1,
       title: "Cultivation & Harvesting",
-      desc: "Two Pictures of the own Cultivation and Harvesting",
       image: "/images/process_step_1_cultivation.jpg"
     },
     {
       step: 2,
       title: "Transport by Foot",
-      desc: "Picture of Farmers bringing cinnamon Barks to the processing facility by foot",
       image: "/images/process_step_2_transport.jpg"
     },
     {
       step: 3,
       title: "Peeling & Drying",
-      desc: "Two Pictures of our processing facility (Bark peeling and Drying)",
       image: "/images/process_step_3_peeling.jpg"
     },
     {
       step: 4,
-      title: "Facility Construction & Cutting",
-      desc: "Picture of our processing facility site & preparation",
+      title: "Facility Site & Preparation",
       image: "/images/process_step_4_facility_construction.jpg"
     },
     {
       step: 5,
-      title: "Facility Construction & Processing",
-      desc: "Pictures of our processing facility construction & foundation work",
+      title: "Facility Construction",
       image: "/images/process_step_5_facility_building.jpg"
     },
     {
       step: 6,
       title: "Shipping & Global Export",
-      desc: "Export quality packaged products loaded for shipping",
       image: "/images/process_step_6_shipping_export.jpg"
     }
   ];

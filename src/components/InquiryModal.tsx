@@ -27,16 +27,25 @@ export default function InquiryModal({ isOpen, onClose, productTitle }: InquiryM
     setSubmitted(true);
 
     // Also send via WhatsApp
-    let text = `*True Cinnamon Care - Inquiry Form*\n`;
-    text += `=================================\n`;
-    if (productTitle) text += `*Product:* ${productTitle}\n`;
-    text += `*Name:* ${formData.fullName}\n`;
-    text += `*Country:* ${formData.country}\n`;
-    text += `*Contact:* ${formData.contactNumber}\n`;
-    text += `*Email:* ${formData.email}\n`;
-    text += `*Inquiry:* ${formData.inquiry}\n`;
-    text += `=================================\n`;
-    text += `Thank you!`;
+    let text = `🌿 *TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+    text += `──────────────────────────────\n`;
+    text += `✨ *OFFICIAL INQUIRY FORM SUBMISSION*\n\n`;
+    text += `👤 *Customer Details:*\n`;
+    text += `• *Full Name:* ${formData.fullName}\n`;
+    text += `• *Country:* ${formData.country}\n`;
+    text += `• *Contact Number:* ${formData.contactNumber}\n`;
+    text += `• *Email Address:* ${formData.email}\n`;
+    if (productTitle) {
+      text += `\n📦 *Product:* ${productTitle}\n`;
+    }
+    text += `\n📝 *Customer Inquiry / Message:*\n`;
+    text += `"${formData.inquiry}"\n`;
+    text += `──────────────────────────────\n`;
+    text += `Please confirm availability and dispatch terms.\n\n`;
+    text += `Thank you!\n`;
+    text += `──────────────────────────────\n`;
+    text += `🌐 *True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+    text += `📞 *24/7 Hotline:* +94 77 289 3030`;
 
     const whatsappUrl = `https://wa.me/94772893030?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');

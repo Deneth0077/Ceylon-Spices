@@ -105,13 +105,19 @@ export default function Navbar() {
   const handleCheckout = () => {
     if (cart.length === 0) return;
 
-    let message = `*True Cinnamon Care - New Order*\n`;
-    message += `=================================\n`;
+    let message = `🌿 *TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+    message += `──────────────────────────────\n`;
+    message += `🛒 *NEW WHOLESALE ORDER / CART INQUIRY*\n\n`;
+    message += `📦 *Requested Items:*\n`;
     cart.forEach((item, index) => {
-      message += `${index + 1}. *${item.title}* - Qty: ${item.quantity}\n`;
+      message += `${index + 1}. *${item.title}* — Qty: *${item.quantity}*\n`;
     });
-    message += `=================================\n`;
-    message += `Please confirm my order. Thank you!`;
+    message += `\n──────────────────────────────\n`;
+    message += `Please confirm order availability, pricing, and dispatch estimate.\n\n`;
+    message += `Thank you!\n`;
+    message += `──────────────────────────────\n`;
+    message += `🌐 *True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+    message += `📞 *24/7 Hotline:* +94 77 289 3030`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/94772893030?text=${encodedMessage}`;

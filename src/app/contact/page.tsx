@@ -29,19 +29,26 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    let text = `*True Cinnamon Care - Contact Form Inquiry*\n`;
-    text += `=================================\n`;
-    text += `*Name:* ${formData.name}\n`;
-    text += `*Email:* ${formData.email}\n`;
+    let text = `🌿 *TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+    text += `──────────────────────────────\n`;
+    text += `✨ *CONTACT FORM INQUIRY*\n\n`;
+    text += `👤 *Sender Information:*\n`;
+    text += `• *Full Name:* ${formData.name}\n`;
+    text += `• *Email Address:* ${formData.email}\n`;
     if (formData.phone) {
-      text += `*Phone:* ${formData.phone}\n`;
+      text += `• *Phone / WhatsApp:* ${formData.phone}\n`;
     }
-    text += `*Topic:* ${formData.topic}\n`;
+    text += `• *Inquiry Topic:* ${formData.topic}\n`;
     if (formData.message) {
-      text += `*Message:* ${formData.message}\n`;
+      text += `\n📝 *Message Details:*\n`;
+      text += `"${formData.message}"\n`;
     }
-    text += `=================================\n`;
-    text += `Please get back to me. Thank you!`;
+    text += `──────────────────────────────\n`;
+    text += `Kindly confirm receipt and provide response at your earliest convenience.\n\n`;
+    text += `Thank you!\n`;
+    text += `──────────────────────────────\n`;
+    text += `🌐 *True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+    text += `📞 *24/7 Hotline:* +94 77 289 3030`;
 
     const whatsappUrl = `https://wa.me/94772893030?text=${encodeURIComponent(text)}`;
     window.open(whatsappUrl, '_blank');

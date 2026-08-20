@@ -357,7 +357,6 @@ export default function OurSourcingPage() {
                     </div>
                   </div>
                   <h5 className="font-serif font-bold text-base text-[#3a1b0e]">{s.title}</h5>
-                  <p className="text-xs text-[#593d2e] leading-relaxed">{s.desc}</p>
                 </div>
               ))}
             </div>

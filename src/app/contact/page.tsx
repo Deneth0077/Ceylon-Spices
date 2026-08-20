@@ -250,11 +250,11 @@ export default function ContactPage() {
           <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#eae7e7] shadow-2xl bg-white group">
             
             {/* Original Map Image Banner */}
-            <div className="relative w-full h-[350px] sm:h-[450px] md:h-[550px] lg:h-[620px] bg-[#dfded6]">
+            <div className="relative w-full h-[360px] sm:h-[480px] md:h-[580px] lg:h-[660px] bg-[#cdd1bb] p-2 sm:p-4">
               <img 
                 src="/images/factory_location_map.png" 
                 alt="Sri Lanka Agro-Climatic Spice Zones and Factory Route Map from Colombo to Hakmana Matara" 
-                className="w-full h-full object-contain md:object-cover object-center"
+                className="w-full h-full object-contain object-center drop-shadow-md rounded-2xl"
               />
             </div>
 

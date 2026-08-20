@@ -207,13 +207,20 @@ export default function Navbar() {
                       {isActive("/products") && <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#795900] rounded-full" />}
                     </div>
 
-                    {/* Dropdown Menu */}
-                    {isProductsDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-56 bg-[#fcf9f8] border border-[#eae7e7] rounded-xl shadow-xl py-2 z-50 animate-fadeIn">
+                    {/* Dropdown Menu Container with seamless Mouse-Bridge Padding */}
+                    <div
+                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 transition-all duration-200 ${
+                        isProductsDropdownOpen
+                          ? "opacity-100 visible translate-y-0 pointer-events-auto"
+                          : "opacity-0 invisible -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto"
+                      }`}
+                    >
+                      <div className="w-56 bg-[#fcf9f8] border border-[#eae7e7] rounded-xl shadow-xl py-2 overflow-hidden">
                         {productSubLinks.map((subLink) => (
                           <Link
                             key={subLink.href}
                             href={subLink.href}
+                            onClick={() => setIsProductsDropdownOpen(false)}
                             className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
                               pathname === subLink.href
                                 ? "bg-[#795900] text-white"
@@ -224,7 +231,7 @@ export default function Navbar() {
                           </Link>
                         ))}
                       </div>
-                    )}
+                    </div>
                   </div>
 
                   <Link

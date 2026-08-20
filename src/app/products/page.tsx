@@ -132,67 +132,59 @@ export default function ShopPage() {
             {productsData.map((p) => (
               <div
                 key={p.id}
-                className={`rounded-2xl border p-4 flex flex-col h-[440px] justify-between hover:shadow-premium transition-all duration-300 group ${
-                  p.id === 1 ? "bg-gradient-to-br from-[#4a0e17]/10 via-[#5c1320]/15 to-[#192a14]/10 border-[#4a0e17]/25 hover:bg-[#4a0e17]/20" :
-                  p.id === 3 ? "bg-gradient-to-br from-[#16a34a]/10 via-[#15803d]/15 to-[#795900]/10 border-[#16a34a]/25 hover:bg-[#16a34a]/20" :
-                  "bg-[#f5ebe0]/40 border-[#42190a]/15 hover:bg-[#f5ebe0]/90 hover:border-[#42190a]/30"
-                }`}
+                className="bg-white border border-[#e8e2d9] rounded-2xl p-4 flex flex-col justify-between hover:shadow-[0_20px_40px_-12px_rgba(66,25,10,0.12)] hover:border-[#b48325]/50 transition-all duration-300 group"
               >
-
-                {/* Origin Badge */}
-                <div className="flex justify-between items-center mb-2">
-                  <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-md border ${
-                    p.id === 1 ? "bg-[#58141c] text-[#d3e9c7] border-[#225729]/40" :
-                    p.id === 3 ? "bg-[#15803d] text-white border-[#16a34a]/40" :
-                    "text-[#795900] bg-[#ffdfa0]/60 border-[#795900]/20"
-                  }`}>
+                {/* Header Row: Origin Badge & Star Rating */}
+                <div className="flex justify-between items-center mb-3">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-[#f5ebd9] text-[#5e4300] border border-[#e2d2b4]">
                     {p.origin}
                   </span>
-                  <div className="flex items-center gap-1 text-xs font-extrabold text-[#795900]">
-                    <Star className="w-4 h-4 fill-current" />
+                  <div className="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#795900] bg-[#fffaf0] px-2 py-0.5 rounded-full border border-[#f3ebd8]">
+                    <Star className="w-3.5 h-3.5 fill-current text-[#b48325]" />
                     <span>5.0</span>
                   </div>
                 </div>
 
-                {/* Centered 3D Floating Image inside Organic Shape */}
+                {/* Product Image Window */}
                 <Link
                   href={`/products/${p.id}`}
-                  className="relative w-full h-48 overflow-visible flex items-center justify-center p-2 mb-2 cursor-pointer group/img"
+                  className="relative w-full h-52 bg-[#f8f5f0] rounded-xl overflow-hidden mb-3 group/img flex items-center justify-center p-2 border border-[#ede7de] shadow-inner"
                 >
-                  <div className={`absolute inset-2 transition-transform duration-700 group-hover/img:scale-[1.04] ${
-                    p.id === 1 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-gradient-to-br from-[#58141c] via-[#4a0e17] to-[#1e381b] opacity-90" :
-                    p.id === 3 ? "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-gradient-to-br from-[#16a34a] via-[#15803d] to-[#795900] opacity-90" :
-                    p.id % 4 === 1 ? "rounded-[50%_50%_30%_70%_/_50%_60%_40%_50%] bg-[#ebdcb9]" :
-                    p.id % 4 === 2 ? "rounded-[42%_58%_70%_30%_/_45%_45%_55%_55%] bg-[#d3e9c7]" :
-                    p.id % 4 === 3 ? "rounded-[60%_40%_50%_50%_/_50%_40%_60%_50%] bg-[#ffdfa0]/50" :
-                    "rounded-[30%_70%_70%_30%_/_50%_60%_40%_50%] bg-[#ffdbcf]"
-                  }`} />
-                  <div className="w-[105%] h-[105%] relative flex items-center justify-center transition-transform duration-500 group-hover/img:scale-110 group-hover/img:-translate-y-2 z-10">
+                  <div className="w-full h-full relative overflow-hidden rounded-lg flex items-center justify-center">
                     <img
                       src={p.image}
                       alt={p.title}
-                      className="max-w-none w-[105%] h-[105%] object-contain drop-shadow-[0_12px_12px_rgba(0,0,0,0.25)] transition-all duration-500"
+                      className={`transition-transform duration-700 ease-out group-hover/img:scale-108 ${
+                        p.image.endsWith('.png') && !p.image.includes('real') && !p.image.includes('detail')
+                          ? 'max-h-full max-w-full object-contain drop-shadow-md'
+                          : 'w-full h-full object-cover rounded-lg'
+                      }`}
                     />
                   </div>
+                  {/* Subtle Gradient Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl" />
                 </Link>
 
-                {/* Details */}
-                <div className="space-y-1 text-left flex-grow flex flex-col justify-start my-1">
+                {/* Details Section */}
+                <div className="space-y-1.5 text-left flex-grow flex flex-col justify-start mb-4">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#966b18]">
+                    {p.subCategory || p.category}
+                  </span>
                   <Link href={`/products/${p.id}`} className="block">
-                    <h3 className="font-serif font-black text-[#42190a] text-base sm:text-lg hover:text-[#795900] transition-colors leading-snug line-clamp-1">
+                    <h3 className="font-serif font-black text-[#2b1810] text-base sm:text-lg group-hover:text-[#966b18] transition-colors leading-snug line-clamp-1">
                       {p.title}
                     </h3>
                   </Link>
-                  <p className="text-xs text-[#42190a]/85 font-medium leading-relaxed line-clamp-2">
+                  <p className="text-xs text-[#635149] font-medium leading-relaxed line-clamp-2">
                     {p.description}
                   </p>
                 </div>
 
-                {/* Actions - INQUIRE NOW & WHATSAPP */}
-                <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-[#eae7e7]/80 mt-auto">
+                {/* Actions Row - INQUIRE NOW & WHATSAPP */}
+                <div className="grid grid-cols-2 gap-2 pt-3 border-t border-[#f0eae0]/80 mt-auto">
                   <button
                     onClick={() => handleOpenInquiry(p)}
-                    className="py-2 px-2 bg-[#6c7073] hover:bg-[#575a5d] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer text-center"
+                    className="py-2.5 px-2 bg-[#2d1b14] hover:bg-[#1a0f0b] text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer text-center"
                   >
                     INQUIRE NOW
                   </button>
@@ -201,7 +193,7 @@ export default function ShopPage() {
                       const message = `*True Cinnamon Care - Product Inquiry*\n=================================\nProduct: *${p.title}*\n=================================\nPlease confirm details. Thank you!`;
                       window.open(`https://wa.me/94772893030?text=${encodeURIComponent(message)}`, '_blank');
                     }}
-                    className="py-2 px-2 bg-[#6ba343] hover:bg-[#598c36] text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider rounded-full transition-all shadow-md hover:scale-[1.02] cursor-pointer text-center"
+                    className="py-2.5 px-2 bg-[#25D366] hover:bg-[#1fb958] text-white font-extrabold text-[10px] sm:text-[11px] uppercase tracking-wider rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer text-center flex items-center justify-center gap-1"
                   >
                     WHATSAPP
                   </button>

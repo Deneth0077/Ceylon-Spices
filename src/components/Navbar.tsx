@@ -11,7 +11,7 @@ const searchProducts = [
     id: 4,
     title: "Ceylon Cinnamon",
     description: "Delicate, sweet flavor with citrus and floral notes, fine layered quills.",
-    image: "/images/alba_cinnamon_detail.png"
+    image: "/images/cinnamon_alba_real.png"
   },
   {
     id: 1,
@@ -23,7 +23,7 @@ const searchProducts = [
     id: 2,
     title: "Ceylon Cinnamon Leaf Oil",
     description: "Warm, spicy essential oil distilled from True Cinnamon leaves, high Eugenol content.",
-    image: "/images/artisan_vanilla_ravindra.png"
+    image: "/images/cinnamon_leaf_oil_real.jpg"
   },
   {
     id: 3,

@@ -38,10 +38,9 @@ export const productsData: Product[] = [
     subtitle: "Whole Spices • Pure Steam-Distilled Essential Oil",
     description: "Ceylon cinnamon leaf oil is a warm, spicy essential oil distilled from the leaves of Cinnamomum verum (True Cinnamon), prized for its high Eugenol content (70–95%). Widely used in aromatherapy and natural medicine.",
     detailedDescription: "Ceylon cinnamon leaf oil is a warm, spicy essential oil distilled from the leaves of Cinnamomum verum (True Cinnamon), prized for its high Eugenol content (70–95%) similar to clove oil. It is widely used in aromatherapy, natural medicine, and export markets for its antimicrobial and uplifting properties.",
-    image: "/images/3d_cinnamon_oil.png",
+    image: "/images/cinnamon_leaf_oil_real.jpg",
     thumbs: [
-      "/images/3d_cinnamon_oil.png",
-      "/images/artisan_vanilla_ravindra.png"
+      "/images/cinnamon_leaf_oil_real.jpg"
     ],
     category: "Wholesale",
     subCategory: "Whole Spices",
@@ -71,10 +70,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Supreme Pencil-Thin Quills",
     description: "Alba is the supreme, finest grade of Ceylon Cinnamon available. Pencil-thin quills crafted by master peelers with intense sweet floral aroma and minimal coumarin.",
     detailedDescription: "Alba Grade is the highest quality grade of True Ceylon Cinnamon (Cinnamomum Verum). Made of paper-thin layers rolled into smooth, slender quills. Offers unmatched aroma, delicate sweetness, and ultra-low coumarin levels safe for daily consumption.",
-    image: "/images/alba_cinnamon_detail.png",
+    image: "/images/cinnamon_alba_real.png",
     thumbs: [
-      "/images/alba_cinnamon_detail.png",
-      "/images/3d_ceylon_cinnamon.png"
+      "/images/cinnamon_alba_real.png"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",
@@ -87,10 +85,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Continental C5 Grade",
     description: "Continental C5 is a highly sought-after premium grade with smooth, tight quills, subtle sweet taste, and rich tan color. Famous across European & gourmet markets.",
     detailedDescription: "Ceylon Cinnamon C5 Special is an elite Continental grade featuring tight, slender quills with rich warm aroma and sweet taste. Sourced directly from southern Sri Lankan estates.",
-    image: "/images/3d_ceylon_cinnamon.png",
+    image: "/images/cinnamon_c5_zoomed.jpg",
     thumbs: [
-      "/images/3d_ceylon_cinnamon.png",
-      "/images/card_cinnamon.png"
+      "/images/cinnamon_c5_zoomed.jpg"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",
@@ -103,10 +100,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Continental C4 Grade",
     description: "Continental C4 grade quills offer robust aroma, balanced thickness, and signature sweetness. Versatile for culinary, retail, and grinding applications.",
     detailedDescription: "Ceylon Cinnamon C4 provides an excellent combination of flavor, aroma, and commercial viability. Hand-harvested and sun-cured according to ancient Sri Lankan tradition.",
-    image: "/images/card_cinnamon.png",
+    image: "/images/cinnamon_c4_quills.jpg",
     thumbs: [
-      "/images/card_cinnamon.png",
-      "/images/3d_ceylon_cinnamon.png"
+      "/images/cinnamon_c4_quills.jpg"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",
@@ -119,10 +115,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Pure Quill Off-Cuts",
     description: "Pure Ceylon cinnamon off-cuts and quill fragments generated during precision trimming. Retains full oil content and authentic sweet aroma for grinding & extracts.",
     detailedDescription: "Ceylon Cinnamon Off-Cuts consist of clean broken pieces of authentic Cinnamomum Verum quills. Excellent for spice millers, flavor extractors, and tea blending.",
-    image: "/images/cinnamon_harvest.png",
+    image: "/images/cinnamon_off_cut_real.png",
     thumbs: [
-      "/images/cinnamon_harvest.png",
-      "/images/product_ceylon_cinnamon.png"
+      "/images/cinnamon_off_cut_real.png"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",
@@ -135,10 +130,9 @@ export const productsData: Product[] = [
     subtitle: "Cinnamon • Clean Cinnamon Quill Cuts",
     description: "Clean broken cinnamon quills produced during hand-peeling and grading. Highly aromatic and perfect for essential oil distillation and tea infusions.",
     detailedDescription: "Ceylon Cinnamon Quillings are small, broken fragments of true cinnamon quills. They retain the exact chemical profile, eugenol aroma, and sweetness of whole quills.",
-    image: "/images/product_ceylon_cinnamon.png",
+    image: "/images/cinnamon_quillings_real.png",
     thumbs: [
-      "/images/product_ceylon_cinnamon.png",
-      "/images/3d_cinnamon_grades.png"
+      "/images/cinnamon_quillings_real.png"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",

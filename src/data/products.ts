@@ -14,6 +14,42 @@ export interface Product {
 }
 
 export const productsData: Product[] = [
+  // --- SIGNATURE RANGE GIFT PACKS (Card 1 & Card 2) ---
+  {
+    id: 101,
+    title: "Ceylon Cinnamon Premium Gift Pack ",
+    subtitle: "Signature Range • Ceylon Cinnamon Sticks (C5 Grade)",
+    description: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n• No Additives | No Preservatives\n• 100% Natural",
+    detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka (GI Certified)\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Cinnamon, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
+    image: "/images/cinnamon_gift_canister_bow.jpg",
+    thumbs: [
+      "/images/cinnamon_gift_canister_bow.jpg",
+      "/images/cinnamon_vacuum_pack_real.jpg"
+    ],
+    category: "Signature Range",
+    subCategory: "Gift Packs",
+    origin: "Single-Origin Sri Lanka (GI Certified)",
+    packaging: "Vacuum-sealed in recyclable paper canisters",
+    netWeight: "2 oz (57 g)"
+  },
+  {
+    id: 102,
+    title: "Black Pepper Premium Gift Pack",
+    subtitle: "Signature Range • Ceylon Black Peppercorn (High Piperine)",
+    description: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n• No Additives | No Preservatives\n• 100% Natural",
+    detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Black peppercorn, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
+    image: "/images/pepper_gift_canister_bow.jpg",
+    thumbs: [
+      "/images/pepper_gift_canister_bow.jpg",
+      "/images/black_pepper_vacuum_pack_real.jpg",
+      "/images/black_pepper_detail_leaf.jpg"
+    ],
+    category: "Signature Range",
+    subCategory: "Gift Packs",
+    origin: "Single-Origin Sri Lanka",
+    packaging: "Vacuum-sealed in recyclable paper canisters",
+    netWeight: "2 oz (57 g)"
+  },
   // --- WHOLESALE PRODUCTS (Matching client screenshots) ---
   {
     id: 1,
@@ -24,7 +60,6 @@ export const productsData: Product[] = [
     image: "/images/black_pepper_detail_leaf.jpg",
     thumbs: [
       "/images/black_pepper_detail_leaf.jpg",
-      "/images/3d_black_pepper.png",
       "/images/black_pepper_1781650594175.png"
     ],
     category: "Wholesale",
@@ -53,11 +88,10 @@ export const productsData: Product[] = [
     subtitle: "Whole Spices • Traditional Sun-Dried Goraka",
     description: "Ceylon Garcinia (Goraka / Brindleberry) is a sour tropical fruit native to Sri Lanka. Valued for its tangy flavour, digestive benefits and hydroxycitric acid (HCA).",
     detailedDescription: "Ceylon Garcinia (locally called Goraka, internationally as brindleberry) is a sour tropical fruit native to Sri Lanka. Widely used in traditional cooking, Ayurveda and global wellness markets. Valued for its tangy flavour, digestive benefits and the presence of hydroxycitric acid (HCA).",
-    image: "/images/garcinia_pot_outer_zoomed.jpg",
+    image: "/images/garcinia_inner_detail.jpg",
     thumbs: [
-      "/images/garcinia_pot_outer_zoomed.jpg",
       "/images/garcinia_inner_detail.jpg",
-      "/images/3d_dried_garcinia.png"
+      "/images/garcinia_pot_outer_zoomed.jpg"
     ],
     category: "Wholesale",
     subCategory: "Whole Spices",
@@ -83,11 +117,11 @@ export const productsData: Product[] = [
     id: 5,
     title: "Ceylon Cinnamon C5",
     subtitle: "Cinnamon • Continental C5 Grade",
-    description: "Continental C5 is a highly sought-after premium grade with smooth, tight quills, subtle sweet taste, and rich tan color. Famous across European & gourmet markets.",
-    detailedDescription: "Ceylon Cinnamon C5 Special is an elite Continental grade featuring tight, slender quills with rich warm aroma and sweet taste. Sourced directly from southern Sri Lankan estates.",
-    image: "/images/cinnamon_c5_zoomed.jpg",
+    description: "Ceylon Cinnamon (Cinnamomum Verum also known as Cinnamomum Zeylanicum) is the “True Cinnamon” native to Sri Lanka, prized globally for its delicate, sweet flavour with citrus and floral notes, fine layered quills and lower coumarin content. It is considered the premium variety compared to Cassia and healthy for daily consumption. We provide only the best grads for our customers",
+    detailedDescription: "Ceylon Cinnamon (Cinnamomum Verum also known as Cinnamomum Zeylanicum) is the “True Cinnamon” native to Sri Lanka, prized globally for its delicate, sweet flavour with citrus and floral notes, fine layered quills and lower coumarin content. It is considered the premium variety compared to Cassia and healthy for daily consumption. We provide only the best grads for our customers",
+    image: "/images/cinnamon_c5_leaves_stone_real.jpg",
     thumbs: [
-      "/images/cinnamon_c5_zoomed.jpg"
+      "/images/cinnamon_c5_leaves_stone_real.jpg"
     ],
     category: "Wholesale",
     subCategory: "Cinnamon",
@@ -98,8 +132,8 @@ export const productsData: Product[] = [
     id: 6,
     title: "Ceylon Cinnamon C4",
     subtitle: "Cinnamon • Continental C4 Grade",
-    description: "Continental C4 grade quills offer robust aroma, balanced thickness, and signature sweetness. Versatile for culinary, retail, and grinding applications.",
-    detailedDescription: "Ceylon Cinnamon C4 provides an excellent combination of flavor, aroma, and commercial viability. Hand-harvested and sun-cured according to ancient Sri Lankan tradition.",
+    description: "Ceylon Cinnamon (Cinnamomum Verum also known as Cinnamomum Zeylanicum) is the “True Cinnamon” native to Sri Lanka, prized globally for its delicate, sweet flavour with citrus and floral notes, fine layered quills and lower coumarin content. It is considered the premium variety compared to Cassia and healthy for daily consumption. We provide only the best grads for our customers",
+    detailedDescription: "Ceylon Cinnamon (Cinnamomum Verum also known as Cinnamomum Zeylanicum) is the “True Cinnamon” native to Sri Lanka, prized globally for its delicate, sweet flavour with citrus and floral notes, fine layered quills and lower coumarin content. It is considered the premium variety compared to Cassia and healthy for daily consumption. We provide only the best grads for our customers",
     image: "/images/cinnamon_c4_quills.jpg",
     thumbs: [
       "/images/cinnamon_c4_quills.jpg"
@@ -154,45 +188,6 @@ export const productsData: Product[] = [
     subCategory: "Cinnamon",
     origin: "Single-Origin Sri Lanka",
     packaging: "25kg Bulk Bales / Customized Container Loads"
-  },
-
-  // --- SIGNATURE RANGE PRODUCTS ---
-  {
-    id: 101,
-    title: "Cinnamon Premium Pack- Giftable",
-    subtitle: "Signature Range • Ceylon Cinnamon Sticks (C5 Grade)",
-    description: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n• No Additives | No Preservatives\n• 100% Natural",
-    detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka (GI Certified)\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Cinnamon, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
-    image: "/images/cinnamon_canister_3d.png",
-    thumbs: [
-      "/images/cinnamon_canister_3d.png",
-      "/images/3d_ceylon_cinnamon.png",
-      "/images/alba_cinnamon_detail.png"
-    ],
-    category: "Signature Range",
-    subCategory: "Gift Packs",
-    origin: "Single-Origin Sri Lanka (GI Certified)",
-    packaging: "Vacuum-sealed in recyclable paper canisters",
-    netWeight: "2 oz (57 g)"
-  },
-  {
-    id: 102,
-    title: "Black Pepper Premium Pack- Giftable",
-    subtitle: "Signature Range • Ceylon Black Peppercorn (High Piperine)",
-    description: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n• No Additives | No Preservatives\n• 100% Natural",
-    detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Black peppercorn, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
-    image: "/images/cinnamon_canister_3d.png",
-    thumbs: [
-      "/images/cinnamon_canister_3d.png",
-      "/images/black_pepper_detail_leaf.jpg",
-      "/images/3d_black_pepper.png",
-      "/images/black_pepper_1781650594175.png"
-    ],
-    category: "Signature Range",
-    subCategory: "Gift Packs",
-    origin: "Single-Origin Sri Lanka",
-    packaging: "Vacuum-sealed in recyclable paper canisters",
-    netWeight: "2 oz (57 g)"
   }
 ];
 

@@ -195,23 +195,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
                 <Sparkles className="w-3 h-3" /> Single Origin Ceylon
               </span>
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
-                <ShieldCheck className="w-3 h-3" /> Eco Friendly Packaging
-              </span>
             </div>
 
           </div>
         </div>
 
-        {/* 2. Deep Provenance & Brand Promise Section (Clean Boxless Layout) */}
-        <section className="my-12 py-8 px-6 sm:px-8 bg-transparent border-t border-[#eae7e7]">
-          <div className="max-w-[950px] mx-auto space-y-4 text-left">
-            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#795900]">OUR UNCOMPROMISING COMMITMENT</p>
-            <p className="text-base sm:text-lg md:text-xl text-[#52443f] leading-relaxed font-medium">
-              At <strong className="font-extrabold text-[#2b1810] text-[1.08em]">True Cinnamon Care</strong>, we are not spice traders. We <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Go Beyond</strong> delivering spice. Committed to deliver Trust, <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Accountability</strong>, Heritage, and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Uncompromising Quality</strong>. Our cinnamon is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Single-Origin</strong> and sourced exclusively from <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Sri Lanka</strong>, ensuring authenticity and naturally negligible coumarin levels for <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Safe Daily Use</strong>. By partnering with local people, we uphold <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Ethical Practices</strong> that support communities and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Preserve the Environment</strong>. Every stick is carefully graded, tested, and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Hand-Packaged</strong> in a recyclable premium design that reflect the <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Sustainability</strong> and <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Luxury</strong> of our brand. Choosing us means choosing purity, <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Transparency</strong>, and a taste experience that is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Truly Unique</strong> which is <strong className="font-extrabold text-[#2b1810] text-[1.08em]">Exclusive to Our Plantation</strong>.
-            </p>
-          </div>
-        </section>
+
 
       </div>
 

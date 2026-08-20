@@ -155,9 +155,9 @@ export default function ShopPage() {
                       src={p.image}
                       alt={p.title}
                       className={`transition-transform duration-700 ease-out group-hover/img:scale-108 ${
-                        p.image.endsWith('.png') && !p.image.includes('real') && !p.image.includes('detail')
-                          ? 'max-h-full max-w-full object-contain drop-shadow-md'
-                          : 'w-full h-full object-cover rounded-lg'
+                        p.category === "Signature Range" || p.image.includes("canister") || p.image.includes("bow") || (p.image.endsWith(".png") && !p.image.includes("real") && !p.image.includes("detail"))
+                          ? "max-h-full max-w-full object-contain mix-blend-multiply drop-shadow-md"
+                          : "w-full h-full object-cover rounded-lg"
                       }`}
                     />
                   </div>

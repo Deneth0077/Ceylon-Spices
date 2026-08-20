@@ -39,7 +39,7 @@ const searchProducts = [
   },
   {
     id: 101,
-    title: "Cinnamon Premium Pack- Giftable",
+    title: "Ceylon Cinnamon Premium Gift Pack ",
     description: "Elegantly packed in a recyclable paper canister inspired by Sri Lanka's heritage.",
     image: "/images/cinnamon_canister_3d.png"
   }
@@ -209,11 +209,10 @@ export default function Navbar() {
 
                     {/* Dropdown Menu Container with seamless Mouse-Bridge Padding */}
                     <div
-                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 transition-all duration-200 ${
-                        isProductsDropdownOpen
+                      className={`absolute top-full left-1/2 -translate-x-1/2 pt-1.5 z-50 transition-all duration-200 ${isProductsDropdownOpen
                           ? "opacity-100 visible translate-y-0 pointer-events-auto"
                           : "opacity-0 invisible -translate-y-1 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:pointer-events-auto"
-                      }`}
+                        }`}
                     >
                       <div className="w-56 bg-[#fcf9f8] border border-[#eae7e7] rounded-xl shadow-xl py-2 overflow-hidden">
                         {productSubLinks.map((subLink) => (
@@ -221,11 +220,10 @@ export default function Navbar() {
                             key={subLink.href}
                             href={subLink.href}
                             onClick={() => setIsProductsDropdownOpen(false)}
-                            className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${
-                              pathname === subLink.href
+                            className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-colors ${pathname === subLink.href
                                 ? "bg-[#795900] text-white"
                                 : "text-[#42190a] hover:bg-[#eae7e7]/60 hover:text-[#795900]"
-                            }`}
+                              }`}
                           >
                             {subLink.label}
                           </Link>

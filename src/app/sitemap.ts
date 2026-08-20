@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { productsData } from '@/data/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://truecinnamoncare.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://truecca.com';
 
   const routes = [
     '',

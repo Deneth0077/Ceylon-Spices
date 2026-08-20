@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Send, Globe, Award, ShieldCheck, Heart, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Globe, Award, ShieldCheck, Heart, ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import TransparentImage from "@/components/TransparentImage";
 
@@ -78,14 +78,21 @@ export default function ContactPage() {
           <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-2xl border border-[#eae7e7] shadow-premium">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
-                <span className="text-5xl">🌾</span>
-                <h3 className="font-serif font-black text-2xl text-[#42190a]">Message Dispatched</h3>
-                <p className="text-base text-[#52443f] max-w-[400px] mx-auto font-medium">
-                  Thank you for contacting True Cinnamon Care. Our trade representatives will respond to your business inquiry within 24 hours.
+                <div className="w-16 h-16 rounded-full bg-[#6ba343]/10 text-[#6ba343] mx-auto flex items-center justify-center">
+                  <CheckCircle2 className="w-10 h-10" />
+                </div>
+                <h3 className="font-serif font-black text-3xl text-[#6ba343]">
+                  THANK YOU
+                </h3>
+                <p className="text-sm font-bold text-[#2b1810]">
+                  Trust Us - Genuine Ceylon Quality Guaranteed in every product.
+                </p>
+                <p className="text-xs sm:text-sm text-[#52443f] max-w-[420px] mx-auto font-medium">
+                  Your message has been dispatched. Our team will get back to you shortly within 24 hours.
                 </p>
                 <button 
                   onClick={() => setSubmitted(false)}
-                  className="px-8 py-3 bg-[#795900] text-white rounded-xl font-extrabold text-xs uppercase tracking-wider cursor-pointer shadow-md hover:bg-[#5c4300]"
+                  className="mt-4 px-8 py-3 bg-[#6ba343] hover:bg-[#598c36] text-white rounded-xl font-extrabold text-xs uppercase tracking-wider cursor-pointer shadow-md transition-colors"
                 >
                   Send Another Message
                 </button>

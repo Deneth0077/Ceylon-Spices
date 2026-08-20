@@ -15,7 +15,7 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://truecinnamoncare.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://truecca.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   },
   description: "True Cinnamon Care is Sri Lanka's premier producer and exporter of 100% pure Single-Origin Ceylon Cinnamon (Cinnamomum Verum), Organic Black Pepper (High Piperine), Dried Garcinia (Goraka), and Pure Essential Oils directly from sustainable estate harvests.",
   keywords: [
+    "truecca.com",
+    "truecca",
     "True Cinnamon Care",
     "Ceylon Cinnamon",
     "True Cinnamon",

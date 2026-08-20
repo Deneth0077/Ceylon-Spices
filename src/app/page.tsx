@@ -587,7 +587,7 @@ export default function Home() {
           <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-4 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_leaf_oil_real.jpg"
+                src="/images/cinnamon_leaf_oil_real.jpg"
                 alt="Ceylon Cinnamon Leaf Oil"
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
@@ -636,7 +636,7 @@ export default function Home() {
           <div className="group relative rounded-2xl overflow-hidden shadow-premium bg-gray-900 text-white h-[360px] md:h-[420px] md:col-span-8 flex flex-col justify-end p-8 transition-transform duration-300 hover:translate-y-[-4px]">
             <div className="absolute inset-0 z-0">
               <Image
-                src="/images/card_garcinia_real.jpg"
+                src="/images/garcinia_clay_pot_full.jpg"
                 alt="Organic Garcinia Goraka"
                 fill
                 sizes="(max-width: 768px) 100vw, 66vw"

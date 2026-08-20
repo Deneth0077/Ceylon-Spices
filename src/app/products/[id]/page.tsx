@@ -45,7 +45,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.title,
-    "image": product.image.startsWith("http") ? product.image : `https://truecinnamoncare.com${product.image}`,
+    "image": product.image.startsWith("http") ? product.image : `https://truecca.com${product.image}`,
     "description": product.description,
     "sku": `TCC-SPICE-${product.id}`,
     "brand": {
@@ -54,7 +54,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://truecinnamoncare.com/products/${product.id}`,
+      "url": `https://truecca.com/products/${product.id}`,
       "priceCurrency": "USD",
       "price": "0.00",
       "availability": "https://schema.org/InStock",

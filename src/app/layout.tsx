@@ -15,9 +15,76 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://truecinnamoncare.com";
+
 export const metadata: Metadata = {
-  title: "True Cinnamon Care - Premium Sri Lankan Spices",
-  description: "Organic Ceylon Spices sourced directly from the misty highlands of Sri Lanka by True Cinnamon Care.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "True Cinnamon Care - Premium Sri Lankan Organic Spices & Export",
+    template: "%s | True Cinnamon Care",
+  },
+  description: "True Cinnamon Care is Sri Lanka's premier producer and exporter of 100% pure Single-Origin Ceylon Cinnamon (Cinnamomum Verum), Organic Black Pepper (High Piperine), Dried Garcinia (Goraka), and Pure Essential Oils directly from sustainable estate harvests.",
+  keywords: [
+    "True Cinnamon Care",
+    "Ceylon Cinnamon",
+    "True Cinnamon",
+    "Sri Lankan Spices",
+    "Organic Ceylon Spices",
+    "Cinnamon Alba",
+    "C5 Cinnamon",
+    "C4 Cinnamon",
+    "Black Pepper Sri Lanka",
+    "High Piperine Black Pepper",
+    "Ceylon Garcinia",
+    "Goraka",
+    "Cinnamon Leaf Oil",
+    "Wholesale Spices Export Sri Lanka",
+    "Ceylon Spice Exporters",
+  ],
+  authors: [{ name: "True Cinnamon Care" }],
+  creator: "True Cinnamon Care",
+  publisher: "True Cinnamon Care",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "True Cinnamon Care - Premium Sri Lankan Organic Spices & Export",
+    description: "Discover 100% pure Single-Origin Ceylon Cinnamon, Organic Black Pepper, Dried Garcinia, and Essential Oils sourced directly from Sri Lanka.",
+    url: siteUrl,
+    siteName: "True Cinnamon Care",
+    images: [
+      {
+        url: "/images/hero_tcc_banner.png",
+        width: 1200,
+        height: 630,
+        alt: "True Cinnamon Care - Premium Sri Lankan Spices",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "True Cinnamon Care - Premium Sri Lankan Organic Spices & Export",
+    description: "100% Single-Origin Ceylon Cinnamon & Premium Spices Exporter from Sri Lanka.",
+    images: ["/images/hero_tcc_banner.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -28,6 +95,25 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "True Cinnamon Care",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/navbar_brand_logo.png`,
+  "description": "Premium exporter of Single-Origin Ceylon Cinnamon, Organic Black Pepper, Dried Garcinia, and Essential Oils from Sri Lanka.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+94-77-289-3030",
+    "contactType": "customer service",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English", "Sinhala"]
+  },
+  "sameAs": [
+    "https://wa.me/94772893030"
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,6 +121,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${manrope.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col font-sans bg-[#fcf9f8] text-[#1b1c1c] relative" suppressHydrationWarning>
         <CartProvider>
           <Navbar />

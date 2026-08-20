@@ -25,8 +25,36 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
     window.open(whatsappUrl, '_blank');
   };
 
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": product.title,
+    "image": product.image.startsWith("http") ? product.image : `https://truecinnamoncare.com${product.image}`,
+    "description": product.description,
+    "sku": `TCC-SPICE-${product.id}`,
+    "brand": {
+      "@type": "Brand",
+      "name": "True Cinnamon Care"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://truecinnamoncare.com/products/${product.id}`,
+      "priceCurrency": "USD",
+      "price": "0.00",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "True Cinnamon Care"
+      }
+    }
+  };
+
   return (
     <div className="w-full bg-[#fcf9f8] text-[#1b1c1c] overflow-x-hidden pb-12 pt-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
 
       <div className="max-w-[1280px] mx-auto px-6 md:px-8">
 

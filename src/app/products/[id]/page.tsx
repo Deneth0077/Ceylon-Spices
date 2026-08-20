@@ -122,11 +122,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               <p className="text-xs sm:text-sm md:text-base text-[#2b1810] font-medium leading-relaxed whitespace-pre-line">
                 {product.detailedDescription || product.description}
               </p>
-              {product.packaging && (
-                <p className="text-xs sm:text-sm text-[#52443f] pt-1">
-                  <strong>Packaging:</strong> {product.packaging}
-                </p>
-              )}
               {product.netWeight && (
                 <p className="text-xs sm:text-sm text-[#52443f]">
                   <strong>Net Weight:</strong> {product.netWeight}
@@ -153,9 +148,6 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
             {/* Custom tags */}
             <div className="flex flex-wrap gap-2 pt-2">
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
-                <Leaf className="w-3 h-3" /> Organic Certified
-              </span>
               <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#192a14] bg-[#d3e9c7] px-3 py-1 rounded-[0.25rem]">
                 <Sparkles className="w-3 h-3" /> Single Origin Ceylon
               </span>

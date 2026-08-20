@@ -147,7 +147,7 @@ export default function InquiryModal({ isOpen, onClose, productTitle }: InquiryM
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#2b1810] mb-1">Your inquiry / Question</label>
+                <label className="block text-xs font-bold text-[#2b1810] mb-1">Your Inquiry</label>
                 <textarea
                   rows={3}
                   required
@@ -165,7 +165,7 @@ export default function InquiryModal({ isOpen, onClose, productTitle }: InquiryM
                 type="submit"
                 className="py-3 px-8 bg-gradient-to-b from-[#888888] to-[#666666] hover:from-[#666666] hover:to-[#444444] text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md cursor-pointer"
               >
-                Send my question
+                Send Inquiry
               </button>
             </div>
 

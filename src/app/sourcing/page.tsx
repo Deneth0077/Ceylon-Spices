@@ -129,7 +129,7 @@ export default function OurSourcingPage() {
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-10 max-w-[950px] mx-auto text-center space-y-6"
         >
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg tracking-tight">
+          <h1 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white text-center leading-snug drop-shadow-lg tracking-wide uppercase">
             FROM CEYLON SOIL <span className="text-[#ffdfa0]">TO YOUR TABLE</span>
           </h1>
 

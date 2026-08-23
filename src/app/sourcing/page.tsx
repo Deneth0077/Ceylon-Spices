@@ -67,8 +67,7 @@ export default function OurSourcingPage() {
     {
       step: 3,
       title: "Peeling & Drying",
-      image: "/images/process_step_3_peeling.jpg",
-      objectFit: "object-contain bg-[#eae0d2] p-1"
+      image: "/images/process_step_3_peeling_quill.jpg"
     },
     {
       step: 4,
@@ -276,7 +275,7 @@ export default function OurSourcingPage() {
                 {/* Top-Left Location Badge Overlay */}
                 <div className="absolute top-3 left-3 bg-[#3a1b0e]/95 backdrop-blur-sm text-[#f7f2ea] px-3 py-1.5 rounded-lg border border-[#8c502b]/50 shadow-md text-[11px] z-20 flex items-center gap-2">
                   <div className="w-2.5 h-2.5 bg-[#e08e45] rounded-full animate-ping" />
-                  <span className="font-bold font-serif">Matara Facility (6°07&apos;36.4&quot;N 80°38&apos;23.2&quot;E)</span>
+                  <span className="font-bold font-serif">Hakmana Facility (6°07&apos;36.4&quot;N 80°38&apos;23.2&quot;E)</span>
                 </div>
 
               </a>
@@ -324,7 +323,7 @@ export default function OurSourcingPage() {
                 <div className="p-3 bg-[#efe6d8] rounded-xl border border-[#d6c4ae] text-center space-y-1">
                   <span className="text-lg block">🌱</span>
                   <span className="text-[11px] font-bold text-[#3a1b0e] block">100% Single Origin</span>
-                  <span className="text-[9px] text-[#6b4735] block">Matara Estate</span>
+                  <span className="text-[9px] text-[#6b4735] block">Hakmana Estate</span>
                 </div>
                 <div className="p-3 bg-[#efe6d8] rounded-xl border border-[#d6c4ae] text-center space-y-1">
                   <span className="text-lg block">🔒</span>

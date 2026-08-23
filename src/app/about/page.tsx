@@ -314,14 +314,23 @@ export default function AboutPage() {
             {/* Signature Box */}
             <div className="pt-4 border-t border-[#eae7e7] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="space-y-1">
-                <div className="relative w-[220px] h-[65px]">
+                <div 
+                  className="relative w-[220px] h-[65px] select-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                >
                   <Image 
                     src="/images/nuwan_abeysekara_signature.png" 
                     alt="Nuwan M. Abeysekara Signature" 
                     fill 
                     unoptimized
+                    draggable={false}
                     sizes="220px"
-                    className="object-contain object-left mix-blend-multiply"
+                    className="object-contain object-left mix-blend-multiply pointer-events-none select-none"
+                  />
+                  {/* Transparent Shield to prevent right-click save and dragging */}
+                  <div 
+                    className="absolute inset-0 z-20 select-none bg-transparent cursor-default" 
+                    onContextMenu={(e) => e.preventDefault()}
                   />
                 </div>
                 <p className="font-serif font-bold text-lg text-[#42190a]">Nuwan M. Abeysekara</p>

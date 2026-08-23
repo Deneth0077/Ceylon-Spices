@@ -1,8 +1,24 @@
+'use client';
+
+import { useState } from "react";
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, CheckCircle2, Loader2 } from "lucide-react";
 import TransparentImage from "./TransparentImage";
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !email.includes("@")) return;
+
+    setStatus("loading");
+    setTimeout(() => {
+      setStatus("success");
+    }, 600);
+  };
+
   return (
     <footer className="bg-black text-[#eae7e7] pt-16 pb-8 relative z-30 border-t border-white/10">
       <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-8">
@@ -91,20 +107,56 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Newsletter Input */}
-            <div className="relative flex items-center max-w-[360px] group">
-              <div className="absolute left-3.5 text-white/40 group-focus-within:text-[#ffc641] transition-colors pointer-events-none">
-                <Mail className="w-4 h-4" />
+            {/* Newsletter Interactive Form */}
+            {status === "success" ? (
+              <div className="p-3.5 bg-[#486338]/20 border border-[#81b752]/40 rounded-xl flex items-center justify-between gap-3 max-w-[360px] animate-fadeIn">
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-[#81b752] flex-shrink-0" />
+                  <div>
+                    <p className="text-xs font-bold text-white">Thank you for subscribing!</p>
+                    <p className="text-[10px] text-white/70">You&apos;ll receive our latest updates & export insights.</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStatus("idle");
+                    setEmail("");
+                  }}
+                  className="text-[10px] text-[#ffc641] hover:underline flex-shrink-0 font-medium"
+                >
+                  Reset
+                </button>
               </div>
-              <input 
-                type="email" 
-                placeholder="your.email@example.com" 
-                className="w-full pl-10 pr-28 py-3 bg-white/10 text-white rounded-xl placeholder-white/40 border border-white/15 focus:border-[#ffc641] focus:bg-white/15 focus:outline-none text-xs font-medium transition-all shadow-inner" 
-              />
-              <button className="absolute right-1.5 px-4 py-2 bg-gradient-to-r from-[#ab5e3b] to-[#8c502b] hover:from-[#c8734a] hover:to-[#9e5c33] text-white rounded-lg font-extrabold text-[11px] uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer flex-shrink-0">
-                SUBSCRIBE
-              </button>
-            </div>
+            ) : (
+              <form onSubmit={handleSubscribe} className="relative flex items-center max-w-[360px] group">
+                <div className="absolute left-3.5 text-white/40 group-focus-within:text-[#ffc641] transition-colors pointer-events-none">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <input 
+                  type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your.email@example.com" 
+                  className="w-full pl-10 pr-28 py-3 bg-white/10 text-white rounded-xl placeholder-white/40 border border-white/15 focus:border-[#ffc641] focus:bg-white/15 focus:outline-none text-xs font-medium transition-all shadow-inner" 
+                />
+                <button 
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="absolute right-1.5 px-4 py-2 bg-gradient-to-r from-[#ab5e3b] to-[#8c502b] hover:from-[#c8734a] hover:to-[#9e5c33] text-white rounded-lg font-extrabold text-[11px] uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer flex-shrink-0 disabled:opacity-75 flex items-center gap-1.5"
+                >
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      <span>...</span>
+                    </>
+                  ) : (
+                    "SUBSCRIBE"
+                  )}
+                </button>
+              </form>
+            )}
 
             {/* Email Contact Link */}
             <a 
@@ -160,3 +212,4 @@ export default function Footer() {
     </footer>
   );
 }
+

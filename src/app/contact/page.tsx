@@ -246,20 +246,30 @@ export default function ContactPage() {
             </p>
           </div>
 
-          {/* Full-Width Extended Map Banner Card */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border-2 border-[#d0d4ba] shadow-2xl bg-[#ced2b8] group">
+          {/* Full-Width Extended Map Banner Card - Responsive for Mobile & Desktop */}
+          <div className="rounded-3xl sm:rounded-[2.5rem] overflow-hidden border-2 border-[#d0d4ba] shadow-xl md:shadow-2xl bg-[#ced2b8] flex flex-col md:block relative group">
             
-            {/* Original Map Image Banner */}
-            <div className="relative w-full h-[260px] sm:h-[380px] md:h-[460px] lg:h-[520px] xl:h-[560px] bg-[#ced2b8]">
+            {/* Map Image Banner Container - using aspect ratio matching the map image so Mattala & entire map are fully visible without cropping */}
+            <div className="relative w-full aspect-[2.4/1] sm:aspect-[2.6/1] md:aspect-[2.75/1] bg-[#ced2b8] overflow-hidden">
               <img 
                 src="/images/factory_location_map.png" 
                 alt="Sri Lanka Agro-Climatic Spice Zones and Factory Route Map from Colombo to Hakmana Matara" 
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-contain object-center"
               />
+
+              {/* Animated Blinking / Pulsing Beacon on Hakmana OUR FACTORY Marker */}
+              <div 
+                className="absolute top-[76%] left-[85.6%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center"
+                title="Our Factory - Hakmana, Matara"
+              >
+                <span className="absolute w-7 h-7 sm:w-10 sm:h-10 bg-red-500/40 rounded-full animate-ping" />
+                <span className="absolute w-4 h-4 sm:w-6 sm:h-6 bg-red-500/60 rounded-full animate-pulse" />
+                <span className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-[#e63946] rounded-full shadow-[0_0_15px_rgba(230,57,70,1)] border border-white" />
+              </div>
             </div>
 
-            {/* Info Box Positioned comfortably on the Far Left in empty space - Balanced Dimensions */}
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 md:bottom-8 md:left-10 lg:left-14 z-10 bg-white/95 backdrop-blur-md border border-[#eae7e7] p-5 sm:p-6 rounded-3xl max-w-[320px] sm:max-w-[370px] md:max-w-[400px] shadow-[0_20px_40px_rgba(66,25,10,0.15)] space-y-3.5">
+            {/* Info Box - Stacks neatly below map on mobile, floats over left ocean space on desktop */}
+            <div className="p-5 sm:p-6 md:p-5 lg:p-6 bg-[#fcfaf7]/95 md:bg-white/95 backdrop-blur-md border-t md:border border-[#eae7e7] md:rounded-3xl max-w-full md:max-w-[340px] lg:max-w-[380px] xl:max-w-[420px] md:absolute md:bottom-5 md:left-5 lg:bottom-8 lg:left-8 z-10 shadow-md md:shadow-[0_20px_40px_rgba(66,25,10,0.15)] space-y-3">
               <div className="flex items-center gap-2 text-[#795900] text-[11px] font-extrabold uppercase tracking-widest">
                 <MapPin className="w-4 h-4 text-[#8e4c2e] shrink-0" />
                 <span>Our Manufacturing Facility</span>
@@ -273,14 +283,15 @@ export default function ContactPage() {
                 Located in Southern Sri Lanka&apos;s rich cinnamon harvesting zone. Visitors and wholesale partners can observe our eco-friendly bark peeling, solar drying, and certified packaging.
               </p>
 
-              <div className="pt-1 flex items-center justify-between gap-3 flex-wrap">
+              <div className="pt-2 flex items-center justify-between gap-2.5 flex-wrap">
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Hakmana,Matara,Sri+Lanka" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4.5 py-2.5 bg-[#795900] hover:bg-[#5c4300] text-white text-xs font-extrabold uppercase tracking-wider rounded-xl shadow-md transition-all shrink-0"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#795900] hover:bg-[#5c4300] text-white text-xs font-extrabold uppercase tracking-wider rounded-xl shadow-md active:scale-95 transition-all shrink-0"
                 >
-                  Get Directions <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Get Directions</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
                 
                 <span className="px-3 py-1.5 bg-[#e8f3e8] text-[#2d5a27] text-[10px] font-bold uppercase tracking-wider rounded-lg border border-[#2d5a27]/20 shrink-0">

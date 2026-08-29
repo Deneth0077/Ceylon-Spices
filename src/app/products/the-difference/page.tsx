@@ -104,8 +104,8 @@ export default function TheDifferencePage() {
               </span>
               <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-3">
                 <img
-                  src="/images/card_cinnamon.png"
-                  alt="Cassia Cinnamon Bark"
+                  src="/images/cassia_bark_detail.png"
+                  alt="Cassia Cinnamon Bark (Thick Hard Bark)"
                   className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
                 />
               </div>

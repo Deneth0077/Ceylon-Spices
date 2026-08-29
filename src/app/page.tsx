@@ -844,8 +844,9 @@ export default function Home() {
                     src="/images/srilanka_travel_map_illustration.png"
                     alt="Artistic Illustrated Map of Sri Lanka"
                     fill
+                    unoptimized
                     sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                    className="object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500"
                     priority
                   />
                 </div>

@@ -102,28 +102,26 @@ export default function TheDifferencePage() {
               <span className="block text-xs font-extrabold uppercase tracking-wider text-[#991b1b] text-center bg-[#fee2e2] py-1.5 rounded-lg border border-[#fecaca]">
                 Cassia Bark (Thick Hard Bark)
               </span>
-              <div className="w-full h-48 sm:h-52 relative rounded-2xl overflow-hidden shadow-md border-2 border-white group bg-[#2b1e17]">
+              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-3">
                 <img
                   src="/images/card_cinnamon.png"
                   alt="Cassia Cinnamon Bark"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             </div>
 
-            {/* Ceylon Cinnamon Picture - Redesigned with Real Photo */}
+            {/* Ceylon Cinnamon Picture */}
             <div className="space-y-2 pt-2 border-t border-[#eae7e7]">
               <span className="block text-xs font-extrabold uppercase tracking-wider text-[#166534] text-center bg-[#dcfce7] py-1.5 rounded-lg border border-[#bbf7d0]">
                 Ceylon Cinnamon (Paper-Thin Quills)
               </span>
-              <div className="w-full h-48 sm:h-52 relative rounded-2xl overflow-hidden shadow-md border-2 border-white group bg-[#2b1e17]">
+              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-3">
                 <img
-                  src="/images/ceylon_cinnamon_history_quills.jpg"
+                  src="/images/alba_cinnamon_detail.png"
                   alt="Pure Ceylon Cinnamon Paper-Thin Quills"
-                  className="w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-700"
+                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>
             </div>
 

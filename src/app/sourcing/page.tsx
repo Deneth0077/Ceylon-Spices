@@ -53,7 +53,14 @@ export default function OurSourcingPage() {
     }
   ];
 
-  const processSteps = [
+  interface ProcessStep {
+    step: number;
+    title: string;
+    image: string;
+    objectFit?: string;
+  }
+
+  const processSteps: ProcessStep[] = [
     {
       step: 1,
       title: "Cultivation & Harvesting",

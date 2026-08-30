@@ -259,7 +259,7 @@ export default function ContactPage() {
 
               {/* Animated Blinking / Pulsing Beacon on Hakmana OUR FACTORY Marker */}
               <div 
-                className="absolute top-[76%] left-[85.6%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center"
+                className="absolute top-[78.3%] left-[83.8%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 flex items-center justify-center"
                 title="Our Factory - Hakmana, Matara"
               >
                 <span className="absolute w-7 h-7 sm:w-10 sm:h-10 bg-red-500/40 rounded-full animate-ping" />

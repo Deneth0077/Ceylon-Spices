@@ -21,9 +21,9 @@ export const productsData: Product[] = [
     subtitle: "Signature Range • Ceylon Cinnamon Sticks (C5 Grade)",
     description: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n• No Additives | No Preservatives\n• 100% Natural",
     detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Cinnamon Sticks (C5 Grade)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka (GI Certified)\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Cinnamon, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
-    image: "/images/cinnamon_gift_canister_bow.jpg",
+    image: "/images/cinnamon_gift_canister_bow.png",
     thumbs: [
-      "/images/cinnamon_gift_canister_bow.jpg",
+      "/images/cinnamon_gift_canister_bow.png",
       "/images/cinnamon_vacuum_pack_real.jpg"
     ],
     category: "Signature Range",
@@ -38,9 +38,9 @@ export const productsData: Product[] = [
     subtitle: "Signature Range • Ceylon Black Peppercorn (High Piperine)",
     description: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n• No Additives | No Preservatives\n• 100% Natural",
     detailedDescription: "Product: True Cinnamon Care – Signature Range Ceylon Black peppercorn (High Piperine)\n- No Additives | No Preservatives\n- 100% Natural\n\nOrigin: Single-Origin Sri Lanka\n\nPackaging: Vacuum-sealed for lasting freshness, elegantly packed in a recyclable paper canisters inspired by Sri Lanka's heritage\n\nNet Weight: 2 oz (57 g)\n\nPositioning: A premium export-grade Ceylon Black peppercorn, beautifully presented for:\n- Gourmet Shops\n- Discerning Quality Seekers\n- Gift Collections\nWhile reflecting Sri Lanka's cultural and natural heritage.",
-    image: "/images/pepper_gift_canister_bow.jpg",
+    image: "/images/pepper_gift_canister_bow.png",
     thumbs: [
-      "/images/pepper_gift_canister_bow.jpg",
+      "/images/pepper_gift_canister_bow.png",
       "/images/black_pepper_vacuum_pack_real.jpg",
       "/images/black_pepper_detail_leaf.jpg"
     ],

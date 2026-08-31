@@ -102,11 +102,11 @@ export default function TheDifferencePage() {
               <span className="block text-xs font-extrabold uppercase tracking-wider text-[#991b1b] text-center bg-[#fee2e2] py-1.5 rounded-lg border border-[#fecaca]">
                 Cassia Bark (Thick Hard Bark)
               </span>
-              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-3">
+              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-1.5">
                 <img
-                  src="/images/cassia_bark_detail.png"
+                  src="/images/cassia_bark_detail.jpg"
                   alt="Cassia Cinnamon Bark (Thick Hard Bark)"
-                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
+                  className="w-full h-full object-cover rounded-xl shadow-sm hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
@@ -116,11 +116,11 @@ export default function TheDifferencePage() {
               <span className="block text-xs font-extrabold uppercase tracking-wider text-[#166534] text-center bg-[#dcfce7] py-1.5 rounded-lg border border-[#bbf7d0]">
                 Ceylon Cinnamon (Paper-Thin Quills)
               </span>
-              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-3">
+              <div className="w-full h-44 sm:h-48 bg-[#faf8f5] rounded-2xl overflow-hidden border border-[#eae7e7] flex items-center justify-center p-1.5">
                 <img
-                  src="/images/alba_cinnamon_detail.png"
+                  src="/images/ceylon_cinnamon_paper_thin_quills.jpg"
                   alt="Pure Ceylon Cinnamon Paper-Thin Quills"
-                  className="max-h-full max-w-full object-contain mix-blend-multiply drop-shadow"
+                  className="w-full h-full object-cover rounded-xl shadow-sm hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>

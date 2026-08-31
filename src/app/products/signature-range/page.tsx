@@ -139,19 +139,38 @@ export default function SignatureRangePage() {
                   </Link>
                 </div>
 
-                {/* Dark Navy / Black VIEW PRODUCT Button navigating into product detail page */}
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  <Link
-                    href={`/products/${product.id}`}
-                    className="w-full bg-[#111827] hover:bg-[#1f2937] text-white text-center py-3.5 text-xs font-extrabold uppercase tracking-wider transition-colors rounded block"
-                  >
-                    VIEW PRODUCT
-                  </Link>
+                {/* Action Buttons: INQUIRE NOW & WHATSAPP */}
+                <div className="grid grid-cols-2 gap-2.5 pt-2">
                   <button
                     onClick={() => handleOpenInquiry(product)}
-                    className="w-full bg-[#795900] hover:bg-[#5c4300] text-white text-center py-3.5 text-xs font-extrabold uppercase tracking-wider transition-colors rounded cursor-pointer"
+                    className="w-full bg-[#111827] hover:bg-[#1f2937] text-white text-center py-3 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider transition-all rounded-xl cursor-pointer shadow-sm"
                   >
                     INQUIRE NOW
+                  </button>
+                  <button
+                    onClick={() => {
+                      let message = `*TRUE CINNAMON CARE* | Export Quality Ceylon Spices\n`;
+                      message += `--------------------------------------------------\n`;
+                      message += `*SIGNATURE RANGE INQUIRY*\n\n`;
+                      message += `*SELECTED PRODUCT:* *${product.title}*\n`;
+                      if (product.subtitle) message += `- Category / Spec: ${product.subtitle}\n`;
+                      message += `- Origin: ${product.origin}\n`;
+                      if (product.netWeight) message += `- Net Weight: ${product.netWeight}\n`;
+                      message += `\n--------------------------------------------------\n`;
+                      message += `Hello True Cinnamon Care Team,\n\n`;
+                      message += `I would like to inquire about purchasing *${product.title}* gift packs. Please share pricing and dispatch availability.\n\n`;
+                      message += `Thank you!\n`;
+                      message += `--------------------------------------------------\n`;
+                      message += `*True Cinnamon Care* | Single-Origin Ceylon Spices\n`;
+                      message += `Hotline: +94 77 289 3030`;
+                      window.open(`https://wa.me/94772893030?text=${encodeURIComponent(message)}`, '_blank');
+                    }}
+                    className="w-full bg-[#25D366] hover:bg-[#20b858] text-white text-center py-3 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider transition-all rounded-xl cursor-pointer shadow-sm flex items-center justify-center gap-1.5"
+                  >
+                    <svg className="w-4 h-4 fill-white shrink-0" viewBox="0 0 24 24">
+                      <path d="M12.012 2c-5.506 0-9.98 4.473-9.98 9.978 0 1.76.459 3.473 1.33 4.985l-1.413 5.161 5.281-1.385c1.455.794 3.1 1.214 4.777 1.215h.004c5.503 0 9.979-4.474 9.979-9.979 0-2.666-1.037-5.17-2.922-7.054C17.189 3.037 14.68 2 12.012 2zm5.952 14.154c-.25.7-1.458 1.341-2.036 1.429-.518.077-1.175.11-1.896-.12-.436-.138-.996-.323-1.713-.633-3.013-1.301-4.982-4.335-5.132-4.536-.15-.202-1.227-1.635-1.227-3.12 0-1.485.776-2.213 1.052-2.515.276-.302.602-.377.802-.377.2 0 .401 0 .576.01.186.01.433-.07.676.517.25.604.851 2.084.926 2.235.076.15.127.326.026.527-.101.201-.151.327-.302.503-.151.176-.317.392-.453.527-.151.15-.308.313-.132.615.177.301.782 1.291 1.68 2.091 1.154 1.029 2.126 1.347 2.428 1.498.302.151.477.125.652-.076.174-.2.749-.88 1.025-1.182.276-.302.476-.251.777-.15.302.15 1.91.93 2.24 1.094.33.164.55.244.625.37.075.128.075.731-.176 1.435z"/>
+                    </svg>
+                    <span>WHATSAPP</span>
                   </button>
                 </div>
               </div>

@@ -138,21 +138,32 @@ export default function RootLayout({
           <Footer />
         </CartProvider>
 
-        {/* Persistent Spreading Wave WhatsApp Floating Button */}
-        <div className="fixed bottom-6 right-6 z-50 flex items-center justify-center pointer-events-auto">
-          {/* Spreading Outer Radar Waves */}
-          <span className="absolute w-14 h-14 rounded-full bg-[#25D366]/40 animate-ping duration-1000 pointer-events-none" />
-          <span className="absolute w-16 h-16 rounded-full bg-[#25D366]/25 animate-pulse duration-700 pointer-events-none blur-[2px]" />
+        {/* Mobile & Desktop Floating WhatsApp Fast Inquiry Button */}
+        <div className="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center group pointer-events-auto select-none">
+          {/* Desktop & Mobile Hover Text Badge */}
+          <a
+            href="https://wa.me/94772893030"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 pr-5 pl-4 py-2.5 bg-[#1b1c1c]/90 text-white text-xs font-bold rounded-full shadow-2xl backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 -mr-4 transition-all duration-300 transform translate-x-3 group-hover:translate-x-0"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
+            <span>Chat 24/7 on WhatsApp</span>
+          </a>
 
           <a
             href="https://wa.me/94772893030"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl whatsapp-pulse hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
-            aria-label="Contact us on WhatsApp"
+            className="relative z-10 w-13 h-13 sm:w-14 sm:h-14 bg-gradient-to-tr from-[#128C7E] to-[#25D366] rounded-full flex items-center justify-center text-white shadow-[0_10px_30px_rgba(37,211,102,0.55)] border-2 border-white/90 hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer"
+            aria-label="Contact True Cinnamon Care on WhatsApp"
           >
-            <svg className="w-7 h-7 fill-white drop-shadow-md" viewBox="0 0 24 24">
-              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.49-4.734c1.652.98 3.284 1.493 4.887 1.493 5.485 0 9.948-4.467 9.95-9.95.002-2.653-1.03-5.15-2.906-7.03C16.6 1.899 14.1 .865 11.446.865c-5.485 0-9.949 4.469-9.95 9.954-.001 1.905.518 3.738 1.5 5.367l-.955 3.486 3.572-.937zm12.333-6.242c-.302-.151-1.786-.881-2.062-.982-.276-.1-.476-.151-.676.151-.2.302-.776.982-.95 1.182-.175.201-.35.226-.652.076-.302-.151-1.274-.469-2.428-1.498-.898-.8-1.503-1.79-1.68-2.091-.176-.302-.019-.465.132-.615.136-.135.302-.351.453-.527.151-.176.201-.302.302-.503.101-.201.05-.377-.026-.527-.075-.151-.676-1.631-.926-2.235-.243-.587-.49-.507-.676-.517-.175-.01-.376-.01-.576-.01-.2 0-.526.075-.802.377-.276.302-1.052 1.03-1.052 2.515 0 1.485 1.077 2.918 1.227 3.12.15.201 2.119 3.235 5.132 4.536.717.31 1.277.495 1.713.633.721.23 1.378.197 1.896.12.578-.088 1.786-.73 2.037-1.435.251-.704.251-1.307.176-1.435-.076-.12-.276-.197-.577-.348z" />
+            {/* Spreading Ambient Radar Waves */}
+            <span className="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping duration-1000 pointer-events-none" />
+            <span className="absolute -inset-1 rounded-full bg-[#25D366]/20 animate-pulse duration-700 pointer-events-none blur-[2px]" />
+
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 fill-white drop-shadow-md relative z-10" viewBox="0 0 24 24">
+              <path d="M12.012 2c-5.506 0-9.98 4.473-9.98 9.978 0 1.76.459 3.473 1.33 4.985l-1.413 5.161 5.281-1.385c1.455.794 3.1 1.214 4.777 1.215h.004c5.503 0 9.979-4.474 9.979-9.979 0-2.666-1.037-5.17-2.922-7.054C17.189 3.037 14.68 2 12.012 2zm5.952 14.154c-.25.7-1.458 1.341-2.036 1.429-.518.077-1.175.11-1.896-.12-.436-.138-.996-.323-1.713-.633-3.013-1.301-4.982-4.335-5.132-4.536-.15-.202-1.227-1.635-1.227-3.12 0-1.485.776-2.213 1.052-2.515.276-.302.602-.377.802-.377.2 0 .401 0 .576.01.186.01.433-.07.676.517.25.604.851 2.084.926 2.235.076.15.127.326.026.527-.101.201-.151.327-.302.503-.151.176-.317.392-.453.527-.151.15-.308.313-.132.615.177.301.782 1.291 1.68 2.091 1.154 1.029 2.126 1.347 2.428 1.498.302.151.477.125.652-.076.174-.2.749-.88 1.025-1.182.276-.302.476-.251.777-.15.302.15 1.91.93 2.24 1.094.33.164.55.244.625.37.075.128.075.731-.176 1.435z"/>
             </svg>
           </a>
         </div>
